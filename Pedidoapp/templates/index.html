@@ -37,9 +37,10 @@
             <p class="autor_item">
             
             Por:<a class="titulo_item"  href="">ANDREA DONOSO RIVERA</a>
-            
+            {% if total_art  %}
             <br>
             Total Articulos:<a class="titulo_item"  href="">{{total_art}}</a>
+            {% endif %}
             <br>
             {% if pend  %}
             Articulos pendientes:<a class="titulo_item"  href="{{pend.pend}}">{{pend}}</a>
@@ -49,7 +50,6 @@
             <font color="red">No solicitado.</font>
             {% endif %}
             </p>
-            {% if  %}
             </font>
             <p class="datos_item">
             {% if pedido  %}
