@@ -46,11 +46,11 @@ def index(request):
 def home(request):
     user = request.user
     if user.is_superuser:
+      especialidades = Especialidad.objects.all()
       pedido         = Pedido.objects.all()
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      especialidades = Especialidad.objects.all()
       encargado      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
