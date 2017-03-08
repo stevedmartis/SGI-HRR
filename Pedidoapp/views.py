@@ -46,7 +46,7 @@ def index(request):
 def home(request, id_articulo):
     user = request.user
     if user.is_superuser:
-      total_art      = Pedido.objects.filter(especialidad=1).filter(id=id_articulo).count()
+      total_art      = Pedido.objects.filter(especialidad=1).filter(articulos).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
       pedido         = Pedido.objects.filter(especialidad=1).filter(articulo=1)
