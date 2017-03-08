@@ -19,8 +19,8 @@ import sys
 import json
 
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+#reload(sys)
+#sys.setdefaultencoding('utf8')
 
 
 
