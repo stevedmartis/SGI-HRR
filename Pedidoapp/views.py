@@ -43,7 +43,7 @@ def index(request):
 
 @login_required
 #@cache_page(6000)
-def home(request):
+def home(request, fecha_pedido):
     user = request.user
     if user.is_superuser:
       pedido         = Pedido.objects.all()
