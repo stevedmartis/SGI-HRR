@@ -85,10 +85,6 @@ def Pedido_Edit(request, id_pedido):
       return redirect('usuario:listar_esp')
     return render(request, 'form.html', {'form':form})
 
-def ResetColumns(request):
-    
-
-
 
 
 
