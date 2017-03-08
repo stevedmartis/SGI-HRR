@@ -11,6 +11,7 @@ dj-static==0.0.6
 django-autocomplete-light==3.2.1
 django-celery==3.2.1
 django-csv-exports==1.0.3
+django-datatable==0.2.1
 django-debug-toolbar==1.6
 django-grappelli==2.9.1
 django-redis==4.7.0
