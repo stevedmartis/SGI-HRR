@@ -94,10 +94,10 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dafuas5fvap7ik',
-        'USER': 'hdgxewqyvimrmn',
-        'PASSWORD': '90b0b3d4c80765087dc3a93cd43eb7a538f4e13b370ee7314ef6d7199ab16144',
-        'HOST': 'ec2-23-21-219-105.compute-1.amazonaws.com',
+        'NAME': 'd7e4f01gb90sci',
+        'USER': 'gblejjxzxgotjr',
+        'PASSWORD': 'd91b38ff85b9b2cd474c4948a4a0ef574f1ca68cc0e26130a863ec15d3e02b6b',
+        'HOST': 'ec2-184-72-249-88.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
