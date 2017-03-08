@@ -43,7 +43,7 @@ def index(request):
 
 @login_required
 #@cache_page(6000)
-def home(request, id_articulo, id_pedido):
+def home(request):
     user = request.user
     if user.is_superuser:
       total_art      = Pedido.objects.filter(especialidad=1).count()
