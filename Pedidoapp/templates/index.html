@@ -32,8 +32,11 @@
             <figure class="imagen_item">
                 <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
             </figure>
-            <h2 class="titulo_item">
+            <p class="datos_item">
             <a class="tag_item" href="#">{{esp.nombre}}</a>
+            </p>
+            <br>
+            <h2 class="titulo_item">
             Por:<a class="titulo_item"  href="{{ped.ped}}">{{esp.encargado.usuario.username}}</a>
               <br>
             </h2>     
@@ -41,7 +44,7 @@
             <br>
             Estado: <a href="#">{{ped.estado}}</a>
             <br>
-            <p class="datos_item">
+            
                 
                 
                 <span class="fecha_item">Enviado el <strong> {{ped.fecha_pedido}}</strong> 
