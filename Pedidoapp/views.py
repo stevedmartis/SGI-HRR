@@ -43,10 +43,9 @@ def index(request):
 
 @login_required
 #@cache_page(6000)
-def home(request, id_especialidad):
+def home(request):
     user = request.user
     if user.is_superuser:
-      especialidades = Especialidad.objects.all().order_by('nombre')
       pedido         = Pedido.objects.all()
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
