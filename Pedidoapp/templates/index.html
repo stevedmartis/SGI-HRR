@@ -38,9 +38,11 @@
             <br>
             Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
             {% if pend %}
+            <font color="greend">green.</font>
             Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
             Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
             {% else %}
+            <br>
             <font color="red">No solicitado.</font>
             {% endif %}
             </p>
