@@ -35,7 +35,7 @@
             </figure>
             <font face="verdana">
             <p class="autor_item">
-            {% if pedido  %}
+            
             Por:<a class="titulo_item"  href="">ANDREA DONOSO RIVERA</a>
             
             <br>
@@ -54,7 +54,7 @@
   
             
             <p class="datos_item">
-                
+                {% if pedido  %}
                 <span class="fecha_item">Enviado el <strong> {{pedido.fecha_pedido}}</strong> 
                 {% endif %}
                     
