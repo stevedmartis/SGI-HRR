@@ -47,7 +47,7 @@ def home(request):
     user = request.user
     if user.is_superuser:
       pedido         = Pedido.objects.all()
-      pend           = Pedido.objects.filter(estado='pendiente').count()
+      pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(estado='entregado').count()
       especialidades = Especialidad.objects.all()
       encargado      = Encargado.objects.all()
