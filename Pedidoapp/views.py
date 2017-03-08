@@ -49,7 +49,6 @@ def home(request, id_articulo, id_pedido):
       total_art      = Pedido.objects.filter(especialidad=1).filter(id=id_pedido).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      pedido         = Pedido.objects.filter(especialidad=1).filter(articulo=1)
       especialidades = Especialidad.objects.all()
       encargado      = Encargado.objects.all()
       template       = "index.html"
