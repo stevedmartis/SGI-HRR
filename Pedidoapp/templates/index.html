@@ -47,12 +47,14 @@
             Articulos entregados:<a class="titulo_item"  href="{{entre.entre}}">{{entre}}</a>
             {% endif %}
             </p>
+
             </font>
   
-            
             <p class="datos_item">
-                
-                <span class="fecha_item">Enviado el <strong> {{ped.fecha_pedido}}</strong> 
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Terminar</a></td>
+            {% if pendido  %}
+            <span class="fecha_item">Enviado el <strong> {{pedido.fecha_pedido}}</strong> 
+            {% endif %}
                     
             <a class="guardar_item" href="#"></a>
 
