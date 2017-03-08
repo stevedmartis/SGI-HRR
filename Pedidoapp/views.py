@@ -19,8 +19,8 @@ import sys
 import json
 
 
-#reload(sys)
-#sys.setdefaultencoding('utf8')
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 
 
@@ -104,3 +104,4 @@ def Aprobado(request, id_pedido):
         pedido.save()
      # articulo.stock = cantidad
     return HttpResponseRedirect("/solicitar/lista/")
+
