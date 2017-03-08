@@ -37,7 +37,7 @@
             <p class="autor_item">
             {% if pedido  %}
             Por:<a class="titulo_item"  href="">ANDREA DONOSO RIVERA</a>
-            {% endif %}
+            
             <br>
             Total Articulos:<a class="titulo_item"  href="">88</a>
             <br>
@@ -45,6 +45,8 @@
             Articulos pendientes:<a class="titulo_item"  href="{{pend.pend}}">{{pend}}</a>
             <br>
             Articulos entregados:<a class="titulo_item"  href="{{entre.entre}}">{{entre}}</a>
+            {% else %}
+            No solicitado.
             {% endif %}
             </p>
 
@@ -54,6 +56,7 @@
             <p class="datos_item">
                 
                 <span class="fecha_item">Enviado el <strong> {{pedido.fecha_pedido}}</strong> 
+                {% endif %}
                     
             <a class="guardar_item" href="#"></a>
 
