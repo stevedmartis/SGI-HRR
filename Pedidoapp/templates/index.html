@@ -25,7 +25,6 @@
         {% load cache %}
         {% cache 6000 'pedidos_home' %}
     <section id="contenido">
-        {% if especialidades %}
 
         <article class="item">
             <figure class="imagen_item">
@@ -35,7 +34,7 @@
             <a class="tag_item" href="#">UROLOGIA</a>
             <br>
             <p class="autor_item">
-            Por:<a class="titulo_item"  href="{{ped.ped}}">{{especialidades.encargado.usuario.username}}</a>
+            Por:<a class="titulo_item"  href="">Andrea</a>
             <br>
             <br>
             Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}</a>
