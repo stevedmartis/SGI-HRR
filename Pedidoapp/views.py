@@ -43,10 +43,10 @@ def index(request):
 
 @login_required
 #@cache_page(6000)
-def home(request, id_articulo):
+def home(request, id_articulo, id_pedido):
     user = request.user
     if user.is_superuser:
-      total_art      = Pedido.objects.filter(especialidad=1).filter(articulos).count()
+      total_art      = Pedido.objects.filter(especialidad=1).filter(id=id_pedido).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
       pedido         = Pedido.objects.filter(especialidad=1).filter(articulo=1)
