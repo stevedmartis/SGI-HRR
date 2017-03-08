@@ -43,12 +43,13 @@ def index(request):
 
 @login_required
 #@cache_page(6000)
-def home(request):
+def home(request, id_articulo):
     user = request.user
     if user.is_superuser:
+      total_art      = Pedido.objects.filter(especialidad=1).filter(articulo=id_articulo).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      pedido      = Pedido.objects.filter(especialidad=1).filter(articulo=1)
+      pedido         = Pedido.objects.filter(especialidad=1).filter(articulo=1)
       especialidades = Especialidad.objects.all()
       encargado      = Encargado.objects.all()
       template       = "index.html"
@@ -83,6 +84,10 @@ def Pedido_Edit(request, id_pedido):
           pedido.save()
       return redirect('usuario:listar_esp')
     return render(request, 'form.html', {'form':form})
+
+def ResetColumns(request):
+    
+
 
 
 
