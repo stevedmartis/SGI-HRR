@@ -49,7 +49,7 @@ def home(request):
       pedido         = Pedido.objects.all()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      fecha_ped      = Pedido.object.filter(especialidad=1)
+      fecha_ped      = Pedido.objects.filter(especialidad=1)
       especialidades = Especialidad.objects.all()
       encargado      = Encargado.objects.all()
       template       = "index.html"
