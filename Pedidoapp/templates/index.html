@@ -45,11 +45,12 @@
             Articulos pendientes:<a class="titulo_item"  href="{{pend.pend}}">{{pend}}</a>
             <br>
             Articulos entregados:<a class="titulo_item"  href="{{entre.entre}}">{{entre}}</a>
+            {% if entre = total_art %}
+            <input type="submit" class= "btn btn-success" value="Completar">
             {% else %}
             <font color="red">No solicitado.</font>
             {% endif %} 
             </p>
-
             </font>
             <p class="datos_item">
                 <span class="fecha_item">Enviado el <strong> {{pedido.fecha_pedido}}</strong> 
