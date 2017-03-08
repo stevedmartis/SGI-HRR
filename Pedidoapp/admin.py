@@ -1,0 +1,31 @@
+from django.contrib import admin
+from .models import Pedido, Especialidad, Articulo, Encargado
+from django_csv_exports.admin import CSVExportAdmin
+
+class PedidoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'fecha_entrega', 'fecha_pedido', 'cantidad', 'pendiente', 'estado', 'articulo_id', 'especialidad', )
+    list_filter = ('fecha_pedido', 'fecha_entrega', 'estado', 'especialidad',)
+    search_fields = ('especialidad__nombre', 'articulo__nombre',)
+    list_editable = ('especialidad', 'pendiente','fecha_entrega',)
+
+
+
+
+class ArticuloAdmin(admin.ModelAdmin):
+    list_display = ('cod_experto', 'nombre', 'descripcion', 'stock', 'extmin','extmax','info_bodega_id',)
+    list_filter = ('cod_experto','info_bodega_id',)
+    search_fields = ('nombre','info_bodega_id__nombre',)
+    list_display_links = ('cod_experto',)
+    list_editable = ('nombre', 'descripcion','stock',)
+
+
+admin.site.register(Pedido, PedidoAdmin)
+admin.site.register(Articulo, ArticuloAdmin)
+admin.site.register(Encargado)
+admin.site.register(Especialidad)
+
+
+class ClientAdmin(CSVExportAdmin):
+    pass 
+
+

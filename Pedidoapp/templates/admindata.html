@@ -1,0 +1,138 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<!-- comentario de lo que sea -->
+{% load static from staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{% static "css/estilos.css" %}" />
+    <link rel="stylesheet" href="{% static "css/responsive.css" %}" />
+    <link rel="stylesheet" href="{% static "css/dataTables.bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/dataTables.checkboxes.css" %}"/>
+</head>
+    <nav>
+        <ul>
+            <li id="flechita_nav"><a href="/"></a></li>
+            
+            <li id="publicar_nav"><a href="{% url "usuario:listar_esp" %}">Publicar</a></li>
+        </ul>
+    </nav>
+    <aside id="bienvenida">
+        {% if not request.user.is_authenticated %}
+        {% else %}
+            Hola {{request.user}}!
+        {% endif %}
+    </aside>
+</head>
+<br>
+<br>
+<br>
+<section id="contenido">
+<div class="container" style="margin:50px auto width="100%"">
+        <form id="myform" method="post">
+        <table id="example" class="table table-border table-striped table-hover">
+            <thead>
+                <tr> 
+                    <td></td>
+                    <td>Servicio</td>
+                    <td>Cod experto</td>
+                    <td>Nombre</td>
+                    <td>stock</td>
+                    <td>Cantidad</td>
+                    <td>Fecha Pedido</td>
+                    <td>Estado</td>
+                    <td></td>
+
+
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>Servicio</td>
+                    <td>Cod experto</td>
+                    <td>Nombre</td>
+                    <td>stock</td>
+                    <td>Cantidad</td>
+                    <td>Fecha Pedido</td>
+                    <td>Estado</td>
+                    <td></td>
+                    
+                </tr>
+            </tfoot>
+            <tbody>
+        {% if pedido  %}
+        {% for ped in pedido  %}
+                <tr>
+                    <td></td>
+                    <td>{{ ped.especialidad.nombre }}</td>
+                    <td>{{ ped.articulo.cod_experto }}</td>
+                    <td>{{ ped.articulo.nombre }}</td>
+                    <td>{{ ped.articulo.stock }}</td>
+                    <td>{{ ped.cantidad }}</td>
+                    <td>{{ ped.fecha_pedido }}</td>
+                    <td>{{ ped.estado }}</td>
+                    <td><a href="{% url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Aprobar</a></td>
+                </tr>
+        {% endfor %}
+        {% endif %}
+           </tbody>
+           </table>
+           </form>
+           
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery.dataTables.min.js" %}"></script>
+    <script src="{% static "js/dataTables.bootstrap.min.js" %}"></script>
+    <script src="{% static "js/dataTables.checkboxes.min.js" %}"></script>
+    <script src="{% static "js/jquery.form.min.js" %}"></script>
+    
+    </section>
+    <script>
+$(document).ready(function (){
+   var table = $('#example').DataTable({
+  
+      'columnDefs': [
+         {
+            'targets': 0,
+         }
+      ],
+   });
+    table.column(1).every( function () {
+
+    var column = this;
+    var select = $('<select><option value="Seleccione..."></option></select>')
+      .appendTo($(column.footer()).empty())
+      .on('change', function() {
+        var val = $.fn.dataTable.util.escapeRegex(
+          $(this).val()
+        );
+
+        column
+          .search(val ? '^' + val + '$' : '', true, false)
+          .draw();
+      });
+
+    column.data().unique().sort().each(function(d, j) {
+      select.append('<option value="' + d + '">' + d + '</option>')
+    });
+
+});
+
+});
+
+  </script>
+  <br>
+<br>
+<br>
+    <footer>
+        <p><strong>Powered by Demaro!</strong></p>
+        <p>Grocer para HRR. 2017 ®</p>
+    </footer>
+
+{% endblock%}
+
+

@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<!-- comentario de lo que sea -->
+{% load static from staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{% static "css/estilos.css" %}" />
+    <link rel="stylesheet" href="{% static "css/responsive.css" %}" />
+</head>
+    <nav>
+        <ul>
+            <li id="flechita_nav"><a href="/"></a></li>
+            
+            <li id="publicar_nav"><a href="{% url "usuario:listar_esp" %}">Publicar</a></li>
+        </ul>
+    </nav>
+    <aside id="bienvenida">
+        {% if not request.user.is_authenticated %}
+        {% else %}
+            Hola {{request.user}}!
+        {% endif %}
+    </aside>
+        {% load cache %}
+        {% cache 6000 'pedidos_home' %}
+    <section id="contenido">
+
+        <article class="item">
+        <p class="datos_item">
+            <a class="tag_item" href="#">UROLOGIA</a>
+            <br>
+            <figure class="imagen_item">
+            <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
+            </figure>
+            <font face="verdana">
+            <p class="autor_item">
+            {% if pedido  %}
+            Por:<a class="titulo_item"  href="">ANDREA DONOSO RIVERA</a>
+            {% endif %}
+            <br>
+            Total Articulos:<a class="titulo_item"  href="">88</a>
+            <br>
+            {% if pend  %}
+            Articulos pendientes:<a class="titulo_item"  href="{{pend.pend}}">{{pend}}</a>
+            <br>
+            Articulos entregados:<a class="titulo_item"  href="{{entre.entre}}">{{entre}}</a>
+            {% endif %}
+            </p>
+            </font>
+  
+            
+            <p class="datos_item">
+                
+                <span class="fecha_item">Enviado el <strong> {{ped.fecha_pedido}}</strong> 
+                    
+            <a class="guardar_item" href="#"></a>
+
+            </p>    
+            </p>
+        </article>
+
+
+
+</script>
+
+
+    </section>{% endcache %}
+    <footer>
+        <p><strong>Powered by Demaro!</strong></p>
+        <p>Grocer para HRR. 2017 ®</p>
+    </footer>
+
+
+</div>
+{% endblock%}
+
+
+
+
+

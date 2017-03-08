@@ -1,0 +1,88 @@
+[15/Feb/2017 10:02:19] ERROR [django.request:124] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\ambientes\test1\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\ambientes\test1\lib\site-packages\django\core\handlers\base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ambientes\test1\lib\site-packages\django\core\handlers\base.py", line 215, in _get_response
+    response = response.render()
+  File "C:\ambientes\test1\lib\site-packages\django\template\response.py", line 109, in render
+    self.content = self.rendered_content
+  File "C:\ambientes\test1\lib\site-packages\django\template\response.py", line 86, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\ambientes\test1\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\templatetags\static.py", line 104, in render
+    url = self.url(context)
+  File "C:\ambientes\test1\lib\site-packages\django\templatetags\static.py", line 101, in url
+    return self.handle_simple(path)
+  File "C:\ambientes\test1\lib\site-packages\django\templatetags\static.py", line 114, in handle_simple
+    return staticfiles_storage.url(path)
+  File "C:\ambientes\test1\lib\site-packages\django\contrib\staticfiles\storage.py", line 132, in url
+    hashed_name = self.stored_name(clean_name)
+  File "C:\ambientes\test1\lib\site-packages\django\contrib\staticfiles\storage.py", line 292, in stored_name
+    cache_name = self.clean_name(self.hashed_name(name))
+  File "C:\ambientes\test1\lib\site-packages\django\contrib\staticfiles\storage.py", line 95, in hashed_name
+    (clean_name, self))
+ValueError: The file 'js/bootstrap.min.js' could not be found with <django.contrib.staticfiles.storage.CachedStaticFilesStorage object at 0x00000000060B44A8>.
+[15/Feb/2017 10:02:19] ERROR [django.server:131] "GET / HTTP/1.1" 500 27
+[15/Feb/2017 10:02:20] ERROR [django.request:124] Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\ambientes\test1\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\ambientes\test1\lib\site-packages\django\core\handlers\base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ambientes\test1\lib\site-packages\django\core\handlers\base.py", line 215, in _get_response
+    response = response.render()
+  File "C:\ambientes\test1\lib\site-packages\django\template\response.py", line 109, in render
+    self.content = self.rendered_content
+  File "C:\ambientes\test1\lib\site-packages\django\template\response.py", line 86, in rendered_content
+    content = template.render(context, self._request)
+  File "C:\ambientes\test1\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\ambientes\test1\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\ambientes\test1\lib\site-packages\django\templatetags\static.py", line 104, in render
+    url = self.url(context)
+  File "C:\ambientes\test1\lib\site-packages\django\templatetags\static.py", line 101, in url
+    return self.handle_simple(path)
+  File "C:\ambientes\test1\lib\site-packages\django\templatetags\static.py", line 114, in handle_simple
+    return staticfiles_storage.url(path)
+  File "C:\ambientes\test1\lib\site-packages\django\contrib\staticfiles\storage.py", line 132, in url
+    hashed_name = self.stored_name(clean_name)
+  File "C:\ambientes\test1\lib\site-packages\django\contrib\staticfiles\storage.py", line 292, in stored_name
+    cache_name = self.clean_name(self.hashed_name(name))
+  File "C:\ambientes\test1\lib\site-packages\django\contrib\staticfiles\storage.py", line 95, in hashed_name
+    (clean_name, self))
+ValueError: The file 'js/bootstrap.min.js' could not be found with <django.contrib.staticfiles.storage.CachedStaticFilesStorage object at 0x00000000060B44A8>.
+[15/Feb/2017 10:02:20] ERROR [django.server:131] "GET / HTTP/1.1" 500 27

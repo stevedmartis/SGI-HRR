@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<form method="post">
+{% csrf_token %}
+    <h3>¿Desea Aprobar esta solicitud: {{ ped.especialidad.nombre }}?</h3>  
+    <button class="btn btn-success" type="submit">Aceptar</button>
+    <a class= "btn btn-default" href="{% url 'usuario:home' %}">Cancelar</a>
+    
+</form>
+{% endblock %}
