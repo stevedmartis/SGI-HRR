@@ -33,8 +33,8 @@
                 <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
             </figure>
             <h2 class="titulo_item">
-
-            Por:<a class="titulo_item"  href="{{ped.ped}}">{{esp.especialidad.encargado.usuario.username}}</a>
+            <a class="tag_item" href="#">{{esp.nombre}}</a>
+            Por:<a class="titulo_item"  href="{{ped.ped}}">{{esp.encargado.usuario.username}}</a>
               <br>
             </h2>     
             <p class="autor_item">
@@ -42,7 +42,7 @@
             Estado: <a href="#">{{ped.estado}}</a>
             <br>
             <p class="datos_item">
-                <a class="tag_item" href="#">{{ped.especialidad.nombre}}</a>
+                
                 
                 <span class="fecha_item">Enviado el <strong> {{ped.fecha_pedido}}</strong> 
                     
