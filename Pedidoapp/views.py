@@ -46,10 +46,9 @@ def index(request):
 def home(request):
     user = request.user
     if user.is_superuser:
-      pedido         = Pedido.objects.all()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      fecha_ped      = Pedido.objects.filter(especialidad=1)
+      pedido      = Pedido.objects.filter(especialidad=1)
       especialidades = Especialidad.objects.all()
       encargado      = Encargado.objects.all()
       template       = "index.html"
