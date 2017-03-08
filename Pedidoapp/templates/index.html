@@ -25,39 +25,30 @@
         {% load cache %}
         {% cache 6000 'pedidos_home' %}
     <section id="contenido">
-    {% if especialidades %}
-        
-        {% for esp in especialidades %}
+        {% if especialidades %}
+ 
+        {% for esp in especialidades  %}
         <article class="item">
-        <p class="datos_item">
-            <a class="tag_item" href="#">{{esp.especialidad.nombre}}</a>
             <br>
             <figure class="imagen_item">
-            <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
             </figure>
-            <font face="verdana">
+            <p></p>
+             <p class="datos_item">
+                <a class="tag_item" href="#">{{esp.nombre}}</a>
+            <br>
+            <h2 class="titulo_item">
+            Por:<a class="titulo_item"  href="{{esp.esp}}">{{esp.encargado.nombre}}</a>
+            
+            <br>
+            </h2>     
             <p class="autor_item">
-            
-            Por:<a class="titulo_item"  href="">{{esp.especialidad.encargado.nombre}}}</a>
-            
             <br>
-            Total Articulos:<a class="titulo_item"  href="">{{total_art}}</a>
+            Estado: <a href="#">{{ped.estado}}</a>
             <br>
-            {% if pend  %}
-            Articulos pendientes:<a class="titulo_item"  href="{{pend.pend}}">{{pend}}</a>
-            <br>
-            Articulos entregados:<a class="titulo_item"  href="{{entre.entre}}">{{entre}}</a>
-            {% else %}
-            <font color="red">No solicitado.</font>
-            {% if entre == total_art %}
-            <input type="submit" class= "btn btn-primary" value="Completar">
-            {% endif %} 
-            {% endif %} 
-            </p>
-            </font>
             <p class="datos_item">
-                <span class="fecha_item">Enviado el <strong> {{pedido.fecha_pedido}}</strong> 
- 
+                
+                <span class="fecha_item">Enviado el <strong> {{ped.fecha_pedido}}</strong> 
                     
             <a class="guardar_item" href="#"></a>
 
@@ -65,13 +56,12 @@
             </p>
         </article>
         {% endfor %}
-        {% else %}
-            NO HAY ENLACES GUARDADOS
-        {% endif %}
 
 
 </script>
-
+        {% else %}
+            NO HAY PEDIDOS GUARDADOS
+        {% endif %}
 
     </section>{% endcache %}
     <footer>
