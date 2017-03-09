@@ -39,12 +39,10 @@
             {% if pend3  or entre3 %}
             <font color="green"><h3>Solicitado!</h3></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend3}}.</a>
-            Articulos Aprobados:<a class="titulo_item"  href="">{{entre3}}</a>
-            
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre3}}</a>  
+            {% else  %}
+            <font color="red"><h3>No Solicitado.</h3></font>          
             {% endif %}
-            
-            
-            
             <br>
             {% if pend == total_art %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
