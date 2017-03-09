@@ -65,9 +65,9 @@ def home(request):
       entre4          = Pedido.objects.filter(especialidad=4).filter(estado='entregado').count()
       #CURACION AVANZADA
       total_art5      = Pedido.objects.filter(especialidad=5).count()
-      pend5           = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').count()
+      pend5          = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').count()
       entre5          = Pedido.objects.filter(especialidad=5).filter(estado='entregado').count()
-      #
+
       encargado      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
