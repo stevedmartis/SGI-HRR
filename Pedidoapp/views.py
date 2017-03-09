@@ -47,10 +47,16 @@ def home(request):
     user = request.user
     if user.is_superuser:
       pedido         = Pedido.objects.all()
+      #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      encargado      = Encargado.objects.all()
+      #Eda
+      total_art2      = Pedido.objects.filter(especialidad=2).count()
+      pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
+      entre2          = Pedido.objects.filter(especialidad=2).filter(estado='entregado').count()
+      #
+      encargado2      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
     else :
