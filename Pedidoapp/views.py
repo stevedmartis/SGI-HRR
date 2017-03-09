@@ -63,8 +63,12 @@ def home(request):
       total_art4      = Pedido.objects.filter(especialidad=4).count()
       pend4          = Pedido.objects.filter(especialidad=4).filter(estado='pendiente').count()
       entre4          = Pedido.objects.filter(especialidad=4).filter(estado='entregado').count()
+      #CURACION AVANZADA
+      total_art5      = Pedido.objects.filter(especialidad=5).count()
+      pend5          = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').count()
+      entre5          = Pedido.objects.filter(especialidad=5).filter(estado='entregado').count()
       #
-      encargado2      = Encargado.objects.all()
+      encargado      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
     else :

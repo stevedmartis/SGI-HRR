@@ -45,6 +45,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -77,35 +80,8 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
-            </p>
-            <br>
-            </h2>     
-            <p class="autor_item">
-            </p>                   
-            <a class="guardar_item" href="#"></a>
-
-            </p>    
-            </p>
-        </article>
-        <article class="item">
-            <figure class="imagen_item">
-                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
-            </figure>
-            <p class="datos_item">
-            <a class="tag_item" href="#">AUX.ASEO</a>
-            <br>
-            <p class="autor_item">
-            Por:<a class="titulo_item"  href="">Andrea</a>
-            <br>
-            <br>
-            Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
-            {% if pend %}
-            <font color="green">Solicitado: </font>
-            Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
-            Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
-            {% else %}
-            <br>
-            <font color="red">No solicitado.</font>
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -136,6 +112,42 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>
+            <br>
+            </h2>     
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+
+            </p>    
+            </p>
+        </article>
+        <article class="item">
+            <figure class="imagen_item">
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="#">AUX.ASEO</a>
+            <br>
+            <p class="autor_item">
+            Por:<a class="titulo_item"  href="">Andrea</a>
+            <br>
+            <br>
+            Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
+            {% if pend %}
+            <font color="green">Solicitado: </font>
+            Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
+            Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
+            {% else %}
+            <br>
+            <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -167,6 +179,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -196,6 +211,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -227,6 +245,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -242,20 +263,26 @@
                 <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="#">AVANZADA</a>
+            <a class="tag_item" href="#">CURACION AVANZADA</a>
             <br>
             <p class="autor_item">
-            Por:<a class="titulo_item"  href="">Andrea</a>
+            Por:<a class="titulo_item"  href="">OLAYA PADILLA VARGAS</a>
             <br>
             <br>
-            Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
-            {% if pend %}
+            Total Articulos: <a class="titulo_item"  href="{{ped5.ped5}}">{{total_art5}}.</a>
+            {% if pend5 %}
             <font color="green">Solicitado: </font>
-            Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
-            Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
+            Articulos Pendientes:<a class="titulo_item"  href="{{ped5.ped5}}">{{pend5}}.</a>
+            Articulos Entregados:<a class="titulo_item"  href="{{ped5.ped5}}">{{entre5}}.</a>
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if ped5 == total_art5 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            {% if pend5 == total_art5 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -287,6 +314,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -316,6 +346,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -347,6 +380,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -376,6 +412,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend2 == total_art2 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -407,6 +446,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -436,6 +478,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -467,6 +512,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art3 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -496,6 +544,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -527,6 +578,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -556,6 +610,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -587,6 +644,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -616,6 +676,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend4 == total_art4 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -647,6 +710,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -676,6 +742,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -707,6 +776,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -736,6 +808,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -767,6 +842,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -797,35 +875,8 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
-            </p>
-            <br>
-            </h2>     
-            <p class="autor_item">
-            </p>                   
-            <a class="guardar_item" href="#"></a>
-
-            </p>    
-            </p>
-        </article>
-        <article class="item">
-            <figure class="imagen_item">
-                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
-            </figure>
-            <p class="datos_item">
-            <a class="tag_item" href="#">RECUPERACION</a>
-            <br>
-            <p class="autor_item">
-            Por:<a class="titulo_item"  href="">Andrea</a>
-            <br>
-            <br>
-            Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
-            {% if pend %}
-            <font color="green">Solicitado: </font>
-            Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
-            Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
-            {% else %}
-            <br>
-            <font color="red">No solicitado.</font>
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -856,6 +907,42 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>
+            <br>
+            </h2>     
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+
+            </p>    
+            </p>
+        </article>
+        <article class="item">
+            <figure class="imagen_item">
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" /></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="#">RECUPERACION</a>
+            <br>
+            <p class="autor_item">
+            Por:<a class="titulo_item"  href="">Andrea</a>
+            <br>
+            <br>
+            Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
+            {% if pend %}
+            <font color="green">Solicitado: </font>
+            Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
+            Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
+            {% else %}
+            <br>
+            <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -887,6 +974,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -916,6 +1006,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -947,6 +1040,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -976,6 +1072,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
@@ -1007,6 +1106,9 @@
             <br>
             <font color="red">No solicitado.</font>
             {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             </p>
             <br>
             </h2>     
@@ -1036,6 +1138,9 @@
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if pend == total_art %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
