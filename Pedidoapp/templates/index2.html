@@ -34,7 +34,6 @@
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
-                    <td></td>
                     <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
@@ -44,7 +43,6 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td></td>
                     <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
@@ -56,13 +54,12 @@
         {% if pedido  %}
         {% for ped in pedido  %}
                 <tr>
-                    <td></td>
                     <td>{{ ped.especialidad.nombre }}</td>
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.cantidad }}</td>
                     <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a></td>
-                    
+
                 </tr>
         {% endfor %}
         {% endif %}
