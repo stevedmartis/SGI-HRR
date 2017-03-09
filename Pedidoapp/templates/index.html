@@ -37,9 +37,10 @@
             <br>
             <br>
             Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
-            {% if pend %}
+            
             <font color="green">Solicitado: </font>
             Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
+            {% if entre %}
             Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
             {% else %}
             <br>
@@ -504,9 +505,9 @@
             <br>
             <br>
             Total Articulos: <a class="titulo_item"  href="{{ped3.ped3}}">{{total_art3}}.</a>
-            {% if pend3 %}
             <font color="green">Solicitado: </font>
             Articulos Pendientes:<a class="titulo_item"  href="{{ped3.ped3}}">{{pend3}}.</a>
+            {% if entre3 %}
             Articulos Entregados:<a class="titulo_item"  href="{{ped3.ped3}}">{{entre3}}.</a>
             {% else %}
             <br>
@@ -1131,9 +1132,9 @@
             <br>
             <br>
             Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
-            {% if pend %}
             <font color="green">Solicitado: </font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
+            {% if entre %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre}}.</a>
             {% else %}
             <br>
