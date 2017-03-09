@@ -59,7 +59,7 @@ def home(request):
 
 
 
-def ArticuloListView(request):
+def ArticuloListView(request, fecha_pedido):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.all()
