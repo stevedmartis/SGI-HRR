@@ -48,9 +48,9 @@ def home(request):
     if user.is_superuser:
       pedido         = Pedido.objects.all()
       #Urologia
-      total_art      = Pedido.objects.filter(especialidad_id=1).count()
-      pend           = Pedido.objects.filter(especialidad_id=1).filter(estado='pendiente').count()
-      entre          = Pedido.objects.filter(especialidad_id=1).filter(estado='entregado').count()
+      total_art      = Pedido.objects.filter(especialidad=1).count()
+      pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
+      entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
       #Eda
       total_art2      = Pedido.objects.filter(especialidad=2).count()
       pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
