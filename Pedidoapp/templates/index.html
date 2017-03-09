@@ -36,18 +36,19 @@
             Por:<a class="titulo_item"  href="">Andrea</a>
             <br>
             <br>
-            Total Articulos: <a class="titulo_item"  href="{{ped3.ped3}}">{{total_art3}}.</a>
+            Total Articulos: <a class="titulo_item"  href="">{{total_art3}}.</a>
             {% if pend3 %}
             <br>
-            <font color="green">Solicitado: </font>
-            Articulos Pendientes:<a class="titulo_item"  href="{{ped3.ped3}}">{{pend3}}.</a>
-            {% if entre3 %}
-            Articulos Aprobados:<a class="titulo_item"  href="{{ped3.ped3}}">{{entre3}}.</a>
+            <font color="green">Solicitado!</font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend3}}.</a>
             {% else %}
             <font color="red">No solicitado.</font>
+            {% endif %}
+            {% if entre3 %}
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre3}}.</a>
+            <font color="green">Aprobando Solicitud...</font>
+            {% endif %}
             <br>
-            {% endif %}
-            {% endif %}
             {% if pend == total_art %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
