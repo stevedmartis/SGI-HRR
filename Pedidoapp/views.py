@@ -50,7 +50,6 @@ def home(request):
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      fecha          = Pedido.objects.filter('fecha_pedido')
       encargado      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
