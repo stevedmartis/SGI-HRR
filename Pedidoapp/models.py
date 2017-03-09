@@ -41,6 +41,13 @@ class Pedido(models.Model):
     def __str__(self):
         return '{}'.format(self.especialidad, self.articulo, self.cantidad, self.estado)
 
+def update_stock(sender, instance, **kwargs):
+    instance.articulo.stock -= instance.cantidad
+    instance.articulo.save()
+
+# register the signal
+signals.post_save.connect(update_stock, sender=Pedido, dispatch_uid="update_stock_count")
+
 
 class Articulo(models.Model):
     cod_experto = models.CharField(max_length=999, primary_key=True, blank=True)
