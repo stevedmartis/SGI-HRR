@@ -4,8 +4,8 @@
 <!-- comentario de lo que sea -->
 {% load static from staticfiles %}
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{% static "css/estilos.css" %}" />
     <link rel="stylesheet" href="{% static "css/responsive.css" %}" />
 </head>
@@ -1130,11 +1130,11 @@
             Por:<a class="titulo_item"  href="">ANDREA DONOSO RIVERA</a>
             <br>
             <br>
-            Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
+            Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
             {% if pend %}
             <font color="green">Solicitado: </font>
-            Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre}}.</a>
+            Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
+            Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
