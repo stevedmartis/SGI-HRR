@@ -42,7 +42,7 @@ def index(request):
     return render(request, 'pedido/index.html')
 
 @login_required
-#@cache_page(6000)
+@cache_page(6000)
 def home(request):
     user = request.user
     if user.is_superuser:
@@ -73,7 +73,7 @@ def home(request):
       return render(request, 'index.html')
 
 
-
+@cache_page(6000)
 def ArticuloListView(request):
     user = request.user
     if user.is_superuser:
