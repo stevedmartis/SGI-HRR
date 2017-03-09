@@ -55,6 +55,10 @@ def home(request):
       total_art2      = Pedido.objects.filter(especialidad=2).count()
       pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
       entre2          = Pedido.objects.filter(especialidad=2).filter(estado='entregado').count()
+      #FIBROBRONCOSCOPIA
+      total_art3      = Pedido.objects.filter(especialidad=3).count()
+      pend3          = Pedido.objects.filter(especialidad=3).filter(estado='pendiente').count()
+      entre3          = Pedido.objects.filter(especialidad=3).filter(estado='entregado').count()
       #
       encargado2      = Encargado.objects.all()
       template       = "index.html"
