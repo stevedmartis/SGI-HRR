@@ -12,7 +12,7 @@ from django.template import RequestContext
 from django.views.decorators.cache import cache_page
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.db import models
-from django.db.models import count
+from django.db.models import Count
 
 import psycopg2
 import sys
@@ -49,24 +49,24 @@ def home(request):
       pedido         = Pedido.objects.all()
       #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
-      pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
+      pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').Count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
       #Eda
       total_art2      = Pedido.objects.filter(especialidad=2).count()
-      pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
-      entre2          = Pedido.objects.filter(especialidad=2).filter(estado='entregado').count()
+      pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').Count()
+      entre2          = Pedido.objects.filter(especialidad=2).filter(estado='entregado').Count()
       #FIBROBRONCOSCOPIA
       total_art3      = Pedido.objects.filter(especialidad=3).count()
-      pend3          = Pedido.objects.filter(especialidad=3).filter(estado='pendiente').count()
-      entre3          = Pedido.objects.filter(especialidad=3).filter(estado='entregado').count()
+      pend3          = Pedido.objects.filter(especialidad=3).filter(estado='pendiente').Count()
+      entre3          = Pedido.objects.filter(especialidad=3).filter(estado='entregado').Count()
       #PAB.MENOR
       total_art4      = Pedido.objects.filter(especialidad=4).count()
-      pend4          = Pedido.objects.filter(especialidad=4).filter(estado='pendiente').count()
-      entre4          = Pedido.objects.filter(especialidad=4).filter(estado='entregado').count()
+      pend4          = Pedido.objects.filter(especialidad=4).filter(estado='pendiente').Count()
+      entre4          = Pedido.objects.filter(especialidad=4).filter(estado='entregado').Count()
       #CURACION AVANZADA
       total_art5      = Pedido.objects.filter(especialidad=5).count()
-      pend5          = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').count()
-      entre5          = Pedido.objects.filter(especialidad=5).filter(estado='entregado').count()
+      pend5          = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').Count()
+      entre5          = Pedido.objects.filter(especialidad=5).filter(estado='entregado').Count()
       encargado      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
