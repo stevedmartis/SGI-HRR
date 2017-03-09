@@ -43,14 +43,13 @@ def index(request):
 
 @login_required
 #@cache_page(6000)
-def home(request, fecha_pedido):
+def home(request):
     user = request.user
     if user.is_superuser:
-      pedido         = Pedido.objects.all()
+      pedido         = Pedido.objects.filter(especialidad=1).filter(articulo='CP-0002')
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
-      fecha          = Pedido.objects.filter(date_from__gte=fecha_pedido)
       encargado      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
