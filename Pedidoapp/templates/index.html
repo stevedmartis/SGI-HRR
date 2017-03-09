@@ -51,7 +51,9 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
+            {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
             </p>    
             </p>
         </article>
