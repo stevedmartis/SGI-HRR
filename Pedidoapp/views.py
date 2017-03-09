@@ -46,7 +46,7 @@ def index(request):
 def home(request):
     user = request.user
     if user.is_superuser:
-      pedido         = Pedido.objects.all()
+      ped         = Pedido.objects.all()
       #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').Count()
