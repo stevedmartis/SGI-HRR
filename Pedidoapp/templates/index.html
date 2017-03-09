@@ -38,14 +38,13 @@
             <br>
             Total Articulos: <a class="titulo_item"  href="{{ped3.ped3}}">{{total_art3}}.</a>
             {% if pend3 %}
+            <br>
             <font color="green">Solicitado: </font>
             Articulos Pendientes:<a class="titulo_item"  href="{{ped3.ped3}}">{{pend3}}.</a>
-            {% else %}
-            <br>
-            <font color="red">No solicitado.</font>
-            {% endif %}
             {% if entre3 %}
             Articulos Aprobados:<a class="titulo_item"  href="{{ped3.ped3}}">{{entre3}}.</a>
+            {% else %}
+            <font color="red">No solicitado.</font>
             <br>
             {% endif %}
             {% if pend == total_art %}
