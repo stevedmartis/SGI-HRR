@@ -33,13 +33,13 @@
             <a class="tag_item" href="#">ADMISION</a>
             </p><br>
             <p class="autor_item">
-            Por:<a class="titulo_item"  href="">Andrea</a>
-            Total Articulos: <a class="titulo_item"  href="">{{total_art3}}.</a>
+            <h5>Por:<a class="titulo_item"  href="">Andrea</a></h5>
+            <h5>Total Articulos:</h5> <a class="titulo_item"  href="">{{total_art3}}.</a>
             {% if pend3 > 0 %}
             <font color="green"><h4>Solicitado!</h4></font>
-            Articulos Pendientes:<a class="titulo_item"  href="">{{pend3}}.</a>
+            <h5>Articulos Pendientes:</h5><a class="titulo_item"  href="">{{pend3}}.</a>
             {% endif %}
-            Articulos Aprobados:<a class="titulo_item"  href="">{{entre3}}</a>                    
+            <h5>Articulos Aprobados:</h5><a class="titulo_item"  href="">{{entre3}}</a>                    
             {% if pend == total_art %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
