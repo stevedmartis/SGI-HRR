@@ -12,7 +12,7 @@ from django.template import RequestContext
 from django.views.decorators.cache import cache_page
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.db import models
-from django.db.models import Count
+from django.db.models import count
 
 import psycopg2
 import sys
@@ -67,7 +67,6 @@ def home(request):
       total_art5      = Pedido.objects.filter(especialidad=5).count()
       pend5          = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').count()
       entre5          = Pedido.objects.filter(especialidad=5).filter(estado='entregado').count()
-
       encargado      = Encargado.objects.all()
       template       = "index.html"
       return render_to_response(template,locals())
@@ -97,7 +96,6 @@ def Pedido_Edit(request, id_pedido):
       if form.is_valid():
           form.save()
           pedido.estado = 'pendiente'
-          pedido.save()
           pedido.fecha_pedido = datetime.now()
           pedido.save()
       return redirect('usuario:listar_esp')
