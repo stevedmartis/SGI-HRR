@@ -25,14 +25,68 @@
         {% load cache %}
         {% cache 6000 'pedidos_home' %}
     <section id="contenido">
+    <article class="item">
+            <figure class="imagen_item">
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="130px" height="130px"/></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="#">CURACION AVANZADA</a>
+            </p>
+            <a class="titulo_item" href=""><h5>OLAYA PADILLA </a></h5></p> 
+            <p class="autor_item">
+            Total Articulos: <a class="titulo_item"  href="">{{total_art5}}.</a>
+            {% if pend5 > 0 %}
+            <font color="green"><h4>Solicitado!</h4></font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend5}}.</a>
+            {% endif %}
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre5}}</a>                    
+            {% if pend5 == total_art5 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>   
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+            {% if pedido %}
+            <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
+
+        </article>
+    <article class="item">
+            <figure class="imagen_item">
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="130px" height="130px"/></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="#">PAB. MENOR</a>
+            </p>
+            <a class="titulo_item" href=""><h5>SAMUEL PALMA</a></h5></p> 
+            <p class="autor_item">
+            Total Articulos: <a class="titulo_item"  href="">{{total_art4}}.</a>
+            {% if pend4 > 0 %}
+            <font color="green"><h4>Solicitado!</h4></font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend4}}.</a>
+            {% endif %}
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre4}}</a>                    
+            {% if pend4 == total_art4 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>   
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+            {% if pedido %}
+            <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
+
+        </article>
         <article class="item">
             <figure class="imagen_item">
                 <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="130px" height="130px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="#">ADMISION</a>
+            <a class="tag_item" href="#">FIBROBRONCOSCOPIA/a>
             </p>
-            <a class="titulo_item" href=""><h5>ANDREA DONOSO RIVERA</a></h5></p> 
+            <a class="titulo_item" href=""><h5>ANDREA DONOSO</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art3}}.</a>
             {% if pend3 > 0 %}
@@ -40,6 +94,60 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend3}}.</a>
             {% endif %}
             Articulos Aprobados:<a class="titulo_item"  href="">{{entre3}}</a>                    
+            {% if pend3 == total_art3 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>   
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+            {% if pedido %}
+            <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
+
+        </article>
+        <article class="item">
+            <figure class="imagen_item">
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="130px" height="130px"/></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="#">EDA</a>
+            </p>
+            <a class="titulo_item" href=""><h5>YANDY ARANGUIZ/a></h5></p> 
+            <p class="autor_item">
+            Total Articulos: <a class="titulo_item"  href="">{{total_art2}}.</a>
+            {% if pend2 > 0 %}
+            <font color="green"><h4>Solicitado!</h4></font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend2}}.</a>
+            {% endif %}
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre2}}</a>                    
+            {% if pend2 == total_art2 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>   
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+            {% if pedido %}
+            <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
+
+        </article>
+        <article class="item">
+            <figure class="imagen_item">
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="130px" height="130px"/></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="#">UROLOGIA</a>
+            </p>
+            <a class="titulo_item" href=""><h5>ANDREA DONOSO</a></h5></p> 
+            <p class="autor_item">
+            Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
+            {% if pend > 0 %}
+            <font color="green"><h4>Solicitado!</h4></font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
+            {% endif %}
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre}}</a>                    
             {% if pend == total_art %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
