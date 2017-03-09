@@ -1097,17 +1097,14 @@
             Por:<a class="titulo_item"  href="">Andrea</a>
             <br>
             <br>
-            Total Articulos: <a class="titulo_item"  href="{{ped.ped}}">{{total_art}}.</a>
+            Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
             {% if pend %}
             <font color="green">Solicitado: </font>
-            Articulos Pendientes:<a class="titulo_item"  href="{{ped.ped}}">{{pend}}.</a>
-            Articulos Entregados:<a class="titulo_item"  href="{{ped.ped}}">{{entre}}.</a>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre}}.</a>
             {% else %}
             <br>
             <font color="red">No solicitado.</font>
-            {% endif %}
-            {% if pend == total_art %}
-            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>
             <br>
