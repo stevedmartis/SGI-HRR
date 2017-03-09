@@ -38,7 +38,6 @@
                     <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
-                    <td>stock</td>
                     <td>Cantidad</td>
                     <td>Ingresar</td>
                 </tr>
@@ -49,7 +48,6 @@
                     <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
-                    <td>stock</td>
                     <td>Cantidad</td>
                     <td>Ingresar</td>
                 </tr>
@@ -62,7 +60,6 @@
                     <td>{{ ped.especialidad.nombre }}</td>
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
-                    <td>{{ ped.articulo.stock }}</td>
                     <td>{{ ped.cantidad }}</td>
                     <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a></td>
                 </tr>

@@ -43,6 +43,7 @@
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
                     <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tfoot>
@@ -56,6 +57,7 @@
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
                     <td></td> 
+                    <td></td>
                 </tr>
             </tfoot>
             <tbody>
@@ -70,7 +72,8 @@
                     <td>{{ ped.cantidad }}</td>
                     <td>{{ ped.fecha_pedido }}</td>
                     <td>{{ ped.estado }}</td>
-                    <td><a href="{% url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Aprobar</a></td>
+                    <td><a href="{% url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Aprobar</a></td>
+                    <td><td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td</td>
                 </tr>
         {% endfor %}
         {% endif %}
