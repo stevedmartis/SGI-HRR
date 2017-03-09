@@ -97,6 +97,7 @@ def Pedido_Edit(request, id_pedido):
       if form.is_valid():
           form.save()
           pedido.estado = 'pendiente'
+          pedido.save()
           pedido.fecha_pedido = datetime.now()
           pedido.save()
       return redirect('usuario:listar_esp')
