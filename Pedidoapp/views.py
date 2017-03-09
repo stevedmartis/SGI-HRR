@@ -56,8 +56,8 @@ def home(request):
       entre2          = Pedido.objects.filter(especialidad=2).filter(estado='entregado').count()
       #FIBROBRONCOSCOPIA
       total_art3      = Pedido.objects.filter(especialidad=3).count()
-      pend3          = Pedido.objects.filter(especialidad=3).filter(estado='pendiente').count()
-      entre3          = Pedido.objects.filter(especialidad=3).filter(estado='entregado').count()
+      pend3          = Pedido.objects.filter(especialidad=3).filter(estado='pendiente' and 'entregado').count()
+      #entre3          = Pedido.objects.filter(especialidad=3).filter(estado='entregado').count()
       #PAB.MENOR
       total_art4      = Pedido.objects.filter(especialidad=4).count()
       pend4          = Pedido.objects.filter(especialidad=4).filter(estado='pendiente').count()
