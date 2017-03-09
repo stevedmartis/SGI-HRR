@@ -19,8 +19,8 @@ import sys
 import json
 
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+#reload(sys)
+#sys.setdefaultencoding('utf8')
 
 
 
@@ -65,7 +65,7 @@ def home(request):
       entre4          = Pedido.objects.filter(especialidad=4).filter(estado='entregado').count()
       #CURACION AVANZADA
       total_art5      = Pedido.objects.filter(especialidad=5).count()
-      pend5          = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').count()
+      pend5           = Pedido.objects.filter(especialidad=5).filter(estado='pendiente').count()
       entre5          = Pedido.objects.filter(especialidad=5).filter(estado='entregado').count()
       #
       encargado      = Encargado.objects.all()
