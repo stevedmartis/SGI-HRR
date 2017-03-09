@@ -35,14 +35,13 @@
             <p class="autor_item">
             Por:<a class="titulo_item"  href="">Andrea</a>
             <br>
-            {% if pend3 %}
-            <font color="green"><h3>Solicitado!</h3></font>
             Total Articulos: <a class="titulo_item"  href="">{{total_art3}}.</a>
+            {% Firstof pend3 entre3 %}
+            <font color="green"><h3>Solicitado!</h3></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend3}}.</a>
             Articulos Aprobados:<a class="titulo_item"  href="">{{entre3}}.</a>
             {% else %}
             <font color="red">No solicitado.</font>
-            {% endif %}
             <br>
             {% if pend == total_art %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
