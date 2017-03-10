@@ -70,6 +70,10 @@ def home(request):
       total_art6      = Pedido.objects.filter(especialidad=6).count()
       pend6          = Pedido.objects.filter(especialidad=6).filter(estado='pendiente').count()
       entre6          = Pedido.objects.filter(especialidad=6).filter(estado='entregado').count()
+      #CARDIOLOGIA
+      total_art7      = Pedido.objects.filter(especialidad=7).count()
+      pend7           = Pedido.objects.filter(especialidad=7).filter(estado='pendiente').count()
+      entre7          = Pedido.objects.filter(especialidad=7).filter(estado='entregado').count()
       #
       encargado      = Encargado.objects.all()
       template       = "index.html"
