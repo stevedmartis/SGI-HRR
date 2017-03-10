@@ -78,6 +78,10 @@ def home(request):
       total_art8      = Pedido.objects.filter(especialidad=8).count()
       pend8           = Pedido.objects.filter(especialidad=8).filter(estado='pendiente').count()
       entre8          = Pedido.objects.filter(especialidad=8).filter(estado='entregado').count()
+      #OFTAMOLOGIA
+      total_art9      = Pedido.objects.filter(especialidad=9).count()
+      pend9           = Pedido.objects.filter(especialidad=9).filter(estado='pendiente').count()
+      entre9          = Pedido.objects.filter(especialidad=9).filter(estado='entregado').count()
       #
       encargado      = Encargado.objects.all()
       template       = "index.html"
