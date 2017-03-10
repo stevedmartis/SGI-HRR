@@ -74,6 +74,10 @@ def home(request):
       total_art7      = Pedido.objects.filter(especialidad=7).count()
       pend7           = Pedido.objects.filter(especialidad=7).filter(estado='pendiente').count()
       entre7          = Pedido.objects.filter(especialidad=7).filter(estado='entregado').count()
+      #OTORRINO
+      total_art8      = Pedido.objects.filter(especialidad=8).count()
+      pend8           = Pedido.objects.filter(especialidad=8).filter(estado='pendiente').count()
+      entre8          = Pedido.objects.filter(especialidad=8).filter(estado='entregado').count()
       #
       encargado      = Encargado.objects.all()
       template       = "index.html"
