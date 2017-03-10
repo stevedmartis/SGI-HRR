@@ -86,6 +86,14 @@ def home(request):
       total_art10      = Pedido.objects.filter(especialidad=10).count()
       pend10          = Pedido.objects.filter(especialidad=10).filter(estado='pendiente').count()
       entre10          = Pedido.objects.filter(especialidad=10).filter(estado='entregado').count()
+      #EGG
+      total_art11     = Pedido.objects.filter(especialidad=11).count()
+      pend11          = Pedido.objects.filter(especialidad=11).filter(estado='pendiente').count()
+      entre11          = Pedido.objects.filter(especialidad=11).filter(estado='entregado').count()
+      #NEUROLOGIA
+      total_art16     = Pedido.objects.filter(especialidad=16).count()
+      pend16          = Pedido.objects.filter(especialidad=16).filter(estado='pendiente').count()
+      entre16          = Pedido.objects.filter(especialidad=16).filter(estado='entregado').count()
       #
       encargado      = Encargado.objects.all()
       template       = "index.html"
