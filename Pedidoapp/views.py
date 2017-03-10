@@ -98,10 +98,18 @@ def home(request):
       total_art16     = Pedido.objects.filter(especialidad=16).count()
       pend16          = Pedido.objects.filter(especialidad=16).filter(estado='pendiente').count()
       entre16          = Pedido.objects.filter(especialidad=16).filter(estado='entregado').count()
+      #SALA DAN
+      total_art18     = Pedido.objects.filter(especialidad=18).count()
+      pend18          = Pedido.objects.filter(especialidad=18).filter(estado='pendiente').count()
+      entre18          = Pedido.objects.filter(especialidad=18).filter(estado='entregado').count()
       #RECUPERACION
       total_art19     = Pedido.objects.filter(especialidad=19).count()
       pend19          = Pedido.objects.filter(especialidad=19).filter(estado='pendiente').count()
-      entre19          = Pedido.objects.filter(especialidad=19).filter(estado='entregado').count()
+      entre19          = Pedido.objects.filter(especialidad=19).filter(estado='entregado').count()   
+      #DERMA/FOTO
+      total_art21     = Pedido.objects.filter(especialidad=21).count()
+      pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
+      entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
 
       encargado      = Encargado.objects.all()
       template       = "index.html"
