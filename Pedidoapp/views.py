@@ -43,7 +43,7 @@ def index(request):
 
 @login_required
 @cache_page(6000)
-def home(request):
+def home(request, id_especialidad):
             #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
@@ -116,7 +116,7 @@ def home(request):
 
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
-      pedido  = Pedido.objects.all()
+      pedido  = Pedido.objects.get(id_especialidad=id_especialidad)
       template = "index.html"
       return render_to_response(template,locals())
 
