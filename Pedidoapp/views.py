@@ -45,6 +45,7 @@ def index(request):
 @cache_page(6000)
 def home(request):
             #Urologia
+      ped            = Pedido.objects.filter(especialidad=1).count()
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
@@ -117,7 +118,7 @@ def home(request):
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       contexto = {'especialidad':especialidad}
-      return render(request, 'index3.html', contexto)
+      return render(request, 'index2.html', contexto)
 
 @cache_page(6000)
 def ArticuloListView(request):
