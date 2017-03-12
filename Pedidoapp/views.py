@@ -43,7 +43,7 @@ def index(request):
 
 @login_required
 @cache_page(6000)
-def home(request):
+def home(request, **kwargs):
             #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
@@ -122,7 +122,7 @@ def home(request):
 
 
 @cache_page(6000)
-def ArticuloListView(request):
+def ArticuloListView(request, **kwargs):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=3)
