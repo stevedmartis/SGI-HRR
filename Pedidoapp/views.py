@@ -116,8 +116,7 @@ def home(request):
 
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all().order_by('nombre')
-      contexto = {'especialidad':especialidad}
-      return render(request, 'index3.html', contexto)
+      return render(request, 'index2.html')
 
 @cache_page(6000)
 def ArticuloListView(request):
