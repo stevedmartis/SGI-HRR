@@ -93,8 +93,9 @@ def home(request):
       #TMT
       total_art13     = Pedido.objects.filter(especialidad=13).count()
       pend13          = Pedido.objects.filter(especialidad=13).filter(estado='pendiente').count()
-      entre13          = Pedido.objects.filter(especialidad=13).filter(estado='entregado').count()
+      entre13         = Pedido.objects.filter(especialidad=13).filter(estado='entregado').count()
       #NEUROLOGIA
+      esp             = Pedido.objects.filter(especialidad=16)
       total_art16     = Pedido.objects.filter(especialidad=16).count()
       pend16          = Pedido.objects.filter(especialidad=16).filter(estado='pendiente').count()
       entre16          = Pedido.objects.filter(especialidad=16).filter(estado='entregado').count()
@@ -106,10 +107,14 @@ def home(request):
       total_art19     = Pedido.objects.filter(especialidad=19).count()
       pend19          = Pedido.objects.filter(especialidad=19).filter(estado='pendiente').count()
       entre19          = Pedido.objects.filter(especialidad=19).filter(estado='entregado').count()   
+      #AUX.ASEO.PROC 20
+      #AUX.ASEO.PROC 23
+      #AUX. ASEO.CONS 34
       #DERMA/FOTO
       total_art21     = Pedido.objects.filter(especialidad=21).count()
       pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
       entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
+      #
 
       encargado      = Encargado.objects.all()
       template       = "index.html"
