@@ -122,7 +122,7 @@ def home(request):
 
 
 @cache_page(6000)
-def ArticuloListView(request):
+def ArticuloListView(request, **kwargs):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=3)
