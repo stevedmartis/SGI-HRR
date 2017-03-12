@@ -26,17 +26,17 @@
         {% cache 6000 'pedidos_home' %}
     </aside>
     <section id="contenido">
-        {% if especialidad %}
+        {% if pedido %}
         
-        {% for esp in especialidad %}
+        {% for ped in pedido %}
     <article class="item">
             <figure class="imagen_item">
                 <a href="{% url "usuario:listar_esp" %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="#">{{esp.nombre}}</a>
+            <a class="tag_item" href="#">{{ped.especialidad.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{ped.especialidad.encargado.nombre}}</a></h5></p>
             Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
             {% if pend > 0 %}
             <font color="green"><h4>Solicitado!</h4></font>
