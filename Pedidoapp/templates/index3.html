@@ -26,29 +26,31 @@
         {% cache 6000 'pedidos_home' %}
     </aside>
     <section id="contenido">
-        {% if especialidad %}
-        
-        {% for esp in especialidad %}
-        <article class="item">
+    <article class="item">
             <figure class="imagen_item">
-                <img src="imagen.jpg" />
+                <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
-            <h2 class="titulo_item">
-                <a href="{{enlace.enlace}}">{{esp.nombre}}</a>
-            </h2>
-            <p class="autor_item">
-                Por <a href="#">{{enlace.usuario}}</a>
-            </p>
             <p class="datos_item">
-                <a class="tag_item" href="#">{{enlace.categoria}}</a>
-                <span class="fecha_item">Hace <strong>{{enlace.timestamp|timesince}}</strong> min</span>
-                <a class="guardar_item" href="#"></a>
+            <a class="tag_item" href="#">esp.nombre</a>
             </p>
-            <p class="votacion">
-                <a class="up" href=""></a>
-                {{enlace.votos}}
-                <a class="down" href=""></a>
-            </p>
+            <a class="titulo_item" href=""><h5>esp.encargado.nombre</a></h5></p>
+            <p class="autor_item">
+            Total Articulos: <a class="titulo_item"  href="">{{total_art21}}.</a>
+            {% if pend21 > 0 %}
+            <font color="green"><h4>Solicitado!</h4></font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend21}}.</a>
+            {% endif %}
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre21}}</a>                    
+            {% if pend21 == total_art21 %}
+            <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>   
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+            {% if pedido %}
+            <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
         </article>
         {% endfor %}
         {% else %}
