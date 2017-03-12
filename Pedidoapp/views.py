@@ -129,7 +129,7 @@ def ArticuloListView(request, id_especialidad):
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        pedido = Pedido.objects.filter(especialidad=id_especialidad)
+        pedido = Pedido.objects.filter(id=id_especialidad)
     template  = 'index2.html'
     return render_to_response(template,locals())
 
