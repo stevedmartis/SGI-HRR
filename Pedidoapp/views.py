@@ -44,8 +44,7 @@ def index(request):
 @login_required
 @cache_page(6000)
 def home(request):
-      
-      #Urologia
+            #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
@@ -114,10 +113,11 @@ def home(request):
       pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
       entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
       #
+
       encargado      = Encargado.objects.all()
-      especialidad  = Especialidad.objects.all()
-      template  = 'index3.html'
-    return render_to_response(template,locals())
+      especialidad  = Especialidad.filter(all)
+
+      return render(request, 'index3.html')
 
 
 @cache_page(6000)
