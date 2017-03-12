@@ -115,7 +115,7 @@ def home(request):
       #
 
       encargado      = Encargado.objects.all()
-      especialidad  = Especialidad.filter(all)
+      especialidad  = Especialidad.objects.all()
 
       return render(request, 'index3.html')
 
