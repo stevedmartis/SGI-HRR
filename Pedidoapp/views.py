@@ -123,7 +123,6 @@ def home(request):
 
 @cache_page(6000)
 def ArticuloListView(request):
-    if request.method == 'GET':
     user = request.user
     if user.is_superuser:
 
