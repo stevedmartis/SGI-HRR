@@ -126,11 +126,11 @@ def ArticuloListView(request, id_especialidad):
   if request.method == 'GET':
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.all(instance=id_especialidad)
+        pedido = Pedido.objects.all(instance=especialidad)
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        pedido = Pedido.objects.filter(instance=id_especialidad)
+        pedido = Pedido.objects.filter(instance=especialidad)
     template  = 'index2.html'
   return render_to_response(template,locals())
 
