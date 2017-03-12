@@ -116,7 +116,7 @@ def home(request):
       #
 
       encargado      = Encargado.objects.all()
-      especialidad  = Especialidad.objects.all().order_by('-nombre')
+      especialidad  = Especialidad.objects.all().order_by('nombre')
       contexto = {'especialidad':especialidad}
       return render(request, 'index3.html', contexto)
 
