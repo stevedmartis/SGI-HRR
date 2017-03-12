@@ -42,7 +42,7 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend21}}.</a>
             Articulos Aprobados:<a class="titulo_item"  href="">{{entre21}}</a>                    
-            <a href="{% url "usuario:listar_esp" esp.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Solicitar</a>
+            <a href="{% url 'usuario:listar_esp' id=esp.id %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Solicitar</a>
             </p>   
             <p class="autor_item">
             </p>                   
