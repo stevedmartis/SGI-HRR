@@ -122,10 +122,10 @@ def home(request):
 
 
 @cache_page(6000)
-def ArticuloListView(request):
+def ArticuloListView(request, id_especialidad):
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.all()
+        pedido = Pedido.objects.all(id=id_especialidad)
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
