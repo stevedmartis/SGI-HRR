@@ -31,7 +31,7 @@
         {% for esp in especialidad %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:listar_esp" esp.id %}" method="GET"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
+                <a href="{# url "usuario:listar_esp" esp.id %}" method="GET"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">{{esp.nombre}}</a>
@@ -46,6 +46,8 @@
             Articulos Aprobados:<a class="titulo_item"  href="">{{entre21}}</a>                    
             {% if pend21 == total_art21 %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            <a href="{# url "usuario:listar_esp" esp.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
             <p class="autor_item">
