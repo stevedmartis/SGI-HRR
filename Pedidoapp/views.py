@@ -117,9 +117,7 @@ def home(request):
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
-      template = "index3.html"
-      return render_to_response(template,locals())
-
+      return render(request, 'index3.html', {'especialidad':especialidad})
 
 @cache_page(6000)
 def ArticuloListView(request):
