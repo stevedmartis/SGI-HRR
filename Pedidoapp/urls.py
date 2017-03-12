@@ -12,8 +12,8 @@ admin.autodiscover()
 
 urlpatterns = [
 
-url(r'^home/$', login_required(home), name="home"),
-url(r'^lista/(?P<id_especialidad>\d+)/$', ArticuloListView, name="listar_esp"),
+url(r'^home/(?P<id_especialidad>\d+)/$', login_required(home), name="home"),
+url(r'^lista/$', ArticuloListView, name="listar_esp"),
 url(r'^confirmar/(?P<id_pedido>\d+)/$', login_required(Aprobado), name='aprobar_pedido'),
 #url(r'^ingresar/$', login_required(add), name="ingresar_cant"),
 url(r'^ingresar/(?P<id_pedido>\d+)/$', Pedido_Edit, name="ingresar_cant"),
