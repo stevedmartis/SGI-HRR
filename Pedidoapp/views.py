@@ -125,7 +125,6 @@ def home(request):
 def ArticuloListView(request, id_especialidad):
     user = request.user
     if user.is_superuser:
-      if request.method == 'GET':
         pedido = Pedido.objects.all()
         template  = 'admindata.html'
         return render_to_response(template,locals())
