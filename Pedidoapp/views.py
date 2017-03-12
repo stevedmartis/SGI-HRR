@@ -117,12 +117,12 @@ def home(request):
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
-      return render(request, 'index3.html', {'especialidad':especialidad})
+      template = "index3.html"
+      return render_to_response(template,locals())
+
 
 @cache_page(6000)
-def ArticuloListView(request, id_especialidad):
-  especialidad = Pedido.objects.get(id=id_especialidad)
-  if request.method == 'GET':
+def ArticuloListView(request):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.all()
@@ -131,7 +131,7 @@ def ArticuloListView(request, id_especialidad):
     else:
         pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
-  return render(request, 'index3.html', {'especialidad':especialidad})
+    return render_to_response(template,locals())
 
 
 def Pedido_Edit(request, id_pedido):
