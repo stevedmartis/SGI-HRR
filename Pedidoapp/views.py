@@ -117,19 +117,21 @@ def home(request):
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
-      return render(request, 'index3.html', {'especialidad':especialidad})
+      template = "index3.html"
+      return render_to_response(template,locals())
 
 
 @cache_page(6000)
 def ArticuloListView(request):
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.all(especialidad=1)
+        pedido = Pedido.objects.all()
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
         pedido = Pedido.objects.filter(especialidad=1)
-  return HttpResponseRedirect("/solicitar/lista/")
+    template  = 'index2.html'
+  return render_to_response(template,locals())
 
 
 def Pedido_Edit(request, id_pedido):
