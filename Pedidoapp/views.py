@@ -116,9 +116,6 @@ def home(request):
       #
 
       encargado      = Encargado.objects.all()
-      template       = "index3.html"
-      return render_to_response(template,locals())
-    else :
       return render(request, 'index3.html')
 
 
