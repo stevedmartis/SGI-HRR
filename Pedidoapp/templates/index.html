@@ -25,6 +25,8 @@
         {% load cache %}  
         {% cache 6000 'pedidos_home' %}
     <section id="contenido">
+    {% if especialidad %}
+    {% for esp in especialidad}
     <article class="item">
             <figure class="imagen_item">
                 <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
@@ -43,7 +45,7 @@
             {% if pend21 == total_art21 %}
             {% endif %}
             </p>
-            Articulos Aprobados:<a class="titulo_item"  href="">{{especialidad.id}}</a>    
+            Articulos Aprobados:<a class="titulo_item"  href="">{{esp.id}}</a>    
             <a href="{# url 'usuario:listar_esp'  %}" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Solicitar</a>
             <p class="autor_item">
             </p>                   
@@ -452,6 +454,8 @@
             {% endif %}
 
         </article>
+    {% endif %}
+    {% endfor %}
 
     </section>{% endcache %}
     <footer>
