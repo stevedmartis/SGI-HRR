@@ -33,7 +33,7 @@
                 <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="#">{{% esp.nombre %}}</a>
+            <a class="tag_item" href="#">{{ esp.nombre }}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}}</a></h5></p>
             <p class="autor_item">
