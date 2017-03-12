@@ -45,9 +45,9 @@
                 <a class="guardar_item" href="#"></a>
             </p>
             <p class="votacion">
-                <a class="up" href="{% url "plus" enlace.pk %}"></a>
+                <a class="up" href="{% url "plus" %}"></a>
                 {{enlace.votos}}
-                <a class="down" href="{% url "minus" enlace.pk %}"></a>
+                <a class="down" href="{% url "minus" %}"></a>
             </p>
         </article>
         {% endfor %}
