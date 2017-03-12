@@ -118,7 +118,7 @@ def home(request):
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
       template = "index3.html"
-      return render(request, template,locals())
+      return render(request, 'index3.html', {'especialidad':especialidad})
 
 
 @cache_page(6000)
