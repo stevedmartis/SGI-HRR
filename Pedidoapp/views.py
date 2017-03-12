@@ -131,7 +131,7 @@ def ArticuloListView(request, id_especialidad):
     else:
         pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
-  return render_to_response(template,locals())
+  return render_to_response(request,template,locals())
 
 
 def Pedido_Edit(request, id_pedido):
