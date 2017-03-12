@@ -118,7 +118,7 @@ def home(request):
       #
 
       encargado      = Encargado.objects.all()
-      template       = "index.html"
+      template       = "index3.html"
       return render_to_response(template,locals())
     else :
       return render(request, 'index.html')
@@ -133,7 +133,7 @@ def ArticuloListView(request, id_especialidad):
         return render_to_response(template,locals())
     else:
         pedido = Pedido.objects.filter(especialidad=id_especialidad)
-    template  = 'index3.html'
+    template  = 'index2.html'
     return render_to_response(template,locals())
 
 
