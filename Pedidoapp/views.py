@@ -121,9 +121,7 @@ def home(request):
       return render(request, 'index.html', contexto)
 
 @cache_page(6000)
-def ArticuloListView(request, id_especialidad):
-  especialidad = Especialidad.objects.get(id=id_especialidad)
-  if request.method == 'GET':
+def ArticuloListView(request):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=3)
