@@ -46,6 +46,7 @@ def index(request):
 def home(request):
     user = request.user
     if user.is_superuser:
+      especialidad  = Especialidad.filter(all)
       #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
@@ -132,7 +133,7 @@ def ArticuloListView(request, id_especialidad):
         return render_to_response(template,locals())
     else:
         pedido = Pedido.objects.filter(especialidad=id_especialidad)
-    template  = 'index2.html'
+    template  = 'index3.html'
     return render_to_response(template,locals())
 
 
