@@ -44,7 +44,7 @@ def index(request):
 @login_required
 @cache_page(6000)
 def home(request):
-      especialidad  = Especialidad.filter(all)
+      especialidad  = Especialidad.objects.all()
       #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
