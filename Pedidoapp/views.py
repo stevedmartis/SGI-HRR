@@ -120,7 +120,7 @@ def home(request):
       return render(request, 'index3.html', {'especialidad':especialidad})
 
 @cache_page(6000)
-def ArticuloListView(request):
+def ArticuloListView(request, id_especialidad):
   especialidad = Pedido.objects.get(id=id_especialidad)
   if request.method == 'GET':
     user = request.user
