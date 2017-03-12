@@ -113,7 +113,6 @@ def home(request):
       pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
       entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
       #
-
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all().order_by('nombre')
       return render(request, 'index.html')
