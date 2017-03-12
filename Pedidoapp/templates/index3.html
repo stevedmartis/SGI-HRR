@@ -31,13 +31,13 @@
         {% for esp in especialidad %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:listar_esp" esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
+                <a href="{% url "usuario:listar_esp" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">{{esp.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
-            id:<a class="titulo_item" href=""><h5>{{esp.id}}</a></h5></p>
+            id:<a class="titulo_item" href="{{esp.esp}}"><h5>{{esp.id}}</a></h5></p>
             <p class="autor_item">
             </p>   
             <p class="autor_item">
