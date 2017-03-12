@@ -25,9 +25,9 @@
         {% load cache %}  
         {% cache 6000 'pedidos_home' %}
     <section id="contenido">
-        {% if encargado %}
+        {% if pedido %}
         
-        {% for esp in encargado %}
+        {% for esp in pedido %}
         <article class="item">
             <figure class="imagen_item">
                 <img src="imagen.jpg" />
