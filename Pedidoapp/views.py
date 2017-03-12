@@ -114,9 +114,9 @@ def home(request):
       pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
       entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
       #
-
       encargado      = Encargado.objects.all()
-      return render(request, 'index3.html')
+      template = "index3.html"
+    return render_to_response(template,{"especialidad" : especialidad, "request":request})
 
 
 @cache_page(6000)
