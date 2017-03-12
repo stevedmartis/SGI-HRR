@@ -121,7 +121,7 @@ def home(request):
       template       = "index3.html"
       return render_to_response(template,locals())
     else :
-      return render(request, 'index.html')
+      return render(request, 'index3.html')
 
 
 @cache_page(6000)
