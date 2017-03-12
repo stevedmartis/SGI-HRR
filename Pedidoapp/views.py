@@ -117,8 +117,8 @@ def home(request):
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
-      contexto = {'especialidad':especialidad}
-      return (request, 'index3.html', contexto)
+      template = "index3.html"
+      return render(request, template,locals())
 
 
 @cache_page(6000)
