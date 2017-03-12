@@ -53,12 +53,11 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+
         </article>
-        {% endfor %}
-        {% else %}
-            NO HAY ENLACES GUARDADOS
-        {% endif %}
-    </section>
+    {% endfor %}
+    {% endif %}
+    </section>{% endcache %}
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
         <p>SUPPLY for HRR. 2017 ®</p>
@@ -67,6 +66,7 @@
 
 </div>
 {% endblock%}
+
 
 
 
