@@ -127,13 +127,12 @@ def ArticuloListView(request, id_especialidad):
   if request.method == 'GET':
     user = request.user
     if user.is_superuser:
-
         pedido = Pedido.objects.all(instance=id_especialidad)
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
         pedido = Pedido.objects.filter(instance=id_especialidad)
-    template  = 'index3.html'
+    template  = 'index2.html'
   return render_to_response(template,locals())
 
 
