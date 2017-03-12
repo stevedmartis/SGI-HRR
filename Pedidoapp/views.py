@@ -43,12 +43,11 @@ def index(request):
 
 @login_required
 @cache_page(6000)
-def home(request):
+def home(request, id_especialidad):
             #Urologia
-      ped            = Pedido.objects.filter(especialidad=1).count()
-      total_art      = Pedido.objects.filter(especialidad=1).count()
-      pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
-      entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
+      total_art      = Pedido.objects.filter(id=id_especialidad).count()
+      pend           = Pedido.objects.filter(id=id_especialidad).filter(estado='pendiente').count()
+      entre          = Pedido.objects.filter(id=id_especialidad).filter(estado='entregado').count()
       #Eda
       total_art2      = Pedido.objects.filter(especialidad=2).count()
       pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
