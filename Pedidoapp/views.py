@@ -136,10 +136,10 @@ def ArticuloListView(request, id_especialidad):
   return render_to_response(template,locals())
 
 
-def Pedido_Edit(request, id_especialidad):
-    pedido = Pedido.objects.get(id=id_especialidad)
+def Pedido_Edit(request, id_pedido):
+    pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
-      form = PedidoEditForm(instance=id_especialidad)
+      form = PedidoEditForm(instance=pedido)
     else:
       form = PedidoEditForm(request.POST, instance=pedido)
       if form.is_valid():
