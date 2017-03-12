@@ -122,7 +122,7 @@ def home(request):
 
 
 @cache_page(6000)
-def ArticuloListView(request, id_especialidad):
+def ArticuloListView(request):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.all()
@@ -131,7 +131,7 @@ def ArticuloListView(request, id_especialidad):
     else:
         pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
-  return render_to_response(template,locals())
+  return render_to_response(request, template,locals())
 
 
 def Pedido_Edit(request, id_pedido):
