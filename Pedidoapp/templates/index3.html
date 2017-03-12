@@ -28,32 +28,41 @@
     {% if especialidad %}
 
     {% for esp in especialidad}
-    <article class="item">
+    <section id="contenido">
+        {% if especialidad %}
+        
+        {% for esp in especialidad %}
+        <article class="item">
             <figure class="imagen_item">
                 <a href="{% url 'usuario:listar_esp'  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="#">{{ esp.nombre }}</a>
+            <a class="tag_item" href="#">{{esp.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}}</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{esp.encargado.esp}}</a></h5></p>
             <p class="autor_item">
-            Total Articulos: <a class="titulo_item"  href="">.</a>
+            Total Articulos: <a class="titulo_item"  href="">{{total_art21}}.</a>
+            {% if pend21 > 0 %}
             <font color="green"><h4>Solicitado!</h4></font>
-            Articulos Pendientes:<a class="titulo_item"  href="">.</a>
-            Articulos Aprobados:<a class="titulo_item"  href=""></a>                    
-
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend21}}.</a>
+            {% endif %}
+            Articulos Aprobados:<a class="titulo_item"  href="">{{entre21}}</a>                    
+            {% if pend21 == total_art21 %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
-
+            {% endif %}
             </p>   
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
+            {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
         </article>
-    {% endfor %}
-    {% endif %}
-
-    </section>{% endcache %}
+        {% endfor %}
+        {% else %}
+            NO HAY ENLACES GUARDADOS
+        {% endif %}
+    </section>
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
         <p>SUPPLY for HRR. 2017 ®</p>

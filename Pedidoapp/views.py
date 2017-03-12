@@ -44,8 +44,6 @@ def index(request):
 @login_required
 @cache_page(6000)
 def home(request):
-    user = request.user
-    if user.is_superuser:
       especialidad  = Especialidad.filter(all)
       #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
