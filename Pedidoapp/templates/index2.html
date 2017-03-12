@@ -58,7 +58,7 @@
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.cantidad }}</td>
-                    <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a></td>
+                    <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a></td>
 
                 </tr>
         {% endfor %}
