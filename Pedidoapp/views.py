@@ -122,7 +122,7 @@ def home(request):
 @cache_page(6000)
 def ArticuloListView(request, id_especialidad):
   especialidad = Pedido.objects.get(id=id_especialidad)
-  if request.method == "POST":
+  if request.method == "GET":
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.all()
