@@ -173,7 +173,7 @@ def home(request):
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
-      template = "index.html"
+      template = "index3.html"
       return render_to_response(template,locals())
 
 
@@ -512,6 +512,16 @@ def DraCasList(request):
     template  = 'index2.html'
     return render_to_response(template,locals())
 
+def ListAll(request):
+    user = request.user
+    if user.is_superuser:
+        especialidad = Especialidad.objects.all()
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        especialidad = Especialidad.objects.all()
+    template  = 'index2.html'
+    return render_to_response(template,locals())
 
 def Pedido_Edit(request, id_pedido):
     pedido = Pedido.objects.get(id=id_pedido)
@@ -524,6 +534,7 @@ def Pedido_Edit(request, id_pedido):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
+      return redirect('usuario:')
     return render(request, 'form.html', {'form':form})
 
 

@@ -5,7 +5,7 @@ from django.conf.urls import url
 from .import views
 from django.contrib.auth.views import login_required
 
-from Pedidoapp.views import home, Pedido_Edit, add,  Aprobado, UroloList, CardioList, EdaList, FibroList, PabMenorList, CuracionAvList, ClinicaList, OtorrinoList, OftalList, PlumbarList, EggList, TmtList,NeuroList, SaladanList, RecuperaList, DermaList, BroncoList, SalainfoProcList, AdmisionList, AseoProcList, PoliTacoList, DiabetesList, VihList, HepatiList, SalainfoConsList, AdmisionConsList, PrepaListA, PrepaListB, EstacionEnfList, DraCasList
+from Pedidoapp.views import home, Pedido_Edit, add,  Aprobado, ListAll, UroloList, CardioList, EdaList, FibroList, PabMenorList, CuracionAvList, ClinicaList, OtorrinoList, OftalList, PlumbarList, EggList, TmtList,NeuroList, SaladanList, RecuperaList, DermaList, BroncoList, SalainfoProcList, AdmisionList, AseoProcList, PoliTacoList, DiabetesList, VihList, HepatiList, SalainfoConsList, AdmisionConsList, PrepaListA, PrepaListB, EstacionEnfList, DraCasList
 
 admin.autodiscover()
 
@@ -13,7 +13,7 @@ urlpatterns = [
 
 url(r'^home/$', login_required(home), name="home"),
 
-url(r'^lista_uro/$', (UroloList), name="listar_urologia"),
+url(r'^lista/1', (UroloList), name="listar_urologia"),
 url(r'^lista_eda/$', (EdaList), name="listar_eda"),
 url(r'^lista_fibro/$', (FibroList), name="listar_fibro"),
 url(r'^lista_pbmenor/$', (PabMenorList), name="listar_pabmenor"),
@@ -44,6 +44,7 @@ url(r'^lista_prepab/$', (PrepaListB), name="listar_prepa_b"),
 url(r'^lista_estenf/$', (EstacionEnfList), name="listar_estacionenf"),
 url(r'^lista_drcast/$', (DraCasList), name="listar_dracas"),
 
+url(r'^lista/(?P<id_especialidad>\d+)/$', login_required(ListAll), name='lita_todo'),
 url(r'^confirmar/(?P<id_pedido>\d+)/$', login_required(Aprobado), name='aprobar_pedido'),
 #url(r'^ingresar/$', login_required(add), name="ingresar_cant"),
 url(r'^ingresar/(?P<id_pedido>\d+)/$', Pedido_Edit, name="ingresar_cant"),
