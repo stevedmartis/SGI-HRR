@@ -26,7 +26,7 @@
         {% cache 6000 'pedidos_home' %} 
     <section id="contenido">
     {% if request.user.is_superuser %}
-    {% if request.user.id=11 %} 
+    {% if request.user==request.user %} 
     <article class="item">
             <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_admiproc.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
