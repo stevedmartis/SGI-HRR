@@ -39,10 +39,10 @@ def add(request):
 
 @login_required
 @cache_page(6000)
-def home(request,id_especialidad):
+def home(request):
 
       especialidad  = Especialidad.objects.all()
-      pedido  = Pedido.objects.filter(especialidad=id_especialidad).count()
+      pedido  = Pedido.objects.all().count()
       template = "index3.html"
       return render_to_response(template,locals())
 
