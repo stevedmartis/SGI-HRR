@@ -511,7 +511,7 @@ def DraCasList(request):
         pedido = Pedido.objects.filter(especialidad=32)
     template  = 'index2.html'
     return render_to_response(template,locals())
-
+    
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
@@ -536,7 +536,7 @@ def Pedido_Edit(request, id_pedido):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+      return redirect('usuario:lita_todo')
     return render(request, 'form.html', {'form':form})
 
 
