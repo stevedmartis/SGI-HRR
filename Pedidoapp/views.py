@@ -42,7 +42,7 @@ def add(request):
 def home(request):
 
       especialidad  = Especialidad.objects.all()
-      pedido  = Pedido.objects.filter(especialidad=especialidad).count
+      pedido  = Pedido.objects.filter(especialidad=especialidad).count()
       template = "index3.html"
       return render_to_response(template,locals())
 
