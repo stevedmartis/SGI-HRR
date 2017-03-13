@@ -39,7 +39,7 @@ def add(request):
 
 @login_required
 @cache_page(6000)
-def home(request, id_especialidad):
+def home(request):
       #Urologia
       
       #Eda
