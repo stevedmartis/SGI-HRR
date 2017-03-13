@@ -117,7 +117,7 @@ def home(request):
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
-      return render(request, 'index3.html', {'especialidad':especialidad})
+      return render(request, 'index.html', {'especialidad':especialidad})
 
 
 @cache_page(6000)
