@@ -173,7 +173,7 @@ def home(request, id_especialidad):
       template = "index3.html"
       return render_to_response(template,locals())
 
-"""
+
 @cache_page(6000)
 def UroloList(request):
     user = request.user
@@ -184,9 +184,8 @@ def UroloList(request):
     else:
         pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
-    return render_to_response(template, {'pedido':})
+    return render_to_response(template,locals())
 
-"""
 @cache_page(6000)
 def EdaList(request):
     user = request.user
