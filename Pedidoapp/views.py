@@ -124,11 +124,11 @@ def home(request):
 def UroloList(request):
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.all(especialidad=1)
+        pedido = Pedido.objects.filter(especialidad=1)
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        pedido = Pedido.objects.all(especialidad=1)
+        pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
     return render_to_response(template,locals())
 
