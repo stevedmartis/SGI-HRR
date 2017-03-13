@@ -167,7 +167,7 @@ def home(request):
 
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
-      pedido  = Pedido.objects.filter(especialidad=1)
+      pedido  = Pedido.objects.get(id=1)
       template = "index.html"
       return render_to_response(template,locals())
 
