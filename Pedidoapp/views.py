@@ -181,11 +181,11 @@ def home(request):
 def UroloList(request):
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=15)
+        pedido = Pedido.objects.all()
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        pedido = Pedido.objects.filter(especialidad=15)
+        pedido = Pedido.objects.all()
     template  = 'index2.html'
     return render_to_response(template,locals())
 
@@ -338,11 +338,11 @@ def SalainfoProcList(request):
 def AdmisionList(request):
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=15)
+        pedido = Pedido.objects.all()
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        pedido = Pedido.objects.filter(especialidad=15)
+        pedido = Pedido.objects.all()
     template  = 'index2.html'
     return render_to_response(template,locals())
 
