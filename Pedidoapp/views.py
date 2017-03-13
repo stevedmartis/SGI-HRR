@@ -168,7 +168,6 @@ def home(request, id_especialidad):
       pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').count()
 
-      especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
       template = "index3.html"
       return render_to_response(template,locals())
