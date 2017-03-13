@@ -43,10 +43,12 @@ def home(request):
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
+      id_urolo  = Pedido.objects.get(id=15)
       #Eda
       total_art2      = Pedido.objects.filter(especialidad=2).count()
       pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
       entre2          = Pedido.objects.filter(especialidad=2).filter(estado='entregado').count()
+      id_eda  = Pedido.objects.get(id=2)
       #FIBROBRONCOSCOPIA
       total_art3      = Pedido.objects.filter(especialidad=3).count()
       pend3          = Pedido.objects.filter(especialidad=3).filter(estado='pendiente').count()
@@ -167,7 +169,7 @@ def home(request):
 
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
-      pedido  = Pedido.objects.get(id=1)
+      
       template = "index.html"
       return render_to_response(template,locals())
 
