@@ -27,7 +27,7 @@
     <section id="contenido">
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url 'usuario:listar_admision'  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+                <a href="{% url 'usuario:listar_urologia'  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">ADMISION.PROC</a>
@@ -44,7 +44,8 @@
             id:{{pedido.id}}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
-            </p>   
+            </p>
+            <a href="{% url "usuario:listar_urologia"   %}" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Solicitar</a>   
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
