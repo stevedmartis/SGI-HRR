@@ -5,7 +5,7 @@ from django.conf.urls import url
 from .import views
 from django.contrib.auth.views import login_required
 
-from Pedidoapp.views import home, Pedido_Edit, add,  Aprobado, UroloList
+from Pedidoapp.views import home, Pedido_Edit, add,  Aprobado, UroloList, EdaList
 
 admin.autodiscover()
 
@@ -13,7 +13,8 @@ urlpatterns = [
 
 url(r'^home/$', login_required(home), name="home"),
 
-url(r'^lista/$', (UroloList), name="listar_urologia"),
+url(r'^lista_uro/$', UroloList, name="listar_urologia"),
+url(r'^lista_eda/$', EdaList, name="listar_eda"),
 
 
 url(r'^confirmar/(?P<id_pedido>\d+)/$', login_required(Aprobado), name='aprobar_pedido'),

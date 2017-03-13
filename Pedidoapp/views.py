@@ -181,14 +181,14 @@ def home(request):
 def UroloList(request):
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=15)
+        pedido = Pedido.objects.filter(especialidad=1)
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        pedido = Pedido.objects.filter(especialidad=15)
+        pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
     return render_to_response(template,locals())
-
+"""
 
 @cache_page(6000)
 def EdaList(request):
@@ -528,7 +528,7 @@ def Pedido_Edit(request, id_pedido):
       return redirect('index2.html')
     return render(request, 'form.html', {'form':form})
 
-
+"""
 
 
 
