@@ -121,7 +121,7 @@ def home(request):
 
 
 @cache_page(6000)
-def ArticuloListView(request, id_especialidad):
+def ArticuloListView(request):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.all(instance=especialidad)
