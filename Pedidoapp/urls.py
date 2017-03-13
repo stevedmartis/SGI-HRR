@@ -5,7 +5,7 @@ from django.conf.urls import url
 from .import views
 from django.contrib.auth.views import login_required
 
-from Pedidoapp.views import home,  UroloList, listar_eda, Pedido_Edit, add,  Aprobado
+from Pedidoapp.views import home,  UroloList, EdaList, Pedido_Edit, add,  Aprobado
 
 
 admin.autodiscover()
