@@ -26,7 +26,6 @@
         {% cache 6000 'pedidos_home' %} 
     <section id="contenido">
     {% if request.user.is_superuser %}
-    {% if pedido.especialidad.encargado.usuario.id %} 
     <article class="item">
             <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_admiproc.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
@@ -52,7 +51,6 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-    {% endif %}
     {% endif %}
         </article>
     <article class="item">
