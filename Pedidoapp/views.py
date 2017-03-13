@@ -201,7 +201,7 @@ def EdaList(request):
         pedido = Pedido.objects.filter(especialidad=2)
     template  = 'index2.html'
     return render_to_response(template,locals())
-    
+
 def FibroList(request):
     user = request.user
     if user.is_superuser:
@@ -524,7 +524,6 @@ def Pedido_Edit(request, id_pedido):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return redirect('index2.html')
     return render(request, 'form.html', {'form':form})
 
 
