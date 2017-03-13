@@ -124,7 +124,7 @@ def home(request):
 def ArticuloListView(request):
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.all(instance=especialidad)
+        pedido = Pedido.objects.all()
         template  = 'admindata.html'
     return render_to_response(template,locals())
 
