@@ -40,7 +40,7 @@ def add(request):
 @cache_page(6000)
 def home(request):
       #Urologia
-      total_art      = Pedido.objects.filter(especialidad=).count()
+      total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
       #Eda
