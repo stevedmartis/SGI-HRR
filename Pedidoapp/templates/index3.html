@@ -34,7 +34,7 @@
                 <a href="{% url "usuario:lita_todo" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="#">{{esp.nombre}}</a>
+            <a class="tag_item" href="#">{{esp.encargado.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{esp.nombre}}</a></h5></p>
             Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
@@ -43,7 +43,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
             {% endif %}
             Articulos Aprobados:<a class="titulo_item"  href="">{{entre}}</a>  
-            id:<a class="titulo_item" href="{# url "usuario:listar_esp" esp.id %}"><h5>{{esp.id}}</a></h5></p>
+            </p>
             <p class="autor_item">
             </p>   
             <p class="autor_item">
