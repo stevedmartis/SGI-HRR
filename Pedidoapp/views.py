@@ -188,7 +188,7 @@ def UroloList(request):
         pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
     return render_to_response(template,locals())
-"""
+
 
 @cache_page(6000)
 def EdaList(request):
@@ -201,7 +201,7 @@ def EdaList(request):
         pedido = Pedido.objects.filter(especialidad=2)
     template  = 'index2.html'
     return render_to_response(template,locals())
-
+"""
 def FibroList(request):
     user = request.user
     if user.is_superuser:
@@ -512,7 +512,7 @@ def DraCasList(request):
     template  = 'index2.html'
     return render_to_response(template,locals())
 
-
+"""
 
 def Pedido_Edit(request, id_pedido):
     pedido = Pedido.objects.get(id=id_pedido)
@@ -528,7 +528,7 @@ def Pedido_Edit(request, id_pedido):
       return redirect('index2.html')
     return render(request, 'form.html', {'form':form})
 
-"""
+
 
 
 
