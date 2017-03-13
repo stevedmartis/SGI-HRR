@@ -41,10 +41,7 @@ def add(request):
 @cache_page(6000)
 def home(request, id_especialidad):
       #Urologia
-      especialidad   = Especialidad.objects.get(id=id_especialidad)
-      total_art      = Pedido.objects.filter(especialidad=especialidad).count()
-  #    pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')count()
-   #   entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado')count()
+      
       #Eda
       total_art2      = Pedido.objects.filter(especialidad=2).count()
       pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
@@ -166,8 +163,11 @@ def home(request, id_especialidad):
       pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
       entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
       #
+      especialidad   = Especialidad.objects.get(id=id_especialidad)
+      total_art      = Pedido.objects.filter(especialidad=especialidad).count()
+      pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')count()
+      entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado')count()
 
-      encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
       template = "index3.html"
@@ -184,7 +184,7 @@ def UroloList(request):
     else:
         pedido = Pedido.objects.filter(especialidad=1)
     template  = 'index2.html'
-    return render_to_response(template,locals())
+    return render_to_response(template, {'pedido':})
 
 
 @cache_page(6000)
