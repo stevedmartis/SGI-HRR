@@ -164,7 +164,7 @@ CACHES = {
 }
 """
 
-LOGIN_REDIRECT_URL = reverse_lazy('usuario:listar_esp')
+LOGIN_REDIRECT_URL = reverse_lazy('usuario:home')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 EMAIL_USE_TLS = True

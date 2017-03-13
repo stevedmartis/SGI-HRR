@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 from django.template.loader import get_template
 from django.template import Context
 from datetime import datetime
-from Pedidoapp.forms import PedidoEditForm
+from Pedidoapp.forms import PedidoEditForm, EstadisticaForm
 from django.template.context import RequestContext
 from django.template import RequestContext
 from django.views.decorators.cache import cache_page
@@ -44,7 +44,7 @@ def index(request):
 @login_required
 @cache_page(6000)
 def home(request):
-            #Urologia
+      #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
@@ -80,7 +80,7 @@ def home(request):
       total_art9      = Pedido.objects.filter(especialidad=9).count()
       pend9           = Pedido.objects.filter(especialidad=9).filter(estado='pendiente').count()
       entre9          = Pedido.objects.filter(especialidad=9).filter(estado='entregado').count()
-      #
+      #P. LUMBAR
       total_art10      = Pedido.objects.filter(especialidad=10).count()
       pend10          = Pedido.objects.filter(especialidad=10).filter(estado='pendiente').count()
       entre10          = Pedido.objects.filter(especialidad=10).filter(estado='entregado').count()
@@ -88,26 +88,82 @@ def home(request):
       total_art11     = Pedido.objects.filter(especialidad=11).count()
       pend11          = Pedido.objects.filter(especialidad=11).filter(estado='pendiente').count()
       entre11          = Pedido.objects.filter(especialidad=11).filter(estado='entregado').count()
+      #BRONCOPULMONAR
+      total_art12     = Pedido.objects.filter(especialidad=12).count()
+      pend12          = Pedido.objects.filter(especialidad=12).filter(estado='pendiente').count()
+      entre12          = Pedido.objects.filter(especialidad=12).filter(estado='entregado').count()
       #TMT
       total_art13     = Pedido.objects.filter(especialidad=13).count()
       pend13          = Pedido.objects.filter(especialidad=13).filter(estado='pendiente').count()
       entre13         = Pedido.objects.filter(especialidad=13).filter(estado='entregado').count()
+      #SALA INFORMES PROC.
+      total_art14     = Pedido.objects.filter(especialidad=14).count()
+      pend14          = Pedido.objects.filter(especialidad=14).filter(estado='pendiente').count()
+      entre14         = Pedido.objects.filter(especialidad=14).filter(estado='entregado').count()
+      #ADMISION.PROC
+      total_art15    = Pedido.objects.filter(especialidad=15).count()
+      pend15         = Pedido.objects.filter(especialidad=15).filter(estado='pendiente').count()
+      entre15         = Pedido.objects.filter(especialidad=15).filter(estado='entregado').count()
       #NEUROLOGIA
       esp             = Pedido.objects.filter(especialidad=16)
       total_art16     = Pedido.objects.filter(especialidad=16).count()
       pend16          = Pedido.objects.filter(especialidad=16).filter(estado='pendiente').count()
       entre16          = Pedido.objects.filter(especialidad=16).filter(estado='entregado').count()
+      #RECUPERACION
+      total_art19     = Pedido.objects.filter(especialidad=19).count()
+      pend19          = Pedido.objects.filter(especialidad=19).filter(estado='pendiente').count()
+      entre19          = Pedido.objects.filter(especialidad=19).filter(estado='entregado').count() 
       #SALA DAN
       total_art18     = Pedido.objects.filter(especialidad=18).count()
       pend18          = Pedido.objects.filter(especialidad=18).filter(estado='pendiente').count()
       entre18          = Pedido.objects.filter(especialidad=18).filter(estado='entregado').count()
-      #RECUPERACION
-      total_art19     = Pedido.objects.filter(especialidad=19).count()
-      pend19          = Pedido.objects.filter(especialidad=19).filter(estado='pendiente').count()
-      entre19          = Pedido.objects.filter(especialidad=19).filter(estado='entregado').count()   
+        
       #AUX.ASEO.PROC 20
-      #AUX.ASEO.PROC 23
+      total_art20     = Pedido.objects.filter(especialidad=20).count()
+      pend20         = Pedido.objects.filter(especialidad=20).filter(estado='pendiente').count()
+      entre20          = Pedido.objects.filter(especialidad=20).filter(estado='entregado').count()
+      #POLITACO
+      total_art22     = Pedido.objects.filter(especialidad=22).count()
+      pend22         = Pedido.objects.filter(especialidad=22).filter(estado='pendiente').count()
+      entre22          = Pedido.objects.filter(especialidad=22).filter(estado='entregado').count()
+      #ESTACION ENF. PROC
+      total_art23     = Pedido.objects.filter(especialidad=23).count()
+      pend23         = Pedido.objects.filter(especialidad=23).filter(estado='pendiente').count()
+      entre23          = Pedido.objects.filter(especialidad=23).filter(estado='entregado').count()
+      #DIABETES - CONSULTAR NOMBRE
+      total_art24     = Pedido.objects.filter(especialidad=24).count()
+      pend24           = Pedido.objects.filter(especialidad=24).filter(estado='pendiente').count()
+      entre24          = Pedido.objects.filter(especialidad=24).filter(estado='entregado').count()
+      #PROG. VIH 
+      total_art25     = Pedido.objects.filter(especialidad=25).count()
+      pend25           = Pedido.objects.filter(especialidad=25).filter(estado='pendiente').count()
+      entre25          = Pedido.objects.filter(especialidad=25).filter(estado='entregado').count()
+      #PROG. HEPATITIS - CONSULTAR NOMBRE
+      total_art26      = Pedido.objects.filter(especialidad=26).count()
+      pend26           = Pedido.objects.filter(especialidad=26).filter(estado='pendiente').count()
+      entre26          = Pedido.objects.filter(especialidad=26).filter(estado='entregado').count()
+      #SALA INFORMES CONS
+      total_art27      = Pedido.objects.filter(especialidad=27).count()
+      pend27           = Pedido.objects.filter(especialidad=27).filter(estado='pendiente').count()
+      entre27          = Pedido.objects.filter(especialidad=27).filter(estado='entregado').count()
+      #ADMISION.CONS
+      total_art28      = Pedido.objects.filter(especialidad=28).count()
+      pend28           = Pedido.objects.filter(especialidad=28).filter(estado='pendiente').count()
+      entre28          = Pedido.objects.filter(especialidad=28).filter(estado='entregado').count()
+      #PREPARACION A
+      total_art30      = Pedido.objects.filter(especialidad=30).count()
+      pend30           = Pedido.objects.filter(especialidad=30).filter(estado='pendiente').count()
+      entre30          = Pedido.objects.filter(especialidad=30).filter(estado='entregado').count()
+      #PREPARACION B
+      total_art31      = Pedido.objects.filter(especialidad=31).count()
+      pend31           = Pedido.objects.filter(especialidad=31).filter(estado='pendiente').count()
+      entre31          = Pedido.objects.filter(especialidad=31).filter(estado='entregado').count()
+      #DRA. CASTELLON
+      total_art32      = Pedido.objects.filter(especialidad=32).count()
+      pend32           = Pedido.objects.filter(especialidad=32).filter(estado='pendiente').count()
+      entre32          = Pedido.objects.filter(especialidad=32).filter(estado='entregado').count()
       #AUX. ASEO.CONS 34
+
       #DERMA/FOTO
       total_art21     = Pedido.objects.filter(especialidad=21).count()
       pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
@@ -133,6 +189,7 @@ def UroloList(request):
     template  = 'index2.html'
     return render_to_response(template,locals())
 
+
 @cache_page(6000)
 def EdaList(request):
     user = request.user
@@ -142,6 +199,316 @@ def EdaList(request):
         return render_to_response(template,locals())
     else:
         pedido = Pedido.objects.filter(especialidad=2)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def FibroList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=3)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=3)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def PabMenorList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=4)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=4)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def CuracionAvList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=5)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=5)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def ClinicaList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=6)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=6)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def CardioList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=7)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=7)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def OtorrinoList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=8)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=8)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def OftalList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=9)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=9)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def PlumbarList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=10)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=10)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def EggList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=11)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=11)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def BroncoList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=12)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=12)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def TmtList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=13)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=13)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+
+def SalainfoProcList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=14)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=14)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def AdmisionList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=15)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=15)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def NeuroList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=16)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=16)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def RecuperaList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=19)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=19)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def SaladanList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=18)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=18)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def AseoProcList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=20)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=20)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def DermaList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=21)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=21)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def PoliTacoList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=22)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=22)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+
+def EstacionEnfList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=23)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=23)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def DiabetesList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=24)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=24)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def VihList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=25)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=25)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def HepatiList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=26)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=26)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def SalainfoConsList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=27)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=27)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def AdmisionConsList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=28)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=28)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def PrepaListA(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=30)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=30)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def PrepaListB(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=31)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=31)
+    template  = 'index2.html'
+    return render_to_response(template,locals())
+
+def DraCasList(request):
+    user = request.user
+    if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=32)
+        template  = 'admindata.html'
+        return render_to_response(template,locals())
+    else:
+        pedido = Pedido.objects.filter(especialidad=32)
     template  = 'index2.html'
     return render_to_response(template,locals())
 
@@ -158,8 +525,9 @@ def Pedido_Edit(request, id_pedido):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return redirect('usuario:listar_esp')
+      return redirect('index2.html')
     return render(request, 'form.html', {'form':form})
+
 
 
 

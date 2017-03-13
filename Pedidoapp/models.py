@@ -17,6 +17,7 @@ class Encargado(models.Model):
 
 class Especialidad(models.Model):
     nombre        = models.CharField(max_length=50, blank=True)
+    estadistica   = models.CharField(max_length=999, blank=True)
     encargado     = models.ForeignKey('Encargado', blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
