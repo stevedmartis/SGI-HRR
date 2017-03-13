@@ -534,7 +534,7 @@ def Pedido_Edit(request, id_pedido):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return redirect('usuario:')
+      return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     return render(request, 'form.html', {'form':form})
 
 

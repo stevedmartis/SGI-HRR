@@ -13,7 +13,7 @@ urlpatterns = [
 
 url(r'^home/$', login_required(home), name="home"),
 
-url(r'^lista/1$', (UroloList), name="listar_urologia"),
+url(r'^lista_uro/$', (UroloList), name="listar_urologia"),
 url(r'^lista_eda/$', (EdaList), name="listar_eda"),
 url(r'^lista_fibro/$', (FibroList), name="listar_fibro"),
 url(r'^lista_pbmenor/$', (PabMenorList), name="listar_pabmenor"),
