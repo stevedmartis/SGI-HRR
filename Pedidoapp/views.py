@@ -130,7 +130,7 @@ def UroloList(request):
     else:
         pedido = Pedido.objects.all(especialidad=1)
     template  = 'index2.html'
-  return render_to_response(template,locals())
+    return render_to_response(template,locals())
 
 
 def Pedido_Edit(request, id_pedido):
