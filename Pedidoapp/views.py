@@ -37,27 +37,12 @@ def add(request):
     return render(request, 'form.html', {'form':form})
 
 
-                  
-def ListAll(request, id_especialidad):
-  especialidad = Especialidad.objects.get(id=id_especialidad)
-  if request.method == 'GET':
-    user = request.user
-    if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
-        template  = 'admindata.html'
-        return render_to_response(template,locals())
-    else:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
-    template  = 'index2.html'
-    return render_to_response(template,locals())
-
-
 @login_required
 @cache_page(6000)
 def home(request, id_especialidad):
       #Urologia
       especialidad   = Especialidad.objects.get(id=id_especialidad)
-      total_art      = Pedido.objects.filter(especialidad=especialidad).count()                   
+      total_art      = Pedido.objects.filter(especialidad=especialidad).count()
       pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')count()
       entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado')count()
       #Eda
