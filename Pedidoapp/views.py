@@ -512,14 +512,16 @@ def DraCasList(request):
     template  = 'index2.html'
     return render_to_response(template,locals())
 
-def ListAll(request):
+def ListAll(request, id_especialidad):
+  especialidad = Especialidad.objects.get(id=id_especialidad)
+  if request.method == 'GET':
     user = request.user
     if user.is_superuser:
-        especialidad = Especialidad.objects.all()
+        especialidad = Especialidad.objects.all(instance=especialidad)
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        especialidad = Especialidad.objects.all()
+        especialidad = Especialidad.objects.all(instance=especialidad)
     template  = 'index2.html'
     return render_to_response(template,locals())
 
