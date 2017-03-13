@@ -43,8 +43,8 @@ def home(request, id_especialidad):
       #Urologia
       especialidad   = Especialidad.objects.get(id=id_especialidad)
       total_art      = Pedido.objects.filter(especialidad=especialidad).count()
-      pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')count()
-      entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado')count()
+  #    pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')count()
+   #   entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado')count()
       #Eda
       total_art2      = Pedido.objects.filter(especialidad=2).count()
       pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
