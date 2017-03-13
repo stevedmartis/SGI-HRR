@@ -39,12 +39,9 @@
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
             {% if pedido %}
             <font color="green"><h4>Solicitado!</h4></font>
+            {% else %}
+            <font color="red"><h4>No Solicitado</h4></font>
             {% endif %}
-            {% if pend > 0 %}
-            <font color="green"><h4>Solicitado!</h4></font>
-            Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
-            {% endif %}
-            Articulos Aprobados:<a class="titulo_item"  href="">{{entre}}</a>  
            </p>
             <p class="autor_item">
             </p>   
