@@ -163,11 +163,13 @@ def home(request, id_especialidad):
       pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
       entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
       #
-      especialidad   = Especialidad.objects.get(id=id_especialidad)
-      total_art      = Pedido.objects.filter(especialidad=especialidad).count()
-      pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').count()
-      entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').count()
 
+      especialidad2   = Especialidad.objects.get(id=id_especialidad)
+      total_art      = Pedido.objects.filter(especialidad=especialidad2).count()
+      pend           = Pedido.objects.filter(especialidad=especialidad2).filter(estado='pendiente').count()
+      entre          = Pedido.objects.filter(especialidad=especialidad2).filter(estado='entregado').count()
+
+      especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
       template = "index3.html"
       return render_to_response(template,locals())
