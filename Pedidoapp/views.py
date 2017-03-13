@@ -41,7 +41,7 @@ def add(request):
 
 @login_required
 @cache_page(6000)
-def home(request):
+def home(request, id_especialidad):
       #Urologia
       especialidad   = Especialidad.objects.get(id=id_especialidad)
       total_art      = Pedido.objects.filter(especialidad=especialidad).count()                  
