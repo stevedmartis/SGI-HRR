@@ -53,10 +53,10 @@
             {% endif %}
     {% endif %}
         </article>
-    <article class="item">
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_admicons.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_admicons.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">ADMISION.CONS</a>
@@ -80,10 +80,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_aseop.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_aseop.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">AUX.ASEP PROC</a>
@@ -107,10 +109,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_derma.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_derma.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">DERMATOLOGIA/ FOTO</a>
@@ -133,10 +137,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_sdan.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_sdan.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">SALA DAN</a>
@@ -159,10 +165,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_caste.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_caste.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">DRA. CASTELLON</a>
@@ -186,10 +194,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
     <article class="item">
+    {% if request.user.is_superuser %}
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_diab.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_diab.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">DIABETES</a>
@@ -213,7 +223,9 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_enfp.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
@@ -240,7 +252,9 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_hepa.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
@@ -267,10 +281,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_vih.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_vih.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">PROG. VIH</a>
@@ -294,10 +310,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_taco.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_taco.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">POLI.TACO</a>
@@ -321,10 +339,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_prea.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_prea.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">PREPARACION A</a>
@@ -347,10 +367,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_preb.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_preb.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">PREPARACION B</a>
@@ -373,7 +395,9 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_recu.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
@@ -399,10 +423,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_tmt.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_tmt.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">TRAUMATOLOGIA</a>
@@ -425,10 +451,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_salac.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_salac.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">SALA INFORMES CONS.</a>
@@ -452,10 +480,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_salaproc.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_salaproc.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">SALA INFORMES PROC.</a>
@@ -479,10 +509,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_bronco.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_bronco.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">BRONCOPULMONAR</a>
@@ -505,10 +537,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_neuro.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            <a href="{% url "usuario:lita_todo" id_neuro.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">NEUROLOGIA</a>
@@ -531,10 +565,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_egg.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_egg.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">EEG</a>
@@ -557,10 +593,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_lumbar.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_lumbar.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">P. LUMBAR</a>
@@ -583,11 +621,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_oftal.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_oftal.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">OFTAMOLOGIA</a>
@@ -610,11 +649,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_otto.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_otto.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">OTORRINO</a>
@@ -637,11 +677,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_cardio.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_cardio.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">CARDIOLOGIA</a>
@@ -664,11 +705,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_clinitt.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_clinitt.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">CLINICA Y TTO</a>
@@ -691,11 +733,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_curav.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_curav.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">CURACION AVANZADA</a>
@@ -718,11 +761,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_pabm.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_pabm.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">PAB. MENOR</a>
@@ -745,11 +789,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
         <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_fibro.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_fibro.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">FIBROBRONCOSCOPIA</a>
@@ -772,11 +817,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
         <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_eda.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_eda.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">EDA</a>
@@ -799,11 +845,12 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
+    {% if request.user.is_superuser %}
         <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_urolo.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
+            <a href="{% url "usuario:lita_todo" id_urolo.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="#">UROLOGIA</a>
@@ -826,7 +873,7 @@
             {% if pedido %}
             <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
             {% endif %}
-
+    {% endif %}
         </article>
 
     </section>{% endcache %}
