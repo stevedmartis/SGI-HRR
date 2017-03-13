@@ -165,8 +165,8 @@ def home(request, id_especialidad):
       #
       especialidad   = Especialidad.objects.get(id=id_especialidad)
       total_art      = Pedido.objects.filter(especialidad=especialidad).count()
-      pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')count()
-      entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado')count()
+      pend           = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').count()
+      entre          = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').count()
 
       especialidad  = Especialidad.objects.all()
       pedido  = Pedido.objects.all()
