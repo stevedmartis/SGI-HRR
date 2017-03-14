@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static "css/responsive.css" %}" />
     <link rel="stylesheet" href="{% static "css/dataTables.bootstrap.min.css" %}"/>
     <link rel="stylesheet" href="{% static "css/dataTables.checkboxes.css" %}"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"/>
 </head>
     <nav>
         <ul>
@@ -31,6 +32,7 @@
 <section id="contenido">
 <div class="container" style="margin:50px auto width="100%"">
         <form id="myform" method="post">
+        <input type="submit" form="myform" class= "btn btn-success" value="Guardar">
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
@@ -70,7 +72,7 @@
                     <td>{{ ped.fecha_pedido }}</td>
                     <td>{{ ped.estado }}</td>
                     <td>{{form.as_p}}</td>
-                    <td><input type="submit" form="myform" class= "btn btn-success" value="Guardar"></td>
+                    <td></td>
                 </tr>
         {% endfor %}
         {% endif %}
@@ -88,6 +90,7 @@
     <script src="{% static "js/dataTables.bootstrap.min.js" %}"></script>
     <script src="{% static "js/dataTables.checkboxes.min.js" %}"></script>
     <script src="{% static "js/jquery.form.min.js" %}"></script>
+
     
 
     <script>
