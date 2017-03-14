@@ -47,7 +47,6 @@
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
-                    <td>Ingresar</td>
                 </tr>
             </tfoot>
             <tbody>
@@ -58,7 +57,8 @@
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.cantidad }}</td>
-                    <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a></td>
+                    <td>{% csrf_token %}
+                    {{form.as_p}}</td>
 
                 </tr>
         {% endfor %}
@@ -89,10 +89,10 @@ $(document).ready(function (){
       ],
    });
 
-   table.column(0).every( function () {
+   table.column(4).every( function () {
 
     var column = this;
-    var select = $('<select><option value="Seleccione..."></option></select>')
+    var select = $('<input type="submit" class= "btn btn-success" value="Guardar"></td>')
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(
