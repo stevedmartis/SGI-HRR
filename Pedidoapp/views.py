@@ -228,7 +228,7 @@ def Pedido_Edit(request, id_pedido):
           pedido.fecha_pedido = datetime.now()
           pedido.save()
       return redirect('usuario:home')
-    return render(request, 'form.html', {'form':form})
+    return render(request, 'admindata.html', {'form':form})
 
 
 from django.views.generic import ListView, DetailView
