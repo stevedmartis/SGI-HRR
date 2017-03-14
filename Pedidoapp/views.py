@@ -240,12 +240,12 @@ class PedidoDetailView(DetailView):
         return render('index.html')
 
 
-def Aprobado(request, id_pedido):
+def Aprobado(request, id_pedido, id_especialidad):
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
         pedido.estado = 'entregado'
         pedido.fecha_entrega = datetime.now()
         pedido.save()
-     # articulo.stock = cantidad
-    return HttpResponseRedirect("/solicitar/lista/")
+    template  = 'index2.html'
+    return render_to_response(template,locals())
 
