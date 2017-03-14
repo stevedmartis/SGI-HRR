@@ -205,10 +205,10 @@ def home(request):
 
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
-  if request.method == 'GET':
+  if request.method == 'POST':
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.all()
+        pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
