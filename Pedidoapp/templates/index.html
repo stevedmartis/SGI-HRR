@@ -140,7 +140,7 @@
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
-    {% if request.user.id.3 %}
+    {% if request.user.id =! 3 %}
     <article class="item">
             <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_sdan.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
