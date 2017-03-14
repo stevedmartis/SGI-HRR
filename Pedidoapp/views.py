@@ -227,8 +227,15 @@ def Pedido_Edit(request, id_pedido):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return redirect('usuario:home')
+      return custom_redirect('usuario:lita_todo')
     return render(request, 'form.html', {'form':form})
+
+    def custom_redirect(lita_todo, *args, **kwargs):
+    from django.core.urlresolvers import reverse 
+    import urllib
+    url = reverse(lita_todo, args = args)
+    params = urllib.urlencode(kwargs)
+    return HttpResponseRedirect('/solicitar/lista/' + "(?P<id_especialidad>\d+)" % params)
 
 
 
