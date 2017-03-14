@@ -240,7 +240,7 @@ class PedidoDetailView(DetailView):
         return render('index.html')
 
 
-def Aprobado(request, id_pedido, id_especialidad):
+def Aprobado(request, id_pedido):
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
         pedido.estado = 'entregado'
