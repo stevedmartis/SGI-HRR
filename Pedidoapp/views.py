@@ -247,5 +247,5 @@ def Aprobado(request, id_pedido):
         pedido.fecha_entrega = datetime.now()
         pedido.save()
      # articulo.stock = cantidad
-    return HttpResponseRedirect("/solicitar/lista/")
+    return redirect('usuario:home')
 
