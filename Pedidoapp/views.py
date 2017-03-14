@@ -215,8 +215,8 @@ def ListAll(request, id_especialidad):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-        template  = 'admindata.html'
-        return render_to_response(template,locals())
+        return redirect('usuario:home')
+    return render_to_response('admindata.html',locals())
     else:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         form = PedidoEditForm()
@@ -225,7 +225,7 @@ def ListAll(request, id_especialidad):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-    template  = 'index2.html'
+        return redirect('usuario:home')
     return render_to_response(template,locals())
 
 def Pedido_Edit(request, id_pedido):
