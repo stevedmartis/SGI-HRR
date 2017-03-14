@@ -39,7 +39,7 @@ def add(request):
 @login_required
 @cache_page(6000)
 def home(request):
-      user = request.user
+    user = request.user
     if user.is_superuser:
       #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
@@ -198,7 +198,7 @@ def home(request):
       template = "index.html"
       return render_to_response(template,locals())
     else:
-      especialidad  = Especialidad.objects.filter(especialidad__encargado__usario=user.id)
+      especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template  = 'index3.html'
     return render_to_response(template,locals())
 
