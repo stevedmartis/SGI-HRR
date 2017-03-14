@@ -72,7 +72,7 @@
                     <td>{% csrf_token %}
                     {{form.as_p}}</td>
                     <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
-                    <td><input type="submit" class= "btn btn-success" value="Guardar"></td>
+                    <input type="submit" class= "btn btn-success" value="Guardar"></td>
                 </tr>
         {% endfor %}
         {% endif %}
@@ -81,6 +81,7 @@
            </form>
            
     </aside>
+    <input type="submit" class= "btn btn-success" value="Guardar">
     </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
