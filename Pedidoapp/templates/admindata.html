@@ -42,6 +42,7 @@
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
                     <td></td>
+                    <td></td> 
                 </tr>
             </thead>
             <tfoot>
@@ -53,6 +54,7 @@
                     <td>Cantidad</td>
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
+                    <td></td> 
                     <td></td> 
                 </tr>
             </tfoot>
@@ -70,7 +72,6 @@
                     <td>{% csrf_token %}
                     {{form.as_p}}</td>
                     <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
-                    <td><input type="submit" class= "btn btn-success" value="Guardar"></td>
                 </tr>
         {% endfor %}
         {% endif %}
@@ -100,10 +101,10 @@ $(document).ready(function (){
       ],
    });
 
-   table.column(0).every( function () {
-
+   table.column(8).every( function () {
+   
     var column = this;
-    var select = $('<select><option value="Seleccione..."></option></select>')
+    var select = $('<input type="submit" class= "btn btn-success" value="Guardar"></td>')
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(
