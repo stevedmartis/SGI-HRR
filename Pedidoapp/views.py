@@ -227,7 +227,7 @@ def Pedido_Edit(request, id_pedido):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return redirect('usuario:lita_todo')
+      return redirect('usuario:home')
     return render(request, 'form.html', {'form':form})
 
 
