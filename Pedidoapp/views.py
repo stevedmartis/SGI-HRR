@@ -214,28 +214,24 @@ def ListAll(request, id_especialidad, id_pedido):
             if request.method == "POST":
               form = PedidoEditForm(request.POST, request.FILES, instance=instance)
               if form.is_valid():
-                form.save()
-                pedido.estado = 'pendiente'
-                pedido.fecha_pedido = datetime.now()
-                pedido.save()
-              return HttpResponseRedirect('/solicitar/home/') 
+                  form.save()
+                  pedido.estado = 'pendiente'
+                  pedido.fecha_pedido = datetime.now()
+                  pedido.save()
+                  return HttpResponseRedirect('/solicitar/home/') 
             else:
               form = PedidoEditForm(instance=instance)
-        return render(request, 'admindata.html', locals(),{'form':form}, context_instance=RequestContext(request))
+        return render(request, 'admindata.html', locals(),{'form':form})
 
-def Pedido_Edit(request):
+def Cant_ingresar(request, id_pedido):
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
-    else:
-      form = PedidoEditForm(request.POST, instance=pedido)
-      if form.is_valid():
-          form.save()
-          pedido.estado = 'pendiente'
-          pedido.fecha_pedido = datetime.now()
-          pedido.save()
+      pedido.estado = 'pendiente'
+      pedido.fecha_pedido = datetime.now()
+      pedido.save()
       return redirect('usuario:home')
-    return render(request, 'index2.html', {'form':form ,})
+
 
 
 

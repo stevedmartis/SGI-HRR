@@ -5,7 +5,7 @@ from django.conf.urls import url
 from .import views
 from django.contrib.auth.views import login_required
 
-from Pedidoapp.views import home, Pedido_Edit, add,  Aprobado, ListAll
+from Pedidoapp.views import home, Cant_ingresar, add,  Aprobado, ListAll
 
 admin.autodiscover()
 
@@ -18,7 +18,7 @@ url(r'^home/$', login_required(home), name="home"),
 url(r'^lista/(?P<id_especialidad>\d+)/$', login_required(ListAll), name='lita_todo'),
 url(r'^confirmar/(?P<id_pedido>\d+)/$', login_required(Aprobado), name='aprobar_pedido'),
 #url(r'^ingresar/$', login_required(add), name="ingresar_cant"),
-url(r'^ingresar/(?P<id_pedido>\d+)/$', Pedido_Edit, name="ingresar_cant"),
+url(r'^ingresar/(?P<id_pedido>\d+)/$', Cant_ingresar, name="cant_ingresar"),
 
 
 
