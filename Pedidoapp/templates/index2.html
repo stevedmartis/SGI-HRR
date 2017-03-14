@@ -30,7 +30,7 @@
 <br>
 <section id="contenido">
 <div class="container" style="margin:50px auto width="100%"">
-        <form id="myform" method="post">
+        <form id="myform" method="post">{% csrf_token %}
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
@@ -57,8 +57,7 @@
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.cantidad }}</td>
-                    <td>{% csrf_token %}
-                    {{form.as_p}}</td>
+                    <td>{{form.as_p}}</td>
 
                 </tr>
         {% endfor %}

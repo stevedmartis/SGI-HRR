@@ -42,6 +42,7 @@
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
                     <td>Ingresar</td>
+                    <td></td> 
                 </tr>
             </thead>
             <tfoot>
@@ -53,6 +54,7 @@
                     <td>Cantidad</td>
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
+                    <td></td> 
                     <td></td> 
                 </tr>
             </tfoot>
@@ -67,8 +69,8 @@
                     <td>{{ ped.cantidad }}</td>
                     <td>{{ ped.fecha_pedido }}</td>
                     <td>{{ ped.estado }}</td>
-                    <td>{% csrf_token %}
-                    {{form.as_p}}</td>
+                    <td>{{form.as_p}}</td>
+                    <td><input type="submit" form="myform" class= "btn btn-success" value="Guardar"></td>
                 </tr>
         {% endfor %}
         {% endif %}
@@ -76,6 +78,7 @@
            </table>
            </form>
            
+         
     </aside> 
     </section>
     </div>
@@ -101,7 +104,7 @@ $(document).ready(function (){
    table.column(7).every( function () {
    
     var column = this;
-    var select = $('<input type="submit" class= "btn btn-success" value="Guardar"></td>')
+    var select = $('')
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(

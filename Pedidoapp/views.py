@@ -210,23 +210,15 @@ def ListAll(request, id_especialidad):
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         form = PedidoEditForm()
-        if form.is_valid():
+  else:
+      form = PedidoEditForm(request.POST)
+      if form.is_valid():
           form.save()
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-        return redirect('usuario:home')
-    return render_to_response('admindata.html',locals())
-    else:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
-        form = PedidoEditForm()
-        if form.is_valid():
-          form.save()
-          pedido.estado = 'pendiente'
-          pedido.fecha_pedido = datetime.now()
-          pedido.save()
-        return redirect('usuario:home')
-    return render_to_response(template,locals())
+      return redirect('usuario:home')
+  return render(request, 'index2.html', locals())
 
 def Pedido_Edit(request, id_pedido):
     pedido = Pedido.objects.get(id=id_pedido)
