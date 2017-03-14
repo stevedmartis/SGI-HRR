@@ -209,10 +209,22 @@ def ListAll(request, id_especialidad):
     user = request.user
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
+        form = PedidoEditForm()
+        if form.is_valid():
+          form.save()
+          pedido.estado = 'pendiente'
+          pedido.fecha_pedido = datetime.now()
+          pedido.save()
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
         pedido = Pedido.objects.filter(especialidad=especialidad)
+        form = PedidoEditForm()
+        if form.is_valid():
+          form.save()
+          pedido.estado = 'pendiente'
+          pedido.fecha_pedido = datetime.now()
+          pedido.save()
     template  = 'index2.html'
     return render_to_response(template,locals())
 
@@ -231,6 +243,9 @@ def Pedido_Edit(request, id_pedido):
     return render(request, 'admindata.html', {'form':form})
 
 
+
+
+
 from django.views.generic import ListView, DetailView
    
 
@@ -246,6 +261,6 @@ def Aprobado(request, id_pedido):
         pedido.estado = 'entregado'
         pedido.fecha_entrega = datetime.now()
         pedido.save()
-    template  = 'index2.html'
-    return render_to_response(template,locals())
+     # articulo.stock = cantidad
+    return HttpResponseRedirect("/solicitar/lista/")
 
