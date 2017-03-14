@@ -216,6 +216,14 @@ def ListAll(request, id_especialidad):
     template  = 'index2.html'
     return render_to_response(template,locals())
 
+
+def custom_redirect(lita_todo, *args, **kwargs):
+    from django.core.urlresolvers import reverse 
+    import urllib
+      url = reverse(lita_todo, args = args)
+      params = urllib.parse.urlencode(kwargs)
+    return HttpResponseRedirect('/solicitar/lista/' + "(?P<id_especialidad>\d+)" % params)
+
 def Pedido_Edit(request, id_pedido):
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
@@ -230,13 +238,9 @@ def Pedido_Edit(request, id_pedido):
       return custom_redirect('usuario:lita_todo')
     return render(request, 'form.html', {'form':form})
 
-    from django.core.urlresolvers import reverse 
-    import urllib
+    
 
-    def custom_redirect(lita_todo, *args, **kwargs):
-      url = reverse(lita_todo, args = args)
-      params = urllib.parse.urlencode(kwargs)
-    return HttpResponseRedirect('/solicitar/lista/' + "(?P<id_especialidad>\d+)" % params)
+    
 
 
 
