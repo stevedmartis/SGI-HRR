@@ -33,7 +33,6 @@
 <section id="contenido">
 <div class="container" style="margin:50px auto width="100%"">
         <form id="myform" method="post">
-        <input type="submit" form="myform" class= "btn btn-success" value="Guardar">
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
@@ -75,6 +74,7 @@
                     <td>{{form.as_p}}</td>
                     <td></td>
                 </tr>
+                
         {% endfor %}
         {% endif %}
            </tbody>
@@ -108,7 +108,7 @@ $(document).ready(function (){
    table.column(7).every( function () {
    
     var column = this;
-    var select = $('')
+    var select = $('<input type="submit" form="myform" class= "btn btn-success" value="Guardar">')
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(
