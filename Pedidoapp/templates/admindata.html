@@ -72,13 +72,14 @@
                     <td>{% csrf_token %}
                     {{form.as_p}}</td>
                     <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
+                    <td><input type="submit" class= "btn btn-success" value="Guardar"></td>
                 </tr>
         {% endfor %}
         {% endif %}
            </tbody>
            </table>
            </form>
-           <input type="submit" class= "btn btn-success" value="Guardar">
+           
     </aside>
     </section>
     </div>
