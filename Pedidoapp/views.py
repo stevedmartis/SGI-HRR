@@ -218,8 +218,8 @@ def ListAll(request, id_especialidad):
 
 
 def custom_redirect(lita_todo, *args, **kwargs):
-    from django.core.urlresolvers import reverse 
-    import urllib
+from django.core.urlresolvers import reverse 
+import urllib
       url = reverse(lita_todo, args = args)
       params = urllib.parse.urlencode(kwargs)
     return HttpResponseRedirect('/solicitar/lista/' + "(?P<id_especialidad>\d+)" % params)
