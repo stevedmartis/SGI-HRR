@@ -5,12 +5,11 @@
 {% load static from staticfiles %}
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="{% static "css/normalize.css" %}" />
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{% static "css/estilos.css" %}" />
     <link rel="stylesheet" href="{% static "css/responsive.css" %}" />
     <link rel="stylesheet" href="{% static "css/dataTables.bootstrap.min.css" %}"/>
     <link rel="stylesheet" href="{% static "css/dataTables.checkboxes.css" %}"/>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"/>
 </head>
     <nav>
         <ul>
@@ -35,6 +34,7 @@
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
+                    <td>id pedido</td>
                     <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
@@ -43,7 +43,8 @@
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
                     <td>Ingresar</td>
-                    <td></td> 
+                    <td></td>
+
                 </tr>
             </thead>
             <tfoot>
@@ -56,13 +57,14 @@
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
                     <td></td> 
-                    <td></td> 
+
                 </tr>
             </tfoot>
             <tbody>
         {% if pedido  %}
         {% for ped in pedido  %}
                 <tr>
+                    <td>{{ped.id}}</td>
                     <td>{{ ped.especialidad.nombre }}</td>
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
@@ -70,18 +72,18 @@
                     <td>{{ ped.cantidad }}</td>
                     <td>{{ ped.fecha_pedido }}</td>
                     <td>{{ ped.estado }}</td>
-                    <td>{{form.as_p}}</td>
+                    <td>{% csrf_token %}
+                        {{form.as_p}}</td>
                     <td><input type="submit" form="myform" class= "btn btn-success" value="Guardar"></td>
                 </tr>
-
         {% endfor %}
         {% endif %}
            </tbody>
+
            </table>
            </form>
            
-         
-    </aside> 
+    </div>
     </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -90,7 +92,6 @@
     <script src="{% static "js/dataTables.bootstrap.min.js" %}"></script>
     <script src="{% static "js/dataTables.checkboxes.min.js" %}"></script>
     <script src="{% static "js/jquery.form.min.js" %}"></script>
-
     
 
     <script>
@@ -105,9 +106,9 @@ $(document).ready(function (){
    });
 
    table.column(7).every( function () {
-   
+
     var column = this;
-    var select = $('<input type="submit" form="myform" class= "btn btn-success" value="Guardar">')
+    var select = $('')
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(
@@ -137,3 +138,4 @@ $(document).ready(function (){
     </footer>
 
 {% endblock%}
+

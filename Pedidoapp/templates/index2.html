@@ -91,7 +91,7 @@ $(document).ready(function (){
    table.column(4).every( function () {
 
     var column = this;
-    var select = $('<input type="submit" class= "btn btn-success" value="Guardar"></td>')
+    var select = $('<input type="submit" class= "btn btn-success" value="Guardar">')
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(
