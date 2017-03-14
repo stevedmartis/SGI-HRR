@@ -240,8 +240,6 @@ def Pedido_Edit(request, id_pedido):
 
 
 
-
-
 from django.views.generic import ListView, DetailView
    
 
