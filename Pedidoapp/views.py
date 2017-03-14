@@ -208,7 +208,7 @@ def ListAll(request, id_especialidad):
   if request.method == 'GET':
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
+        pedido = Pedido.objects.all()
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
@@ -247,5 +247,5 @@ def Aprobado(request, id_pedido):
         pedido.fecha_entrega = datetime.now()
         pedido.save()
      # articulo.stock = cantidad
-    return redirect('usuario:home')
+    return HttpResponseRedirect("/solicitar/lista/")
 
