@@ -70,9 +70,10 @@
                     <td>{{ ped.fecha_pedido }}</td>
                     <td>{{ ped.estado }}</td>
                     <td>{% csrf_token %}
-            {{form.as_p}}</td>
+                    {{form.as_p}}</td>
                     <td><a href="{% url "usuario:ingresar_cant" ped.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
                 </tr>
+                <input type="submit" class= "btn btn-success" value="Guardar">
         {% endfor %}
         {% endif %}
            </tbody>
