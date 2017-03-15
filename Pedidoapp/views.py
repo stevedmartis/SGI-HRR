@@ -203,7 +203,7 @@ def home(request):
     else:
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
-      return render_to_response(template2,locals())
+      return render(template2,locals())
 
 
 @login_required
@@ -216,13 +216,13 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        estadis      = Especialidad.objects.filter(estadistica=especialidad)
+        estadis      = Especialidad.objects.get(estadistica=especialidad)
         form         = EstadisticaForm(request.POST)
         if form.is_valid():
             form.save()
         pedido = Pedido.objects.filter(especialidad=especialidad)
     template  = 'index2.html'
-    return render_to_response(template,locals(), {'form':form})
+    return render(template,locals())
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
