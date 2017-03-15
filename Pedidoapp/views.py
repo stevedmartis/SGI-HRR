@@ -208,15 +208,22 @@ def home(request):
 
 @login_required
 def ListAll(request, id_especialidad):
-    template1 = 'index2.html'
-    especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido = Pedido.objects.filter(especialidad=especialidad)
-    if request.method == 'GET':
-    return render(request, template1, {'pedido': pedido, 'especialidad': especialidad})
+  especialidad = Especialidad.objects.get(id=id_especialidad)
+  if request.method == 'GET':
     user = request.user
     if user.is_superuser:
-        template2 = 'admindata.html'
-    return render(request, template2, {'pedido': pedido, 'especialidad': especialidad})
+        pedido = Pedido.objects.filter(especialidad=especialidad)
+        template  = 'admindata.html'
+        return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
+    else:  
+      if request.method == 'GET':
+        form = PedidoEditForm(instance=especialidad)
+      else:
+        form = PedidoEditForm(request.POST, instance=especialidad)
+        if form.is_valid():
+            form.save()
+            pedido = Pedido.objects.filter(especialidad=especialidad)
+    return render(request, 'index2.html',{'form':form}, {'pedido':pedido, 'especialidad':especialidad})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
