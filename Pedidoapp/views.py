@@ -199,11 +199,11 @@ def home(request):
 
       
       template = "index.html"
-      return render(template,locals())
+      return render_to_response(template,locals())
     else:
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
-      return render(template2,locals())
+      return render_to_response(template2,locals())
 
 
 @login_required
@@ -222,7 +222,7 @@ def ListAll(request, id_especialidad):
             form.save()
         pedido = Pedido.objects.filter(especialidad=especialidad)
     template  = 'index2.html'
-    return render(template,locals())
+    return render_to_response(template,locals())
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
@@ -238,7 +238,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.fecha_pedido = datetime.now()
           pedido.save()
       return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-    return render(request, 'form.html', {'form':form}, locals())
+    return render(request, 'form.html', {'form':form})
 
 
 
