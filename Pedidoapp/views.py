@@ -216,8 +216,7 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        estadis      = Especialidad.objects.get(id=id_especialidad)
-        form         = EstadisticaForm(request.POST)
+        form         = EstadisticaForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
         pedido = Pedido.objects.filter(especialidad=especialidad)
