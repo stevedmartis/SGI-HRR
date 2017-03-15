@@ -222,7 +222,7 @@ def ListAll(request, id_especialidad):
         form = PedidoEditForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
-    return render(request, 'index2.html',{'form':form}, {'pedido':pedido, 'especialidad':especialidad})
+    return render(request, 'index2.html',{'form':form}, {'especialidad':especialidad})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
