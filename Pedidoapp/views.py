@@ -135,6 +135,11 @@ def home(request):
       pend20         = Pedido.objects.filter(especialidad=20).filter(estado='pendiente').count()
       entre20          = Pedido.objects.filter(especialidad=20).filter(estado='entregado').count()
       id_aseop  = Pedido.objects.get(id=20)
+      #DERMA/FOTO
+      total_art21     = Pedido.objects.filter(especialidad=21).count()
+      pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
+      entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
+      id_derma         = Pedido.objects.get(id=21)
       #POLITACO
       total_art22     = Pedido.objects.filter(especialidad=22).count()
       pend22         = Pedido.objects.filter(especialidad=22).filter(estado='pendiente').count()
@@ -144,48 +149,49 @@ def home(request):
       total_art23     = Pedido.objects.filter(especialidad=23).count()
       pend23         = Pedido.objects.filter(especialidad=23).filter(estado='pendiente').count()
       entre23          = Pedido.objects.filter(especialidad=23).filter(estado='entregado').count()
+      id_enfp          = Pedido.objects.get(id=23)
       #DIABETES - CONSULTAR NOMBRE
       total_art24     = Pedido.objects.filter(especialidad=24).count()
       pend24           = Pedido.objects.filter(especialidad=24).filter(estado='pendiente').count()
       entre24          = Pedido.objects.filter(especialidad=24).filter(estado='entregado').count()
+      id_diab          = Pedido.objects.get(id=24)
       #PROG. VIH 
       total_art25     = Pedido.objects.filter(especialidad=25).count()
       pend25           = Pedido.objects.filter(especialidad=25).filter(estado='pendiente').count()
       entre25          = Pedido.objects.filter(especialidad=25).filter(estado='entregado').count()
+      id_vih           = Pedido.objects.get(id=25)
       #PROG. HEPATITIS - CONSULTAR NOMBRE
       total_art26      = Pedido.objects.filter(especialidad=26).count()
       pend26           = Pedido.objects.filter(especialidad=26).filter(estado='pendiente').count()
       entre26          = Pedido.objects.filter(especialidad=26).filter(estado='entregado').count()
+      id_hepa          = Pedido.objects.get(id=26)
+
       #SALA INFORMES CONS
       total_art27      = Pedido.objects.filter(especialidad=27).count()
       pend27           = Pedido.objects.filter(especialidad=27).filter(estado='pendiente').count()
       entre27          = Pedido.objects.filter(especialidad=27).filter(estado='entregado').count()
+      id_salac          = Pedido.objects.get(id=26)
       #ADMISION.CONS
       total_art28      = Pedido.objects.filter(especialidad=28).count()
       pend28           = Pedido.objects.filter(especialidad=28).filter(estado='pendiente').count()
       entre28          = Pedido.objects.filter(especialidad=28).filter(estado='entregado').count()
-      id_admicons  = Pedido.objects.get(id=28)
-
+      id_admicons      = Pedido.objects.get(id=28)
       #PREPARACION A
       total_art30      = Pedido.objects.filter(especialidad=30).count()
       pend30           = Pedido.objects.filter(especialidad=30).filter(estado='pendiente').count()
       entre30          = Pedido.objects.filter(especialidad=30).filter(estado='entregado').count()
+      id_prea          = Pedido.objects.get(id=30)
       #PREPARACION B
       total_art31      = Pedido.objects.filter(especialidad=31).count()
       pend31           = Pedido.objects.filter(especialidad=31).filter(estado='pendiente').count()
       entre31          = Pedido.objects.filter(especialidad=31).filter(estado='entregado').count()
+      id_preb          = Pedido.objects.get(id=31)
       #DRA. CASTELLON
       total_art32      = Pedido.objects.filter(especialidad=32).count()
       pend32           = Pedido.objects.filter(especialidad=32).filter(estado='pendiente').count()
       entre32          = Pedido.objects.filter(especialidad=32).filter(estado='entregado').count()
+      id_caste         = Pedido.objects.get(id=31)
       #AUX. ASEO.CONS 34
-
-      #DERMA/FOTO
-      total_art21     = Pedido.objects.filter(especialidad=21).count()
-      pend21          = Pedido.objects.filter(especialidad=21).filter(estado='pendiente').count()
-      entre21          = Pedido.objects.filter(especialidad=21).filter(estado='entregado').count()
-      #
-
       encargado      = Encargado.objects.all()
       especialidad  = Especialidad.objects.all()
       
