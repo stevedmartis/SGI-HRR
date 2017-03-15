@@ -211,8 +211,8 @@ def ListAll(request, id_especialidad):
   template  = 'index2.html'
   especialidad = Especialidad.objects.get(id=id_especialidad)
   pedido = Pedido.objects.filter(especialidad=especialidad)
+  form = PedidoEditForm(request.POST, instance=especialidad)
   if request.method == 'POST':
-      form = PedidoEditForm(request.POST, instance=especialidad)
       if form.is_valid():
           form.save()
       return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
