@@ -215,7 +215,7 @@ def ListAll(request, id_especialidad, id_pedido):
             if form.is_valid():
                 form.cantidad = request.POST['cantidad']
                 form.save()
-      return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
+      return render(request, 'admindata.html', locals(), context_instance= RequestContext(request))
 
 def Cant_ingresar(request):
     pedido = Pedido.objects.get(id=id_pedido)
