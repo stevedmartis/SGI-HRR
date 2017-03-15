@@ -206,19 +206,20 @@ def home(request):
 def ListAll(request, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     if request.method == 'GET':
-        user = request.user
-        if user.is_superuser:
-    if request.method == 'POST':
-        form = PedidoEditForm(request.POST)
+      user = request.user
+      if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=especialidad)
+      if request.method == 'POST':
+        form = PedidoEditForm()
         if form.is_valid():
           form.save()
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-        return HttpResponseRedirect('/solicitar/home/') 
-    else:
-        form = PedidoEditForm()
-    return render(request, 'admindata.html', locals(),{'form':form})
+          return HttpResponseRedirect('.') 
+        else:
+          form = PedidoEditForm()
+      return render(request, 'admindata.html', locals(),{'form':form})
 
 def Pedido_Edit(request):
     pedido = Pedido.objects.get(id=id_pedido)
