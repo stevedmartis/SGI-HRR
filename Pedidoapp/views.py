@@ -164,6 +164,8 @@ def home(request):
       total_art28      = Pedido.objects.filter(especialidad=28).count()
       pend28           = Pedido.objects.filter(especialidad=28).filter(estado='pendiente').count()
       entre28          = Pedido.objects.filter(especialidad=28).filter(estado='entregado').count()
+      id_admicons  = Pedido.objects.get(id=28)
+
       #PREPARACION A
       total_art30      = Pedido.objects.filter(especialidad=30).count()
       pend30           = Pedido.objects.filter(especialidad=30).filter(estado='pendiente').count()
