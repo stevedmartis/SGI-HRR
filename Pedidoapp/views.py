@@ -222,7 +222,7 @@ def ListAll(request, id_especialidad, id_pedido):
       args.update(csrf(request))
       args['cant'] = cant
       args['id_pedido'] = id_pedido
-      return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
+    return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
 
 def Cant_ingresar(request):
     pedido = Pedido.objects.get(id=id_pedido)
