@@ -223,7 +223,8 @@ def ListAll(request, id_especialidad):
         if form.is_valid():
             form.save()
             template2 = 'index2.html'
-            return render(request, template2 , {'form':form})
+        return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
+    return render(request, template2 , {'form':form})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
