@@ -210,8 +210,6 @@ def ListAll(request, id_especialidad):
       if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         form = PedidoEditForm()
-        else:
-          form = PedidoEditForm()
       return render(request, 'admindata.html', locals(),{'form':form})
 
 def Cant_ingresar(request):
