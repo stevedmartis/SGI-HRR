@@ -217,7 +217,7 @@ def ListAll(request, id_especialidad):
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
       pedido = Pedido.objects.filter(especialidad=especialidad)
-    return render(request, 'index2.html', {'especialidad':especialidad})
+    return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
