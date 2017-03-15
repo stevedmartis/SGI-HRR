@@ -13,6 +13,7 @@ from django.views.decorators.cache import cache_page
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.db import models
 from django.db.models import Count
+from django.core.urlresolvers import reverse
 
 import psycopg2
 import sys
