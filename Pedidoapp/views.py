@@ -539,7 +539,7 @@ def ListAll(request, id_especialidad):
     template  = 'index2.html'
     return render_to_response(template,locals())
 
-def Pedido_Edit(request, id_pedido, id_especialidad):
+def Cant_ingresar(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':

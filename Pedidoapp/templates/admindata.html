@@ -30,11 +30,10 @@
 <br>
 <section id="contenido">
 <div class="container" style="margin:50px auto width="100%"">
-        <form action="{% url "usuario:lita_todo" pedido.id %}" id="myform" method="post">
+        <form id="myform" method="post">
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
-                    <td>id pedido</td>
                     <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
@@ -42,9 +41,8 @@
                     <td>Cantidad</td>
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
-                    <td>Ingresar</td>
                     <td></td>
-
+                    <td></td>
                 </tr>
             </thead>
             <tfoot>
@@ -56,15 +54,14 @@
                     <td>Cantidad</td>
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
+                    <td></td>
                     <td></td> 
-
                 </tr>
             </tfoot>
             <tbody>
         {% if pedido  %}
         {% for ped in pedido  %}
                 <tr>
-                    <td>{{ped.id}}</td>
                     <td>{{ ped.especialidad.nombre }}</td>
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
@@ -72,18 +69,15 @@
                     <td>{{ ped.cantidad }}</td>
                     <td>{{ ped.fecha_pedido }}</td>
                     <td>{{ ped.estado }}</td>
-                    <td>{% csrf_token %}
-                        {{form.as_p}}</td>
-                    <td><a href="{% url "usuario:lita_todo" pedido.id %}"><input type="submit" form="myform" class= "btn btn-success" value="Guardar"></a></td>
+                    <td></td>
+                    <td><a href="{% url "usuario:cant_ingresar" ped.id especialidad.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
                 </tr>
         {% endfor %}
         {% endif %}
            </tbody>
-
            </table>
            </form>
-           
-    </div>
+    </aside>
     </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -105,10 +99,10 @@ $(document).ready(function (){
       ],
    });
 
-   table.column(7).every( function () {
+   table.column(0).every( function () {
 
     var column = this;
-    var select = $('')
+    var select = $('<select><option value="Seleccione..."></option></select>')
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(
@@ -138,4 +132,3 @@ $(document).ready(function (){
     </footer>
 
 {% endblock%}
-
