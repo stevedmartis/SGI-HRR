@@ -222,7 +222,6 @@ def ListAll(request, id_especialidad):
         form = PedidoEditForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
     return render(request, 'index2.html', {'form':form},  {'especialidad':especialidad})
 
 @login_required
