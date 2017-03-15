@@ -212,12 +212,7 @@ def ListAll(request, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.filter(especialidad=especialidad)
     if request.method == 'GET':
-      form = PedidoEditForm(instance=especialidad)
-    else:
-        form = PedidoEditForm(instance=especialidad)
-        if form.is_valid():
-            form.save()
-    return render(request, template1, {'form':form, 'pedido': pedido, 'especialidad': especialidad})
+    return render(request, template1, {'pedido': pedido, 'especialidad': especialidad})
     user = request.user
     if user.is_superuser:
         template2 = 'admindata.html'
