@@ -40,6 +40,8 @@ def add(request):
 @login_required
 @cache_page(6000)
 def home(request):
+    user = request.user
+    if user.is_superuser:
       #Urologia
       total_art      = Pedido.objects.filter(especialidad=1).count()
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
@@ -194,10 +196,14 @@ def home(request):
       id_caste         = Pedido.objects.get(id=31)
       #AUX. ASEO.CONS 34
       encargado      = Encargado.objects.all()
-      especialidad  = Especialidad.objects.all()
+
       
       template = "index.html"
       return render_to_response(template,locals())
+    else:
+      especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
+      template2 = "index3.html"
+      return render_to_response(template2,locals())
 
 
 @cache_page(6000)
