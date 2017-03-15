@@ -220,7 +220,6 @@ def ListAll(request, id_especialidad):
         if form.is_valid():
             form.save()
         pedido = Pedido.objects.filter(especialidad=especialidad)
-        return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
         template  = 'index2.html'
     return render_to_response(template,locals())
 
