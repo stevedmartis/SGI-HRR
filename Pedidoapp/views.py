@@ -209,7 +209,7 @@ def ListAll(request, id_especialidad):
       user = request.user
       if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
-        form = PedidoEditForm()
+        form = PedidoEditForm(request.POST, instance=pedido)
       return render(request, 'admindata.html', locals(),{'form':form})
 
 def Cant_ingresar(request):
@@ -223,11 +223,7 @@ def Cant_ingresar(request):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return redirect('usuario:home')
     return render(request, 'index2.html', {'form':form ,})
-
-
-
 
 
 from django.views.generic import ListView, DetailView
