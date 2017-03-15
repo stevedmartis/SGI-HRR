@@ -217,11 +217,6 @@ def ListAll(request, id_especialidad, id_pedido):
                 cant.save()
         else:
             form = PedidoEditForm(instance=cant)
-
-        args = {}
-        args.update(csrf(request))
-        args['cant'] = cant
-        args['id_pedido'] = id_pedido
       return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
 
 def Cant_ingresar(request):
