@@ -30,7 +30,6 @@
 <br>
 <section id="contenido">
 <div class="container" style="margin:50px auto width="100%"">
-    {% if especialidad.estadistica == 0 %}
         <form id="myform" method="post">
             {% csrf_token %}
             {{form.as_p}}
@@ -44,7 +43,6 @@
             &nbsp;
             <input type="submit" class= "btn btn-success" value="Guardar">
         </form>
-    {% else %}
 <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
@@ -79,7 +77,6 @@
         {% endif %}
            </tbody>
            </table>
-    {% endif %}
         </div>
 </section>
              
