@@ -211,7 +211,7 @@ def ListAll(request, id_especialidad):
     template1 = 'index2.html'
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.filter(especialidad=especialidad)
-    if request.method == 'POST':
+    if request.method == 'GET':
       form = PedidoEditForm(instance=especialidad)
     else:
         form = PedidoEditForm(instance=especialidad)
