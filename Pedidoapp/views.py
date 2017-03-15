@@ -208,12 +208,14 @@ def ListAll(request, id_especialidad):
     if request.method == 'GET':
       user = request.user
       if user.is_superuser:
+        pedido = Pedido.objects.filter(especialidad=especialidad)
         form = PedidoEditForm()
         if form.is_valid():
           form.save()
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
+          return HttpResponseRedirect('.') 
         else:
           form = PedidoEditForm()
       return render(request, 'admindata.html', locals(),{'form':form})
