@@ -208,13 +208,12 @@ def ListAll(request, id_especialidad, id_pedido):
     if request.method == 'GET':
       user = request.user
       if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
-
-      pedido = Pedido.objects.get(id=id_pedido)
+      pedido = Pedido.objects.filter(especialidad=especialidad)
+      pedido2 = Pedido.objects.get(id=id_pedido)
       if request.method == 'POST':
-        form = PedidoEditForm(request.POST, instance=pedido)
+        form = PedidoEditForm(request.POST, instance=pedido2)
       else:
-        form = PedidoEditForm(request.POST, instance=pedido)
+        form = PedidoEditForm(request.POST, instance=pedido2)
         if form.is_valid():
             form.cantidad = request.POST['cantidad']
             form.save()

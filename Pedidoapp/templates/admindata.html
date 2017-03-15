@@ -74,7 +74,7 @@
                     <td>{{ ped.estado }}</td>
                     <td>{% csrf_token %}
                         {{form.as_p}}</td>
-                    <td><input type="submit" form="myform" class= "btn btn-success" value="Guardar"></td>
+                    <td><a href="{% url "usuario:lita_todo" pedido.id %}"><input type="submit" form="myform" class= "btn btn-success" value="Guardar"></a></td>
                 </tr>
         {% endfor %}
         {% endif %}
