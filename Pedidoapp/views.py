@@ -211,12 +211,12 @@ def ListAll(request, id_especialidad, id_pedido):
         pedido = Pedido.objects.filter(especialidad=especialidad)
         cant = Pedido.objects.get(id=id_pedido)
         if request.method == 'POST':
-            cantform = PedidoEditForm(request.POST)
-            if cantform.is_valid():
-                cant.cantidad = request.POST['cantidad']
-                cant.save()
+            form = PedidoEditForm(request.POST)
+            if form.is_valid():
+                form.cantidad = request.POST['cantidad']
+                form.save()
         else:
-            form = PedidoEditForm(instance=cant)
+            form = PedidoEditForm(instance=form)
       return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
 
 def Cant_ingresar(request):
