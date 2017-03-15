@@ -198,12 +198,11 @@ def home(request):
       encargado      = Encargado.objects.all()
 
       
-      template = "index.html"
-      return render_to_response(template,locals())
+      return render('index.html')
     else:
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
-      template2 = "index3.html"
-      return render(template2,locals())
+
+      return render('index3.html')
 
 
 @login_required
@@ -216,7 +215,7 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        estadis      = Especialidad.objects.get(estadistica=especialidad)
+        estadis      = Especialidad.objects.filter(estadistica=especialidad)
         form         = EstadisticaForm(request.POST)
         if form.is_valid():
             form.save()
