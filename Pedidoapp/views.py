@@ -209,14 +209,13 @@ def home(request):
 @login_required
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
+  pedido = Pedido.objects.filter(especialidad=especialidad)
   if request.method == 'GET':
     user = request.user
     if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
-      pedido = Pedido.objects.filter(especialidad=especialidad)
       if request.method == 'GET':
         form = PedidoEditForm(instance=especialidad)
       else:
