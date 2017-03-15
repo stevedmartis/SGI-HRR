@@ -29,9 +29,10 @@
 <br>
 <br>
 {% if estadis.estadistica == 0 %}
-<section id="contenido1">
-        <form method="post">
-        <div id="form">
+<section id="contenido">
+<div class="container" style="margin:50px auto width="100%"">
+        <form id="myform" method="post">
+        
             {% csrf_token %}
             {{form.as_p}}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -43,14 +44,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;
             <a href="{% url "usuario:lita_todo" especialidad.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a>
-        <form>
-        </div>
-    </section>
 {% else %}
-<section id="contenido">
-<div class="container" style="margin:50px auto width="100%"">
-        <form id="myform" method="post">
-        <table id="example" class="table table-border table-striped table-hover">
+<table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
                     <td>Servicio</td>
