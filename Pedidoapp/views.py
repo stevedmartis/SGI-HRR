@@ -208,8 +208,6 @@ def ListAll(request, id_especialidad):
     if request.method == 'GET':
       user = request.user
       if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
-      if request.method == 'POST':
         form = PedidoEditForm()
         if form.is_valid():
           form.save()
