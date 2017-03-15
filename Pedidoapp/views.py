@@ -214,7 +214,7 @@ def ListAll(request, id_especialidad):
     user = request.user
     if user.is_superuser:
         template  = 'admindata.html'
-        return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
+    return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
     return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad})
 
