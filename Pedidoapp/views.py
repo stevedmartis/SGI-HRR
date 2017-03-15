@@ -217,8 +217,6 @@ def ListAll(request, id_especialidad):
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
       if request.method == 'POST':
-        form = PedidoEditForm(instance=especialidad)
-      else:
         form = PedidoEditForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
