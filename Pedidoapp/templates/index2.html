@@ -28,7 +28,25 @@
 <br>
 <br>
 <br>
-{% if estadis > 0 %}
+{% if estadis = 0 %}
+<section id="contenido1">
+        <form method="post">
+        <div id="form">
+            {% csrf_token %}
+            {{form.as_p}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;
+            <a href="{% url "usuario:lita_todo" especialidad.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a>
+        <form>
+        </div>
+    </section>
+{% else %}
 <section id="contenido">
 <div class="container" style="margin:50px auto width="100%"">
         <form id="myform" method="post">
@@ -70,26 +88,8 @@
            
     </div>
     </section>
-    </div>
-    {% else %}
-    <section id="contenido">
-        <form method="post">
-        <div id="form">
-            {% csrf_token %}
-            {{form.as_p}}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;
-            <a href="{% url "usuario:lita_todo" especialidad.id  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a>
-        <form>
-        </div>
-    </section>
-    {% endif %}
+    </div>    
+{% endif %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/jquery.dataTables.min.js" %}"></script>
