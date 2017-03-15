@@ -203,14 +203,29 @@ def home(request):
     return render_to_response(template,locals())
 
 
-def ListAll(request, id_especialidad):
+def ListAll(request, id_especialidad, id_pedido):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     if request.method == 'GET':
       user = request.user
       if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
-        form = PedidoEditForm()
-      return render(request, 'admindata.html', locals(),{'form':form})
+        cant = Pedido.objects.get(id=id_pedido)
+      if request.method == 'POST':
+        cantform = PedidoEditForm(request.POST)
+        if cantform.is_valid():
+            cant.cantidad = request.POST['cantidad']
+            cant.save()
+            pedido.estado = 'pendiente'
+            pedido.fecha_pedido = datetime.now()
+            pedido.save()
+      else:
+          form = PedidoEditForm(instance=cant)
+
+      args = {}
+      args.update(csrf(request))
+      args['cant'] = cant
+      args['id_pedido'] = id_pedido
+      return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
 
 def Cant_ingresar(request):
     pedido = Pedido.objects.get(id=id_pedido)
@@ -223,7 +238,11 @@ def Cant_ingresar(request):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
+      return redirect('usuario:home')
     return render(request, 'index2.html', {'form':form ,})
+
+
+
 
 
 from django.views.generic import ListView, DetailView
