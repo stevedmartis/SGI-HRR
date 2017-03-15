@@ -208,22 +208,20 @@ def home(request):
 
 @login_required
 def ListAll(request, id_especialidad):
+  template  = 'index2.html'
   especialidad = Especialidad.objects.get(id=id_especialidad)
-  if request.method == 'GET':
-    user = request.user
-    if user.is_superuser:
-        pedido = Pedido.objects.filter(especialidad=especialidad)
-        template  = 'admindata.html'
-        return render_to_response(template,locals())
-    else:
-      if request.method == 'POST':
-        form = PedidoEditForm(instance=especialidad)
-      else:
-        form = PedidoEditForm(request.POST, instance=especialidad)
+  pedido = Pedido.objects.filter(especialidad=especialidad)
+  if request.method == 'POST':
+      form = PedidoEditForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
-            pedido = Pedido.objects.filter(especialidad=especialidad)
-    return render_to_response('index2.html',locals(), {'form':form})
+            return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
+  if request.method == 'GET':
+  user = request.user
+  if user.is_superuser:
+      template = 'admindata.html'
+        
+  return render(request, template, {'form':form, 'pedido': pedido, 'especialidad': especialidad})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):

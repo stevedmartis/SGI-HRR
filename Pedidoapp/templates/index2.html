@@ -28,11 +28,10 @@
 <br>
 <br>
 <br>
-{% if especialidad.estadistica == "0" %}
 <section id="contenido">
 <div class="container" style="margin:50px auto width="100%"">
+    {% if especialidad.estadistica == "0" %}
         <form id="myform" method="POST">
-        
             {% csrf_token %}
             {{form.as_p}}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,7 +43,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;
             <input type="submit" class= "btn btn-success" value="Guardar">
-{% else %}
+        </form>
+    {% else %}
 <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
@@ -79,12 +79,10 @@
         {% endif %}
            </tbody>
            </table>
-           </form>
-           
-    </div>
-    </section>
-    </div>    
-{% endif %}
+    {% endif %}
+        </div>
+</section>
+             
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/jquery.dataTables.min.js" %}"></script>
