@@ -198,11 +198,12 @@ def home(request):
       encargado      = Encargado.objects.all()
 
       
-      return render('index.html')
+      template = "index.html"
+      return render(template,locals())
     else:
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
-
-      return render('index3.html')
+      template2 = "index3.html"
+      return render(template2,locals())
 
 
 @login_required
@@ -237,7 +238,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.fecha_pedido = datetime.now()
           pedido.save()
       return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-    return render(request, 'form.html', {'form':form})
+    return render(request, 'form.html', {'form':form}, locals())
 
 
 
