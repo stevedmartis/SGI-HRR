@@ -219,7 +219,7 @@ def ListAll(request, id_especialidad):
           form = PedidoEditForm()
       return render(request, 'admindata.html', locals(),{'form':form})
 
-def Pedido_Edit(request):
+def Cant_ingresar(request):
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
