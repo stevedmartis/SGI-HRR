@@ -218,7 +218,7 @@ def ListAll(request, id_especialidad):
     else:
       if request.method == 'POST':
         form = PedidoEditForm(instance=especialidad)
-    else:
+      else:
         form = PedidoEditForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
