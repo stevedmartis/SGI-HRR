@@ -214,7 +214,7 @@ def ListAll(request, id_especialidad):
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
-    return render(template, {'pedido':pedido, 'especialidad':especialidad})
+        return render(template, {'pedido':pedido, 'especialidad':especialidad})
     else:
       if request.method == 'POST':
         form = PedidoEditForm(instance=especialidad)
