@@ -540,7 +540,7 @@ def ListAll(request, id_especialidad):
     return render_to_response(template,locals())
 
 def Pedido_Edit(request, id_pedido, id_especialidad):
-  especialidad = Especialidad.objects.get(id=id_especialidad)
+    especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
@@ -551,7 +551,7 @@ def Pedido_Edit(request, id_pedido, id_especialidad):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return HttpResponseRedirect(reverse('usuario:lita_todo', kwargs={'id_especialidad':id_especialidad}))
+      return HttpResponseRedirect(reverse('usuario:lita_todo', kwargs={'especialidad':especialidad}))
     return render(request, 'form.html', {'form':form})
 
 
