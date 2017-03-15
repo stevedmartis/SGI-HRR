@@ -220,8 +220,7 @@ def ListAll(request, id_especialidad):
         if form.is_valid():
             form.save()
         pedido = Pedido.objects.filter(especialidad=especialidad)
-        return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-    return render_to_response('index2.html',locals(), {'form':form})
+    return render('index2.html',locals(), {'form':form})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
