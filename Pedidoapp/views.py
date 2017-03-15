@@ -223,7 +223,7 @@ def ListAll(request, id_especialidad):
         if form.is_valid():
             form.save()
             pedido = Pedido.objects.filter(especialidad=especialidad)
-    return render(request, 'index2.html',locals() {'form':form}, {'pedido':pedido, 'especialidad':especialidad})
+    return render(request, 'index2.html', {'form':form}, {'pedido':pedido, 'especialidad':especialidad})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
