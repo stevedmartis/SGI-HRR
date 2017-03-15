@@ -222,7 +222,7 @@ def ListAll(request, id_especialidad):
           form.save()
         pedido = Pedido.objects.filter(especialidad=especialidad)
     template  = 'index2.html'
-    return render_to_response(template,locals())
+    return render_to_response(template,locals(), {'form':form})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
