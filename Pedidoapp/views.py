@@ -210,19 +210,19 @@ def ListAll(request, id_especialidad, id_pedido):
       if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         cant = Pedido.objects.get(id=id_pedido)
-      if request.method == 'POST':
-        cantform = PedidoEditForm(request.POST)
-        if cantform.is_valid():
-            cant.cantidad = request.POST['cantidad']
-            cant.save()
-      else:
-          form = PedidoEditForm(instance=cant)
+        if request.method == 'POST':
+            cantform = PedidoEditForm(request.POST)
+            if cantform.is_valid():
+                cant.cantidad = request.POST['cantidad']
+                cant.save()
+        else:
+            form = PedidoEditForm(instance=cant)
 
-      args = {}
-      args.update(csrf(request))
-      args['cant'] = cant
-      args['id_pedido'] = id_pedido
-    return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
+        args = {}
+        args.update(csrf(request))
+        args['cant'] = cant
+        args['id_pedido'] = id_pedido
+      return render(request, 'admindata.html', locals(), args, context_instance= RequestContext(request))
 
 def Cant_ingresar(request):
     pedido = Pedido.objects.get(id=id_pedido)
