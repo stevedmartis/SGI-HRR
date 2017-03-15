@@ -215,8 +215,8 @@ def ListAll(request, id_especialidad):
       form = PedidoEditForm(request.POST, instance=especialidad)
       if form.is_valid():
           form.save()
-          return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-  if request.method == 'GET':
+            return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
+    if request.method == 'GET':
   user = request.user
   if user.is_superuser:
       template = 'admindata.html'
