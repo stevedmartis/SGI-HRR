@@ -560,7 +560,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
-      return HttpResponseRedirect(reverse('usuario:lita_todo', kwargs={'especialidad':especialidad}))
+      return HttpResponseRedirect('/solicitar/ingresar/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form})
 
 
