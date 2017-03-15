@@ -203,37 +203,36 @@ def home(request):
     return render_to_response(template,locals())
 
 
-def ListAll(request, id_especialidad, id_pedido):
+def ListAll(request, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     if request.method == 'GET':
         user = request.user
         if user.is_superuser:
-          pedido = Pedido.objects.filter(especialidad=especialidad)
-          instance = Pedido.objects.get(id=id_pedido)
-          if request.Pedido == instance.Pedido:
-            if request.method == "POST":
-              form = PedidoEditForm(request.POST, request.FILES, instance=instance)
-              if form.is_valid():
-                  form.save()
-                  pedido.estado = 'pendiente'
-                  pedido.fecha_pedido = datetime.now()
-                  pedido.save()
-                  return HttpResponseRedirect('/solicitar/home/') 
-            else:
-              form = PedidoEditForm(instance=instance)
-        return render(request, 'admindata.html', locals(),{'form':form})
+    if request.method == 'POST':
+        form = PedidoEditForm(request.POST)
+        if form.is_valid():
+          form.save()
+          pedido.estado = 'pendiente'
+          pedido.fecha_pedido = datetime.now()
+          pedido.save()
+        return HttpResponseRedirect('/solicitar/home/') 
+    else:
+        form = PedidoEditForm()
+    return render(request, 'admindata.html', locals(),{'form':form})
 
-def Cant_ingresar(request, id_pedido):
+def Pedido_Edit(request):
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
-      pedido.estado = 'pendiente'
-      pedido.fecha_pedido = datetime.now()
-      pedido.save()
+    else:
+      form = PedidoEditForm(request.POST, instance=pedido)
+      if form.is_valid():
+          form.save()
+          pedido.estado = 'pendiente'
+          pedido.fecha_pedido = datetime.now()
+          pedido.save()
       return redirect('usuario:home')
-
-
-
+    return render(request, 'index2.html', {'form':form ,})
 
 
 
