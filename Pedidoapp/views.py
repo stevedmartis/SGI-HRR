@@ -214,7 +214,7 @@ def ListAll(request, id_especialidad):
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
-        return render(request,template,{'pedido':pedido, 'especialidad':especialidad})
+        return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
       if request.method == 'POST':
         form = PedidoEditForm(instance=especialidad)
@@ -222,7 +222,7 @@ def ListAll(request, id_especialidad):
         form = PedidoEditForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
-    return render('index2.html',locals(), {'form':form}, {'pedido':pedido, 'especialidad':especialidad})
+    return render(request, 'index2.html',{'form':form}, {'pedido':pedido, 'especialidad':especialidad})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
