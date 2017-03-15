@@ -216,13 +216,13 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        estadis      = Especialidad.objects.filter(especialidad=especialidad)
+        estadis      = Especialidad.objects.filter(estadistica=especialidad)
         form         = EstadisticaForm()
         if form.is_valid():
           form.save()
-        pedido = Pedido.objects.filter(estadistica=especialidad)
+        pedido = Pedido.objects.filter(especialidad=especialidad)
     template  = 'index2.html'
-    return render_to_response(template,locals()) 
+    return render_to_response(template,locals())
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
