@@ -13,17 +13,10 @@ urlpatterns = [
 
 url(r'^home/$', login_required(home), name="home"),
 
-
-
 url(r'^lista/(?P<id_especialidad>\d+)/$', login_required(ListAll), name='lita_todo'),
-url(r'^confirmar/(?P<id_pedido>\d+)/$', login_required(Aprobado), name='aprobar_pedido'),
+url(r'^confirmar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/$', login_required(Aprobado), name='aprobar_pedido'),
 #url(r'^ingresar/$', login_required(add), name="ingresar_cant"),
 url(r'^ingresar/(?P<id_pedido>\d+)/$', Cant_ingresar, name="cant_ingresar"),
-
-
-
-
-
 
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
