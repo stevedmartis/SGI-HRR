@@ -215,9 +215,6 @@ def ListAll(request, id_especialidad, id_pedido):
         if cantform.is_valid():
             cant.cantidad = request.POST['cantidad']
             cant.save()
-            pedido.estado = 'pendiente'
-            pedido.fecha_pedido = datetime.now()
-            pedido.save()
       else:
           form = PedidoEditForm(instance=cant)
 
