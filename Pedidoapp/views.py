@@ -216,11 +216,12 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        form         = EstadisticaForm(request.POST, instance=especialidad)
+        form  = EstadisticaForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
         pedido = Pedido.objects.filter(especialidad=especialidad)
     template  = 'index2.html'
+        return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
     return render_to_response(template,locals())
 
 @login_required
