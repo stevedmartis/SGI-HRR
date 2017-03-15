@@ -74,7 +74,7 @@
                     <td>{{ ped.estado }}</td>
                     <td>{% csrf_token %}
                         {{form.as_p}}</td>
-                    <td><input type="submit" form="myform" class= "btn btn-success" value="Guardar"></td>
+                    <td><a href="{% url "usuario:cant_ingresar" ped.id  %}" method='GET' input type="submit" form="myform" class= "btn btn-success" value=Enviar onclick="document.location.reload();"/>Enviar</a></td>
                 </tr>
         {% endfor %}
         {% endif %}
