@@ -217,6 +217,7 @@ def ListAll(request, id_especialidad):
         form = PedidoEditForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
+            return render('usuario:home')
     return render(request, template1, {'form':form, 'pedido': pedido, 'especialidad': especialidad})
     user = request.user
     if user.is_superuser:
