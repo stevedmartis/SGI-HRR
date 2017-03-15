@@ -208,8 +208,8 @@ def ListAll(request, id_especialidad, id_pedido):
     if request.method == 'GET':
       user = request.user
       if user.is_superuser:
-      pedido = Pedido.objects.filter(especialidad=especialidad)
-      cant = Pedido.objects.get(id=id_pedido)
+        pedido = Pedido.objects.filter(especialidad=especialidad)
+        cant = Pedido.objects.get(id=id_pedido)
       if request.method == 'POST':
         form = PedidoEditForm(request.POST, instance=cant)
       else:
@@ -217,7 +217,7 @@ def ListAll(request, id_especialidad, id_pedido):
         if form.is_valid():
             form.cantidad = request.POST['cantidad']
             form.save()
-      return render(request, 'admindata.html', {'form':form })
+      return render(request, 'admindata.html',locals(), {'form':form })
 
 def Cant_ingresar(request):
     pedido = Pedido.objects.get(id=id_pedido)
