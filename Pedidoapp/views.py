@@ -216,13 +216,13 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render_to_response(template,locals())
     else:
-        if request.method == 'POST':
-      form = PedidoEditForm(instance=especialidad)
+      if request.method == 'POST':
+        form = PedidoEditForm()
       else:
-          form = PedidoEditForm(request.POST, instance=especialidad)
-          if form.is_valid():
-              form.save()
-              pedido = Pedido.objects.filter(especialidad=especialidad)
+        form = PedidoEditForm(request.POST, instance=especialidad)
+        if form.is_valid():
+            form.save()
+            pedido = Pedido.objects.filter(especialidad=especialidad)
     return render_to_response('index2.html',locals(), {'form':form})
 
 @login_required
