@@ -218,15 +218,15 @@ def ListAll(request, id_especialidad):
 def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
-    if Especialidad.objects.filter(estadistica = 0):
+    if estadis ==  Especialidad.objects.filter(estadistica = 0):
        form = EstadisticaForm(request.POST, instance=especialidad)
       if form.is_valid():
           form.save()
       return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-    return render(request, 'estadis.html', {'form':form })
-    if Especialidad.objects.filter(estadistica > 0):
+    return render(request, 'estadis.html', {'form':form, 'estadis':estadis})
+    if estadis ==  Especialidad.objects.filter(estadistica > 0):
        pedido = Pedido.objects.filter(especialidad=especialidad)
-    return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad })
+    return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad, 'estadis':estadis})
 
 
 @login_required
