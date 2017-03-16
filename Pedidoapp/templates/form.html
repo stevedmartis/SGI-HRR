@@ -24,9 +24,6 @@
 	<section id="contenido">
         <form method="post">
         <div id="form">
-        {% if pedido %}
-        {{pedido.id}}
-        {% endif %}
         <br>
             {% csrf_token %}
             {{form.as_p}}
