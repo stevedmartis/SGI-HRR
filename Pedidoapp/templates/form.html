@@ -24,7 +24,7 @@
     </aside>
 	<section id="contenido">
         <form method="post">
-        <div id="form">
+        <article class="item">
         {% if pedido %}
         <h4><b>{{pedido.articulo.cod_experto}}</b></h4>
         <h4><b>{{pedido.articulo.nombre}}</b></h4>
@@ -34,7 +34,16 @@
             {{form.as_p}}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="submit" class= "btn btn-success" value="Guardar">
+            <br>
+            <br>
+        </article>
         <form>
         </div>
     </section>
