@@ -221,7 +221,7 @@ def ListEspeci(request, id_especialidad):
   if request.method == 'GET':
     form = PedidoEditForm(instance=pedido)
   else:
-  form = EstadisticaForm(request.POST, instance=especialidad)
+    form = EstadisticaForm(request.POST, instance=especialidad)
     if form.is_valid():
         form.save()
     return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
