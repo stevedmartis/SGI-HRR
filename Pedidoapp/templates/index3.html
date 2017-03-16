@@ -13,18 +13,16 @@
         <ul>
             <li id="flechita_nav"><a href="/"></a></li>
             
-            <li id="publicar_nav"><a href="">Publicar</a></li>
+            <li id="publicar_nav"><a href="">Solicitar</a></li>
         </ul>
     </nav>
     <aside id="bienvenida">
         {% if request.user.is_authenticated %}
             Hola {{request.user}}!
         {% endif %}
-
     </aside>
         {% load cache %}  
         {% cache 6000 'pedidos_home' %}
-    </aside>
     <section id="contenido">
         {% if especialidad %}
 
