@@ -231,7 +231,6 @@ def ListEspeci(request, id_especialidad):
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
-    user = user.request
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
@@ -243,6 +242,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
+    user = user.request
     if user.is_superuser:
       return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
     else:
