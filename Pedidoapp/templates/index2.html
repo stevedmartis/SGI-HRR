@@ -31,7 +31,7 @@
         <form id="myform" method="POST">
         <article class="item">
 
-        <a class="titulo_item"><h4>Ingrese estadistica para:<b>{{especialidad.nombre}}</p></b></h4></a>
+        <h4>Ingrese estadistica para:&nbsp;&nbsp;<b>{{especialidad.nombre}}</p></b></h4></a>
         <br>
             {% csrf_token %}
             {{form.as_p}}
