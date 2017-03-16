@@ -17,8 +17,9 @@
         </ul>
     </nav>
     <aside id="bienvenida">
-
-            Hola {{especialidad.encargado.usuario.username}}!
+        {% if request.user.is_authenticated %}
+            Hola {{request.user}}!
+        {% endif %}
 
     </aside>
         {% load cache %}  
