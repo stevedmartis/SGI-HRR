@@ -70,7 +70,7 @@
                     <td>{{ ped.fecha_pedido }}</td>
                     <td>{{ ped.estado }}</td>
                     <td></td>
-                    <td><a href="{% url "usuario:cant_ingresar" ped.id especialidad.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
+                    <td><a href="{% url "usuario:cant_update" ped.id especialidad.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
                 </tr>
         {% endfor %}
         {% endif %}

@@ -5,7 +5,7 @@ from django.conf.urls import url
 from .import views
 from django.contrib.auth.views import login_required
 
-from Pedidoapp.views import home, Cant_ingresar, add,  Aprobado, ListAll, ListEspeci
+from Pedidoapp.views import home, Cant_ingresar, add,  Aprobado, ListAll, ListEspeci, Cant_update
 
 admin.autodiscover()
 
@@ -18,6 +18,7 @@ url(r'^lista_active/(?P<id_especialidad>\d+)/$', login_required(ListEspeci), nam
 url(r'^confirmar/(?P<id_pedido>\d+)', login_required(Aprobado), name='aprobar_pedido'),
 #url(r'^ingresar/$', login_required(add), name="ingresar_cant"),
 url(r'^ingresar/(?P<id_pedido>\d+)//(?P<id_especialidad>\d+)/$', Cant_ingresar, name="cant_ingresar"),
+url(r'^modificar/(?P<id_pedido>\d+)//(?P<id_especialidad>\d+)/$', Cant_ingresar, name="cant_update"),
 
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
