@@ -248,7 +248,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
 def Cant_update(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
-    pedido1 = Pedido.objects.all(instance=pedido)
+    pedido1 = Pedido.objects.all()
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
     else:
