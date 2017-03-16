@@ -225,7 +225,7 @@ def ListEspeci(request, id_especialidad):
     if form.is_valid():
         form.save()
     return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-  return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'estadis':estadis})
+  return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
 
 
 @login_required
