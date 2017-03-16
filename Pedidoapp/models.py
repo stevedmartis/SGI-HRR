@@ -12,7 +12,6 @@ class Encargado(models.Model):
 
     def __str__(self):
         return '{}'.format(self.nombre)
-    
 
 
 class Especialidad(models.Model):
@@ -26,7 +25,7 @@ class Especialidad(models.Model):
 
 
     def __str__(self):
-        return '{}'.format(self.nombre)
+        return '{}'.format(self.nombre).encode('utf-8')
 
 
 class Pedido(models.Model):
