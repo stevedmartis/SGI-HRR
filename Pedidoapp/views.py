@@ -216,11 +216,9 @@ def ListAll(request, id_especialidad):
 
 @login_required
 def ListEspeci(request, id_especialidad):
-  especialidad = Especialidad.objects.get(id=id_especialidad)
+  especialidad = Especialidad.objects.get(id=id_especialidad).filter(estadistica=0)
   if request.method == 'GET':
-      estadis = Especialidad.objects.filter(estadistica=especialidad)
-      estadis = Especialidad.objects.filter(estadistica=0)
-      form = EstadisticaForm(request.POST, instance=estadis)
+      form = EstadisticaForm(request.POST, instance=especialidad)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
