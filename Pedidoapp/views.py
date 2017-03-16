@@ -216,8 +216,15 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
-      pedido = Pedido.objects.filter(especialidad=especialidad)
-    return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad})
+      if estadis = Especialidad.objects(estadistica=0)
+        form = EstadisticaForm(request.POST, instance=Especialidad)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
+    return render(request, 'estadis.html', {'form':form})
+      else:
+        pedido = Pedido.objects.filter(especialidad=especialidad)
+        return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad})
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
