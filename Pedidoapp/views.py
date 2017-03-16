@@ -242,7 +242,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.fecha_pedido = datetime.now()
           pedido.save()
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
-    return render(request, 'form.html', {'form':form})
+    return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad}) 
 
 def Cant_update(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
