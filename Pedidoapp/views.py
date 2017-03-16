@@ -219,10 +219,12 @@ def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   pedido = Pedido.objects.filter(especialidad=especialidad)
   if request.method == 'GET':
-      form = EstadisticaForm(request.POST, instance=especialidad)
-      if form.is_valid():
-          form.save()
-      return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
+    form = PedidoEditForm(instance=pedido)
+  else:
+  form = EstadisticaForm(request.POST, instance=especialidad)
+    if form.is_valid():
+        form.save()
+    return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
   return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'estadis':estadis})
 
 
