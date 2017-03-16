@@ -224,7 +224,7 @@ def ListEspeci(request, id_especialidad):
     form = EstadisticaForm(request.POST, instance=especialidad)
     if form.is_valid():
         form.save()
-  return render(request, 'estadis.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
+  return render(request, 'estadis.html', {'form':form})
 
 
 @login_required
