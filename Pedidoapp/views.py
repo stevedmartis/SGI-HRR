@@ -223,10 +223,10 @@ def ListEspeci(request, id_especialidad):
       if form.is_valid():
           form.save()
       return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-    return render(request, 'estadis.html', {'form':form})
+    return render(request, 'estadis.html', {'form':form, 'estadis':estadis})
     if estadis ==  Especialidad.objects.filter(estadistica > 0):
       pedido = Pedido.objects.filter(especialidad=especialidad)
-    return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad})
+    return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad, 'estadis':estadis})
 
 
 @login_required
