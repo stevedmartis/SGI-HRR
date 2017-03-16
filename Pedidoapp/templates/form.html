@@ -30,13 +30,16 @@
         <h4><b>{{pedido.articulo.nombre}}</b></h4>
         {% endif %}
         <br>
-            {% csrf_token %}
-            {{form.as_p}}
+            <table>
+            <tr>
+            <td>{% csrf_token %}
+            {{form.as_p}}</td>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="submit" class= "btn btn-success" value="Guardar">
+            <td><input type="submit" class= "btn btn-success" value="Guardar"></td>
+            </td>
         <form>
         </div>
     </section>
