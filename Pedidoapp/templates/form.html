@@ -26,7 +26,7 @@
         <form method="post">
         <div id="form">
         {% if pedido %}
-        <h5>{{pedido.articulo.nombre}}</h5>
+        <h4><b>{{pedido.articulo.nombre}}</b></h4>
         {% endif %}
         <br>
             {% csrf_token %}
