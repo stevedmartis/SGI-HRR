@@ -27,7 +27,10 @@
         <div id="form">
         {% if pedido %}
         {{pedido.id}}
+        {% else %}
+        pico
         {% endif %}
+
         <br>
             {% csrf_token %}
             {{form.as_p}}
