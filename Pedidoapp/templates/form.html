@@ -26,11 +26,10 @@
         <form method="post">
         <div id="form">
         {% if pedido %}
-        {{pedido1.nombre}}
+        {{pedido.id}}
         {% else %}
         pico
         {% endif %}
-
         <br>
             {% csrf_token %}
             {{form.as_p}}
