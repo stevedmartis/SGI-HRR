@@ -233,7 +233,6 @@ def ListEspeci(request, id_especialidad):
 def Cant_ingresar(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
-    nombre = Pedido.objects.filter(articulo=pedido)
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
     else:
