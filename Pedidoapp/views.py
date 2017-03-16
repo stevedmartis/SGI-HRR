@@ -216,6 +216,7 @@ def ListAll(request, id_especialidad):
 
 @login_required
 def ListEspeci(request, id_especialidad):
+  user = request.user
   especialidad = Especialidad.objects.get(id=id_especialidad)
   pedido = Pedido.objects.filter(especialidad=especialidad)
   if request.method == 'GET':
