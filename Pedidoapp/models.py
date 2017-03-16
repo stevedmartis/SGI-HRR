@@ -11,7 +11,7 @@ class Encargado(models.Model):
 
 
     def __str__(self):
-        return '{}'.format(self.nombre, self.usuario__username)
+        return '{}'.format(self.nombre, self.usuario)
     
 
 
@@ -21,7 +21,7 @@ class Especialidad(models.Model):
     encargado     = models.ForeignKey('Encargado', blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{}'.format(self.nombre)
+        return '{}'.format(self.nombre, self.estadistica, self.encargado)
 
 
 

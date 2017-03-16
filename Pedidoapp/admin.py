@@ -10,19 +10,30 @@ class PedidoAdmin(admin.ModelAdmin):
 
 
 
-
 class ArticuloAdmin(admin.ModelAdmin):
     list_display = ('cod_experto', 'nombre', 'descripcion', 'stock', 'extmin','extmax','info_bodega_id',)
     list_filter = ('cod_experto','info_bodega_id',)
     search_fields = ('nombre','info_bodega_id__nombre',)
     list_display_links = ('cod_experto',)
-    list_editable = ('nombre', 'descripcion','stock',)
+    list_editable = ('nombre', 'descripcion','stock','extmin', 'extmax',)
 
+
+class EspecialidadAdmin(admin.ModelAdmin):
+    list_display  = ('nombre', 'estadistica', 'encargado',)
+    list_filter   = ('nombre', 'encargado',)
+    list_display_links = ('nombre', )
+    list_editable = ('estadistica',)
+
+class EncargadoAdmin(admin.ModelAdmin):
+    list_display  = ('rut_encargado', 'nombre', 'usuario',)
+    list_filter   = ('rut_encargado', 'nombre',)
+    list_display_links = ('rut_encargado','usuario',)
+    list_editable = ('nombre',)
 
 admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(Articulo, ArticuloAdmin)
-admin.site.register(Encargado)
-admin.site.register(Especialidad)
+admin.site.register(Encargado, EncargadoAdmin)
+admin.site.register(Especialidad, EspecialidadAdmin)
 
 
 class ClientAdmin(CSVExportAdmin):
