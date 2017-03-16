@@ -213,12 +213,13 @@ def ListAll(request, id_especialidad):
         pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
-        
+
 @login_required
 def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
-      if estadis = Especialidad.objects.filter(estadistica=0)
+      estadis = Especialidad.objects.filter(estadistica=especialidad)
+      estadis = Especialidad.objects.filter(estadistica=0)
       form = EstadisticaForm(request.POST, instance=estadis)
         if form.is_valid():
             form.save()
