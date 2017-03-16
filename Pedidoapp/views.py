@@ -210,21 +210,24 @@ def home(request):
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
-    user = request.user
-    if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
-    else:
+        
+@login_required
+def ListEspeci(request, id_especialidad):
+  especialidad = Especialidad.objects.get(id=id_especialidad)
+  if request.method == 'GET':
       if estadis = Especialidad.objects.filter(estadistica=0)
       form = EstadisticaForm(request.POST, instance=estadis)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
-    return render(request, 'estadis.html', {'form':form})
+      return render(request, 'estadis.html', {'form':form})
       else:
       pedido = Pedido.objects.filter(especialidad=especialidad)
       return render(request, 'index2.html', {'pedido':pedido, 'especialidad':especialidad})
+
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
