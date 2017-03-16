@@ -32,7 +32,7 @@
     <div class="container" style="margin:50px auto width="100%"">
         {% if especialidad.estadistica == 0 %}
         <form id="myform" method="POST">
-        Ingrese estadistica para: {{especialidad.nombre}}
+        <h4><b>Ingrese estadistica para: {{especialidad.nombre}}</b></h4>
         <br>
             {% csrf_token %}
             {{form.as_p}}
