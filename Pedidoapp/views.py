@@ -215,7 +215,7 @@ def ListAll(request, id_especialidad):
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
 @login_required
-def ListEspeci(request, id_especialidad):
+def ListEspeci(request, id_especialidad, estadis):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
     if estadis ==  Especialidad.objects.filter(estadistica = 0):
