@@ -215,12 +215,12 @@ def ListAll(request, id_especialidad):
         pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
     return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
-    if user.is_active:
+    else:
       if estadis = Especialidad.objects.filter(estadistica=0)
       form = EstadisticaForm(request.POST, instance=estadis)
-      if form.is_valid():
-          form.save()
-      return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
     return render(request, 'estadis.html', {'form':form})
       else:
       pedido = Pedido.objects.filter(especialidad=especialidad)
