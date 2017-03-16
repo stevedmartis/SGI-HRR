@@ -214,7 +214,7 @@ def ListAll(request, id_especialidad):
     if user.is_superuser:
         pedido = Pedido.objects.filter(especialidad=especialidad)
         template  = 'admindata.html'
-    return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
+        return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
       if estadis = Especialidad.objects.filter(estadistica=0)
       form = EstadisticaForm(request.POST, instance=estadis)
