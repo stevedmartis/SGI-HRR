@@ -21,9 +21,11 @@
         {% else %}
             Hola {{request.user}}!
         {% endif %}
+    </aside>
 	<section id="contenido">
         <form method="post">
         <div id="form">
+        {{pedido.articulo.nombre}}
         <br>
             {% csrf_token %}
             {{form.as_p}}
