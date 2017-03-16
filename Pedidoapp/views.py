@@ -246,7 +246,6 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
     return render(request, 'form.html', {'form':form})
 
 def Cant_update(request, id_pedido, id_especialidad):
-    user = user.request
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
