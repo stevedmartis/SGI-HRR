@@ -217,7 +217,7 @@ def ListAll(request, id_especialidad):
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
     else:
       if estadis = Especialidad.objects(estadistica=0)
-        form = EstadisticaForm(request.POST, instance=Especialidad)
+        form = EstadisticaForm(request.POST, instance=estadis)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
