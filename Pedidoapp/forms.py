@@ -17,7 +17,7 @@ class PedidoEditForm(forms.ModelForm):
         ]  
 
 class EstadisticaForm(forms.ModelForm):
-    estadistica    = forms.IntegerField(label='Estadistica Menusal:', widget=forms.TextInput(attrs={'placeholder':'Ingrese numero pacientes'}))  
+    estadistica    = forms.IntegerField(label='Estadistica Mensual:', widget=forms.TextInput(attrs={'placeholder':'Ingrese numero pacientes'}))  
     
     class Meta:
     	model = Especialidad
