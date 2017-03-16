@@ -11,7 +11,7 @@ class Encargado(models.Model):
 
 
     def __str__(self):
-        return '{}'.format(self.nombre, self.usuario)
+        return '{}'.format(self.nombre, self.usuario__username)
     
 
 

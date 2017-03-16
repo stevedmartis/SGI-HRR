@@ -17,10 +17,9 @@
         </ul>
     </nav>
     <aside id="bienvenida">
-        {% if not request.user.is_authenticated %}  
-        {% else %}
-            Hola {{request.user}}!
-        {% endif %}
+
+            Hola {{especialidad.encargado.usuario.username}}!
+
     </aside>
         {% load cache %}  
         {% cache 6000 'pedidos_home' %}
