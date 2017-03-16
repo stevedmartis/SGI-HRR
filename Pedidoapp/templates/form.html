@@ -26,8 +26,6 @@
         <div id="form">
         {% if pedido %}
         {{pedido.articulo.nombre}}
-        {% else %}
-        pico
         {% endif %}
         <br>
             {% csrf_token %}
