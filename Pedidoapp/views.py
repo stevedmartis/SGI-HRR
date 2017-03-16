@@ -224,7 +224,6 @@ def ListEspeci(request, id_especialidad):
     form = EstadisticaForm(request.POST, instance=especialidad)
     if form.is_valid():
         form.save()
-    return HttpResponseRedirect('/solicitar/lista/%s/' % id_especialidad)
   return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
 
 
