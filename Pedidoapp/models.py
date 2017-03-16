@@ -12,7 +12,7 @@ class Encargado(models.Model):
     usuario   = models.ForeignKey(User)
 
 
-    def __str__(self):
+    def __unicode__(self):
         return '{}'.format(self.nombre)
 
 
