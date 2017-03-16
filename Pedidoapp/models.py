@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import signals
-
+import sys  
+reload(sys)  
+sys.setdefaultencoding('utf-8')
 
 
 class Encargado(models.Model):
@@ -25,7 +27,7 @@ class Especialidad(models.Model):
 
 
     def __str__(self):
-        return '{}'.format(self.nombre).encode('utf-8')
+        return '{}'.format(self.nombre)
 
 
 class Pedido(models.Model):
