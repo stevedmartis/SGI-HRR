@@ -25,16 +25,10 @@
 	<section id="contenido">
         <form method="post">
         <div id="form">
+        {{pedido.nombre}}
+        <br>
             {% csrf_token %}
             {{form.as_p}}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;
             <input type="submit" class= "btn btn-success" value="Guardar">
         <form>
         </div>
