@@ -21,7 +21,7 @@ class ArticuloAdmin(admin.ModelAdmin):
 class EspecialidadAdmin(admin.ModelAdmin):
     list_display  = ('nombre', 'estadistica', 'encargado',)
     list_filter   = ('nombre', 'encargado',)
-    list_display_links = ('nombre', )
+    list_display_links = ('nombre','encargado',)
     list_editable = ('estadistica',)
 
 class EncargadoAdmin(admin.ModelAdmin):
