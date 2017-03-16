@@ -30,7 +30,7 @@
 <br>
 <section id="contenido">
     <div class="container" style="margin:50px auto width="100%"">
-        {% if especialidad.estadistica == "0" %}
+        {% if especialidad.estadistica == 0 %}
         <form id="myform" method="POST">
             {% csrf_token %}
             {{form.as_p}}
