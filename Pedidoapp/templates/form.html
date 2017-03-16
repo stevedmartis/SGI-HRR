@@ -27,6 +27,7 @@
         <div id="form">
         {% if pedido %}
         {{pedido.articulo.nombre}}
+        {% endif %}
         <br>
             {% csrf_token %}
             {{form.as_p}}
