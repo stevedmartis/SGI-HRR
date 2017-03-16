@@ -18,7 +18,7 @@ url(r'^lista_active/(?P<id_especialidad>\d+)/$', login_required(ListEspeci), nam
 url(r'^confirmar/(?P<id_pedido>\d+)', login_required(Aprobado), name='aprobar_pedido'),
 #url(r'^ingresar/$', login_required(add), name="ingresar_cant"),
 url(r'^ingresar/(?P<id_pedido>\d+)//(?P<id_especialidad>\d+)/$', Cant_ingresar, name="cant_ingresar"),
-url(r'^modificar/(?P<id_pedido>\d+)//(?P<id_especialidad>\d+)/$', Cant_ingresar, name="cant_update"),
+url(r'^modificar/(?P<id_pedido>\d+)//(?P<id_especialidad>\d+)/$', Cant_update, name="cant_update"),
 
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
