@@ -19,8 +19,6 @@
         </ul>
     </nav>
     <aside id="bienvenida">
-        {% if not request.user.is_authenticated %}
-        {% else %}
             Hola {{request.user}}!
         {% endif %}
     </aside>
