@@ -244,6 +244,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad}) 
 
+@login_required
 def Cant_update(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
@@ -256,7 +257,7 @@ def Cant_update(request, id_pedido, id_especialidad):
           pedido.estado = 'modificado'
           pedido.save()
       return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
-    return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad}) 
+    return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
 
 
 
@@ -268,13 +269,16 @@ class PedidoDetailView(DetailView):
     def get_template_names(self):
         return render('index.html')
 
-
-def Aprobado(request, id_pedido):
+@login_required
+def Update_stock(request, id_pedido, cod_experto, id_especialidad):
+  if request.method == 'GET':
+    especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
-    if request.method == 'GET':
-        pedido.estado = 'entregado'
-        pedido.fecha_entrega = datetime.now()
-        pedido.save()
-     # articulo.stock = cantidad
-    return HttpResponseRedirect("/solicitar/lista/")
+    articulo = Articulo.objects.get(pk=cod_experto)
+    articulo.stock -= pedido.cantidad
+    articulo.save()
+    pedido.estado = 'entregado'
+    pedido.fecha_entrega = datetime.now()
+    pedido.save()
+    return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
 

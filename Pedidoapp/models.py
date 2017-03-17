@@ -49,7 +49,7 @@ class Articulo(models.Model):
     nombre      = models.CharField(max_length=999, blank=True)
     descripcion = models.CharField(max_length=999, blank=True, null=True)
     info_bodega = models.ForeignKey('Bodega', null=True, blank=True, on_delete=models.CASCADE)
-    stock       = models.CharField(max_length=999, blank=True)
+    stock       = models.IntegerField(blank=True)
     extmin      = models.CharField(max_length=999, blank=True, null=True)
     extmax      = models.CharField(max_length=999, blank=True, null=True)
 
