@@ -236,6 +236,8 @@ def ListEspeci(request, id_especialidad):
     form = EstadisticaForm(request.POST, instance=especialidad)
     if form.is_valid():
         form.save()
+        especialidad.estado = "pendiente"
+        especialidad.save()
     return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
   return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
 
@@ -365,4 +367,3 @@ def Completar(request, id_especialidad):
 
 
 
-# sumar cantidades modificadas o no, cuando boton "Entregar" con nuevo campo en Articulo (total_pedido).
