@@ -365,5 +365,8 @@ def Completar(request, id_especialidad):
     especialidad.save()
     return HttpResponseRedirect('/solicitar/home/')
 
+import pdfkit
+Config = pdfkit.configuration ( wkhtmltopdf = "C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe") 
 
-
+def admindatapdf(self):
+        r = pdfkit.from_url('http://supply-hrr.herokuapp.com/solicitar/lista_super/15/', 'out.pdf', configuration = Config)
