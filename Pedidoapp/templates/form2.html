@@ -22,21 +22,41 @@
             Hola {{request.user}}!
         {% endif %}
     </aside>
-      <section id="contenido">
+
+	<section id="contenido">
         <form method="post">
-        <div id="form">
-        {{}}
-            {% csrf_token %}
-            {{form.as_p}}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="submit" class= "btn btn-success" value="Guardar">
+        <article class="item">
+        <h4>Solicitud Extra para:&nbsp;&nbsp;<b>{{especialidad.nombre}}{{extra.especialidad_ex.nombre}}</p></b></h4></a>
+        <br>
+        <table>
+        <thead>
+            <tr> 
+            <td>{% csrf_token %}
+            {{form.as_p}}</td>
+            <b>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class= "btn btn-primary" value="Enviar"></td>
+        </thead>
+        </tr>
+        </table>
+
+        <br>
+        <br>
+        </article>
         <form>
         </div>
-      </section>
-
+    </section>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
 
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
@@ -44,7 +64,3 @@
     </footer>
 
 {% endblock%}
-
-           
-
-    </div>

@@ -3,10 +3,10 @@ from .models import Pedido, Especialidad, Articulo, Encargado
 from django_csv_exports.admin import CSVExportAdmin
 
 class PedidoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'fecha_entrega', 'fecha_pedido', 'cantidad', 'pendiente', 'estado', 'articulo_id', 'especialidad', )
+    list_display = ('id', 'fecha_entrega', 'fecha_pedido', 'cantidad', 'estado', 'articulo_id', 'especialidad', )
     list_filter = ('fecha_pedido', 'fecha_entrega', 'estado', 'especialidad',)
     search_fields = ('especialidad__nombre', 'articulo__nombre',)
-    list_editable = ('especialidad', 'pendiente','fecha_entrega',)
+    list_editable = ('especialidad','fecha_entrega',)
 
 
 

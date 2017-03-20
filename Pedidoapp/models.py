@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import signals
 import sys  
-reload(sys)  
-sys.setdefaultencoding('utf-8')
+#reload(sys)  
+#sys.setdefaultencoding('utf-8')
 
 
 class Encargado(models.Model):
@@ -20,14 +20,10 @@ class Especialidad(models.Model):
     nombre        = models.CharField(max_length=50, blank=True)
     estadistica   = models.IntegerField(blank=True)
     encargado     = models.ForeignKey('Encargado', blank=True, on_delete=models.CASCADE)
+    estado        = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
         return '{}'.format(self.nombre, self.estadistica, self.encargado)
-
-
-
-    def __str__(self):
-        return '{}'.format(self.nombre)
 
 
 class Pedido(models.Model):
@@ -36,7 +32,6 @@ class Pedido(models.Model):
     fecha_entrega  = models.DateTimeField(auto_now_add=False)
     fecha_pedido   = models.DateTimeField(auto_now_add=True,null=True, blank=True)
     cantidad       = models.IntegerField(blank=True)
-    pendiente      = models.CharField(max_length=999,  null=True, blank=True)
     estado         =  models.CharField(max_length=20, blank=True, default='pendiente')
 
 
@@ -49,25 +44,40 @@ class Articulo(models.Model):
     nombre      = models.CharField(max_length=999, blank=True)
     descripcion = models.CharField(max_length=999, blank=True, null=True)
     info_bodega = models.ForeignKey('Bodega', null=True, blank=True, on_delete=models.CASCADE)
-    stock       = models.IntegerField(blank=True)
+    stock       = models.IntegerField(blank=True, default=0)
     extmin      = models.CharField(max_length=999, blank=True, null=True)
     extmax      = models.CharField(max_length=999, blank=True, null=True)
 
 
     def __str__(self):
-        return '{}'.format(self.nombre, self.stock) 
+        return '{}'.format(self.nombre, self.stock, self.cod_experto) 
 
-
+    def get_absolute_url(self):
+        return reverse('entregado_ex', kwargs={'id_pedido_ex': pedido.id, 'cod_experto':self.cod_experto})
 
 
 
 class Bodega(models.Model):
     cod_bodega = models.IntegerField(primary_key=True, blank=True)
-    nombre     =  models.CharField(max_length=20, blank=True)
+    nombre     = models.CharField(max_length=20, blank=True)
 
 
     def __str__(self):
-        return '{}'.format(self.nombre, self.cod_bodega) 
+        return '{}'.format(self.nombre, self.cod_bodega)
+
+class Pedido_Extra(models.Model):
+    articulo_ex       = models.ForeignKey('Articulo')
+    especialidad_ex   = models.ForeignKey('Especialidad')
+    fecha_pedido_ex   = models.DateTimeField(auto_now_add=True,null=True, blank=True)
+    fecha_entrega_ex  = models.DateTimeField(auto_now_add=False)
+    cantidad_ex       = models.IntegerField(blank=True, default=0)
+    estado_ex         =  models.CharField(max_length=20, blank=True, default='pendiente')
+
+    def __str__(self):
+        return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
+
+
+
 
 from django.core.cache import cache
 from django.db.models.signals import post_save

@@ -17,9 +17,7 @@
         </ul>
     </nav>
     <aside id="bienvenida">
-        {% if request.user.is_authenticated %}
             Hola {{request.user}}!
-        {% endif %}
     </aside>
         {% load cache %}  
         {% cache 6000 'pedidos_home' %}
@@ -37,9 +35,17 @@
             </p>
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
            </p>
+            {% if esp.estadistica > 0 %}
             <p class="autor_item">
+            <a href="{% url "usuario:pedido_extra" id_especialidad=esp.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Extra</a>
+            {% endif %}
+            {% if esp.estado == "entregado" %}
+            <font color="green"><h4>Entregado!</h4></font>
+            {% endif %}
             </p>   
             <p class="autor_item">
+
+            
             </p>                   
             <a class="guardar_item" href="#"></a>
 

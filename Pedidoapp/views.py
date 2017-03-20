@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from Pedidoapp.models import Pedido, Especialidad, Encargado, Articulo, Bodega
+from Pedidoapp.models import Pedido, Especialidad, Encargado, Articulo, Bodega, Pedido_Extra
 from django.shortcuts import render_to_response
 from django.template.loader import get_template
 from django.template import Context
 from datetime import datetime
-from Pedidoapp.forms import PedidoEditForm, EstadisticaForm
+from Pedidoapp.forms import PedidoEditForm, EstadisticaForm, ExtraForm
 from django.template.context import RequestContext
 from django.template import RequestContext
 from django.views.decorators.cache import cache_page
@@ -280,5 +280,61 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
     pedido.estado = 'entregado'
     pedido.fecha_entrega = datetime.now()
     pedido.save()
+    especialidad.estado = 'entregado'
+    especialidad.save()
     return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
 
+@login_required
+def PedidoExtra(request, id_especialidad):
+    especialidad = Especialidad.objects.get(id=id_especialidad)
+    if request.method == 'GET':
+      form = ExtraForm()
+    else:
+      form = ExtraForm(request.POST)
+      if form.is_valid():
+        esp = form.save(commit=False)
+        esp.especialidad_ex = especialidad
+        esp.save()
+        form.save()
+      return HttpResponseRedirect('/solicitar/home/')
+    return render(request, 'form2.html', {'form':form, 'especialidad':especialidad})
+
+@login_required
+def ExtraView(request):
+      user = request.user
+      if user.is_superuser:
+        extra = Pedido_Extra.objects.all()
+        return render(request, 'extra.html', {'extra':extra, 'user':user})
+      else:
+        extra = Pedido_Extra.objects.filter(especialidad_ex__encargado__usuario=user.id)
+        return render(request, 'extra.html', {'extra':extra, 'user':user})
+  
+@login_required
+def Cant_upex(request, id_pedido_ex):
+    extra = Pedido_Extra.objects.get(id=id_pedido_ex)
+    if request.method == 'GET':
+      form = ExtraForm(instance=extra)
+    else:
+      form = ExtraForm(request.POST, instance=extra)
+      if form.is_valid():
+          form.save()
+          extra.estado_ex = 'modificado'
+          extra.save()
+      return HttpResponseRedirect('/solicitar/pedidos-extra/')
+    return render(request, 'form2.html', {'form':form, 'extra':extra})
+
+
+@login_required
+def Update_stockex(request, id_pedido_ex, cod_experto):
+  if request.method == 'GET':
+    pedido = Pedido_Extra.objects.get(id=id_pedido_ex)
+    articulo = Articulo.objects.get(pk=cod_experto)
+    articulo.stock -= pedido.cantidad_ex
+    articulo.save()
+    pedido.estado_ex = 'entregado'
+    pedido.fecha_entrega_ex = datetime.now()
+    pedido.save()
+    return HttpResponseRedirect('/solicitar/pedidos-extra/')
+
+
+# sumar cantidades modificadas o no, cuando boton "Entregar" con nuevo campo en Articulo (total_pedido).

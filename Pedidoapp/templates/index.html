@@ -40,8 +40,10 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend15}}.</a>
             {% endif %}
-            Articulos Aprobados:<a class="titulo_item"  href="">{{entre15}}</a>                    
-            {% if pend15 == total_art15 %}
+            {% if entre15 %}
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre15}}</a>
+            {% endif %}                    
+            {% if entre15 == total_art15 %}
             <a href="{# url "usuario:aprobar_pedido" ped.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   

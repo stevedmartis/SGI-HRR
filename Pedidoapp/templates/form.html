@@ -25,9 +25,7 @@
 	<section id="contenido">
         <form method="post">
         <article class="item">
-        {% if pedido %}
-        <h4><b>{{pedido.articulo.cod_experto}}</b></h4>
-        <h4><b>{{pedido.articulo.nombre}}</b></h4>
+        <h4>Solicitud extra para:&nbsp;&nbsp;<b>{{especialidad.nombre}}</p></b></h4></a>
         {% endif %}
         <br>
         <table>
@@ -35,7 +33,7 @@
             <tr> 
             <td>{% csrf_token %}
             {{form.as_p}}</td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class= "btn btn-primary" value="Guardar"></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class= "btn btn-primary" value="Enviar"></td>
         </thead>
         </tr>
         </table>
@@ -65,7 +63,3 @@
     </footer>
 
 {% endblock%}
-
-           
-
-    </div>
