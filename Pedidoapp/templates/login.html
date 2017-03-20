@@ -24,7 +24,7 @@ SUPPLY Login
 <br>
 <br>
 <img src="">
-{% csrf_token %}
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -39,7 +39,8 @@ SUPPLY Login
             <div class="wrap">
                 <p class="form-title">
                     Sign In</p>
-                <form class="login">
+                <form class="login" method="post">
+                {% csrf_token %}
                 <input type="text" placeholder="Username" />
                 <input type="password" placeholder="Password" />
                 <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
