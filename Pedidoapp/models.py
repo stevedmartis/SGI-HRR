@@ -47,10 +47,11 @@ class Articulo(models.Model):
     stock       = models.IntegerField(blank=True, default=0)
     extmin      = models.CharField(max_length=999, blank=True, null=True)
     extmax      = models.CharField(max_length=999, blank=True, null=True)
+    total_pedido =models.IntegerField(blank=True, default=0)
 
 
     def __str__(self):
-        return '{}'.format(self.nombre, self.stock, self.cod_experto) 
+        return '{}'.format(self.nombre, self.stock, self.cod_experto)
 
     def get_absolute_url(self):
         return reverse('entregado_ex', kwargs={'id_pedido_ex': pedido.id, 'cod_experto':self.cod_experto})

@@ -147,13 +147,13 @@ def home(request):
       total_art22     = Pedido.objects.filter(especialidad=22).count()
       pend22         = Pedido.objects.filter(especialidad=22).filter(estado='pendiente').count()
       entre22          = Pedido.objects.filter(especialidad=22).filter(estado='entregado').count()
-      id_taco  = Pedido.objects.get(id=20)
+      id_taco  = Pedido.objects.get(id=22)
       #ESTACION ENF. PROC
       total_art23     = Pedido.objects.filter(especialidad=23).count()
       pend23         = Pedido.objects.filter(especialidad=23).filter(estado='pendiente').count()
       entre23          = Pedido.objects.filter(especialidad=23).filter(estado='entregado').count()
       id_enfp          = Pedido.objects.get(id=23)
-      #DIABETES - CONSULTAR NOMBRE
+      #DIABETES 
       total_art24     = Pedido.objects.filter(especialidad=24).count()
       pend24           = Pedido.objects.filter(especialidad=24).filter(estado='pendiente').count()
       entre24          = Pedido.objects.filter(especialidad=24).filter(estado='entregado').count()
@@ -163,7 +163,7 @@ def home(request):
       pend25           = Pedido.objects.filter(especialidad=25).filter(estado='pendiente').count()
       entre25          = Pedido.objects.filter(especialidad=25).filter(estado='entregado').count()
       id_vih           = Pedido.objects.get(id=25)
-      #PROG. HEPATITIS - CONSULTAR NOMBRE
+      #PROG. HEPATITIS 
       total_art26      = Pedido.objects.filter(especialidad=26).count()
       pend26           = Pedido.objects.filter(especialidad=26).filter(estado='pendiente').count()
       entre26          = Pedido.objects.filter(especialidad=26).filter(estado='entregado').count()
@@ -173,12 +173,17 @@ def home(request):
       total_art27      = Pedido.objects.filter(especialidad=27).count()
       pend27           = Pedido.objects.filter(especialidad=27).filter(estado='pendiente').count()
       entre27          = Pedido.objects.filter(especialidad=27).filter(estado='entregado').count()
-      id_salac          = Pedido.objects.get(id=26)
+      id_salac          = Pedido.objects.get(id=27)
       #ADMISION.CONS
       total_art28      = Pedido.objects.filter(especialidad=28).count()
       pend28           = Pedido.objects.filter(especialidad=28).filter(estado='pendiente').count()
       entre28          = Pedido.objects.filter(especialidad=28).filter(estado='entregado').count()
       id_admicons      = Pedido.objects.get(id=28)
+      #PAT.MAMARIA
+      total_art29      = Pedido.objects.filter(especialidad=29).count()
+      pend29           = Pedido.objects.filter(especialidad=29).filter(estado='pendiente').count()
+      entre29          = Pedido.objects.filter(especialidad=29).filter(estado='entregado').count()
+      id_mama      = Pedido.objects.get(id=29)
       #PREPARACION A
       total_art30      = Pedido.objects.filter(especialidad=30).count()
       pend30           = Pedido.objects.filter(especialidad=30).filter(estado='pendiente').count()
@@ -193,11 +198,17 @@ def home(request):
       total_art32      = Pedido.objects.filter(especialidad=32).count()
       pend32           = Pedido.objects.filter(especialidad=32).filter(estado='pendiente').count()
       entre32          = Pedido.objects.filter(especialidad=32).filter(estado='entregado').count()
-      id_caste         = Pedido.objects.get(id=31)
+      id_caste         = Pedido.objects.get(id=32)
+      #SECRETARIAS.CAE
+      total_art33      = Pedido.objects.filter(especialidad=33).count()
+      pend33           = Pedido.objects.filter(especialidad=33).filter(estado='pendiente').count()
+      entre33          = Pedido.objects.filter(especialidad=33).filter(estado='entregado').count()
+      id_secre         = Pedido.objects.get(id=33)
       #AUX. ASEO.CONS 34
-      encargado      = Encargado.objects.all()
-
-      
+      total_art34      = Pedido.objects.filter(especialidad=34).count()
+      pend34           = Pedido.objects.filter(especialidad=34).filter(estado='pendiente').count()
+      entre34          = Pedido.objects.filter(especialidad=34).filter(estado='entregado').count()
+      id_aseocon         = Pedido.objects.get(id=34)      
       template = "index.html"
       return render_to_response(template,locals())
     else:
@@ -205,7 +216,7 @@ def home(request):
       template2 = "index3.html"
       return render_to_response(template2,locals())
 
-
+@cache_page(6000)
 @login_required
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -214,6 +225,7 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
+@cache_page(6000)
 @login_required
 def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -241,6 +253,8 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.now()
           pedido.save()
+          especialidad.estado='pendiente'
+          especialidad.save()
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad}) 
 
@@ -276,6 +290,7 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
     pedido = Pedido.objects.get(id=id_pedido)
     articulo = Articulo.objects.get(pk=cod_experto)
     articulo.stock -= pedido.cantidad
+    articulo.total_pedido += pedido.cantidad
     articulo.save()
     pedido.estado = 'entregado'
     pedido.fecha_entrega = datetime.now()
@@ -330,11 +345,24 @@ def Update_stockex(request, id_pedido_ex, cod_experto):
     pedido = Pedido_Extra.objects.get(id=id_pedido_ex)
     articulo = Articulo.objects.get(pk=cod_experto)
     articulo.stock -= pedido.cantidad_ex
+    articulo.total_pedido += pedido.cantidad_ex
     articulo.save()
     pedido.estado_ex = 'entregado'
     pedido.fecha_entrega_ex = datetime.now()
     pedido.save()
     return HttpResponseRedirect('/solicitar/pedidos-extra/')
+
+@login_required
+def Completar(request, id_especialidad):
+   if request.method == 'GET':
+    especialidad = Especialidad.objects.get(id=id_especialidad)
+    pedido = Pedido.objects.filter(especialidad=especialidad).update(cantidad=0, estado="", fecha_pedido=None, fecha_entrega=None)
+    articulo = Articulo.objects.all().update(total_pedido=0)
+    especialidad.estadistica = 0
+    especialidad.estado = "completado"
+    especialidad.save()
+    return HttpResponseRedirect('/solicitar/home/')
+
 
 
 # sumar cantidades modificadas o no, cuando boton "Entregar" con nuevo campo en Articulo (total_pedido).
