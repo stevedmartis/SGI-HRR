@@ -21,6 +21,7 @@ djangorestframework==3.5.4
 gunicorn==19.6.0
 heroku==0.1.4
 kombu==3.0.37
+pdfkit==0.6.1
 psycopg2==2.6.2
 python-dateutil==1.5
 pytz==2016.10
@@ -29,6 +30,5 @@ requests==2.13.0
 sqlparse==0.2.2
 static3==0.7.0
 whitenoise==3.3.0
-
 
 
