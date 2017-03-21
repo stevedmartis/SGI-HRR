@@ -34,7 +34,7 @@
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
-                    <td>Servicio</td>
+                    <td>Especialidad</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>stock</td>
@@ -48,7 +48,7 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td>Servicio</td>
+                    <td>Especialidad</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>stock</td>
@@ -79,7 +79,7 @@
         {% endif %}
            </tbody>
            </table>
-           <a class="tag_item" href="{% url "usuario:admindatapdf"  %}">PDF</a>
+           <a class="tag_item" href="{% url "usuario:reporte_pedidos_pdf" id_especialidad=especialidad.id %}">PDF</a>
            </form>
     </aside>
     </section>
