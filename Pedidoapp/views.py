@@ -19,9 +19,9 @@ import psycopg2
 import sys
 import json
 
-
-#reload(sys)
-#sys.setdefaultencoding('utf8')
+import sys  
+reload(sys)  
+sys.setdefaultencoding('utf-8')
 
 
 
