@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pedido, Especialidad, Articulo, Encargado
+from .models import Pedido, Especialidad, Articulo, Encargado, Pedido_Extra
 from django_csv_exports.admin import CSVExportAdmin
 
 class PedidoAdmin(admin.ModelAdmin):
@@ -30,6 +30,16 @@ class EncargadoAdmin(admin.ModelAdmin):
     list_display_links = ('rut_encargado','usuario',)
     list_editable = ('nombre',)
 
+class PedidoExtraAdmin(admin.ModelAdmin):
+    list_display = ('id', 'articulo_ex', 'cantidad_ex', 'especialidad_ex', 'fecha_pedido_ex', 'fecha_entrega_ex', 'estado_ex',)
+    list_filter =  ('articulo_ex', 'especialidad_ex', 'fecha_pedido_ex', 'fecha_entrega_ex', 'estado_ex',)
+    search_fields = ('articulo_ex__nombre', 'especialidad_ex__nombre', 'estado_ex',)
+    list_display_links = ('articulo_ex', 'especialidad_ex',)
+    list_editable    = ('cantidad_ex', 'fecha_entrega_ex', )
+
+
+
+admin.site.register(Pedido_Extra, PedidoExtraAdmin)
 admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(Articulo, ArticuloAdmin)
 admin.site.register(Encargado, EncargadoAdmin)
