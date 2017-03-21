@@ -163,6 +163,7 @@ CACHES = {
     }
 }
 """
+AUTHENTICATION_BACKENDS = ('Pedidoapp.views.CaseInsensitiveModelBackend',)
 
 LOGIN_REDIRECT_URL = reverse_lazy('usuario:home')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
