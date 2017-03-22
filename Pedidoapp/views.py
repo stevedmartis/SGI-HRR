@@ -424,37 +424,74 @@ class ReportePedidosPDF(View):
         detalle_orden.wrapOn(pdf, 2000, 1500)
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 100, 400)
-      
-    def split(table, table_style, table_align, availableSpace,tablas = []):
+        t=Table(data,repeatRows=1,
+  colWidths=[.7*inch, 1*inch, 2.4*inch, .8*inch, .8*inch])
+ #The top left cell is (0, 0) the bottom right is (-1, -1).
+tStyle = TableStyle([
+    # All Cells
+    ('FONTSIZE', (0,0), (-1,-1), 8),
+    ('TOPPADDING', (0,0), (-1,-1), 0),
+    ('BOTTOMPADDING', (0,0), (-1,-1), 0),
+    ('VALIGN', (0,0), (-1,-1), 'TOP'),
+    ('LEADING', (0,0), (-1,-1), 10),
+    # Top row
+    ('BACKGROUND', (0,0), (-1,0), colors.maroon),
+    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+    ('ALIGN', (0,0), (-1,0), 'CENTRE'),
+    # 3RD and 4th column,
+    ('ALIGN', (3,0), (4,-1), 'RIGHT'),
+    # Line commands
+    # All
+    ('BOX',(0,0),(-1,-1),.5,colors.black),
+    # top row
+    ('GRID',(0,0),(-1,0),.5,colors.black),
+    # all columns
+    ('LINEBEFORE',(0,0),(-1,-1),.5,colors.black),
+    # last column
+    ('LINEAFTER',(-1,0),(-1,-1),.5,colors.black),
+    # last row
+    ('LINEBELOW',(0,-1),(-1,-1),.5,colors.black)])
+t.setStyle(tStyle)
 
-        tb = Table(table)
-        tb.setStyle(table_style)
-        tb.hAlign = table_align
-        if
-        tb.minWidth() <= availableSpace:
+def othPg(c, doc):
+  t.colWidths = [.2*inch, .2*inch,4*inch, .2*inch, .2*inch]
+  tStyle.add('BACKGROUND',(0,0),(-1,-1),colors.lightblue)
+  x=1
 
-        tablas.append(tb)
+def pgHdr(c, doc):
+  width,height = letter
+  c.saveState()
+  c.translate(.3 * inch, 0 * inch)
 
-      else:
-      indexes = range(len(table[0]))
-      indexes.sort(reverse = True)
-      for x in indexes:
-      pos = x
-      newTable = [
-      y[0:x] for y in table]
+# STUFF RELATED TO 2 INCH STTIC HEADER FOR FIRST PAGE
+  c.restoreState()
 
-      tb = Table(newTable)
-      tb.setStyle(table_style)
-      tb.hAlign =
-      table_align
-      if
-      tb.minWidth() <= availableSpace:
 
-      tablas.append(tb)
-      break
-      splitNew = [y[pos:] for y in table]
-      split(splitNew, table_style, table_align,
-      availableSpace, tablas)
+def main():
+  pdf_file = 'stmt.pdf'
+  Elements = []
+  doc = BaseDocTemplate(pdf_file,
+                        pagesize=letter,
+                        leftMargin=.3*inch,
+                        rightMargin= .1 * inch,
+                        topMargin= .1 * inch,
+                        bottomMargin=.3 * inch,
+                        showBoundary=1)
+  #normal frame as for SimpleFlowDocument
+  frameT = Frame(doc.leftMargin + 2*inch, doc.bottomMargin, doc.width - 2.01*inch, doc.height - 4.1*inch, id='normal', showBoundary=0)
+  frameB = Frame(doc.leftMargin+2, doc.bottomMargin, 7.5*inch, 10*inch, id='small', showBoundary=1)
+
+
+
+  doc.addPageTemplates([PageTemplate(id='First',frames=frameT,onPage=pgHdr),
+                        PageTemplate(id='Later',frames=frameB,onPage=othPg)
+                      ])
+  Elements.append(NextPageTemplate('Later'))
+  Elements.append(t)
+  doc.build(Elements)
+
+if __name__ == "__main__":
+    sys.exit(main())
 
 
     def get(self, request, id_especialidad, *args, **kwargs):
