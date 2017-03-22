@@ -437,11 +437,40 @@ class ReportePedidosPDF(View):
         elif count >90 and count <=110:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 440, 250)
-        elif count >110 and count <=130:
+        elif count >110 and count <=200:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 440, 100)
+              detalle_orden.drawOn(pdf, 440, 0)
 
-        
+    def split(table, table_style, table_align, availableSpace,tablas = []):
+
+        tb = Table(table)
+        tb.setStyle(table_style)
+        tb.hAlign = table_align
+        if
+        tb.minWidth() <= availableSpace:
+     
+        tablas.append(tb)
+
+        else:
+          indexes = range(len(table[0]))
+          indexes.sort(reverse = True)
+        for x in indexes:
+            pos = x
+            newTable = [
+            y[0:x] for y in table]
+          
+            tb = Table(newTable)
+            tb.setStyle(table_style)
+            tb.hAlign =
+            table_align
+            if
+            tb.minWidth() <= availableSpace:
+                  
+            tablas.append(tb)
+                   break 
+            splitNew = [y[pos:] for y in table]
+            split(splitNew, table_style, table_align,
+            availableSpace, tablas)
 
     def get(self, request, id_especialidad, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -449,11 +478,12 @@ class ReportePedidosPDF(View):
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
         buffer = BytesIO()
         #Canvas nos permite hacer el reporte con coordenadas X y Y
-        pdf = canvas.Canvas(buffer, pagesize = A1)
+        pdf = canvas.Canvas(buffer, pagesize = A0)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf, id_especialidad)
         y = 900
         self.tabla(pdf, y, id_especialidad)
+        self.split(table, table_style, table_align, availableSpace)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
