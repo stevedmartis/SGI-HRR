@@ -391,7 +391,7 @@ class ReportePedidosPDF(View):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 20)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(800, 2300, u"REPORTE CAE")
+        pdf.drawString(770, 2300, u"REPORTE CAE")
         pdf.setFont("Helvetica", 16)
         pdf.drawString(750, 2250, u"PEDIDO POR ESPECIALIDAD")
         pdf.setFont("Helvetica", 14)
@@ -424,7 +424,7 @@ class ReportePedidosPDF(View):
         detalle_orden.wrapOn(pdf, 100, 100)
         if count <=20:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 400, 1500)
+              detalle_orden.drawOn(pdf, 700, 1500)
         elif count >20 and count <40:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 100, 400)
