@@ -430,7 +430,7 @@ class ReportePedidosPDF(View):
               detalle_orden.drawOn(pdf, 440, 1250)
         elif count >50 and count <=70:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 440, 900)
+              detalle_orden.drawOn(pdf, 440, 1000)
         elif count >70 and count <=100:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 440, 700)
