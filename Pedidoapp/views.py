@@ -383,7 +383,7 @@ mylist = []
 today = datetime.date.today()
 mylist.append(today)
 
-
+#PARA ART < 50
 class ReportePedidosPDF(View): 
 
     def cabecera(self,pdf, id_especialidad):
@@ -443,7 +443,7 @@ class ReportePedidosPDF(View):
         buffer.close()
         response.write(pdf)
         return response
-
+#FIN
 
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
