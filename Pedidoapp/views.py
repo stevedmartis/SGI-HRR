@@ -286,6 +286,8 @@ class PedidoDetailView(DetailView):
     def get_template_names(self):
         return render('index.html')
 
+import = datetime.now ()
+
 @login_required
 def Update_stock(request, id_pedido, cod_experto, id_especialidad):
   if request.method == 'GET':
