@@ -383,7 +383,7 @@ mylist = []
 today = datetime.date.today()
 mylist.append(today)
 
-#PARA ART < 50
+#PARA ART < 30
 class ReportePedidosPDF(View): 
 
     def cabecera(self,pdf, id_especialidad):
@@ -402,6 +402,7 @@ class ReportePedidosPDF(View):
 
     def tabla(self,pdf,y, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
+        count = Pedido.objects.filter(especialidad=especialidad).count()
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Total')
         #Creamos una lista de tuplas que van a contener a las personas
@@ -421,9 +422,13 @@ class ReportePedidosPDF(View):
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 2000, 1500)
+        if count <=30:
+        #Definimos la coordenada donde se dibujará la tabla
+        detalle_orden.drawOn(pdf, 100, 400)
+        else count <=50:
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 100, 50)
-
+        
 
     def get(self, request, id_especialidad, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -444,6 +449,7 @@ class ReportePedidosPDF(View):
         response.write(pdf)
         return response
 #FIN
+
 
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
