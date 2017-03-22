@@ -397,7 +397,7 @@ class ReportePedidosPDF(View):
         pdf.setFont("Helvetica", 10)
         pdf.drawString(625, 1000, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 10)
-        pdf.drawString(100, 1000, u"Solicitado por: " + str(especialidad.encargado.nombre))
+        pdf.drawString(100, 1500, u"Solicitado por: " + str(especialidad.encargado.nombre))
 
 
     def tabla(self,pdf,y, id_especialidad):
@@ -425,7 +425,7 @@ class ReportePedidosPDF(View):
         if count <=20:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 100, 600)
-        elif count >20 and count <40:
+        elif count >20 and count <=40:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 100, 400)
         elif count >=30 and count >=50:
