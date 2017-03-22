@@ -424,35 +424,7 @@ class ReportePedidosPDF(View):
         detalle_orden.wrapOn(pdf, 2000, 1500)
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 100, 400)
-        t=Table(data,repeatRows=1,
-        colWidths=[.7*inch, 1*inch, 2.4*inch, .8*inch, .8*inch])
-        #The top left cell is (0, 0) the bottom right is (-1, -1).
-        tStyle = TableStyle([
-        # All Cells
-        ('FONTSIZE', (0,0), (-1,-1), 8),
-        ('TOPPADDING', (0,0), (-1,-1), 0),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 0),
-        ('VALIGN', (0,0), (-1,-1), 'TOP'),
-        ('LEADING', (0,0), (-1,-1), 10),
-        # Top row
-        ('BACKGROUND', (0,0), (-1,0), colors.maroon),
-        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
-        ('ALIGN', (0,0), (-1,0), 'CENTRE'),
-        # 3RD and 4th column,
-        ('ALIGN', (3,0), (4,-1), 'RIGHT'),
-        # Line commands
-        # All
-        ('BOX',(0,0),(-1,-1),.5,colors.black),
-        # top row
-        ('GRID',(0,0),(-1,0),.5,colors.black),
-        # all columns
-        ('LINEBEFORE',(0,0),(-1,-1),.5,colors.black),
-        # last column
-        ('LINEAFTER',(-1,0),(-1,-1),.5,colors.black),
-        # last row
-        ('LINEBELOW',(0,-1),(-1,-1),.5,colors.black)])
-        t.setStyle(tStyle)
-
+        
     def othPg(c, doc):
         t.colWidths = [.2*inch, .2*inch,4*inch, .2*inch, .2*inch]
         tStyle.add('BACKGROUND',(0,0),(-1,-1),colors.lightblue)
