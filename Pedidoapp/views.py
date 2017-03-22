@@ -368,7 +368,7 @@ def Completar(request, id_especialidad):
     especialidad.estado = "completado"
     especialidad.save()
     return HttpResponseRedirect('/solicitar/home/')
-"""
+
 from reportlab.pdfgen import canvas
 from io import BytesIO
 from django.views.generic import View
@@ -443,7 +443,7 @@ class ReportePedidosPDF(View):
         buffer.close()
         response.write(pdf)
         return response
-"""
+
 
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle, TA_CENTER
