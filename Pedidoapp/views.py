@@ -225,7 +225,7 @@ def home(request):
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
-        pedido = Pedido.objects.filter(especialidad=especialidad)
+        pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-cantidad')
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
@@ -233,7 +233,7 @@ def ListAll(request, id_especialidad):
 @login_required
 def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
-  pedido = Pedido.objects.filter(especialidad=especialidad)
+  pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-cantidad')
   if request.method == 'GET':
     form = EstadisticaForm(instance=especialidad)
   else:
