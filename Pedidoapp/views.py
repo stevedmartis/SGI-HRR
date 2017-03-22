@@ -391,7 +391,7 @@ class ReportePedidosPDF(View):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 20)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(770, 2300, u"REPORTE CAE")
+        pdf.drawString(2000, 4000, u"REPORTE CAE")
         pdf.setFont("Helvetica", 16)
         pdf.drawString(750, 2250, u"PEDIDO POR ESPECIALIDAD")
         pdf.setFont("Helvetica", 14)
