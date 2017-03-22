@@ -458,13 +458,14 @@ from reportlab.lib.pagesizes import A4
 #===========================   
 #Creamos los canvas para el pie de página y encabezado, que serán fijos
 class Test(View): 
-def encabezado(canvas,doc):
+
+  def encabezado(canvas,doc):
     canvas.saveState()
     canvas.setFont('Times-Roman',9)
     canvas.drawString(inch, A4[1]-50, "Ejemplo de DocTemplate y PageTemplate")
     canvas.restoreState()
     
-def pie(canvas,doc):
+  def pie(canvas,doc):
     canvas.saveState()
     canvas.setFont('Times-Roman',9)
     canvas.drawString(inch, 0.75 * inch, "Page %d" % doc.page)
