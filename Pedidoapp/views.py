@@ -393,11 +393,11 @@ class ReportePedidosPDF(View):
         #Dibujamos una cadena en la ubicación X,Y especificada
         pdf.drawString(1100, 3300, u"REPORTE CAE")
         pdf.setFont("Helvetica", 18)
-        pdf.drawString(1000, 3250, u"PEDIDO POR ESPECIALIDAD")
+        pdf.drawString(1050, 3250, u"PEDIDO POR ESPECIALIDAD")
         pdf.setFont("Helvetica", 16)
-        pdf.drawString(1050, 3000, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(990, 3200, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 16)
-        pdf.drawString(100, 3000, u"Solicitado por: " + str(especialidad.encargado.nombre))
+        pdf.drawString(50, 3200, u"Solicitado por: " + str(especialidad.encargado.nombre))
 
 
     def tabla(self,pdf,y, id_especialidad):
