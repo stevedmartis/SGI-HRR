@@ -375,7 +375,7 @@ from django.views.generic import View
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 from reportlab.lib.units import cm
 from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter,A4,A5, A3, A2
+from reportlab.lib.pagesizes import letter,A4,A5, A3, A2, A1, A0
 from reportlab.platypus import (BaseDocTemplate, Frame, Paragraph, NextPageTemplate, PageBreak, PageTemplate)
 from reportlab.platypus.tables import Table, TableStyle
 import datetime
