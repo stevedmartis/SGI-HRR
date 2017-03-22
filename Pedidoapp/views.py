@@ -447,9 +447,9 @@ class ReportePedidosPDF(View):
         tb.setStyle(table_style)
         tb.hAlign = table_align
         if
-        tb.minWidth() <= availableSpace:
+          tb.minWidth() <= availableSpace:
      
-        tablas.append(tb)
+          tablas.append(tb)
 
         else:
           indexes = range(len(table[0]))
