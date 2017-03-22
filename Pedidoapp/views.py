@@ -368,7 +368,7 @@ def Completar(request, id_especialidad):
     especialidad.estado = "completado"
     especialidad.save()
     return HttpResponseRedirect('/solicitar/home/')
-"""
+
 from reportlab.pdfgen import canvas
 from io import BytesIO
 from django.views.generic import View
@@ -379,7 +379,7 @@ from reportlab.lib.pagesizes import letter,A4,A5, A3, A2
 from reportlab.platypus import (BaseDocTemplate, Frame, Paragraph, NextPageTemplate, PageBreak, PageTemplate)
 from reportlab.platypus.tables import Table, TableStyle
 import datetime
-"""
+
 mylist = []
 today = datetime.date.today()
 mylist.append(today)
@@ -432,7 +432,7 @@ class ReportePedidosPDF(View):
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
         buffer = BytesIO()
         #Canvas nos permite hacer el reporte con coordenadas X y Y
-        pdf = canvas.Canvas(buffer, pagesize = A3)
+        pdf = canvas.Canvas(buffer, pagesize = A2)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf, id_especialidad)
         y = 900
@@ -445,95 +445,3 @@ class ReportePedidosPDF(View):
         response.write(pdf)
         return response
 
-
-#Librerias reportlab a usar:
-from reportlab.platypus import (BaseDocTemplate, Frame, Paragraph, 
-                    NextPageTemplate, PageBreak, PageTemplate)
-from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.lib.units import inch
-from reportlab.lib.pagesizes import A4
-from django.views.generic import View
-
-
-#NIVEL 1: CREAMOS LOS CANVAS
-#===========================   
-#Creamos los canvas para el pie de página y encabezado, que serán fijos
-class Test(View): 
-
-  def encabezado(canvas,doc):
-    canvas.saveState()
-    canvas.setFont('Times-Roman',9)
-    canvas.drawString(inch, A4[1]-50, "Ejemplo de DocTemplate y PageTemplate")
-    canvas.restoreState()
-    
-  def pie(canvas,doc):
-    canvas.saveState()
-    canvas.setFont('Times-Roman',9)
-    canvas.drawString(inch, 0.75 * inch, "Page %d" % doc.page)
-    canvas.restoreState()
-
-#NIVEL 2: CREAMOS LOS FLOWABLES
-#==============================
-#Creamos la hoja de Estilo
-estilo=getSampleStyleSheet()
-
-#Iniciamos el platypus story
-story=[]
-
-#Añadimos al story los flowables. Hay que tener en cuenta que se inicia
-#con el primer pageTemplate "UnaColumna"
-story.append(Paragraph("Esto es el texto del Frame normal del pagetemplate" +\
-                       " de una columna"* 500, estilo['Normal']))
-                        
-story.append(NextPageTemplate('DosColumnas'))  # Cambio de PageTemplate
-story.append(PageBreak())  # Inicio en otra hoja
-story.append(Paragraph("Esto es el texto del Frame que pertenece al" +\
-                       " pagetemplate de dos columnas" * 500, estilo['Normal']))
-                
-story.append(NextPageTemplate('UnaColumna'))
-story.append(PageBreak())
-story.append(Paragraph("Regresamos al texto del Frame normal del" +\
-                        " pagetemplate de dos columnas"*100, estilo['Normal']))
-
-#NIVEL 3: CREAMOS LOS FRAMES, para luego asignarlos a un pagetemplate.
-#===========================
-#Frame (x1, y1, ancho, alto, leftPadding=6, bottomPadding=6, rightPadding=6,
-# topPadding=6, id=None, showBoundary=0)
-
-#1. Frame que contendrá a toda el contenido de una hoja
-frameN = Frame(inch, inch, 451, 697, id='normal')
-
-#2. Frame de columnas
-frame1 = Frame(inch, inch, 220, 697, id='col1')
-frame2 = Frame(inch + 230, inch, 220, 697, id='col2')
-
-#NIVEL 4: CREAMOS LOS PAGETEMPLATE, le asignamos los frames y los canvas
-#=================================
-#PageTemplate(id=None,frames=[],onPage=_doNothing,onPageEnd=_doNothing)
-PTUnaColumna = PageTemplate(id='UnaColumna', frames=frameN, onPage=pie)
-PTDosColumnas =  PageTemplate(id='DosColumnas', frames=[frame1,frame2],
-                        onPage=encabezado, onPageEnd=pie)
-
-#NIVEL 5: CREAMOS EL DOCTEMPLATE, a partir del BaseDocTemplate
-#===============================
-doc = BaseDocTemplate('test.pdf', pageTemplates=[PTUnaColumna, PTDosColumnas], 
-        pagesize=A4)
-
-#Construimos el PDF
-doc.build(story)
-
-os.system("test.pdf")
-
-
-from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth.models import User
- 
-class CaseInsensitiveModelBackend(ModelBackend):
-  def authenticate(self, username=None, password=None):
-    try:
-      user = User.objects.get(username__iexact=username)
-      if user.check_password(password):
-        return user
-      return None
-    except User.DoesNotExist:
-      return None
