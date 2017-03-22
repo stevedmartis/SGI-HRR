@@ -257,7 +257,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
       if form.is_valid():
           form.save()
           pedido.estado = 'pendiente'
-          pedido.fecha_pedido = datetime.now()
+          pedido.fecha_pedido = datetime.date.today()
           pedido.save()
           especialidad.estado='pendiente'
           especialidad.save()
@@ -354,7 +354,7 @@ def Update_stockex(request, id_pedido_ex, cod_experto):
     articulo.total_pedido += pedido.cantidad_ex
     articulo.save()
     pedido.estado_ex = 'entregado'
-    pedido.fecha_entrega_ex = datetime.now()
+    pedido.fecha_entrega_ex = datetime.date.today()
     pedido.save()
     return HttpResponseRedirect('/solicitar/pedidos-extra/')
 
