@@ -18,7 +18,7 @@ from django.db import models
 from django.db.models import Count
 from django.core.urlresolvers import reverse
 
-import datetime
+from datetime import datetime
 import psycopg2
 import sys
 import json
