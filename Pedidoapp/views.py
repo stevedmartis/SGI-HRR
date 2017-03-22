@@ -401,7 +401,7 @@ class ReportePedidosPDF(View):
         pdf.drawString(100, 1000, u"Solicitado por: " + str(especialidad.encargado.nombre))
 
 
-    def tabla(self,pdf,y, id_especialidad):
+    def tabla(self,pdf,y,t, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Total')
@@ -425,70 +425,70 @@ class ReportePedidosPDF(View):
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 100, 400)
         t=Table(data,repeatRows=1,
-  colWidths=[.7*inch, 1*inch, 2.4*inch, .8*inch, .8*inch])
- #The top left cell is (0, 0) the bottom right is (-1, -1).
-tStyle = TableStyle([
-    # All Cells
-    ('FONTSIZE', (0,0), (-1,-1), 8),
-    ('TOPPADDING', (0,0), (-1,-1), 0),
-    ('BOTTOMPADDING', (0,0), (-1,-1), 0),
-    ('VALIGN', (0,0), (-1,-1), 'TOP'),
-    ('LEADING', (0,0), (-1,-1), 10),
-    # Top row
-    ('BACKGROUND', (0,0), (-1,0), colors.maroon),
-    ('TEXTCOLOR', (0,0), (-1,0), colors.white),
-    ('ALIGN', (0,0), (-1,0), 'CENTRE'),
-    # 3RD and 4th column,
-    ('ALIGN', (3,0), (4,-1), 'RIGHT'),
-    # Line commands
-    # All
-    ('BOX',(0,0),(-1,-1),.5,colors.black),
-    # top row
-    ('GRID',(0,0),(-1,0),.5,colors.black),
-    # all columns
-    ('LINEBEFORE',(0,0),(-1,-1),.5,colors.black),
-    # last column
-    ('LINEAFTER',(-1,0),(-1,-1),.5,colors.black),
-    # last row
-    ('LINEBELOW',(0,-1),(-1,-1),.5,colors.black)])
-t.setStyle(tStyle)
+        colWidths=[.7*inch, 1*inch, 2.4*inch, .8*inch, .8*inch])
+        #The top left cell is (0, 0) the bottom right is (-1, -1).
+        tStyle = TableStyle([
+        # All Cells
+        ('FONTSIZE', (0,0), (-1,-1), 8),
+        ('TOPPADDING', (0,0), (-1,-1), 0),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 0),
+        ('VALIGN', (0,0), (-1,-1), 'TOP'),
+        ('LEADING', (0,0), (-1,-1), 10),
+        # Top row
+        ('BACKGROUND', (0,0), (-1,0), colors.maroon),
+        ('TEXTCOLOR', (0,0), (-1,0), colors.white),
+        ('ALIGN', (0,0), (-1,0), 'CENTRE'),
+        # 3RD and 4th column,
+        ('ALIGN', (3,0), (4,-1), 'RIGHT'),
+        # Line commands
+        # All
+        ('BOX',(0,0),(-1,-1),.5,colors.black),
+        # top row
+        ('GRID',(0,0),(-1,0),.5,colors.black),
+        # all columns
+        ('LINEBEFORE',(0,0),(-1,-1),.5,colors.black),
+        # last column
+        ('LINEAFTER',(-1,0),(-1,-1),.5,colors.black),
+        # last row
+        ('LINEBELOW',(0,-1),(-1,-1),.5,colors.black)])
+        t.setStyle(tStyle)
 
-def othPg(c, doc):
-  t.colWidths = [.2*inch, .2*inch,4*inch, .2*inch, .2*inch]
-  tStyle.add('BACKGROUND',(0,0),(-1,-1),colors.lightblue)
-  x=1
+    def othPg(c, doc):
+        t.colWidths = [.2*inch, .2*inch,4*inch, .2*inch, .2*inch]
+        tStyle.add('BACKGROUND',(0,0),(-1,-1),colors.lightblue)
+        x=1
 
-def pgHdr(c, doc):
-  width,height = letter
-  c.saveState()
-  c.translate(.3 * inch, 0 * inch)
+    def pgHdr(c, doc):
+        width,height = letter
+        c.saveState()
+        c.translate(.3 * inch, 0 * inch)
 
-# STUFF RELATED TO 2 INCH STTIC HEADER FOR FIRST PAGE
-  c.restoreState()
+        # STUFF RELATED TO 2 INCH STTIC HEADER FOR FIRST PAGE
+        c.restoreState()
 
 
-def main():
-  pdf_file = 'stmt.pdf'
-  Elements = []
-  doc = BaseDocTemplate(pdf_file,
+    def main():
+        pdf_file = 'stmt.pdf'
+        Elements = []
+        doc = BaseDocTemplate(pdf_file,
                         pagesize=letter,
                         leftMargin=.3*inch,
                         rightMargin= .1 * inch,
                         topMargin= .1 * inch,
                         bottomMargin=.3 * inch,
                         showBoundary=1)
-  #normal frame as for SimpleFlowDocument
-  frameT = Frame(doc.leftMargin + 2*inch, doc.bottomMargin, doc.width - 2.01*inch, doc.height - 4.1*inch, id='normal', showBoundary=0)
-  frameB = Frame(doc.leftMargin+2, doc.bottomMargin, 7.5*inch, 10*inch, id='small', showBoundary=1)
+        #normal frame as for SimpleFlowDocument
+        frameT = Frame(doc.leftMargin + 2*inch, doc.bottomMargin, doc.width - 2.01*inch, doc.height - 4.1*inch, id='normal', showBoundary=0)
+        frameB = Frame(doc.leftMargin+2, doc.bottomMargin, 7.5*inch, 10*inch, id='small', showBoundary=1)
 
 
 
-  doc.addPageTemplates([PageTemplate(id='First',frames=frameT,onPage=pgHdr),
+        doc.addPageTemplates([PageTemplate(id='First',frames=frameT,onPage=pgHdr),
                         PageTemplate(id='Later',frames=frameB,onPage=othPg)
                       ])
-  Elements.append(NextPageTemplate('Later'))
-  Elements.append(t)
-  doc.build(Elements)
+        Elements.append(NextPageTemplate('Later'))
+        Elements.append(t)
+        doc.build(Elements)
 
 if __name__ == "__main__":
     sys.exit(main())
@@ -504,7 +504,7 @@ if __name__ == "__main__":
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf, id_especialidad)
         y = 900
-        self.tabla(pdf, y, id_especialidad)
+        self.tabla(pdf, y, t, id_especialidad)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
