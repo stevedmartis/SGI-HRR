@@ -397,7 +397,7 @@ class ReportePedidosPDF(View):
         pdf.setFont("Helvetica", 10)
         pdf.drawString(625, 150, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 10)
-        pdf.drawString(100, 150, u"Solicitado por: " + str(especialidad.encargado.nombre))
+        pdf.drawString(625, 150, u"Solicitado por: " + str(especialidad.encargado.nombre))
 
 
     def tabla(self,pdf,y, id_especialidad):
