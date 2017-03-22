@@ -452,6 +452,7 @@ from reportlab.platypus import (BaseDocTemplate, Frame, Paragraph,
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import A4
+from django.views.generic import View
 
 
 #NIVEL 1: CREAMOS LOS CANVAS
