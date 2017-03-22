@@ -379,13 +379,13 @@ from reportlab.lib.pagesizes import letter,A4,A5, A3, A2
 from reportlab.platypus import (BaseDocTemplate, Frame, Paragraph, NextPageTemplate, PageBreak, PageTemplate)
 from reportlab.platypus.tables import Table, TableStyle
 import datetime
-
 mylist = []
 today = datetime.date.today()
 mylist.append(today)
 
 
 class ReportePedidosPDF(View): 
+
 
     def cabecera(self,pdf, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -432,7 +432,7 @@ class ReportePedidosPDF(View):
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
         buffer = BytesIO()
         #Canvas nos permite hacer el reporte con coordenadas X y Y
-        pdf = canvas.Canvas(buffer, pagesize = A2)
+        pdf = canvas.Canvas(buffer, pagesize = A3)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf, id_especialidad)
         y = 900
@@ -445,3 +445,16 @@ class ReportePedidosPDF(View):
         response.write(pdf)
         return response
 
+
+from django.contrib.auth.backends import ModelBackend
+from django.contrib.auth.models import User
+ 
+class CaseInsensitiveModelBackend(ModelBackend):
+  def authenticate(self, username=None, password=None):
+    try:
+      user = User.objects.get(username__iexact=username)
+      if user.check_password(password):
+        return user
+      return None
+    except User.DoesNotExist:
+      return None
