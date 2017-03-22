@@ -376,6 +376,8 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 from reportlab.lib.units import cm
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter,A4,A5, A3, A2
+from reportlab.platypus import (BaseDocTemplate, Frame, Paragraph, NextPageTemplate, PageBreak, PageTemplate)
+from reportlab.platypus.tables import Table, TableStyle
 import datetime
 mylist = []
 today = datetime.date.today()
@@ -397,6 +399,7 @@ class ReportePedidosPDF(View):
         pdf.drawString(625, 1000, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 10)
         pdf.drawString(100, 1000, u"Solicitado por: " + str(especialidad.encargado.nombre))
+
 
     def tabla(self,pdf,y, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -421,7 +424,39 @@ class ReportePedidosPDF(View):
         detalle_orden.wrapOn(pdf, 2000, 1500)
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 100, 400)
-   
+      
+    def split(table, table_style, table_align, availableSpace,tablas = []):
+
+        tb = Table(table)
+        tb.setStyle(table_style)
+        tb.hAlign = table_align
+        if
+        tb.minWidth() <= availableSpace:
+
+        tablas.append(tb)
+
+      else:
+      indexes = range(len(table[0]))
+      indexes.sort(reverse = True)
+      for x in indexes:
+      pos = x
+      newTable = [
+      y[0:x] for y in table]
+
+      tb = Table(newTable)
+      tb.setStyle(table_style)
+      tb.hAlign =
+      table_align
+      if
+      tb.minWidth() <= availableSpace:
+
+      tablas.append(tb)
+      break
+      splitNew = [y[pos:] for y in table]
+      split(splitNew, table_style, table_align,
+      availableSpace, tablas)
+
+
     def get(self, request, id_especialidad, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
         response = HttpResponse(content_type='application/pdf')
