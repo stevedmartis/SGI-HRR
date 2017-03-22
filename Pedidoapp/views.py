@@ -452,7 +452,6 @@ class ReportePedidosPDF(View):
         self.cabecera(pdf, id_especialidad)
         y = 900
         self.tabla(pdf, y, id_especialidad)
-        self.split(table, table_style, table_align, availableSpace)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
