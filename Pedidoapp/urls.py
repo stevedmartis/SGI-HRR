@@ -6,7 +6,7 @@ from .import views
 from django.contrib.auth.views import login_required
 
 
-from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, Completar, ReportePedidosPDF
+from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, Completar, ReportePedidosPDF,Test
 
 admin.autodiscover()
 
@@ -25,5 +25,6 @@ url(r'^modificar/(?P<id_pedido_ex>\d+)/$', Cant_upex, name="cant_extra"),
 url(r'^entregar/(?P<id_pedido_ex>\d+)/(?P<cod_experto>[^/]+)/$', Update_stockex, name="entregado_ex"),
 url(r'^completar/(?P<id_especialidad>\d+)/$', Completar, name='completar'),
 url(r'^reporte_pedidos_pdf/(?P<id_especialidad>\d+)/$', login_required(ReportePedidosPDF.as_view()), name="reporte_pedidos_pdf"),
+url(r'^test/$', Test , name='test'),
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
