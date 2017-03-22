@@ -18,8 +18,10 @@ from django.db import models
 from django.db.models import Count
 from django.core.urlresolvers import reverse
 
-from datetime import datetime
+import datetime
+mylist = []
 today = datetime.date.today()
+mylist.append(today)
 import psycopg2
 import sys
 import json
