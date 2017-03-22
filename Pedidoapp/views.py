@@ -424,46 +424,6 @@ class ReportePedidosPDF(View):
         detalle_orden.wrapOn(pdf, 2000, 1500)
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 100, 400)
-        
-    def othPg(c, doc):
-        t.colWidths = [.2*inch, .2*inch,4*inch, .2*inch, .2*inch]
-        tStyle.add('BACKGROUND',(0,0),(-1,-1),colors.lightblue)
-        x=1
-
-    def pgHdr(c, doc):
-        width,height = letter
-        c.saveState()
-        c.translate(.3 * inch, 0 * inch)
-
-        # STUFF RELATED TO 2 INCH STTIC HEADER FOR FIRST PAGE
-        c.restoreState()
-
-
-    def main():
-        pdf_file = 'stmt.pdf'
-        Elements = []
-        doc = BaseDocTemplate(pdf_file,
-                        pagesize=letter,
-                        leftMargin=.3*inch,
-                        rightMargin= .1 * inch,
-                        topMargin= .1 * inch,
-                        bottomMargin=.3 * inch,
-                        showBoundary=1)
-        #normal frame as for SimpleFlowDocument
-        frameT = Frame(doc.leftMargin + 2*inch, doc.bottomMargin, doc.width - 2.01*inch, doc.height - 4.1*inch, id='normal', showBoundary=0)
-        frameB = Frame(doc.leftMargin+2, doc.bottomMargin, 7.5*inch, 10*inch, id='small', showBoundary=1)
-
-
-
-        doc.addPageTemplates([PageTemplate(id='First',frames=frameT,onPage=pgHdr),
-                        PageTemplate(id='Later',frames=frameB,onPage=othPg)
-                      ])
-        Elements.append(NextPageTemplate('Later'))
-        Elements.append(t)
-        doc.build(Elements)
-
-if __name__ == "__main__":
-    sys.exit(main())
 
 
     def get(self, request, id_especialidad, *args, **kwargs):
