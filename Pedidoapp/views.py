@@ -401,7 +401,7 @@ class ReportePedidosPDF(View):
         pdf.drawString(100, 1000, u"Solicitado por: " + str(especialidad.encargado.nombre))
 
 
-    def tabla(self,pdf,y,t, id_especialidad):
+    def tabla(self,pdf,y, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Total')
@@ -436,7 +436,7 @@ class ReportePedidosPDF(View):
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf, id_especialidad)
         y = 900
-        self.tabla(pdf, y, t, id_especialidad)
+        self.tabla(pdf, y, id_especialidad)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
