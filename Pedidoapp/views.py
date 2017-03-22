@@ -422,9 +422,13 @@ class ReportePedidosPDF(View):
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 10, 10)
-
-        #Definimos la coordenada donde se dibujará la tabla
+      if count <=32
+      #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 100, 400)
+      elif count >32
+      #Definimos la coordenada donde se dibujará la tabla
+        detalle_orden.drawOn(pdf, 100, 50)
+
 
 
     def get(self, request, id_especialidad, *args, **kwargs):
