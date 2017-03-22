@@ -19,6 +19,7 @@ from django.db.models import Count
 from django.core.urlresolvers import reverse
 
 from datetime import datetime
+today = datetime.date.today()
 import psycopg2
 import sys
 import json
@@ -286,8 +287,6 @@ class PedidoDetailView(DetailView):
     def get_template_names(self):
         return render('index.html')
 
-import = datetime.now ()
-
 @login_required
 def Update_stock(request, id_pedido, cod_experto, id_especialidad):
   if request.method == 'GET':
@@ -298,7 +297,7 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
     articulo.total_pedido += pedido.cantidad
     articulo.save()
     pedido.estado = 'entregado'
-    pedido.fecha_entrega = datetime.now()
+    pedido.fecha_entrega = datetime.date.today()
     pedido.save()
     especialidad.estado = 'entregado'
     especialidad.save()
