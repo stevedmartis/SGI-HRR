@@ -256,11 +256,13 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
       form = PedidoEditForm(request.POST, instance=pedido)
       if form.is_valid():
           form.save()
+          """
           pedido.estado = 'pendiente'
           pedido.fecha_pedido = datetime.date.today()
           pedido.save()
           especialidad.estado='pendiente'
           especialidad.save()
+          """
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
 
