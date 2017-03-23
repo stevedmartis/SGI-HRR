@@ -437,9 +437,9 @@ class ReportePedidosPDF(View):
         elif count >90 and count <=110:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 800, 1200)
-        elif count >110 and count <=200:
+        elif count >110 and count <=130:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 440, 0)
+              detalle_orden.drawOn(pdf, 800, 1000)
 
     def get(self, request, id_especialidad, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
