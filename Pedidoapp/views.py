@@ -470,11 +470,10 @@ class ReportePedidosPDF(View):
         return response
 #FIN REPORTE
 
-#PARA ESPECIALIDADES
+#PARA COMPRA. TOTAL PEDIDOS
 class ReporteTotalPDF(View): 
 
-    def cabecera(self,pdf, id_especialidad):
-        especialidad = Especialidad.objects.get(id=id_especialidad)
+    def cabecera(self,pdf ):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 26)
         #Dibujamos una cadena en la ubicación X,Y especificada
@@ -515,9 +514,9 @@ class ReporteTotalPDF(View):
         #Canvas nos permite hacer el reporte con coordenadas X y Y
         pdf = canvas.Canvas(buffer, pagesize = A0)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
-        self.cabecera(pdf, id_especialidad)
+        self.cabecera(pdf)
         y = 900
-        self.tabla(pdf, y, id_especialidad)
+        self.tabla(pdf, y)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
