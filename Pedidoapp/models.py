@@ -39,12 +39,12 @@ class Pedido(models.Model):
         return '{}'.format(self.especialidad, self.articulo, self.cantidad, self.estado)
 
 
-    def update_total(sender, instance, **kwargs):
+def update_total(sender, instance, **kwargs):
     instance.articulo.total_pedido += instance.cantidad
     instance.medicamento.save()
 
-   # register the signal
-   signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="update_stock_count")
+# register the signal
+signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="update_stock_count")
 
 
 class Articulo(models.Model):
