@@ -250,7 +250,6 @@ def ListEspeci(request, id_especialidad):
 def Cant_ingresar(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
-    articulo = Articulo.objects.get(pk=cod_experto)
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
     else:
@@ -262,7 +261,6 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.save()
           especialidad.estado='pendiente'
           especialidad.save()
-          articulo.save()
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
 
@@ -272,8 +270,9 @@ def Sum_Total(request, id_pedido, id_especialidad, cod_experto):
     articulo = Articulo.objects.get(pk=cod_experto) 
     if request.method == 'GET':
       articulo.total_pedido += pedido.cantidad
+      articulo.save()
     return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
-     
+
 
 @login_required
 def Cant_update(request, id_pedido, id_especialidad):
