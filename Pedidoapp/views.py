@@ -248,8 +248,8 @@ def ListEspeci(request, id_especialidad):
 
 @login_required
 def Cant_ingresar(request, id_pedido, id_especialidad):
-    especialidad = Especialidad.objects.get(id=id_especialidad).update(estado="pendiente")
-    pedido = Pedido.objects.get(id=id_pedido).update()
+    especialidad = Especialidad.objects.get(id=id_especialidad)
+    pedido = Pedido.objects.get(id=id_pedido)
     
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
