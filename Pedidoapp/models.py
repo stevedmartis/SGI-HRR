@@ -40,8 +40,8 @@ class Pedido(models.Model):
 
 
 def update_total(sender, instance, **kwargs):
-    suma= instance.articulo.total_pedido + instance.cantidad
-    instance.suma.save()
+    instance.articulo.total_pedido + instance.cantidad
+    instance.articulo.save()
 
 # register the signal
 signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="update_stock_count")
