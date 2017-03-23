@@ -46,18 +46,6 @@ def update_total(sender, instance, **kwargs):
 # register the signal
 signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="some.unique.identifier")
 
-created = False
-
-    #Workaround to signal being emitted twice on create and save
-    if 'created' in kwargs:
-        if kwargs['created']:
-            created=True
-
-    #If signal is from object creation, return
-    if created:
-        return
-
-
 class Articulo(models.Model):
     cod_experto = models.CharField(max_length=999, primary_key=True, blank=True)
     nombre      = models.CharField(max_length=999, blank=True)
