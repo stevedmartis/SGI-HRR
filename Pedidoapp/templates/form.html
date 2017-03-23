@@ -33,7 +33,7 @@
             <tr> 
             <td>{% csrf_token %}
             {{form.as_p}}</td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url "usuario:suma_total" pedido.id especialidad.id pedido.articulo.cod_experto  %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a></td></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url "usuario:suma_total" pedido.id especialidad.id pedido.articulo.cod_experto  %}" type="submit" class="btn btn-primary pull-right" />Ingresar</a></td></td>
         </thead>
         </tr>
         </table>
