@@ -44,7 +44,7 @@ def update_total(sender, instance, **kwargs):
     instance.articulo.save()
 
 # register the signal
-signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="update_stock_count")
+signals.post_save.connect(update_total, sender=Pedido.articulo.total_pedido, dispatch_uid="update_stock_count")
 
 
 class Articulo(models.Model):
@@ -60,9 +60,6 @@ class Articulo(models.Model):
 
     def __str__(self):
         return '{}'.format(self.nombre, self.stock, self.cod_experto)
-
-    def get_absolute_url(self):
-        return reverse('entregado_ex', kwargs={'id_pedido_ex': pedido.id, 'cod_experto':self.cod_experto})
 
 
 
