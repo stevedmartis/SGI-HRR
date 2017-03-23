@@ -39,6 +39,14 @@ class Pedido(models.Model):
         return '{}'.format(self.especialidad, self.articulo, self.cantidad, self.estado)
 
 
+    def update_total(sender, instance, **kwargs):
+    instance.articulo.total_pedido += instance.cantidad
+    instance.medicamento.save()
+
+   # register the signal
+   signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="update_stock_count")
+
+
 class Articulo(models.Model):
     cod_experto = models.CharField(max_length=999, primary_key=True, blank=True)
     nombre      = models.CharField(max_length=999, blank=True)
@@ -76,7 +84,6 @@ class Pedido_Extra(models.Model):
 
     def __str__(self):
         return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
-
 
 
 
