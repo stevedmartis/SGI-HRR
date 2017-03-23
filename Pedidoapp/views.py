@@ -528,7 +528,8 @@ class ReporteTotalPDF(View):
         response.write(pdf)
         return response
 #FIN REPORTE
-""" from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Frame, Spacer
+"""
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Frame, Spacer
 from reportlab.lib import colors
 from reportlab.lib.units import cm
 from reportlab.lib.pagesizes import A3, A4, landscape, portrait
