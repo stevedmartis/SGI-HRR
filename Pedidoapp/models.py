@@ -34,7 +34,13 @@ class Pedido(models.Model):
     cantidad       = models.IntegerField(blank=True)
     estado         =  models.CharField(max_length=20, blank=True, default='pendiente')
 
-
+"""
+          pedido.estado = 'pendiente'
+          pedido.fecha_pedido = datetime.date.today()
+          pedido.save()
+          especialidad.estado='pendiente'
+          especialidad.save()
+          """
     def __str__(self):
         return '{}'.format(self.especialidad, self.articulo, self.cantidad, self.estado)
 
@@ -42,6 +48,13 @@ class Pedido(models.Model):
 def update_total(sender, instance, **kwargs):
     instance.articulo.total_pedido += instance.cantidad
     instance.articulo.save()
+    instance.estado  = 'pendiente'
+    instance.estado.save()
+    instance.fecha_pedido = datetime.date.today()
+    instance.fecha_pedido.save()
+    instance.especialidad.estado = 'pendiente'
+    instance.especialidad.estado.save()
+
 
 # register the signal
 signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="path.to.this.module")
