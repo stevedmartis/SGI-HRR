@@ -42,7 +42,8 @@ class Pedido(models.Model):
 def update_total(sender, instance, **kwargs):
     instance.articulo.total_pedido += instance.cantidad
     instance.articulo.save()
-    Pedido.object.filter(estado=instance).update(estado='pendiente')
+    instance.estado = 'pendiente'
+    instance.save()
     """
     pedido.estado = 'pendiente'
       pedido.fecha_pedido = datetime.date.today()
