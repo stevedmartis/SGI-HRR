@@ -44,7 +44,7 @@ def update_total(sender, instance, **kwargs):
     instance.articulo.save()
 
 # register the signal
-signals.post_save.connect(update_total, sender=Pedido)
+signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="update_stock_count")
 
 
 class Articulo(models.Model):
