@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django_csv_exports',
     'Pedidoapp',
     'bodega.settings',
-    'bodega.Pedidoapp',
 
 ]
 
