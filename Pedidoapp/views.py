@@ -247,9 +247,10 @@ def ListEspeci(request, id_especialidad):
 
 
 @login_required
-def Cant_ingresar(request, id_pedido, id_especialidad):
+def Cant_ingresar(request, id_pedido, id_especialidad, cod_experto):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
+    articulo = Articulo.objects.get(pk=cod_experto)
     if request.method == 'GET':
       form = PedidoEditForm(instance=pedido)
     else:
@@ -261,8 +262,10 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           pedido.save()
           especialidad.estado='pendiente'
           especialidad.save()
+          articulo.total_pedido += pedido.cantidad
+          articulo.save()
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
-    return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad}) 
+    return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
 
 @login_required
 def Cant_update(request, id_pedido, id_especialidad):
@@ -296,7 +299,6 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
     pedido = Pedido.objects.get(id=id_pedido)
     articulo = Articulo.objects.get(pk=cod_experto)
     articulo.stock -= pedido.cantidad
-    articulo.total_pedido += pedido.cantidad
     articulo.save()
     pedido.estado = 'entregado'
     pedido.fecha_entrega = datetime.date.today()
@@ -364,7 +366,7 @@ def Completar(request, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.filter(especialidad=especialidad).update(cantidad=0, estado="", fecha_pedido=None, fecha_entrega=None)
     articulo = Articulo.objects.all().update(total_pedido=0)
-    especialidad.estadistica = 0
+    # estadistica: SUMAR +1 y al 4 estadistica = 0
     especialidad.estado = "completado"
     especialidad.save()
     return HttpResponseRedirect('/solicitar/home/')
