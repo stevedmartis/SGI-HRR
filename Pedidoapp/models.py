@@ -40,7 +40,7 @@ class Pedido(models.Model):
 
 
 def update_total(sender, instance, **kwargs):
-    instance.articulo.total_pedido += instance.cantidad
+    instance.cantidad += instance.articulo.total_pedido 
     instance.articulo.save()
 
 # register the signal
