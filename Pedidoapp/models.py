@@ -44,7 +44,7 @@ def update_total(sender, instance, **kwargs):
     instance.articulo.save()
 
 # register the signal
-signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="some.unique.identifier")
+signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="path.to.this.module")
 
 class Articulo(models.Model):
     cod_experto = models.CharField(max_length=999, primary_key=True, blank=True)

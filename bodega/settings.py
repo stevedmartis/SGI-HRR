@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_csv_exports',
     'Pedidoapp',
     'bodega.settings',
+    'bodega.Pedidoapp',
 
 ]
 
@@ -150,19 +151,29 @@ STATICFILES_DIRS = (
 
 )
 
-"""
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379",
-        "OPTIONS": {
-              'DB': 1,
-            "PARSER_CLASS": "redis.connection.HiredisParser"
-        }
-        
+def get_cache():
+  import os
+  try:
+    os.environ['MEMCACHE_SERVERS'] = os.environ['MEMCACHIER_SERVERS'].replace(',', ';')
+    os.environ['MEMCACHE_USERNAME'] = os.environ['MEMCACHIER_USERNAME']
+    os.environ['MEMCACHE_PASSWORD'] = os.environ['MEMCACHIER_PASSWORD']
+    return {
+      'default': {
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'TIMEOUT': 500,
+        'BINARY': True,
+        'OPTIONS': { 'tcp_nodelay': True }
+      }
     }
-}
-"""
+  except:
+    return {
+      'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+      }
+    }
+
+CACHES = get_cache()
+
 AUTHENTICATION_BACKENDS = ('Pedidoapp.views.CaseInsensitiveModelBackend',)
 
 LOGIN_REDIRECT_URL = reverse_lazy('usuario:home')
