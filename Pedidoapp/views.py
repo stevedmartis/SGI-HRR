@@ -470,6 +470,62 @@ class ReportePedidosPDF(View):
         return response
 #FIN REPORTE
 
+#PARA ESPECIALIDADES
+class ReporteTotalPDF(View): 
+
+    def cabecera(self,pdf, id_especialidad):
+        especialidad = Especialidad.objects.get(id=id_especialidad)
+        #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
+        pdf.setFont("Helvetica", 26)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(1100, 3300, u"REPORTE ARTICULOS CAE")
+        pdf.setFont("Helvetica", 24)
+        pdf.drawString(1050, 3250, u"TOTAL DE CANTIDADES SOLICITADAS")
+        pdf.setFont("Helvetica", 22)
+        pdf.drawString(1390, 3200, u"FECHA: " + str(datetime.date.today()))
+
+    def tabla(self,pdf,y):
+        #Creamos una tupla de encabezados para neustra tabla
+        encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
+        #Creamos una lista de tuplas que van a contener a las personas
+        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.all()]
+        #Establecemos el tamaño de cada una de las columnas de la tabla
+        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 10 * cm, 5 * cm, 5 * cm, 5 *])
+        #Aplicamos estilos a las celdas de la tabla
+        detalle_orden.setStyle(TableStyle(
+            [
+                #La primera fila(encabezados) va a estar centrada
+                ('ALIGN',(0,0),(3,0),'CENTER'),
+                #Los bordes de todas las celdas serán de color negro y con un grosor de 1
+                ('GRID', (0, 0), (-1, -1), 1, colors.black), 
+                #El tamaño de las letras de cada una de las celdas será de 10
+                ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]
+        ))
+        #Establecemos el tamaño de la hoja que ocupará la tabla 
+        detalle_orden.wrapOn(pdf, 100, 100)
+        #Definimos la coordenada donde se dibujará la tabla
+        detalle_orden.drawOn(pdf, 800, 2640)
+        
+    def get(self, request, *args, **kwargs):
+        #Indicamos el tipo de contenido a devolver, en este caso un pdf
+        response = HttpResponse(content_type='application/pdf')
+        #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
+        buffer = BytesIO()
+        #Canvas nos permite hacer el reporte con coordenadas X y Y
+        pdf = canvas.Canvas(buffer, pagesize = A0)
+        #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
+        self.cabecera(pdf, id_especialidad)
+        y = 900
+        self.tabla(pdf, y, id_especialidad)
+        #Con show page hacemos un corte de página para pasar a la siguiente
+        pdf.showPage()
+        pdf.save()
+        pdf = buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+#FIN REPORTE
 
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
