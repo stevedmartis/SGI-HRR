@@ -472,7 +472,7 @@ class ReportePedidosPDF(View):
         response.write(pdf)
         return response
 #FIN REPORTE
-"""
+
 #PARA COMPRA. TOTAL PEDIDOS
 class ReporteTotalPDF(View): 
 
@@ -568,7 +568,7 @@ class ReporteTotalPDF(View):
     elements.append(tableThatSplitsOverPages)
 
     doc.build(elements)
-
+"""
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
  
