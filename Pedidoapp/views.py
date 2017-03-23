@@ -423,11 +423,11 @@ class ReportePedidosPDF(View):
                 #Los bordes de todas las celdas serán de color negro y con un grosor de 1
                 ('GRID', (0, 0), (-1, -1), 1, colors.black), 
                 #El tamaño de las letras de cada una de las celdas será de 10
-                ('FONTSIZE', (0, 0), (-1, -1), 10),
+                ('FONTSIZE', (0, 0), (-1, -1), 20),
             ]
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla 
-        detalle_orden.wrapOn(pdf, 100, 100)
+        detalle_orden.wrapOn(pdf, 1000, 1000)
         if count <=30:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 800, 2640)
