@@ -29,6 +29,15 @@
     {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
+            <a class="tag_item" href="{% url "usuario:reporte_total_pdf"  %}" ><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="">REPORTE PDF</a>
+            </p>
+            <a class="titulo_item" href="{% url "usuario:reporte_total_pdf"  %}"><h5>PATRICIO ROJAS</a></h5></p>
+        </article>
+    <article class="item">
+            <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_admiproc.id %}" method="GET" ><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
