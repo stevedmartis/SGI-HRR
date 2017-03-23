@@ -553,7 +553,7 @@ class ReporteTotalPDF(View):
     # Assemble data for each column using simple loop to append it into data list
     data = [[column1Heading,column2Heading]]
     for i in range(1,100):
-    data.append([str(i),str(i)])
+      data.append([str(i),str(i)])
 
     tableThatSplitsOverPages = Table(data, [6 * cm, 6 * cm], repeatRows=1)
     tableThatSplitsOverPages.hAlign = 'LEFT'
