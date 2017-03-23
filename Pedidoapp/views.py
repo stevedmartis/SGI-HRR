@@ -267,6 +267,20 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
 
 
+def Post_ingresar(request, id_pedido, id_especialidad):
+    especialidad = Especialidad.objects.get(id=id_especialidad)
+    pedido = Pedido.objects.get(id=id_pedido)
+          pedido.estado = 'pendiente'
+          pedido.fecha_pedido = datetime.date.today()
+          pedido.save()
+          especialidad.estado='pendiente'
+          especialidad.save()
+          return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
+
+         
+
+
+
 
 
 @login_required
