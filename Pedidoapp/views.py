@@ -687,15 +687,15 @@ class ReporteTotalEcono(View):
 
     def cabecera(self,pdf ):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
-        pdf.setFont("Helvetica", 24)
+        pdf.setFont("Helvetica", 18)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(670, 2300, u"REPORTE ARTICULOS CAE")
-        pdf.setFont("Helvetica", 22)
-        pdf.drawString(650, 2250, u"TOTAL DE CANTIDADES SOLICITADAS")
-        pdf.setFont("Helvetica", 20)
-        pdf.drawString(900, 2200, u"FECHA: " + str(datetime.date.today()))
-        pdf.setFont("Helvetica", 20)
-        pdf.drawString(500, 2200, u"DE BODEGA: ECONOMATO")
+        pdf.drawString(450, 1600, u"REPORTE ARTICULOS CAE")
+        pdf.setFont("Helvetica", 16)
+        pdf.drawString(430, 1570, u"TOTAL DE CANTIDADES SOLICITADAS")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(700, 1520, u"FECHA: " + str(datetime.date.today()))
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(300, 1520, u"DE BODEGA: ECONOMATO")
    
     def tabla1(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
