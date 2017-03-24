@@ -595,7 +595,7 @@ class ReporteTotalFarmacia(View):
         pdf.setFont("Helvetica", 14)
         pdf.drawString(700, 1520, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(200, 1520, u"DE BODEGA: FARMACIA")
+        pdf.drawString(300, 1520, u"DE BODEGA: FARMACIA")
    
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
@@ -618,7 +618,7 @@ class ReporteTotalFarmacia(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 500, 600)
+        detalle_orden.drawOn(pdf, 400, 600)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
