@@ -591,11 +591,11 @@ class ReporteTotalFarmacia(View):
         #Dibujamos una cadena en la ubicación X,Y especificada
         pdf.drawString(450, 1600, u"REPORTE ARTICULOS CAE")
         pdf.setFont("Helvetica", 16)
-        pdf.drawString(430, 1550, u"TOTAL DE CANTIDADES SOLICITADAS")
+        pdf.drawString(430, 1570, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(700, 1500, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(700, 1520, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(250, 1500, u"DE BODEGA: FARMACIA")
+        pdf.drawString(250, 1520, u"DE BODEGA: FARMACIA")
    
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
