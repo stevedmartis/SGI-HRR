@@ -509,11 +509,16 @@ class ReporteTotalPDF(View):
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 800, -1000)
         
-    def throwPageBreak(self):
-        """
-            Method to force a page break in the report
-        """
-        self.content.append(PageBreak())
+    def create_toc():
+    """Creates the table of contents"""
+    table_of_contents = TableOfContents()
+    table_of_contents.dotsMinLevel = 0
+    header1 = ParagraphStyle(name='Heading1', fontSize=16, leading=16)
+    header2 = ParagraphStyle(name='Heading2', fontSize=14, leading=14)
+    table_of_contents.levelStyles = [header1, header2]
+    return [table_of_contents, PageBreak()]
+
+    doc.build(elements)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -526,6 +531,7 @@ class ReporteTotalPDF(View):
         self.cabecera(pdf)
         y = 900
         self.tabla(pdf, y)
+        self.create_toc()
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
@@ -534,47 +540,17 @@ class ReporteTotalPDF(View):
         response.write(pdf)
         return response
 #FIN REPORTE
-"""
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Frame, Spacer
-from reportlab.lib import colors
-from reportlab.lib.units import cm
-from reportlab.lib.pagesizes import A3, A4, landscape, portrait
-from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER, TA_JUSTIFY
-from reportlab.pdfgen import canvas
-
-class ReporteTotalPDF(View): 
-
-    pdfReportPages = "C:\\test.pdf"
-    doc = SimpleDocTemplate(pdfReportPages, pagesize=A4)
-
-    # container for the "Flowable" objects
-    elements = []
-    styles=getSampleStyleSheet()
-    styleN = styles["Normal"]
-
-    # Make heading for each column and start data list
-    column1Heading = "COLUMN ONE HEADING"
-    column2Heading = "COLUMN TWO HEADING"
-    # Assemble data for each column using simple loop to append it into data list
-    data = [[column1Heading,column2Heading]]
-    for i in range(1,100):
-      data.append([str(i),str(i)])
-
-    tableThatSplitsOverPages = Table(data, [6 * cm, 6 * cm], repeatRows=1)
-    tableThatSplitsOverPages.hAlign = 'LEFT'
-    tblStyle = TableStyle([('TEXTCOLOR',(0,0),(-1,-1),colors.black),
-                       ('VALIGN',(0,0),(-1,-1),'TOP'),
-                       ('LINEBELOW',(0,0),(-1,-1),1,colors.black),
-                       ('BOX',(0,0),(-1,-1),1,colors.black),
-                       ('BOX',(0,0),(0,-1),1,colors.black)])
-    tblStyle.add('BACKGROUND',(0,0),(1,0),colors.lightblue)
-    tblStyle.add('BACKGROUND',(0,1),(-1,-1),colors.white)
-    tableThatSplitsOverPages.setStyle(tblStyle)
-    elements.append(tableThatSplitsOverPages)
+def create_toc():
+    """Creates the table of contents"""
+    table_of_contents = TableOfContents()
+    table_of_contents.dotsMinLevel = 0
+    header1 = ParagraphStyle(name='Heading1', fontSize=16, leading=16)
+    header2 = ParagraphStyle(name='Heading2', fontSize=14, leading=14)
+    table_of_contents.levelStyles = [header1, header2]
+    return [table_of_contents, PageBreak()]
 
     doc.build(elements)
-"""
+
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
  
