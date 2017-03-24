@@ -600,7 +600,7 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 13000, 100)
+        detalle_orden.drawOn(pdf, 1300, 100)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
