@@ -480,9 +480,9 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 26)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(1100, 3300, u"REPORTE ARTICULOS CAE")
+        pdf.drawString(1100, 2000, u"REPORTE ARTICULOS CAE")
         pdf.setFont("Helvetica", 24)
-        pdf.drawString(1050, 3250, u"TOTAL DE CANTIDADES SOLICITADAS")
+        pdf.drawString(1050, 1900, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 22)
         pdf.drawString(1390, 3200, u"FECHA: " + str(datetime.date.today()))
 
@@ -501,13 +501,13 @@ class ReporteTotalPDF(View):
                 #Los bordes de todas las celdas serán de color negro y con un grosor de 1
                 ('GRID', (0, 0), (-1, -1), 1, colors.black), 
                 #El tamaño de las letras de cada una de las celdas será de 10
-                ('FONTSIZE', (0, 0), (-1, -1), 15),
+                ('FONTSIZE', (0, 0), (-1, -1), 10),
             ]
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 800, 500)
+        detalle_orden.drawOn(pdf, 400, 300)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
