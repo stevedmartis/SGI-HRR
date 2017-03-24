@@ -492,7 +492,7 @@ class ReporteTotalPDF(View):
         #Creamos una lista de tuplas que van a contener a las personas
         detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["AA-0001", "AA-0142"]).order_by('cod_experto')]
         #Establecemos el tamaño de cada una de las columnas de la tabla
-        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 10 * cm, 5 * cm, 5 * cm, 5 * cm])
+        detalle_orden = Table([encabezados] + detalles, colWidths=[3 * cm, 7 * cm, 3 * cm, 3 * cm, 3 * cm])
         #Aplicamos estilos a las celdas de la tabla
         detalle_orden.setStyle(TableStyle(
             [
@@ -501,7 +501,7 @@ class ReporteTotalPDF(View):
                 #Los bordes de todas las celdas serán de color negro y con un grosor de 1
                 ('GRID', (0, 0), (-1, -1), 1, colors.black), 
                 #El tamaño de las letras de cada una de las celdas será de 10
-                ('FONTSIZE', (0, 0), (-1, -1), 10),
+                ('FONTSIZE', (0, 0), (-1, -1), 15),
             ]
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla 
