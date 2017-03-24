@@ -51,6 +51,7 @@ def home(request):
       pend           = Pedido.objects.filter(especialidad=1).filter(estado='pendiente').count()
       entre          = Pedido.objects.filter(especialidad=1).filter(estado='entregado').count()
       id_urolo  = Pedido.objects.get(id=1)
+      urolo             = Especialidad.objects.get(id=1)
       #Eda
       total_art2      = Pedido.objects.filter(especialidad=2).count()
       pend2          = Pedido.objects.filter(especialidad=2).filter(estado='pendiente').count()
@@ -208,7 +209,7 @@ def home(request):
       pend33           = Pedido.objects.filter(especialidad=33).filter(estado='pendiente').count()
       entre33          = Pedido.objects.filter(especialidad=33).filter(estado='entregado').count()
       id_secre         = Pedido.objects.get(id=33)
-      name             = Especialidad.objects.get(id=33)
+      secre             = Especialidad.objects.get(id=33)
       #AUX. ASEO.CONS 34
       total_art34      = Pedido.objects.filter(especialidad=34).count()
       pend34           = Pedido.objects.filter(especialidad=34).filter(estado='pendiente').count()
