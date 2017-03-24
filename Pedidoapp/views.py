@@ -208,6 +208,7 @@ def home(request):
       pend33           = Pedido.objects.filter(especialidad=33).filter(estado='pendiente').count()
       entre33          = Pedido.objects.filter(especialidad=33).filter(estado='entregado').count()
       id_secre         = Pedido.objects.get(id=33)
+      nombre           = Encargado.objects.filter(especialidad=33)
       #AUX. ASEO.CONS 34
       total_art34      = Pedido.objects.filter(especialidad=34).count()
       pend34           = Pedido.objects.filter(especialidad=34).filter(estado='pendiente').count()
