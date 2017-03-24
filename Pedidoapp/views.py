@@ -589,7 +589,7 @@ class ReporteTotalFarmacia(View):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 24)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(500, 1000, u"REPORTE ARTICULOS CAE")
+        pdf.drawString(500, 1500, u"REPORTE ARTICULOS CAE")
         pdf.setFont("Helvetica", 22)
         pdf.drawString(400, 1950, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 20)
