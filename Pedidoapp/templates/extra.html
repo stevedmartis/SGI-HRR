@@ -82,7 +82,7 @@
 
                     <td>{% if user.is_superuser %}<a href="{% url "usuario:entregado_ex" id_pedido_ex=ex.id cod_experto=ex.articulo_ex.cod_experto  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Entregar</a>{% endif %}</td>
                     
-                </tr>
+                </tr>  
         {% endfor %}
         {% endif %}
            </tbody>
@@ -139,7 +139,7 @@ $(document).ready(function (){
 <br>
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
-        <p>SUPPLY for HRR. 2017 ®</p>
+        <p>S.G.I for HRR. 2017 ®</p>
     </footer>
 
 {% endblock%}
