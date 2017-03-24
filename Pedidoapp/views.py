@@ -511,6 +511,7 @@ class ReporteTotalPDF(View):
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 30, 110)
+        
     #SEGUNDA TABLA. INSUMO  
     def tabla2(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
@@ -536,7 +537,7 @@ class ReporteTotalPDF(View):
         detalle_orden.drawOn(pdf, 580, 110)
 
     #TERCERA TABLA.INSUMO   
-    def tabla2(self,pdf,y):
+    def tabla3(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
         #Creamos una lista de tuplas que van a contener a las personas
@@ -571,6 +572,7 @@ class ReporteTotalPDF(View):
         y = 900
         self.tabla1(pdf, y)
         self.tabla2(pdf, y)
+        self.tabla3(pdf, y)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
