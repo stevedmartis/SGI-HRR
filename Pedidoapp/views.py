@@ -676,7 +676,7 @@ class ReporteTotalEcono(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 600, 200)
+        detalle_orden.drawOn(pdf, 600, 50)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -684,7 +684,7 @@ class ReporteTotalEcono(View):
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
         buffer = BytesIO()
         #Canvas nos permite hacer el reporte con coordenadas X y Y
-        pdf = canvas.Canvas(buffer, pagesize = A1)
+        pdf = canvas.Canvas(buffer, pagesize = A0)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
         y = 900
