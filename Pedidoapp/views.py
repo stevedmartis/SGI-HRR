@@ -99,7 +99,7 @@ def home(request):
       pend9           = Pedido.objects.filter(especialidad=9).filter(estado='pendiente').count()
       entre9          = Pedido.objects.filter(especialidad=9).filter(estado='entregado').count()
       id_oftal  = Pedido.objects.get(id=9)
-      urolo             = Especialidad.objects.get(id=9)
+      oftal             = Especialidad.objects.get(id=9)
       #P. LUMBAR
       total_art10      = Pedido.objects.filter(especialidad=10).count()
       pend10          = Pedido.objects.filter(especialidad=10).filter(estado='pendiente').count()
