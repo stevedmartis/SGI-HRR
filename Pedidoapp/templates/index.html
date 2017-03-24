@@ -29,13 +29,13 @@
     {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-            <a class="tag_item" href="{% url "usuario:reporte_total_pdf"  %}" ><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
+            <a class="tag_item" href=""><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
             </figure>
             <p class="datos_item">
             <a class="tag_item" href="">REPORTE PDF</a>
             </p>
             <a class="titulo_item" href=""><h5>TOTAL CANTIDADES SOLICITADAS POR ESPECIALIDADES</a></h5></p>
-            <a class="titulo_item" href=""><h5>INSUMO</a></h5></p>
+            <a class="titulo_item" href="{% url "usuario:reporte_insumo_pdf"  %}"><h5>INSUMO</a></h5></p>
             <a class="titulo_item" href=""><h5>FARMACIA</a></h5></p>
             <a class="titulo_item" href=""><h5>ECONOMATO</a></h5></p>
 

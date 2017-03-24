@@ -25,6 +25,6 @@ url(r'^modificar/(?P<id_pedido_ex>\d+)/$', Cant_upex, name="cant_extra"),
 url(r'^entregar/(?P<id_pedido_ex>\d+)/(?P<cod_experto>[^/]+)/$', Update_stockex, name="entregado_ex"),
 url(r'^completar/(?P<id_especialidad>\d+)/$', Completar, name='completar'),
 url(r'^reporte_pedidos_pdf/(?P<id_especialidad>\d+)/$', login_required(ReportePedidosPDF.as_view()), name="reporte_pedidos_pdf"),
-url(r'^reporte_total_pdf/$', login_required(ReporteTotalPDF.as_view()), name="reporte_total_pdf"),
+url(r'^reporte_total_pdf/$', login_required(ReporteTotalPDF.as_view()), name="reporte_insumo_pdf"),
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)      
