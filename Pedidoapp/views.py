@@ -486,7 +486,7 @@ class ReporteTotalPDF(View):
         pdf.setFont("Helvetica", 22)
         pdf.drawString(1390, 3200, u"FECHA: " + str(datetime.date.today()))
 
-    def tabla(self,pdf,y):
+    def tabla(self,pdf,y, Insumo):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
         #Creamos una lista de tuplas que van a contener a las personas
