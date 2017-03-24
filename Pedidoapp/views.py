@@ -651,7 +651,7 @@ class ReporteTotalEcono(View):
         pdf.setFont("Helvetica", 24)
         pdf.drawString(550, 2250, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 22)
-        pdf.drawString(800, 2200, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(900, 2200, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 22)
         pdf.drawString(400, 2200, u"DE BODEGA: ECONOMATO")
    
@@ -676,7 +676,7 @@ class ReporteTotalEcono(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 600, 500)
+        detalle_orden.drawOn(pdf, 600, 200)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
