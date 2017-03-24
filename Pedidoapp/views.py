@@ -497,7 +497,7 @@ class ReporteTotalPDF(View):
         detalle_orden.setStyle(TableStyle(
             [
                 #La primera fila(encabezados) va a estar centrada
-                ('ALIGN',(0,0),(6,0),'CENTER'),
+                ('ALIGN',(0,0),(3,0),'CENTER'),
                 #Los bordes de todas las celdas serán de color negro y con un grosor de 1
                 ('GRID', (0, 0), (-1, -1), 1, colors.black), 
                 #El tamaño de las letras de cada una de las celdas será de 10
@@ -515,7 +515,7 @@ class ReporteTotalPDF(View):
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
         buffer = BytesIO()
         #Canvas nos permite hacer el reporte con coordenadas X y Y
-        pdf = canvas.Canvas(buffer, pagesize = A0)
+        pdf = canvas.Canvas(buffer, pagesize = A1)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
         y = 900
