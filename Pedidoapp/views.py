@@ -488,7 +488,7 @@ class ReporteTotalPDF(View):
         pdf.setFont("Helvetica", 20)
         pdf.drawString(500, 2200, u"DE BODEGA: INSUMO")
 
-    def tabla(self,pdf,y):
+    def tabla1(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
         #Creamos una lista de tuplas que van a contener a las personas
@@ -521,7 +521,7 @@ class ReporteTotalPDF(View):
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
         y = 900
-        self.tabla(pdf, y)
+        self.tabla1(pdf, y)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
