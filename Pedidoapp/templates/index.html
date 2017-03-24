@@ -73,7 +73,7 @@
             <a href="{% url "usuario:lita_todo" id_admicons.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_admicons.id %}">ADMISION.CONS</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_admicons.id %}">{{admicons.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{admicons.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -101,7 +101,7 @@
             <a href="{% url "usuario:lita_todo" id_aseocon.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_aseocon.id %}">AUX.ASEO CONS</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_aseocon.id %}">{{aseocon.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{aseocon.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -129,7 +129,7 @@
             <a href="{% url "usuario:lita_todo" id_aseop.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_aseop.id %}">AUX.ASEO PROC</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_aseop.id %}">{{aseop.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{aseop.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -157,7 +157,7 @@
             <a href="{% url "usuario:lita_todo" id_derma.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_derma.id %}">DERMATOLOGIA/ FOTO</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_derma.id %}">{{derma.nombre}}/a>
             </p>
             <a class="titulo_item" href=""><h5>{{derma.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -185,7 +185,7 @@
             <a href="{% url "usuario:lita_todo" id_sdan.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_sdan.id %}">SALA DAN</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_sdan.id %}">{{sdan.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{sdan.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -213,7 +213,7 @@
             <a href="{% url "usuario:lita_todo" id_caste.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_caste.id %}">DRA. CASTELLON</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_caste.id %}">{{caste.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{caste.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -241,7 +241,7 @@
             <a href="{% url "usuario:lita_todo" id_diab.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_diab.id %}">DIABETES</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_diab.id %}">{{diab.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{diab.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -269,7 +269,7 @@
             <a href="{% url "usuario:lita_todo" id_enfp.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_enfp.id %}">ESTACION ENF. PROC</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_enfp.id %}">{{enfp.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{enfp.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -297,7 +297,7 @@
             <a href="{% url "usuario:lita_todo" id_hepa.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_hepa.id %}">PROG.HEPATITIS</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_hepa.id %}">{{hepa.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{hepa.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -325,7 +325,7 @@
             <a href="{% url "usuario:lita_todo" id_vih.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_vih.id %}">PROG. VIH</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_vih.id %}">{{vih.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{vih.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -353,7 +353,7 @@
             <a href="{% url "usuario:lita_todo" id_taco.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_taco.id %}">POLI.TACO</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_taco.id %}">{{taco.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{taco.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -381,7 +381,7 @@
             <a href="{% url "usuario:lita_todo" id_prea.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_prea.id %}">PREPARACION A</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_prea.id %}">{{prea.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{prea.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -409,7 +409,7 @@
             <a href="{% url "usuario:lita_todo" id_preb.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_preb.id %}">PREPARACION B</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_preb.id %}">{{preb.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{preb.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -437,7 +437,7 @@
             <a href="{% url "usuario:lita_todo" id_recu.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_recu.id %}">RECUPERACION</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_recu.id %}">{{recu.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{recu.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -465,7 +465,7 @@
             <a href="{% url "usuario:lita_todo" id_tmt.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_tmt.id %}">TRAUMATOLOGIA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_tmt.id %}">{{tmt.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{tmt.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -493,7 +493,7 @@
             <a href="{% url "usuario:lita_todo" id_salac.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_salac.id %}">SALA INFORMES CONS.</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_salac.id %}">{{salac.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{salac.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -521,7 +521,7 @@
             <a href="{% url "usuario:lita_todo" id_salaproc.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_salaproc.id %}">SALA INFORMES PROC.</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_salaproc.id %}">{{salaproc.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{salaproc.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -549,7 +549,7 @@
             <a href="{% url "usuario:lita_todo" id_bronco.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_bronco.id %}">BRONCOPULMONAR</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_bronco.id %}">{{bronco.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{bronco.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -577,7 +577,7 @@
             <a href="{% url "usuario:lita_todo" id_neuro.id  %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_neuro.id %}">NEUROLOGIA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_neuro.id %}">{{neuro.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{neuro.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -605,7 +605,7 @@
             <a href="{% url "usuario:lita_todo" id_egg.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_egg.id %}">EEG</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_egg.id %}">{{egg.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{egg.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -633,7 +633,7 @@
             <a href="{% url "usuario:lita_todo" id_lumbar.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_lumbar.id %}">P. LUMBAR</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_lumbar.id %}">{{lumbar.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{lumbar.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -661,7 +661,7 @@
             <a href="{% url "usuario:lita_todo" id_mama.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_mama.id %}">PAT.MAMARIA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_mama.id %}">{{mama.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{mama.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -689,7 +689,7 @@
             <a href="{% url "usuario:lita_todo" id_oftal.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_oftal.id %}">OFTAMOLOGIA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_oftal.id %}">{{oftal.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{oftal.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -717,7 +717,7 @@
             <a href="{% url "usuario:lita_todo" id_otto.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_otto.id %}">OTORRINO</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_otto.id %}">{{otto.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{otto.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
@@ -745,7 +745,7 @@
             <a href="{% url "usuario:lita_todo" id_cardio.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_cardio.id %}">CARDIOLOGIA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_cardio.id %}">{{cardio.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{cardio.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
@@ -773,7 +773,7 @@
             <a href="{% url "usuario:lita_todo" id_clinitt.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_clinitt.id %}">CLINICA Y TTO</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_clinitt.id %}">{{clinitt.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{clinitt.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
@@ -801,7 +801,7 @@
             <a href="{% url "usuario:lita_todo" id_curav.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_curav.id %}">CURACION AVANZADA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_curav.id %}">{{curav.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{curav.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
@@ -829,7 +829,7 @@
             <a href="{% url "usuario:lita_todo" id_pabm.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_pabm.id %}">PAB. MENOR</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_pabm.id %}">{{pabm.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{pabm.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
@@ -857,7 +857,7 @@
             <a href="{% url "usuario:lita_todo" id_fibro.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_fibro.id %}">FIBROBRONCOSCOPIA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_fibro.id %}">{{fibro.nombre}}/a>
             </p>
             <a class="titulo_item" href=""><h5>{{fibro.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
@@ -885,7 +885,7 @@
             <a href="{% url "usuario:lita_todo" id_eda.id  %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_eda.id %}">EDA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_eda.id %}">{{eda.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{eda.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
@@ -914,7 +914,7 @@
             <a href="{% url "usuario:lita_todo" id_secre.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_secre.id %}">SECRETARIAS.CAE</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_secre.id %}">{{secre.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{secre.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
@@ -942,7 +942,7 @@
             <a href="{% url "usuario:lita_todo" id_urolo.id %}"><img src="/static/img/user.png" width="1000" height="135px"/></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_urolo.id %}">UROLOGIA</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_urolo.id %}">{{urolo.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{urolo.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
