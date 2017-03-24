@@ -595,7 +595,7 @@ class ReporteTotalFarmacia(View):
         pdf.setFont("Helvetica", 14)
         pdf.drawString(700, 1520, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(300, 1520, u"DE BODEGA: FARMACIA")
+        pdf.drawString(200, 1520, u"DE BODEGA: FARMACIA")
    
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
