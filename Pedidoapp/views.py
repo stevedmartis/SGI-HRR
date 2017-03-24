@@ -510,7 +510,6 @@ class ReporteTotalPDF(View):
         detalle_orden.drawOn(pdf, 800, -1000)
         
     def create_toc():
-    """Creates the table of contents"""
         table_of_contents = TableOfContents()
         table_of_contents.dotsMinLevel = 0
         header1 = ParagraphStyle(name='Heading1', fontSize=16, leading=16)
