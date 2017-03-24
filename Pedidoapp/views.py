@@ -490,7 +490,7 @@ class ReporteTotalPDF(View):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(info_bodega=1).order_by('-info_bodega')]
+        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(info_bodega=1).order_by('info_bodega')]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 10 * cm, 5 * cm, 5 * cm, 5 * cm], repeatRows=1)
         #Aplicamos estilos a las celdas de la tabla
