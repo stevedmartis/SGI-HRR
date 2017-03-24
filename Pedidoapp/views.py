@@ -510,13 +510,13 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 30, 100)
+        detalle_orden.drawOn(pdf, 30, 200)
     #SEGUNDA TABLA.    
     def tabla2(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["BP-0001", "DRE-0048"]).order_by('cod_experto')]
+        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["BP-0001", "DRE-0075"]).order_by('cod_experto')]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         detalle_orden = Table([encabezados] + detalles, colWidths=[3 * cm, 10 * cm, 2 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
