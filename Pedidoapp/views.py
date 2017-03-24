@@ -510,7 +510,7 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 30, 110)
+        detalle_orden.drawOn(pdf, 30, 50)
 
     #SEGUNDA TABLA. INSUMO  
     def tabla2(self,pdf,y):
@@ -534,7 +534,7 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 580, 110)
+        detalle_orden.drawOn(pdf, 580, 50)
 
     #TERCERA TABLA.INSUMO   
     def tabla3(self,pdf,y):
@@ -558,7 +558,7 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 1110, 110)
+        detalle_orden.drawOn(pdf, 1120, 50)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
