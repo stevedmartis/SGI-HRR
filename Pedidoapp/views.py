@@ -526,7 +526,7 @@ class ReporteTotalPDF(View):
         self.cabecera(pdf)
         y = 900
         self.tabla(pdf, y)
-        self.throwPageBreak(pdf)
+        self.throwPageBreak()
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
