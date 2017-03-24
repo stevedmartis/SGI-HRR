@@ -30,8 +30,8 @@
 <h4>Estadistica Mensual:&nbsp;&nbsp;<b>{{especialidad.estadistica}}</b></h4>
 <br>
 <section id="contenido">
-<center><div class="container" style="margin:50px auto width="100%"">
-        <form id="myform" method="post">
+<div class="container" style="margin:50px auto width="100%"">
+<center><form id="myform" method="post">
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
@@ -81,10 +81,11 @@
            </tbody>
            </table>
            <a class="tag_item" href="{% url "usuario:reporte_pedidos_pdf" id_especialidad=especialidad.id %}" ><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
-           </form>
+        </form>
+</center>
     </aside>
     </section>
-    </div></center>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/jquery.dataTables.min.js" %}"></script>
