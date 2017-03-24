@@ -618,7 +618,7 @@ class ReporteTotalFarmacia(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 1000, 600)
+        detalle_orden.drawOn(pdf, 500, 600)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
