@@ -379,7 +379,7 @@ def Completar(request, id_especialidad):
 def Reset(request):
     estadis = Especialidad.objects.all()
     estadis.estadistica = 0
-    return HttpResponseRedirect('/solicitar/home/')
+return HttpResponseRedirect('/solicitar/home/')
 
 
 
