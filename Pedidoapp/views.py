@@ -497,9 +497,9 @@ class ReporteTotalPDF(View):
         detalle_orden.setStyle(TableStyle(
             [
                 #La primera fila(encabezados) va a estar centrada
-                ('ALIGN',(0,0),(3,0),'CENTER'),
+                ('ALIGN',(0,0),(6,0),'CENTER'),
                 #Los bordes de todas las celdas serán de color negro y con un grosor de 1
-                ('GRID', (1, 1), (-1, -1), 1, colors.black), 
+                ('GRID', (0, 0), (-1, -1), 1, colors.black), 
                 #El tamaño de las letras de cada una de las celdas será de 10
                 ('FONTSIZE', (0, 0), (-1, -1), 15),
             ]
