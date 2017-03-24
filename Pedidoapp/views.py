@@ -589,7 +589,7 @@ class ReporteTotalFarmacia(View):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 26)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(1000, 3300, u"REPORTE ARTICULOS CAE")
+        pdf.drawString(500, 1000, u"REPORTE ARTICULOS CAE")
         pdf.setFont("Helvetica", 24)
         pdf.drawString(1000, 3250, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 22)
@@ -618,7 +618,7 @@ class ReporteTotalFarmacia(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 1490, 600)
+        detalle_orden.drawOn(pdf, 1000, 600)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -626,7 +626,7 @@ class ReporteTotalFarmacia(View):
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
         buffer = BytesIO()
         #Canvas nos permite hacer el reporte con coordenadas X y Y
-        pdf = canvas.Canvas(buffer, pagesize = A1)
+        pdf = canvas.Canvas(buffer, pagesize = A2)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
         y = 900
