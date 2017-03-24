@@ -46,7 +46,7 @@
             <a href="{% url "usuario:lita_todo" id_admiproc.id %}" method="GET" ><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_admiproc.id %}">ADMISION.PROC</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_admiproc.id %}">{{admiproc.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{admiproc.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
