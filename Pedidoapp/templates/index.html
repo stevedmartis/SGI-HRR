@@ -944,7 +944,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_urolo.id %}">UROLOGIA</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{encargado.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
             {% if pend > 0 %}
