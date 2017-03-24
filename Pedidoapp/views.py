@@ -509,6 +509,12 @@ class ReporteTotalPDF(View):
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 800, -1000)
         
+    def throwPageBreak(self):
+        """
+            Method to force a page break in the report
+        """
+        self.content.append(PageBreak())
+
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
         response = HttpResponse(content_type='application/pdf')
@@ -520,6 +526,7 @@ class ReporteTotalPDF(View):
         self.cabecera(pdf)
         y = 900
         self.tabla(pdf, y)
+        self.throwPageBreak(pdf)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
