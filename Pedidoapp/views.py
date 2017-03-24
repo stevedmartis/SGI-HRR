@@ -478,12 +478,12 @@ class ReporteTotalPDF(View):
 
     def cabecera(self,pdf ):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
-        pdf.setFont("Helvetica", 26)
-        #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(1100, 2000, u"REPORTE ARTICULOS CAE")
         pdf.setFont("Helvetica", 24)
-        pdf.drawString(1050, 1900, u"TOTAL DE CANTIDADES SOLICITADAS")
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(1400, 2400, u"REPORTE ARTICULOS CAE")
         pdf.setFont("Helvetica", 22)
+        pdf.drawString(1050, 2350, u"TOTAL DE CANTIDADES SOLICITADAS")
+        pdf.setFont("Helvetica", 20)
         pdf.drawString(1390, 3200, u"FECHA: " + str(datetime.date.today()))
 
     def tabla(self,pdf,y):
@@ -492,7 +492,7 @@ class ReporteTotalPDF(View):
         #Creamos una lista de tuplas que van a contener a las personas
         detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["AA-0001", "AA-0142"]).order_by('cod_experto')]
         #Establecemos el tamaño de cada una de las columnas de la tabla
-        detalle_orden = Table([encabezados] + detalles, colWidths=[3 * cm, 7 * cm, 3 * cm, 3 * cm, 3 * cm])
+        detalle_orden = Table([encabezados] + detalles, colWidths=[3 * cm, 10 * cm, 2 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
         detalle_orden.setStyle(TableStyle(
             [
