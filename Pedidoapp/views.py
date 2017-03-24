@@ -510,7 +510,7 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 30, 50)
+        detalle_orden.drawOn(pdf, 30, 60)
     #SEGUNDA TABLA.    
     def tabla2(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
