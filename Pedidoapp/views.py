@@ -511,12 +511,12 @@ class ReporteTotalPDF(View):
         
     def create_toc():
     """Creates the table of contents"""
-    table_of_contents = TableOfContents()
-    table_of_contents.dotsMinLevel = 0
-    header1 = ParagraphStyle(name='Heading1', fontSize=16, leading=16)
-    header2 = ParagraphStyle(name='Heading2', fontSize=14, leading=14)
-    table_of_contents.levelStyles = [header1, header2]
-    return [table_of_contents, PageBreak()]
+        table_of_contents = TableOfContents()
+        table_of_contents.dotsMinLevel = 0
+        header1 = ParagraphStyle(name='Heading1', fontSize=16, leading=16)
+        header2 = ParagraphStyle(name='Heading2', fontSize=14, leading=14)
+        table_of_contents.levelStyles = [header1, header2]
+        return [table_of_contents, PageBreak()]
 
     doc.build(elements)
 
