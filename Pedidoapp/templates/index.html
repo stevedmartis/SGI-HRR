@@ -48,7 +48,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_admiproc.id %}">ADMISION.PROC</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{encargado.nombre}}</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_admiproc.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art15}}.</a>
             {% if pend15 > 0 %}
@@ -75,7 +75,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_admicons.id %}">ADMISION.CONS</a>
             </p>
-            <a class="titulo_item" href=""><h5>PAOLA PRIETO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_admicons.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art28}}.</a>
             {% if pend28 > 0 %}
@@ -103,7 +103,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_aseocon.id %}">AUX.ASEO CONS</a>
             </p>
-            <a class="titulo_item" href=""><h5>ANDREA DONOSO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_aseocon.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art34}}.</a>
             {% if pend34 > 0 %}
@@ -131,7 +131,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_aseop.id %}">AUX.ASEO PROC</a>
             </p>
-            <a class="titulo_item" href=""><h5>ANDREA DONOSO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_aseop.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art20}}.</a>
             {% if pend20 > 0 %}
@@ -159,7 +159,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_derma.id %}">DERMATOLOGIA/ FOTO</a>
             </p>
-            <a class="titulo_item" href=""><h5>SAMUEL PALMA</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_derma.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art21}}.</a>
             {% if pend21 > 0 %}
@@ -187,7 +187,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_sdan.id %}">SALA DAN</a>
             </p>
-            <a class="titulo_item" href=""><h5>YANDY ARANGUIZ</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_sdan.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art18}}.</a>
             {% if pend18 > 0 %}
@@ -215,7 +215,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_caste.id %}">DRA. CASTELLON</a>
             </p>
-            <a class="titulo_item" href=""><h5>GISELLE CASTELLON DIAZ</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_caste.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art32}}.</a>
             {% if pend32 > 0 %}
@@ -243,7 +243,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_diab.id %}">DIABETES</a>
             </p>
-            <a class="titulo_item" href=""><h5>PATRICIA ALBORNOZ</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_diab.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art24}}.</a>
             {% if pend24 > 0 %}
@@ -271,7 +271,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_enfp.id %}">ESTACION ENF. PROC</a>
             </p>
-            <a class="titulo_item" href=""><h5>PATRICIA ALBORNOZ</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_enfp.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art23}}.</a>
             {% if pend23 > 0 %}
@@ -299,7 +299,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_hepa.id %}">PROG.HEPATITIS</a>
             </p>
-            <a class="titulo_item" href=""><h5>PAOLA PRIETO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_hepa.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art26}}.</a>
             {% if pend26 > 0 %}
@@ -327,7 +327,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_vih.id %}">PROG. VIH</a>
             </p>
-            <a class="titulo_item" href=""><h5>CLAUDIA SALAZAR</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_vih.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art25}}.</a>
             {% if pend25 > 0 %}
@@ -355,7 +355,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_taco.id %}">POLI.TACO</a>
             </p>
-            <a class="titulo_item" href=""><h5>VALENTINA BELL</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_taco.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art22}}.</a>
             {% if pend22 > 0 %}
@@ -383,7 +383,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_prea.id %}">PREPARACION A</a>
             </p>
-            <a class="titulo_item" href=""><h5>PAOLA PRIETO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_prea.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art30}}.</a>
             {% if pend30 > 0 %}
@@ -411,7 +411,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_preb.id %}">PREPARACION B</a>
             </p>
-            <a class="titulo_item" href=""><h5>PAOLA PRIETO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_preb.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art31}}.</a>
             {% if pend31 > 0 %}
@@ -439,7 +439,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_recu.id %}">RECUPERACION</a>
             </p>
-            <a class="titulo_item" href=""><h5>YANDY ARANGUIZ</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_recu.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art19}}.</a>
             {% if pend19 > 0 %}
@@ -467,7 +467,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_tmt.id %}">TRAUMATOLOGIA</a>
             </p>
-            <a class="titulo_item" href=""><h5>NICOLE LIPAN</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_tmt.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art13}}.</a>
             {% if pend13 > 0 %}
@@ -495,7 +495,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_salac.id %}">SALA INFORMES CONS.</a>
             </p>
-            <a class="titulo_item" href=""><h5>PAOLA PRIETO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_salac.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art27}}.</a>
             {% if pend27 > 0 %}
@@ -523,7 +523,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_salaproc.id %}">SALA INFORMES PROC.</a>
             </p>
-            <a class="titulo_item" href=""><h5>ANDREA DONOSO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_salaproc.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art14}}.</a>
             {% if pend14 > 0 %}
@@ -551,7 +551,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_bronco.id %}">BRONCOPULMONAR</a>
             </p>
-            <a class="titulo_item" href=""><h5>FERNANDA AVENDAÑO</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_bronco.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art12}}.</a>
             {% if pend12 > 0 %}
@@ -579,7 +579,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_neuro.id %}">NEUROLOGIA</a>
             </p>
-            <a class="titulo_item" href=""><h5>NICOLE LIPAN</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_neuro.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art16}}.</a>
             {% if pend16 > 0 %}
@@ -607,7 +607,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_egg.id %}">EEG</a>
             </p>
-            <a class="titulo_item" href=""><h5>NICOLE LIPAN</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_egg.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art11}}.</a>
             {% if pend11 > 0 %}
@@ -635,7 +635,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_lumbar.id %}">P. LUMBAR</a>
             </p>
-            <a class="titulo_item" href=""><h5>NICOLE LIPAN</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_lumbar.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art10}}.</a>
             {% if pend10 > 0 %}
@@ -663,7 +663,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_mama.id %}">PAT.MAMARIA</a>
             </p>
-            <a class="titulo_item" href=""><h5>PAULA GONZALEZ</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_mama.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art29}}.</a>
             {% if pend29 > 0 %}
@@ -691,7 +691,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_oftal.id %}">OFTAMOLOGIA</a>
             </p>
-            <a class="titulo_item" href=""><h5>NATALIA ORDENES</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_oftal.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art9}}.</a>
             {% if pend9 > 0 %}
@@ -719,7 +719,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_otto.id %}">OTORRINO</a>
             </p>
-            <a class="titulo_item" href=""><h5>OLAYA PADILLA</a></h5></p>
+            <a class="titulo_item" href=""><h5>{{id_otto.especialidad.encargado.nombre}}</a></h5></p>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art8}}.</a>
             {% if pend8 > 0 %}
@@ -747,7 +747,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_cardio.id %}">CARDIOLOGIA</a>
             </p>
-            <a class="titulo_item" href=""><h5>VANESSA MARCHANT</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{id_cardio.especialidad.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art7}}.</a>
             {% if pend7 > 0 %}
@@ -775,7 +775,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_clinitt.id %}">CLINICA Y TTO</a>
             </p>
-            <a class="titulo_item" href=""><h5>FRANSISCA MORAGA</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{id_clinitt.especialidad.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art6}}.</a>
             {% if pend6 > 0 %}
@@ -803,7 +803,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_curav.id %}">CURACION AVANZADA</a>
             </p>
-            <a class="titulo_item" href=""><h5>OLAYA PADILLA </a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{id_curav.especialidad.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art5}}.</a>
             {% if pend5 > 0 %}
@@ -831,7 +831,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_pabm.id %}">PAB. MENOR</a>
             </p>
-            <a class="titulo_item" href=""><h5>SAMUEL PALMA</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{id_pabm.especialidad.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art4}}.</a>
             {% if pend4 > 0 %}
@@ -859,7 +859,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_fibro.id %}">FIBROBRONCOSCOPIA</a>
             </p>
-            <a class="titulo_item" href=""><h5>ANDREA DONOSO</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{id_fibro.especialidad.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art3}}.</a>
             {% if pend3 > 0 %}
@@ -887,7 +887,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_eda.id %}">EDA</a>
             </p>
-            <a class="titulo_item" href=""><h5>YANDY ARANGUIZ</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{id_eda.especialidad.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art2}}.</a>
             {% if pend2 > 0 %}
@@ -916,7 +916,7 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_secre.id %}">SECRETARIAS.CAE</a>
             </p>
-            <a class="titulo_item" href=""><h5>RUTH ALARCON</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{id_secre.especialidad.encargado.nombre}}</a></h5></p> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art33}}.</a>
             {% if pend33 > 0 %}
