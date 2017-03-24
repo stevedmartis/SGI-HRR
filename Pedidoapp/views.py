@@ -507,16 +507,7 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 100, 100)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 800, -1000)
-        
-    def create_toc():
-        table_of_contents = TableOfContents()
-        table_of_contents.dotsMinLevel = 0
-        header1 = ParagraphStyle(name='Heading1', fontSize=16, leading=16)
-        header2 = ParagraphStyle(name='Heading2', fontSize=14, leading=14)
-        table_of_contents.levelStyles = [header1, header2]
-        return [table_of_contents, PageBreak()]
-
+        detalle_orden.drawOn(pdf, 800, -2000)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -529,7 +520,6 @@ class ReporteTotalPDF(View):
         self.cabecera(pdf)
         y = 900
         self.tabla(pdf, y)
-        self.create_toc()
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
@@ -538,16 +528,7 @@ class ReporteTotalPDF(View):
         response.write(pdf)
         return response
 #FIN REPORTE
-def create_toc():
-    """Creates the table of contents"""
-    table_of_contents = TableOfContents()
-    table_of_contents.dotsMinLevel = 0
-    header1 = ParagraphStyle(name='Heading1', fontSize=16, leading=16)
-    header2 = ParagraphStyle(name='Heading2', fontSize=14, leading=14)
-    table_of_contents.levelStyles = [header1, header2]
-    return [table_of_contents, PageBreak()]
 
-    doc.build(elements)
 
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
