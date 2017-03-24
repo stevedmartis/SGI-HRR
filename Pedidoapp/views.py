@@ -519,7 +519,7 @@ class ReporteTotalPDF(View):
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
         y = 900
-        self.tabla(pdf, y)
+        self.tabla(pdf, y, Insumo)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
