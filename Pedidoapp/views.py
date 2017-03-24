@@ -517,7 +517,6 @@ class ReporteTotalPDF(View):
         table_of_contents.levelStyles = [header1, header2]
         return [table_of_contents, PageBreak()]
 
-    doc.build(elements)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
