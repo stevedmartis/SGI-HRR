@@ -480,11 +480,11 @@ class ReporteTotalPDF(View):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 24)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(900, 2300, u"REPORTE ARTICULOS CAE")
+        pdf.drawString(800, 2300, u"REPORTE ARTICULOS CAE")
         pdf.setFont("Helvetica", 22)
-        pdf.drawString(900, 2250, u"TOTAL DE CANTIDADES SOLICITADAS")
+        pdf.drawString(750, 2250, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 20)
-        pdf.drawString(1390, 2200, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(800, 2200, u"FECHA: " + str(datetime.date.today()))
 
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
