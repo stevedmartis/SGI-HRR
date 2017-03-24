@@ -676,7 +676,7 @@ class ReporteTotalEcono(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 200, 700)
+        detalle_orden.drawOn(pdf, 200, 750)
 
     def tabla2(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
@@ -699,7 +699,7 @@ class ReporteTotalEcono(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 800, 700)
+        detalle_orden.drawOn(pdf, 800, 750)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
