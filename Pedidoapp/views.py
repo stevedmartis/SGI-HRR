@@ -478,15 +478,15 @@ class ReporteTotalPDF(View):
 
     def cabecera(self,pdf ):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
-        pdf.setFont("Helvetica", 24)
+        pdf.setFont("Helvetica", 26)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(1000, 3200, u"REPORTE ARTICULOS CAE")
+        pdf.drawString(1100, 3300, u"REPORTE ARTICULOS CAE")
+        pdf.setFont("Helvetica", 24)
+        pdf.drawString(1000, 3250, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 22)
-        pdf.drawString(900, 3150, u"TOTAL DE CANTIDADES SOLICITADAS")
-        pdf.setFont("Helvetica", 20)
-        pdf.drawString(950, 3100, u"FECHA: " + str(datetime.date.today()))
-        pdf.setFont("Helvetica", 20)
-        pdf.drawString(500, 3100, u"DE BODEGA: INSUMO")
+        pdf.drawString(1500, 3100, u"FECHA: " + str(datetime.date.today()))
+        pdf.setFont("Helvetica", 22)
+        pdf.drawString(800, 3100, u"DE BODEGA: INSUMO")
     
     #PRIMERA TABLA INSUMO
     def tabla1(self,pdf,y):
