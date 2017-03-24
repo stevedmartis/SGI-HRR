@@ -484,7 +484,7 @@ class ReporteTotalPDF(View):
         pdf.setFont("Helvetica", 22)
         pdf.drawString(650, 2250, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 20)
-        pdf.drawString(850, 2200, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(950, 2200, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 20)
         pdf.drawString(500, 2200, u"DE BODEGA: INSUMO")
 
