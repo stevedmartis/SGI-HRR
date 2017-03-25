@@ -149,7 +149,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 
 )
-
+"""
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -160,7 +160,7 @@ CACHES = {
     }
 }
 
-
+"""
 
 AUTHENTICATION_BACKENDS = ('Pedidoapp.views.CaseInsensitiveModelBackend',)
 
