@@ -42,7 +42,7 @@ def add(request):
     return render(request, 'form.html', {'form':form})
 
 @login_required
-@cache_page(6000)
+@cache_page(1000)
 def home(request):
     user = request.user
     if user.is_superuser:
@@ -253,7 +253,7 @@ def home(request):
       template2 = "index3.html"
       return render_to_response(template2,locals())
 
-@cache_page(6000)
+@cache_page(1000)
 @login_required
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -262,7 +262,7 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
-@cache_page(6000)
+@cache_page(1000)
 @login_required
 def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -280,6 +280,7 @@ def ListEspeci(request, id_especialidad):
 
 
 @login_required
+@cache_page(1000)
 def Cant_ingresar(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
@@ -305,6 +306,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
 
 
 @login_required
+@cache_page(1000)
 def Cant_update(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
@@ -330,6 +332,7 @@ class PedidoDetailView(DetailView):
         return render('index.html')
 
 @login_required
+@cache_page(1000)
 def Update_stock(request, id_pedido, cod_experto, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)

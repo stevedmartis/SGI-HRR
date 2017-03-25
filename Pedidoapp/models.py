@@ -51,7 +51,6 @@ def update_total(sender, instance, **kwargs):
       """
 
 
-
 # register the signal
 signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="path.to.this.module")
 
