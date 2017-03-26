@@ -23,23 +23,33 @@ S.G.I Login
 <br>
 <br>
 <br>
-  <div class="login-page">
-  <div class="form">
-    <form class="register-form" method="post">
-{% csrf_token %}
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
-    </form>
-  </div>
-</div>
+<img src="">
+<form method="post">
+    {% csrf_token %}
+     <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input class="form-control" type="text" name="username" required>
+           </div>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+                <label for="username">Contraseña:</label>
+                <input class="form-control" type="password" name="password" required>
+           </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Ingresar">
+           </div>
+        </div>
+    </div>
+</form>
+
 
 {% endblock %}
