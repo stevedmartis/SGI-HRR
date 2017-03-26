@@ -295,7 +295,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
       form = PedidoEditForm(request.POST, instance=pedido)
       if form.is_valid():
           form.save()
-          pedido2 = Pedido.objects.filter(id=pedido).update(estado="pendiente", fecha_pedido=datetime.date.today())
+          pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(id=pedido).update(estado="pendiente", fecha_pedido=datetime.date.today())
           especialidad = Especialidad.objects.filter(estado=especialidad).update(estado="pendiente")
           """
           pedido.estado = 'pendiente'
