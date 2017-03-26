@@ -895,9 +895,9 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend2}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre2}}</a>                    
-            
+            {% if total_art2 == entre2 %}
             <a href="{% url "usuario:completar" id_especialidad=id_eda.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
-            
+            {% endif %}
 
             </p>   
             <p class="autor_item">
