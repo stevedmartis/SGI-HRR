@@ -253,6 +253,8 @@ def home(request):
       template2 = "index3.html"
       return render_to_response(template2,locals())
 
+
+#LISTA ADMIN
 @cache_page(1000)
 @login_required
 def ListAll(request, id_especialidad):
@@ -262,6 +264,8 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
+
+#LISTA ACTIVO
 @cache_page(1000)
 @login_required
 def ListEspeci(request, id_especialidad):
@@ -278,7 +282,7 @@ def ListEspeci(request, id_especialidad):
     return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
   return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
 
-
+#BTN INGRESAR
 @login_required
 @cache_page(1000)
 def Cant_ingresar(request, id_pedido, id_especialidad):
@@ -291,7 +295,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
       form = PedidoEditForm(request.POST, instance=pedido)
       if form.is_valid():
           form.save()
-          pedido = Pedido.objects.filter(especialidad=especialidad).update(estado="pendiente", fecha_pedido=datetime.date.today())
+          pedido = Pedido.objects.filter(especialidad=pedido).update(estado="pendiente", fecha_pedido=datetime.date.today())
           especialidad = Especialidad.objects.filter(estado=especialidad).update(estado="pendiente")
           """
           pedido.estado = 'pendiente'
