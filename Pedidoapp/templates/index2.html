@@ -87,7 +87,9 @@
         {% endif %}
         {% endif %}
         </form>
-        <h3>Ya se a realizado la Solicitud!</h3>
+        {% if especialidad.acceso == 0 %}
+        <h3>Usted ya realizo Pedido Semanal!</h3>
+        {% endif %}
 </section>
              
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
