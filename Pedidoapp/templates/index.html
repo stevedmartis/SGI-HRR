@@ -40,7 +40,7 @@
             <a class="titulo_item" href="{% url "usuario:reporte_farma_pdf"  %}">FARMACIA</a>
             <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a></p>
             <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Resetear</a>
-            {% if esp.acceso == "OPEN" %}
+            {% if esp.acceso == 1 %}
             <a href="{% url "usuario:open"  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Cerrar</a>
             {% endif %}
             {% if esp.acceso == "CLOSE" %}
