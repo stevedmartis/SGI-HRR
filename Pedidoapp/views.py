@@ -258,7 +258,7 @@ def home(request):
       entre36          = Pedido.objects.filter(especialidad=36).filter(estado='entregado').count()
       id_enfc         = Pedido.objects.get(id=36) 
       enfc             = Especialidad.objects.get(id=36)
-      esp = Especialidad.objects.all()
+      especialidad = Especialidad.objects.all()
       template = "index.html"
       return render_to_response(template,locals(), {'esp':esp})
     else:
