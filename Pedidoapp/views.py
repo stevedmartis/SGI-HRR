@@ -260,7 +260,7 @@ def home(request):
       enfc             = Especialidad.objects.get(id=36)
       esp = Especialidad.objects.all()
       template = "index.html"
-     return render(request, template, {'esp':esp})
+      return render(request, template, {'esp':esp})
     else:
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
