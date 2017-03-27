@@ -48,6 +48,7 @@
         </article>
         </form>
         {% else %}
+        {% if especialidad.acceso == 1 %}
         <form id="myform" method="POST">
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
@@ -83,6 +84,7 @@
                 {% endif %}
             </tbody>
         </table>
+        {% endif %}
         {% endif %}
         </form>
 </section>
