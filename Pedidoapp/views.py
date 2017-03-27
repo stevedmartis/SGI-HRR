@@ -258,7 +258,7 @@ def home(request):
       entre36          = Pedido.objects.filter(especialidad=36).filter(estado='entregado').count()
       id_enfc         = Pedido.objects.get(id=36) 
       enfc             = Especialidad.objects.get(id=36)
-
+      esp = Especialidad.objects.all()
       template = "index.html"
       return render_to_response(template,locals())
     else:
@@ -432,15 +432,12 @@ def Reset(request):
     return HttpResponseRedirect('/solicitar/home/')
 
 def Acces_close(request):
-  acceso = Especialidad.objects.all()
-  acceso.acceso = "Cerrado"
-  acceso.save()
+  acceso = Especialidad.objects.all().update(acceso="Cerrado")
   return HttpResponseRedirect('/solicitar/home/')
 
 def Acces_open(request):
-  acceso1 = Especialidad.objects.all()
-  acceso1.acceso = "Abierto"
-  acceso1.save()
+  acceso = Especialidad.objects.all().update(acceso="Open")
+
   return HttpResponseRedirect('/solicitar/home/')
 
 
