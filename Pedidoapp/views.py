@@ -251,7 +251,14 @@ def home(request):
       pend35           = Pedido.objects.filter(especialidad=35).filter(estado='pendiente').count()
       entre35          = Pedido.objects.filter(especialidad=35).filter(estado='entregado').count()
       id_fono         = Pedido.objects.get(id=35) 
-      fono             = Especialidad.objects.get(id=35)   
+      fono             = Especialidad.objects.get(id=35)  
+      #EST.ENFERMERIA.CONS 36
+      total_art36      = Pedido.objects.filter(especialidad=36).count()
+      pend36           = Pedido.objects.filter(especialidad=36).filter(estado='pendiente').count()
+      entre36          = Pedido.objects.filter(especialidad=36).filter(estado='entregado').count()
+      id_enfc         = Pedido.objects.get(id=36) 
+      enfc             = Especialidad.objects.get(id=36)
+
       template = "index.html"
       return render_to_response(template,locals())
     else:

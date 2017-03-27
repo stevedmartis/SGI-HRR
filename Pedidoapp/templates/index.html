@@ -294,6 +294,34 @@
     {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
+            <a href="{% url "usuario:lita_todo" id_enfc.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
+            </figure>
+            <p class="datos_item">
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_enfc.id %}">{{enfc.nombre}}</a>
+            </p>
+            <a class="titulo_item" href=""><h5>{{enfc.encargado.nombre}}</a></h5></p>
+            <p class="autor_item">
+            Total Articulos: <a class="titulo_item"  href="">{{total_art36}}.</a>
+            {% if pend36} > 0 %}
+            <font color="green"><h4>Solicitado!</h4></font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend36}}}.</a>
+            {% endif %}
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre36}}}</a>                    
+            {% if total_art36} == entre36} %}
+            <a href="{% url "usuario:completar" id_especialidad=id_enfc.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
+            </p>   
+            <p class="autor_item">
+            </p>                   
+            <a class="guardar_item" href="#"></a>
+            {% if pedido %}
+            <span class="fecha_item">Fecha solicitud:<strong>{{pedido.fecha_pedido}}</strong></span>
+            {% endif %}
+    {% endif %}
+        </article>
+    {% if request.user.is_superuser %}
+    <article class="item">
+            <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_hepa.id %}"><img src="/static/img/user.png" width="1000" height="135px" method="GET" /></a>
             </figure>
             <p class="datos_item">
