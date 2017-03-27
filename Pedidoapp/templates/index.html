@@ -39,11 +39,13 @@
             <a class="titulo_item" href="{% url "usuario:reporte_insumo_pdf"  %}">INSUMO</a>
             <a class="titulo_item" href="{% url "usuario:reporte_farma_pdf"  %}">FARMACIA</a>
             <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a></p>
-            {% if esp.estadistica > 0 %}
-            <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Resetear</a>
-            {% endif %}
+            <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Resetear</a>
+            {% if esp.acceso = "OPEN" %}
             <a href="{% url "usuario:open"  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Cerrar</a>
+            {% endif %}
+            {% if esp.acceso = "CLOSE" %}
             <a href="{% url "usuario:close" %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Open</a>
+            {% endif %}
 
         </article>
     <article class="item">
