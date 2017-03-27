@@ -258,9 +258,9 @@ def home(request):
       entre36          = Pedido.objects.filter(especialidad=36).filter(estado='entregado').count()
       id_enfc         = Pedido.objects.get(id=36) 
       enfc             = Especialidad.objects.get(id=36)
-      esp = Especialidad.objects.filter(acceso=1)
+      esp = Especialidad.objects.all()
       template = "index.html"
-      return render_to_response(template,locals())
+     return render(request, template, {'esp':esp})
     else:
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
