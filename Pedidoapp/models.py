@@ -21,7 +21,7 @@ class Especialidad(models.Model):
     estadistica   = models.IntegerField(blank=True)
     encargado     = models.ForeignKey('Encargado', blank=True, on_delete=models.CASCADE)
     estado        = models.CharField(max_length=50, blank=True)
-    acceso         =  models.CharField(max_length=20, blank=True)
+    acceso         =  models.IntegerField(blank=True)
 
     def __str__(self):
         return '{}'.format(self.nombre, self.estadistica, self.encargado)
