@@ -39,16 +39,14 @@
             <a class="titulo_item" href="{% url "usuario:reporte_insumo_pdf"  %}">INSUMO</a>
             <a class="titulo_item" href="{% url "usuario:reporte_farma_pdf"  %}">FARMACIA</a>
             <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a>
-
             <br>
             Cerrar Solicitudes:
             <br>
             <a href="{% url "usuario:close"  %}" method='GET' type="submit" class="btn btn-danger " value="editar" onclick="document.location.reload();"/>Cerrar</a>
-            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Abrir Solicitudes:
             <br>
             <a href="{% url "usuario:open" %}" method='GET' type="submit" class="btn btn-success " value="editar" onclick="document.location.reload();"/>Abrir</a>
-            <br>
             Resetiar estadisticas:
             <br>
             <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger" value="editar" onclick="document.location.reload();"/>Resetear</a>
