@@ -423,7 +423,6 @@ def Completar(request, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.filter(especialidad=especialidad).update(cantidad=0, estado="", fecha_pedido=None, fecha_entrega=None)
     articulo = Articulo.objects.all().update(total_pedido=0)
-    # estadistica: SUMAR +1 y al 4 estadistica = 0
     especialidad.estado = "completado"
     especialidad.save()
     return HttpResponseRedirect('/solicitar/home/')
@@ -433,6 +432,22 @@ def Reset(request):
     estadis.estadistica = 0
     estadis.save()
     return HttpResponseRedirect('/solicitar/home/')
+
+def Acces_close(request):
+  acceso = Especialidad.objects.all()
+  acceso.acceso = "Cerrado"
+  acceso.save()
+  return HttpResponseRedirect('/solicitar/home/')
+
+def Acces_open(request):
+  acceso1 = Especialidad.objects.all()
+  acceso1.acceso = "Abierto"
+  acceso1.save()
+  return HttpResponseRedirect('/solicitar/home/')
+
+
+
+
 
 
 
@@ -700,6 +715,7 @@ class ReporteTotalFarmacia(View):
         buffer.close()
         response.write(pdf)
         return response
+
 #FIN REPORTE
 
 #PARA COMPRA. TOTAL ECONOMATO
