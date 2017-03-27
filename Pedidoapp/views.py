@@ -432,11 +432,11 @@ def Reset(request):
     return HttpResponseRedirect('/solicitar/home/')
 
 def Acces_close(request):
-  acceso = Especialidad.objects.all().update(acceso="CLOSE")
+  acceso = Especialidad.objects.all().update(acceso=0)
   return HttpResponseRedirect('/solicitar/home/')
 
 def Acces_open(request):
-  acceso = Especialidad.objects.all().update(acceso="1")
+  acceso = Especialidad.objects.all().update(acceso=1)
 
   return HttpResponseRedirect('/solicitar/home/')
 
