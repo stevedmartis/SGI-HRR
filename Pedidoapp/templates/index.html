@@ -41,7 +41,10 @@
             <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a>
 
             <br>
+            Cerrar Solicitudes:
             <a href="{% url "usuario:close"  %}" method='GET' type="submit" class="btn btn-danger " value="editar" onclick="document.location.reload();"/>Cerrar</a>
+            <br>
+            Abrir Solicitudes:
             <a href="{% url "usuario:open" %}" method='GET' type="submit" class="btn btn-success " value="editar" onclick="document.location.reload();"/>Abrir</a>
             <br>
             Resetiar estadisticas:
