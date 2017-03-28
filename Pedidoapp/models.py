@@ -30,7 +30,7 @@ class Especialidad(models.Model):
 class Pedido(models.Model):
     especialidad   = models.ForeignKey('Especialidad')
     articulo       = models.ForeignKey('Articulo')
-    fecha_entrega  = models.DateTimeField(auto_now_add=False, null=True)
+    fecha_entrega  = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     fecha_pedido   = models.DateTimeField(auto_now_add=True,null=True, blank=True)
     cantidad       = models.IntegerField(blank=True)
     estado         =  models.CharField(max_length=20, blank=True, default='pendiente')
