@@ -68,9 +68,10 @@
             Total Articulos: <a class="titulo_item"  href="">{{total_art15}}.</a>
             {% if pend15 > 0 %}
             <font color="green"><h4>Solicitado!</h4></font>
+            Articulos Pendientes:<a class="titulo_item"  href="">{{pend15}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre15}}</a>                   
-            {% if total_art15 == entre15 %}
+            {% if pend15 == entre15 %}
             <a href="{% url "usuario:completar" id_especialidad=id_admiproc.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -98,7 +99,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend28}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre28}}</a>                    
-            {% if total_art28 == entre28 %}
+            {% if pend28 == entre28 %}
             <a href="{% url "usuario:completar" id_especialidad=id_admicons.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -126,7 +127,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend34}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre34}}</a>                    
-            {% if total_art34 == entre34 %}
+            {% if pendt34 == entre34 %}
             <a href="{% url "usuario:completar" id_especialidad=id_aseocon.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -154,7 +155,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend20}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre20}}</a>                    
-            {% if total_art20 == entre20 %}
+            {% if pend20 == entre20 %}
             <a href="{% url "usuario:completar" id_especialidad=id_aseop.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -182,7 +183,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend21}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre21}}</a>                    
-            {% if total_art21 == entre21 %}
+            {% if pend21 == entre21 %}
             <a href="{% url "usuario:completar" id_especialidad=id_derma.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -210,7 +211,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend18}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre18}}</a>                    
-            {% if total_art18 == entre18 %}
+            {% if pend18 == entre18 %}
             <a href="{% url "usuario:completar" id_especialidad=id_sdan.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -238,7 +239,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend32}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre32}}</a>                    
-            {% if total_art32 == entre32 %}
+            {% if pend32 == entre32 %}
             <a href="{% url "usuario:completar" id_especialidad=id_caste.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -266,7 +267,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend24}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre24}}</a>                    
-            {% if total_art24 == entre24 %}
+            {% if pend24 == entre24 %}
             <a href="{% url "usuario:completar" id_especialidad=id_diab.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -294,7 +295,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend23}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre23}}</a>                    
-            {% if total_art23 == entre23 %}
+            {% if pend23 == entre23 %}
             <a href="{% url "usuario:completar" id_especialidad=id_enfp.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -322,7 +323,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend36}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre36}}</a>                    
-            {% if total_art36 == entre36 %}
+            {% if pend36 == entre36 %}
             <a href="{% url "usuario:completar" id_especialidad=id_enfc.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -350,7 +351,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend26}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre26}}</a>                    
-            {% if total_art26 == entre26 %}
+            {% if pend26 == entre26 %}
             <a href="{% url "usuario:completar" id_especialidad=id_hepa.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -378,7 +379,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend25}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre25}}</a>                    
-            {% if total_art25 == entre25 %}
+            {% if pend25 == entre25 %}
             <a href="{% url "usuario:completar" id_especialidad=id_vih.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -406,7 +407,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend22}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre22}}</a>                    
-            {% if total_art22 == entre22 %}
+            {% if pend22 == entre22 %}
             <a href="{% url "usuario:completar" id_especialidad=id_taco.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -434,7 +435,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend30}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre30}}</a>                    
-            {% if total_art30 == entre30 %}
+            {% if pend30 == entre30 %}
             <a href="{% url "usuario:completar" id_especialidad=id_prea.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -462,7 +463,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend31}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre31}}</a>                    
-            {% if total_art31 == entre31 %}
+            {% if pend31 == entre31 %}
             <a href="{% url "usuario:completar" id_especialidad=id_preb.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -490,7 +491,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend19}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre19}}</a>                    
-            {% if total_art19 == entre19 %}
+            {% if pend19 == entre19 %}
             <a href="{% url "usuario:completar" id_especialidad=id_recu.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -518,7 +519,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend13}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre13}}</a>                    
-            {% if total_art13 == entre13 %}
+            {% if pend13 == entre13 %}
             <a href="{% url "usuario:completar" id_especialidad=id_tmt.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -546,7 +547,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend27}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre27}}</a>                    
-            {% if total_art27 == entre27 %}
+            {% if pend27 == entre27 %}
             <a href="{% url "usuario:completar" id_especialidad=id_salac.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -574,7 +575,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend14}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre14}}</a>                    
-            {% if total_art14 == entre14 %}
+            {% if pend14 == entre14 %}
             <a href="{% url "usuario:completar" id_especialidad=id_salaproc.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -602,7 +603,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend12}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre12}}</a>                    
-            {% if total_art12 == entre12 %}
+            {% if pend12 == entre12 %}
             <a href="{% url "usuario:completar" id_especialidad=id_bronco.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -630,7 +631,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend16}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre16}}</a>                    
-            {% if total_art16 == entre16 %}
+            {% if pend16 == entre16 %}
             <a href="{% url "usuario:completar" id_especialidad=id_neuro.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -658,7 +659,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend11}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre11}}</a>                    
-            {% if total_art11 == entre11 %}
+            {% if pend11 == entre11 %}
             <a href="{% url "usuario:completar" id_especialidad=id_egg.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -686,7 +687,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend10}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre10}}</a>                    
-            {% if total_art10 == entre10 %}
+            {% if pend10 == entre10 %}
             <a href="{% url "usuario:completar" id_especialidad=id_lumbar.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -714,7 +715,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend29}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre29}}</a>                    
-            {% if total_art29 == entre29 %}
+            {% if pend29 == entre29 %}
             <a href="{% url "usuario:completar" id_especialidad=id_mama.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -742,7 +743,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend9}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre9}}</a>                    
-            {% if total_art9 == entre9 %}
+            {% if pend9 == entre9 %}
             <a href="{% url "usuario:completar" id_especialidad=id_oftal.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -770,7 +771,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend35}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre35}}</a>                    
-            {% if total_art35 == entre35 %}
+            {% if pend35 == entre35 %}
             <a href="{% url "usuario:completar" id_especialidad=id_secre.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -798,7 +799,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend8}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre8}}</a>                    
-            {% if total_art8 == entre8 %}
+            {% if pend8 == entre8 %}
             <a href="{% url "usuario:completar" id_especialidad=id_otto.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -826,7 +827,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend7}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre7}}</a>                    
-            {% if total_art7 == entre7 %}
+            {% if pend7 == entre7 %}
             <a href="{% url "usuario:completar" id_especialidad=id_cardio.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -854,7 +855,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend6}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre6}}</a>                    
-            {% if total_art6 == entre6 %}
+            {% if pend6 == entre6 %}
             <a href="{% url "usuario:completar" id_especialidad=id_clinitt.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -882,7 +883,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend5}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre5}}</a>                    
-            {% if total_art5 == entre5 %}
+            {% if pend5 == entre5 %}
             <a href="{% url "usuario:completar" id_especialidad=id_curav.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -910,7 +911,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend4}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre4}}</a>                    
-            {% if total_art4 == entre4 %}
+            {% if pend4 == entre4 %}
             <a href="{% url "usuario:completar" id_especialidad=id_pabm.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -938,7 +939,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend3}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre3}}</a>                    
-            {% if total_art3 == entre3 %}
+            {% if pend3 == entre3 %}
             <a href="{% url "usuario:completar" id_especialidad=id_fibro.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -966,7 +967,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend2}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre2}}</a>                    
-            {% if total_art2 == entre2 %}
+            {% if pend2 == entre2 %}
             <a href="{% url "usuario:completar" id_especialidad=id_eda.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
 
@@ -995,7 +996,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend33}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre33}}</a>                    
-            {% if total_art33 == entre33 %}
+            {% if pend33 == entre33 %}
             <a href="{% url "usuario:completar" id_especialidad=id_secre.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
@@ -1023,7 +1024,7 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre}}</a>                    
-            {% if total_art == entre %}
+            {% if pend == entre %}
             <a href="{% url "usuario:completar" id_especialidad=id_urolo.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
             {% endif %}
             </p>   
