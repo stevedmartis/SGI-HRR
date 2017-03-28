@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import signals
 import sys  
-#reload(sys)  
-#sys.setdefaultencoding('utf-8')
+reload(sys)  
+sys.setdefaultencoding('utf-8')
 
 
 class Encargado(models.Model):
