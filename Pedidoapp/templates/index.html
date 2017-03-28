@@ -1023,9 +1023,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre}}</a> 
+            {% if pend > 0 %}                   
             {% if pend == entre %}
             <a href="{% url "usuario:completar" id_especialidad=id_urolo.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
