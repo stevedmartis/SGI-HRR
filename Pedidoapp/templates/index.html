@@ -70,9 +70,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend15}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre15}}</a>                   
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre15}}</a>
+            {% if pend15 > 0 %}                    
             {% if pend15 == entre15 %}
             <a href="{% url "usuario:completar" id_especialidad=id_admiproc.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -98,9 +100,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend28}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre28}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre28}}</a>
+            {% if pend28 > 0 %}                     
             {% if pend28 == entre28 %}
             <a href="{% url "usuario:completar" id_especialidad=id_admicons.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -126,9 +130,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend34}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre34}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre34}}</a>
+            {% if pend34 > 0 %}                     
             {% if pendt34 == entre34 %}
             <a href="{% url "usuario:completar" id_especialidad=id_aseocon.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -154,9 +160,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend20}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre20}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre20}}</a>
+            {% if pend20 > 0 %}                     
             {% if pend20 == entre20 %}
             <a href="{% url "usuario:completar" id_especialidad=id_aseop.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -182,9 +190,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend21}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre21}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre21}}</a>
+            {% if pend21 > 0 %}                     
             {% if pend21 == entre21 %}
             <a href="{% url "usuario:completar" id_especialidad=id_derma.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -210,9 +220,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend18}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre18}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre18}}</a> 
+            {% if pend18 > 0 %}                    
             {% if pend18 == entre18 %}
             <a href="{% url "usuario:completar" id_especialidad=id_sdan.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -238,9 +250,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend32}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre32}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre32}}</a> 
+            {% if pend32 > 0 %}                    
             {% if pend32 == entre32 %}
             <a href="{% url "usuario:completar" id_especialidad=id_caste.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -266,9 +280,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend24}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre24}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre24}}</a>
+            {% if pend24 > 0 %}                     
             {% if pend24 == entre24 %}
             <a href="{% url "usuario:completar" id_especialidad=id_diab.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -294,9 +310,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend23}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre23}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre23}}</a> 
+            {% if pend23 > 0 %}                    
             {% if pend23 == entre23 %}
             <a href="{% url "usuario:completar" id_especialidad=id_enfp.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -322,9 +340,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend36}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre36}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre36}}</a>
+            {% if pend36 > 0 %}                     
             {% if pend36 == entre36 %}
             <a href="{% url "usuario:completar" id_especialidad=id_enfc.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -350,9 +370,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend26}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre26}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre26}}</a>
+            {% if pend26 > 0 %}                     
             {% if pend26 == entre26 %}
             <a href="{% url "usuario:completar" id_especialidad=id_hepa.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -378,9 +400,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend25}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre25}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre25}}</a> 
+            {% if pend25 > 0 %}                    
             {% if pend25 == entre25 %}
             <a href="{% url "usuario:completar" id_especialidad=id_vih.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -406,9 +430,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend22}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre22}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre22}}</a>   
+            {% if pend22 > 0 %}                  
             {% if pend22 == entre22 %}
             <a href="{% url "usuario:completar" id_especialidad=id_taco.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -434,9 +460,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend30}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre30}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre30}}</a>     
+            {% if pend30 > 0 %}                
             {% if pend30 == entre30 %}
             <a href="{% url "usuario:completar" id_especialidad=id_prea.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -462,9 +490,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend31}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre31}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre31}}</a>
+            {% if pend31 > 0 %}                     
             {% if pend31 == entre31 %}
             <a href="{% url "usuario:completar" id_especialidad=id_preb.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -490,9 +520,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend19}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre19}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre19}}</a>  
+            {% if pend19 > 0 %}                   
             {% if pend19 == entre19 %}
             <a href="{% url "usuario:completar" id_especialidad=id_recu.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -518,9 +550,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend13}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre13}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre13}}</a>
+            {% if pend13 > 0 %}                     
             {% if pend13 == entre13 %}
             <a href="{% url "usuario:completar" id_especialidad=id_tmt.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -546,9 +580,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend27}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre27}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre27}}</a> 
+            {% if pend27 > 0 %}                    
             {% if pend27 == entre27 %}
             <a href="{% url "usuario:completar" id_especialidad=id_salac.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -574,9 +610,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend14}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre14}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre14}}</a>  
+            {% if pend14 > 0 %}                   
             {% if pend14 == entre14 %}
             <a href="{% url "usuario:completar" id_especialidad=id_salaproc.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -602,9 +640,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend12}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre12}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre12}}</a> 
+            {% if pend12 > 0 %}                    
             {% if pend12 == entre12 %}
             <a href="{% url "usuario:completar" id_especialidad=id_bronco.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -630,9 +670,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend16}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre16}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre16}}</a>    
+            {% if pend16 > 0 %}                 
             {% if pend16 == entre16 %}
             <a href="{% url "usuario:completar" id_especialidad=id_neuro.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -658,9 +700,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend11}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre11}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre11}}</a>      
+            {% if pend11 > 0 %}               
             {% if pend11 == entre11 %}
             <a href="{% url "usuario:completar" id_especialidad=id_egg.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -686,9 +730,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend10}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre10}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre10}}</a>   
+            {% if pend10 > 0 %}                  
             {% if pend10 == entre10 %}
             <a href="{% url "usuario:completar" id_especialidad=id_lumbar.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -714,9 +760,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend29}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre29}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre29}}</a>  
+            {% if pend29 > 0 %}                   
             {% if pend29 == entre29 %}
             <a href="{% url "usuario:completar" id_especialidad=id_mama.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -742,9 +790,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend9}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre9}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre9}}</a> 
+            {% if pend9 > 0 %}                    
             {% if pend9 == entre9 %}
             <a href="{% url "usuario:completar" id_especialidad=id_oftal.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -770,9 +820,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend35}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre35}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre35}}</a>  
+            {% if pend35 > 0 %}                   
             {% if pend35 == entre35 %}
             <a href="{% url "usuario:completar" id_especialidad=id_secre.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -798,9 +850,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend8}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre8}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre8}}</a>  
+            {% if pend8 > 0 %}                   
             {% if pend8 == entre8 %}
             <a href="{% url "usuario:completar" id_especialidad=id_otto.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -826,9 +880,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend7}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre7}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre7}}</a> 
+            {% if pend7 > 0 %}                  
             {% if pend7 == entre7 %}
             <a href="{% url "usuario:completar" id_especialidad=id_cardio.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -854,9 +910,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend6}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre6}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre6}}</a>
+            {% if pend6 > 0 %}                    
             {% if pend6 == entre6 %}
             <a href="{% url "usuario:completar" id_especialidad=id_clinitt.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -882,9 +940,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend5}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre5}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre5}}</a>
+            {% if pend5 > 0 %}                     
             {% if pend5 == entre5 %}
             <a href="{% url "usuario:completar" id_especialidad=id_curav.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -910,9 +970,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend4}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre4}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre4}}</a>
+            {% if pend > 0 %}                     
             {% if pend4 == entre4 %}
             <a href="{% url "usuario:completar" id_especialidad=id_pabm.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -938,9 +1000,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend3}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre3}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre3}}</a> 
+            {% if pend > 0 %}                    
             {% if pend3 == entre3 %}
             <a href="{% url "usuario:completar" id_especialidad=id_fibro.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
@@ -966,9 +1030,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend2}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre2}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre2}}</a> 
+            {% if pend2 > 0 %}                    
             {% if pend2 == entre2 %}
             <a href="{% url "usuario:completar" id_especialidad=id_eda.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
 
             </p>   
@@ -995,9 +1061,11 @@
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend33}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre33}}</a>                    
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre33}}</a> 
+            {% if pend > 0 %}                    
             {% if pend33 == entre33 %}
             <a href="{% url "usuario:completar" id_especialidad=id_secre.id  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Completar</a>
+            {% endif %}
             {% endif %}
             </p>   
             <p class="autor_item">
