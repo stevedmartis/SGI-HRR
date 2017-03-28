@@ -35,10 +35,6 @@
             <br>
             <p class="autor_item">
             TOTAL CANTIDADES SOLICITADAS POR ESPECIALIDADES 
-            <br>
-            <a class="titulo_item" href="{% url "usuario:reporte_insumo_pdf"  %}">INSUMO</a>
-            <a class="titulo_item" href="{% url "usuario:reporte_farma_pdf"  %}">FARMACIA</a>
-            <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <b>Solicitudes:</b>
             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,6 +51,10 @@
             <a href="{% url "usuario:open" %}" method='GET' type="submit" class="btn btn-success " value="open" onclick="document.location.reload();"/>Abrir</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger" value="reset" onclick="document.location.reload();"/>Resetear</a>
+            <br>
+            <a class="titulo_item" href="{% url "usuario:reporte_insumo_pdf"  %}">INSUMO</a>
+            <a class="titulo_item" href="{% url "usuario:reporte_farma_pdf"  %}">FARMACIA</a>
+            <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a>
             </p>
 
         </article>
