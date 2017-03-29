@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Pedido, Especialidad, Articulo, Encargado, Pedido_Extra
 from django_csv_exports.admin import CSVExportAdmin
 
-@cache_page(6000)
+
 class PedidoAdmin(admin.ModelAdmin):
     list_display = ('id', 'fecha_entrega', 'fecha_pedido', 'cantidad', 'estado', 'articulo_id', 'especialidad', )
     list_filter = ('fecha_pedido', 'fecha_entrega', 'estado', 'especialidad',)
