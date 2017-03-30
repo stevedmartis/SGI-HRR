@@ -24,13 +24,13 @@
     </aside>
 
 	<section id="contenido">
-        <form method="post">
+        <form method="GET">
         <article class="item">
         <h4>Desea Elimnar Articulo:&nbsp;&nbsp;{{articulo.nombre}},&nbsp;&nbsp;{{articulo.cod_experto}}<b>&nbsp;Para:&nbsp;&nbsp;{{especialidad.nombre}}</p></b></h4></a>
         <br>
             {% csrf_token %}
             <button class=btm btn-danger type="submit">Si, eliminar</button>
-            <a class= "btm btn-default" href="{%  url "usuario:lita_todo" id_especialidad=especialidad.id %}">Cancelar></a>
+            <a class= "btm btn-default" href="{%  url "usuario:lita_todo" id_especialidad=especialidad.id %}">Cancelar</a>
         </thead>
         </tr>
         </table>
