@@ -463,7 +463,7 @@ def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   return render(request, 'delete.html', {'especialidad':especialidad, 'articulo':articulo, 'pedido':pedido})
 
 
-def IngresarExtra(request, id_especialidad, cod_experto):
+def IngresarExtra(request, id_especialidad, cod_experto, id_pedido_extra):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   articulo = Articulo.objects.get(pk=cod_experto)
   if request.method == 'GET':
