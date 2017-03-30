@@ -36,7 +36,11 @@
                 <tr> 
                     <td>Codigio experto</td>
                     <td>Nombre</td>
+
+                    {% if request.user.is_superuser %}
                     <td>stock</td>
+                    {% endif %}
+                    
                     <td>Bodega</td>
                     <td></td>
                 </tr>
@@ -45,7 +49,11 @@
                 <tr>
                     <td>Codigio experto</td>
                     <td>Nombre</td>
+
+                    {% if request.user.is_superuser %}
                     <td>stock</td>
+                    {% endif %}
+
                     <td>Bodega</td>
                     <td></td>
                 </tr>
@@ -56,7 +64,11 @@
                 <tr>
                     <td>{{ art.cod_experto }}</td>
                     <td>{{ art.nombre }}</td>
+
+                    {% if request.user.is_superuser %}
                     <td>{{ art.stock }}</td>
+                    {% endif %}
+
                     <td>{{ art.info_bodega }}</td>
                     <td>{% if request.user.is_superuser %}<a href="{% url "usuario:asignar" id_especialidad=especialidad.id cod_experto=art.cod_experto %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Asignar</a>{% else %}
                     <a href="{% url "usuario:ingresa_extra" id_especialidad=especialidad.id cod_experto=art.cod_experto %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a>{% endif %}</td>
