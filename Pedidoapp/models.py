@@ -85,12 +85,6 @@ class Pedido_Extra(models.Model):
     def __str__(self):
         return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
 
-def ingresar_extra(sender, cod_experto, instance, **kwargs):
-    instance.articulo_ex = instance.articulo
-    instance.articulo_ex.save()
-
-# register the signal
-signals.post_save.connect(ingresar_extra, sender=Pedido_Extra, dispatch_uid="path.to.this.module")
 
 from django.core.cache import cache
 
