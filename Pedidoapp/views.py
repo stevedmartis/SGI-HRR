@@ -463,7 +463,7 @@ def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   return render(request, 'delete.html', {'especialidad':especialidad, 'articulo':articulo, 'pedido':pedido})
 
 
-def IngresarExtra(self, request, id_especialidad, cod_experto):
+def IngresarExtra(request, id_especialidad, cod_experto):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   articulo = Articulo.objects.get(pk=cod_experto)
   if request.method == 'GET':
@@ -471,10 +471,9 @@ def IngresarExtra(self, request, id_especialidad, cod_experto):
   else:
       form = ExtraForm(request.POST)
       if form.is_valid():
-          form.save()
-          self.id
-          ped = Pedido_Extra(id=self, especialidad_ex=especialidad, articulo_ex=articulo)
-          ped.save()
+          ped = form.save()
+          ped_ex = Pedido_Extra.objects.get(id=ped).update(especialidad_ex=especialidad)
+          ped_ex.save()
       return HttpResponseRedirect('/solicitar/pedidos-extra/')
   return render(request, 'form2.html', {'form':form, 'especialidad':especialidad, 'articulo':articulo})
 
