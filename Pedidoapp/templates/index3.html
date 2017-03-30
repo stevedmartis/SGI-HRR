@@ -35,7 +35,7 @@
             </p>
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
            </p>
-            {% if esp.estadistica > 0 %}
+            {% if esp.acceso == 0 %}
             <p class="autor_item">
             <a href="{% url "usuario:vista_extra" id_especialidad=esp.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Extra</a>
             {% endif %}
