@@ -310,13 +310,6 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
           form.save()
           pedido2 = Pedido.objects.filter(id=id_pedido).update(estado="pendiente", fecha_pedido=datetime.date.today())
           especialidad = Especialidad.objects.filter(estado=especialidad).update(estado="pendiente")
-          """
-          pedido.estado = 'pendiente'
-          pedido.fecha_pedido = datetime.date.today()
-          pedido.save()
-          especialidad.estado='pendiente'
-          especialidad.save()
-          """
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
 
@@ -479,6 +472,7 @@ def IngresarExtra(request, id_especialidad, cod_experto):
       form = ExtraForm(request.POST)
       if form.is_valid():
           form.save()
+          pedido_ex = Pedido_Extra.objects.filter(id=id_pedido_extra).update(articulo_ex=articulo, especialidad_ex=especialidad)
       return HttpResponseRedirect('/solicitar/pedidos-extra/')
   return render(request, 'form2.html', {'form':form, 'especialidad':especialidad, 'articulo':articulo})
 

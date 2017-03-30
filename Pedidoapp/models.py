@@ -86,16 +86,6 @@ class Pedido_Extra(models.Model):
         return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
 
 
-def Ingresa_extra(id_especialidad, cod_experto, sender, **kwargs):
-    especialidad = Especialidad.objects.get(id=id_especialidad)
-    articulo     = Articulo.objects.get(pk=cod_experto)
-    pedido_ex    = Pedido_Extra(especialidad_ex=id_especialidad, articulo_ex=cod_experto)
-    pedido_ex.save()
-
-    
-# register the signal
-signals.post_save.connect(Ingresa_extra, sender=Pedido_Extra, dispatch_uid="path.to.this.module")
-
 from django.core.cache import cache
 
 from django.dispatch import receiver
