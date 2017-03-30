@@ -89,7 +89,7 @@ class Pedido_Extra(models.Model):
 def Ingresa_extra(id_especialidad, cod_experto, sender, **kwargs):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     articulo     = Articulo.objects.get(pk=cod_experto)
-    pedido_ex    = Pedido_Extra(especialidad_ex=especialidad, articulo_ex=articulo)
+    pedido_ex    = Pedido_Extra(especialidad_ex=id_especialidad, articulo_ex=cod_experto)
     pedido_ex.save()
 
     
