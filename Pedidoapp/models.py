@@ -85,8 +85,9 @@ class Pedido_Extra(models.Model):
     def __str__(self):
         return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
 
-def ingresar_extra(sender, instance, **kwargs):
-    instance.articulo_ex = articulo
+def ingresar_extra(cod_experto, sender, instance, **kwargs):
+    articulo = Articulo.objects.get(pk=cod_experto)
+    instance.articulo_ex = 
     instance.articulo_ex.save()
 
 # register the signal
