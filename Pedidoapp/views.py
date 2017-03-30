@@ -464,7 +464,6 @@ def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   pedido       = Pedido.objects.get(id=id_pedido)
   if request.method == 'GET':
     pedido.delete()
-    return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
   return render(request, 'delete.html', {'especialidad':especialidad, 'articulo':articulo, 'pedido':pedido})
 
 
