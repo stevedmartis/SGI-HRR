@@ -440,7 +440,7 @@ def Acces_open(request):
 
   return HttpResponseRedirect('/solicitar/home/')
 
-
+@cache_page(3000)
 def VistaAsigna(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -458,6 +458,7 @@ def Asigna(request, id_especialidad, cod_experto):
     pedido.save()
     return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
 
+@cache_page(3000)
 def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   articulo      = Articulo.objects.get(pk=cod_experto)
   especialidad = Especialidad.objects.get(id=id_especialidad)
