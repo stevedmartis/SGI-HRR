@@ -449,7 +449,6 @@ def VistaAsigna(request, id_especialidad):
     return render(request, template, {'articulo':articulo, 'especialidad':especialidad})
 
 
-from django.contrib import messages
 
 def Asigna(request, id_especialidad, cod_experto):
   especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -457,11 +456,10 @@ def Asigna(request, id_especialidad, cod_experto):
   if request.method == 'GET':
     pedido = Pedido(articulo=articulo, especialidad=especialidad)
     pedido.save()
-    messages.success(request, 'Asignado con exito!')
     return HttpResponseRedirect('/solicitar/asignar-nuevo/%s/' % id_especialidad)
 
 def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
- articulo      = Articulo.objects.get(pk=cod_experto)
+  articulo      = Articulo.objects.get(pk=cod_experto)
   especialidad = Especialidad.objects.get(id=id_especialidad)
   pedido       = Pedido.objects.get(id=id_pedido)
   if request.method == 'GET':
