@@ -58,7 +58,7 @@
                     <td>{{ art.nombre }}</td>
                     <td>{{ art.stock }}</td>
                     <td>{{ art.info_bodega }}</td>
-                    <td><a href="{% url "usuario:asignar" especialidad.id art.cod_experto %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Asignar</a></td>
+                    <td><a href="{% url "usuario:asignar" id_especialidad=especialidad.id cod_experto=art.cod_experto %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Asignar</a></td>
                 </tr>               
                 {% endfor %}
                 {% endif %}
