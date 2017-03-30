@@ -26,8 +26,7 @@
 	<section id="contenido">
         <form method="post">
         <article class="item">
-        <h4><b>Desea Elimnar Articulo?
-        <br>
+        <h4><b>Desea Elimnar Articulo?:
         &nbsp;&nbsp;{{articulo.cod_experto}}&nbsp;-&nbsp;</b>
         <b>{{articulo.nombre}}</b>
         <br>
@@ -35,7 +34,7 @@
         <br>
             {% csrf_token %}
             <button class="btn btn-danger" type="submit">Si, eliminar</button>
-            <a class= "btn btn-default" href="{%  url "usuario:lita_todo" id_especialidad=especialidad.id %}">Cancelar</a>
+            <a class="btn btn-default" href="{%  url "usuario:lita_todo" id_especialidad=especialidad.id %}">Cancelar</a>
         </thead>
         </tr>
         </table>
