@@ -458,7 +458,7 @@ def Asigna(request, id_especialidad, cod_experto):
     pedido = Pedido(articulo=articulo, especialidad=especialidad)
     pedido.save()
     messages.success(request, 'Asignado con exito!')
-    return HttpResponseRedirect('/solicitar/vista_asigna/%s/' % id_especialidad)
+    return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
 
 
 
