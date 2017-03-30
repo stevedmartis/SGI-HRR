@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import signals
+from django.db.models.signals import post_save
 import sys  
 #reload(sys)  
 #sys.setdefaultencoding('utf-8')
@@ -88,17 +89,17 @@ class Pedido_Extra(models.Model):
 def Ingresa_extra(sender, id_especialidad, cod_experto, instance, **kwargs):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     articulo     = Articulo.objects.get(pk=cod_experto)
-    instance.especialidad_ex = especialidad
-    instance.articulo_ex     = articulo
-    instance.especialidad_ex.save()
-    instance.articulo_ex.save()
+    Pedido_Extra.especialidad_ex = especialidad
+    Pedido_Extra.articulo_ex     = articulo
+    Pedido_Extra.especialidad_ex.save()
+    Pedido_Extra.articulo_ex.save()
 
     
 # register the signal
 signals.post_save.connect(Ingresa_extra, sender=Pedido_Extra, dispatch_uid="path.to.this.module")
 
 from django.core.cache import cache
-from django.db.models.signals import post_save
+
 from django.dispatch import receiver
 
 from django.contrib.sessions.models import Session
