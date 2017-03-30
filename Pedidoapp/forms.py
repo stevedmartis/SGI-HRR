@@ -29,7 +29,7 @@ class EstadisticaForm(forms.ModelForm):
         ]
 
 class ExtraForm(forms.ModelForm):
-    cantidad_ex       = forms.IntegerField(label='Cantidad:', widget=forms.TextInput(attrs={'placeholder':'Ingrese cantidad', 'size':'10'}))
+    cantidad_ex       = forms.IntegerField(label='Cantidad:', widget=forms.TextInput(attrs={'size':'10'}))
     
 
     class Meta:
