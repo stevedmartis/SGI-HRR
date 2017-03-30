@@ -465,7 +465,8 @@ def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   if request.method == 'POST':
     pedido.delete()
     template = 'delete.html'
-    return render(request, template, {'especialidad':especialidad, 'articulo':articulo, 'pedido':pedido})
+    return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
+  return render(request, template, {'especialidad':especialidad, 'articulo':articulo, 'pedido':pedido})
 
 
 
