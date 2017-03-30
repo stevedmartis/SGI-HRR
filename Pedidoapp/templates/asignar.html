@@ -58,18 +58,12 @@
                     <td>{{ art.nombre }}</td>
                     <td>{{ art.stock }}</td>
                     <td>{{ art.info_bodega }}</td>
-                    <td><a href="{% url "usuario:asignar" id_especialidad=especialidad.id cod_experto=art.cod_experto %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Asignar</a></td>
+                    <td>{% if request.user.is_superuser %}<a href="{% url "usuario:asignar" id_especialidad=especialidad.id cod_experto=art.cod_experto %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Asignar</a>{% else %}
+                    <a href="{% url "usuario:ingresa_extra" id_especialidad=especialidad.id cod_experto=art.cod_experto %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar" onclick="document.location.reload();"/>Ingresar</a>{% endif %}</td>
                 </tr>               
                 {% endfor %}
                 {% endif %}
-            </tbody>
-{% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li class="{{ message.tags }}">{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}      
+            </tbody>      
         </table>
         </form>
 </section>

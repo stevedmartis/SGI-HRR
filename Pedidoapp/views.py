@@ -469,6 +469,18 @@ def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   return render(request, 'delete.html', {'especialidad':especialidad, 'articulo':articulo, 'pedido':pedido})
 
 
+def IngresarExtra(request, id_especialidad, cod_experto):
+  especialidad = Especialidad.objects.get(id=id_especialidad)
+  articulo = Articulo.objects.get(pk=cod_experto)
+  if request.method == 'GET':
+    form = ExtraForm():
+    else:
+      form = ExtraForm(request.POST)
+      if form.is_valid():
+          form.save()
+      return HttpResponseRedirect('/solicitar/pedidos-extra/')
+    return render(request, 'form2.html', {'form':form, 'extra':extra})
+
 
 
 
