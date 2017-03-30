@@ -261,12 +261,11 @@ def home(request):
       especialidad = Especialidad.objects.all()
       template = "index.html"
       return render_to_response(template,locals(), {'especialidad':especialidad})
-
-
-def Home_active(request):
-  especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
+    else:
+      especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
       return render_to_response(template2,locals())
+
 
 #LISTA ADMIN
 @cache_page(1000)
