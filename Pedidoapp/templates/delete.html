@@ -30,7 +30,7 @@
         <br>
             {% csrf_token %}
             <button class=btm btn-danger type="submit">Si, eliminar</button>
-            <a class= "btm btn-default" href="{%  url "usuario:lita_todo" id_especialidad=especialidad.id %}">Cancelar></a>
+            <a class= "btm btn-default" href="{%  url "usuario:lita_todo" id_pedido=pedido.id id_especialidad=especialidad.id %}">Cancelar></a>
         </thead>
         </tr>
         </table>
