@@ -34,8 +34,9 @@ url(r'^reset-estadis/$', login_required(Reset), name="reset"),
 url(r'^acces-open/$', login_required(Acces_open), name="open"),
 url(r'^acces-close/$', login_required(Acces_close), name="close"),
 url(r'^asignar-nuevo/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name='vista_asigna'),
+url(r'^vista-art-extra/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name="vista_extra"),
 url(r'^btn-asigna/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Asigna, name="asignar"),
-url(r'^vista-art-extra/(?P<id_especialidad>\d+)/$', Asigna, name="vista_extra"),
+
 url(r'^delete-pedido/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', DeletePedido, name="confirm_delete_pedido"),
 
 
