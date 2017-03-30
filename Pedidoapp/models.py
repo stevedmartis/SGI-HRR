@@ -89,10 +89,8 @@ class Pedido_Extra(models.Model):
 def Ingresa_extra(sender, id_especialidad, cod_experto, instance, **kwargs):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     articulo     = Articulo.objects.get(pk=cod_experto)
-    Pedido_Extra.especialidad_ex = especialidad
-    Pedido_Extra.articulo_ex     = articulo
-    Pedido_Extra.especialidad_ex.save()
-    Pedido_Extra.articulo_ex.save()
+    pedido_ex    = Pedido_Extra(especialidad_ex=especialidad, articulo_ex=articulo)
+    pedido_ex.save()
 
     
 # register the signal
