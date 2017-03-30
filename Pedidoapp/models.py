@@ -44,14 +44,6 @@ class Pedido(models.Model):
 def update_total(sender, instance, **kwargs):
     instance.articulo.total_pedido += instance.cantidad
     instance.articulo.save()
-    """
-    pedido.estado = 'pendiente'
-      pedido.fecha_pedido = datetime.date.today()
-      pedido.save()
-      especialidad.estado='pendiente'
-      especialidad.save()
-      """
-
 
 # register the signal
 signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="path.to.this.module")
@@ -93,6 +85,17 @@ class Pedido_Extra(models.Model):
         return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
 
 
+def Ingresa_extra(sender, id_especialidad, cod_experto, instance, **kwargs):
+    especialidad = Especialidad.objects.get(id=id_especialidad)
+    articulo     = Articulo.objects.get(pk=cod_experto)
+    instance.especialidad_ex = especialidad
+    instance.articulo_ex     = articulo
+    instance.especialidad_ex.save()
+    instance.articulo_ex.save()
+
+    
+# register the signal
+signals.post_save.connect(Ingresa_extra, sender=Pedido_Extra, dispatch_uid="path.to.this.module")
 
 from django.core.cache import cache
 from django.db.models.signals import post_save
