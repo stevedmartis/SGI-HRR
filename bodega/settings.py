@@ -165,12 +165,13 @@ CACHES = {
 AUTHENTICATION_BACKENDS = ('Pedidoapp.views.CaseInsensitiveModelBackend',)
 
 user = request.user
-LOGIN_REDIRECT_URL= 
-                    if user.is_superuser:
-                        reverse_lazy('usuario:home')
-                    else: 
-                        reverse_lazy('usuario:home_active')
-                        
+if user.is_superuser:
+   LOGIN_REDIRECT_URL= reverse_lazy('usuario:home')
+
+if user.is_active:
+    LOGIN_REDIRECT_URL = reverse_lazy('usuario:home_active')
+                   
+
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 EMAIL_USE_TLS = True
