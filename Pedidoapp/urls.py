@@ -33,7 +33,7 @@ url(r'^reset-estadis/$', login_required(Reset), name="reset"),
 url(r'^acces-open/$', login_required(Acces_open), name="open"),
 url(r'^acces-close/$', login_required(Acces_close), name="close"),
 url(r'^asignar-nuevo/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name='vista_asigna'),
-url(r'^btn-asigna(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Asigna, name="asignar"),
+url(r'^btn-asigna/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Asigna, name="asignar"),
 
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)      
