@@ -473,7 +473,7 @@ def IngresarExtra(request, id_especialidad, cod_experto):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   articulo = Articulo.objects.get(pk=cod_experto)
   if request.method == 'GET':
-      form = ExtraForm():
+      form = ExtraForm()
   else:
       form = ExtraForm(request.POST)
       if form.is_valid():
