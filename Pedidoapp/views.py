@@ -441,6 +441,23 @@ def Acces_open(request):
   return HttpResponseRedirect('/solicitar/home/')
 
 
+def VistaAsigna(request, id_especialidad):
+  if request.method == 'GET':
+    especialidad = Especialidad.objects.get(id=id_especialidad)
+    articulo    = Articulo.objects.all()
+    template     = 'asignar.html'
+    return render(request, template, {'articulo':articulo, 'especialidad':especialidad})
+
+
+from django.contrib import messages
+
+def Asigna(request, id_especialidad, cod_experto):
+  if request.method == 'GET':
+    pedido = Pedido(articulo=cod_experto, especialidad=id_especialidad)
+    pedido.save()
+    messages.success(request, 'Asignado con exito!')
+    return HttpResponseRedirect('/solicitar/vista_asigna/')
+
 
 
 
@@ -710,7 +727,6 @@ class ReporteTotalFarmacia(View):
         buffer.close()
         response.write(pdf)
         return response
-
 #FIN REPORTE
 
 #PARA COMPRA. TOTAL ECONOMATO

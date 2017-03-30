@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import signals
 import sys  
-reload(sys)  
-sys.setdefaultencoding('utf-8')
+#reload(sys)  
+#sys.setdefaultencoding('utf-8')
 
 
 class Encargado(models.Model):
@@ -32,7 +32,7 @@ class Pedido(models.Model):
     articulo       = models.ForeignKey('Articulo')
     fecha_entrega  = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     fecha_pedido   = models.DateTimeField(auto_now_add=False,null=True, blank=True)
-    cantidad       = models.IntegerField(blank=True)
+    cantidad       = models.IntegerField(blank=True, default=0)
     estado         =  models.CharField(max_length=20, blank=True)
 
 
