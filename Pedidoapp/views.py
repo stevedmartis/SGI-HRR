@@ -462,9 +462,9 @@ def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   articulo      = Articulo.objects.get(pk=cod_experto)
   especialidad = Especialidad.objects.get(id=id_especialidad)
   pedido       = Pedido.objects.get(id=id_pedido)
-  if request.method == 'GET':
+  if request.method == 'POST':
     pedido.delete()
-    template = 'delete.html'   
+    template = 'delete.html'
     return render(request, template, {'especialidad':especialidad, 'articulo':articulo, 'pedido':pedido})
 
 
