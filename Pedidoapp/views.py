@@ -456,7 +456,7 @@ def Asigna(request, id_especialidad, cod_experto):
   if request.method == 'GET':
     pedido = Pedido(articulo=articulo, especialidad=especialidad)
     pedido.save()
-    return HttpResponseRedirect('/solicitar/asignar-nuevo/%s/' % id_especialidad)
+    return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
 
 def DeletePedido(request, id_pedido, id_especialidad, cod_experto):
   articulo      = Articulo.objects.get(pk=cod_experto)
