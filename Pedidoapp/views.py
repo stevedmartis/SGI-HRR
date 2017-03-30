@@ -472,7 +472,7 @@ def IngresarExtra(request, id_especialidad, cod_experto):
       form = ExtraForm(request.POST)
       if form.is_valid():
           form.save()
-          Pedido_Extra.objects.get(id=id_pedido_extra).update(especialidad_ex=especialidad)
+          Pedido_Extra.objects.get(id=form).update(especialidad_ex=especialidad)
       return HttpResponseRedirect('/solicitar/pedidos-extra/')
   return render(request, 'form2.html', {'form':form, 'especialidad':especialidad, 'articulo':articulo})
 
