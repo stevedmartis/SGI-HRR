@@ -26,10 +26,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="bs-component">
-                        <nav class="navbar navbar-default"> 
+                        <nav class="navbar navbar-default"> home_active
                             <div class="container-fluid">
                                 <div class="navbar-header">
-                                    <a class="navbar-brand" href="{% url "usuario:home"  %}">Home</a>
+                                    <a class="navbar-brand" {% if request.user.is_superuser %}
+                                    href="{% url "usuario:home"  %}" {% else %} "{% url "usuario:home_active %}" {% endif %}>Home</a>
                                 </div>
                                 <div class="navbar-header">
                                     <a class="navbar-brand" href="{% url "usuario:ped_ex"  %}">Extras</a>
