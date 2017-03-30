@@ -86,7 +86,7 @@ class Pedido_Extra(models.Model):
         return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
 
 
-def Ingresa_extra(sender, id_especialidad, cod_experto, instance, **kwargs):
+def Ingresa_extra(id_especialidad, cod_experto, sender, **kwargs):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     articulo     = Articulo.objects.get(pk=cod_experto)
     pedido_ex    = Pedido_Extra(especialidad_ex=especialidad, articulo_ex=articulo)
