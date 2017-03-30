@@ -36,9 +36,7 @@
                 <tr> 
                     <td>Codigio experto</td>
                     <td>Nombre</td>
-                    {% if request.user.is_active %}
-                    <td>Descripcion</td>
-                    {% endif %}
+
                     {% if request.user.is_superuser %}
                     <td>stock</td>
                     {% endif %}
@@ -52,9 +50,7 @@
                 <tr>
                     <td>Codigio experto</td>
                     <td>Nombre</td>
-                    {% if request.user.is_active %}
-                    <td>Descripcion</td>
-                    {% endif %}
+
                     {% if request.user.is_superuser %}
                     <td>stock</td>
                     {% endif %}
@@ -70,9 +66,7 @@
                 <tr>
                     <td>{{ art.cod_experto }}</td>
                     <td>{{ art.nombre }}</td>
-                    {% if request.user.is_active %}
-                    <td>{{ art.descripcion }}</td>
-                    {% endif %}
+
                     {% if request.user.is_superuser %}
                     <td>{{ art.stock }}</td>
                     {% endif %}
