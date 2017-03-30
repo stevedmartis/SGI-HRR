@@ -454,12 +454,11 @@ from django.contrib import messages
 def Asigna(request, id_especialidad, cod_experto):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   articulo = Articulo.objects.get(pk=cod_experto)
-
   if request.method == 'GET':
     pedido = Pedido(articulo=articulo, especialidad=especialidad)
     pedido.save()
     messages.success(request, 'Asignado con exito!')
-    return HttpResponseRedirect('/solicitar/vista_asigna/')
+    return HttpResponseRedirect('/solicitar/vista_asigna/%s/' % id_especialidad)
 
 
 
