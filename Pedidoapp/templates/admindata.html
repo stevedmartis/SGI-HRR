@@ -38,7 +38,6 @@
                     <td>Cantidad</td>
                     <td>Cantidad Modificada</td>
                     <td>Fecha Pedido</td>
-                    <td>Fecha Entrega</td>
                     <td>Estado</td>
                     <td></td>
                     <td></td>
@@ -53,7 +52,6 @@
                     <td>stock</td>
                     <td>Cantidad Modificada</td>
                     <td>Fecha Pedido</td>
-                    <td>Fecha Entrega</td>
                     <td>Estado</td>
                     <td></td>
                     <td></td> 
@@ -71,9 +69,7 @@
                     <td>{{ ped.cantidad }}</td>
                     <td>{{ ped.cantidad_update }}</td>
                     <td>{{ ped.fecha_pedido }}</td>
-                    <td>{{ ped.fecha_entrega }}</td>
                     <td>{{ ped.estado }}</td>
-
                     <td><a href="{% url "usuario:cant_update" ped.id especialidad.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
 
                     <td><a href="{% url "usuario:entregado" id_pedido=ped.id cod_experto=ped.articulo.cod_experto id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar""/>Entregar</a></td>
