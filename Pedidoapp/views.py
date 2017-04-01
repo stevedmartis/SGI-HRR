@@ -339,13 +339,16 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
     pedido = Pedido.objects.get(id=id_pedido)
     articulo = Articulo.objects.get(pk=cod_experto)
     articulo.stock -= pedido.cantidad
-    articulo.save()
+    
     pedido.estado = 'entregado'
     pedido.fecha_entrega = datetime.date.today()
-    pedido.save()
+    
     especialidad.estado = 'entregado'
     especialidad.save()
+    articulo.save()
+    pedido.save()
     return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
+
 
 @login_required
 def PedidoExtra(request, id_especialidad):
