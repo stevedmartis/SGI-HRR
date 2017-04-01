@@ -614,7 +614,7 @@ class ReporteTotalPDF(View):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["BP-0008", "DRE-0160"]).filter(info_bodega=1).order_by('cod_experto')]
+        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["BP-0008", "DRE-0160"]).filter(info_bodega=1).filter(total_pedido__gt=0).order_by('cod_experto')]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         detalle_orden = Table([encabezados] + detalles, colWidths=[3 * cm, 10 * cm, 2 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
@@ -638,7 +638,7 @@ class ReporteTotalPDF(View):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["DRE-0161", "VV-0122"]).filter(info_bodega=1).order_by('cod_experto')]
+        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["DRE-0161", "VV-0122"]).filter(info_bodega=1).filter(total_pedido__gt=0).order_by('cod_experto')]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         detalle_orden = Table([encabezados] + detalles, colWidths=[3 * cm, 10 * cm, 2 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
