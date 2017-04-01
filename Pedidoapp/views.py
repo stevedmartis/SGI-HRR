@@ -518,7 +518,7 @@ class ReportePedidosPDF(View):
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Estado')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(pedido.especialidad.nombre, pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.estado) for pedido in Pedido.objects.filter(especialidad=especialidad)]
+        detalles = [(pedido.especialidad.nombre, pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.estado) for pedido in Pedido.objects.filter(]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
@@ -565,7 +565,7 @@ class ReportePedidosPDF(View):
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
         buffer = BytesIO()
         #Canvas nos permite hacer el reporte con coordenadas X y Y
-        pdf = canvas.Canvas(buffer, pagesize = A0)
+        pdf = canvas.Canvas(buffer, pagesize = A1)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf, id_especialidad)
         y = 900

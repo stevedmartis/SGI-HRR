@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*- 
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import signals
 from django.db.models.signals import post_save
 import sys  
-reload(sys)  
-sys.setdefaultencoding('utf-8')
+
 
 
 class Encargado(models.Model):
@@ -34,6 +36,7 @@ class Pedido(models.Model):
     fecha_entrega  = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     fecha_pedido   = models.DateTimeField(auto_now_add=False,null=True, blank=True)
     cantidad       = models.IntegerField(blank=True, default=0)
+    cantidad_update = models.IntegerField(blank=True, default=0)
     estado         =  models.CharField(max_length=20, blank=True)
 
 
