@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 from django.template.loader import get_template
 from django.template import Context
 from datetime import datetime
-from Pedidoapp.forms import PedidoEditForm, EstadisticaForm, ExtraForm
+from Pedidoapp.forms import PedidoEditForm,PedAdminEditForm, EstadisticaForm, ExtraForm
 from django.template.context import RequestContext
 from django.template import RequestContext
 from django.views.decorators.cache import cache_page
@@ -29,17 +29,7 @@ import json
 
 
 
-@login_required
-@cache_page(1000)
-def add(request):
-    if request.method == 'POST':
-        form = PedidoEditForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('add')
-    else:
-        form = PedidoEditForm()
-    return render(request, 'form.html', {'form':form})
+
 
 @login_required
 @cache_page(1000)
@@ -295,7 +285,7 @@ def ListEspeci(request, id_especialidad):
     return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
   return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
 
-#BTN INGRESAR
+#BTN INGRESAR ACTIVO
 @login_required
 @cache_page(1000)
 def Cant_ingresar(request, id_pedido, id_especialidad):
@@ -314,19 +304,19 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
 
 
-
+#BTN MODIFICAR ADMIN
 @login_required
 @cache_page(1000)
 def Cant_update(request, id_pedido, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
     if request.method == 'GET':
-      form = PedidoEditForm(instance=pedido)
+      form = PedAdminEditForm(instance=pedido)
     else:
-      form = PedidoEditForm(request.POST, instance=pedido)
+      form = PedAdminEditForm(request.POST, instance=pedido)
       if form.is_valid():
           form.save()
-          pedido.estado = 'modificado'
+          pedido.estado_update = 'modificado'
           pedido.save()
       return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
