@@ -335,18 +335,11 @@ class PedidoDetailView(DetailView):
 @cache_page(1000)
 def Update_stock(request, id_pedido, cod_experto, id_especialidad):
   if request.method == 'GET':
-    especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido = Pedido.objects.get(id=id_pedido)
+    especialidad = Especialidad.objects.get(id=id_especialidad).update(estado='entregado')
+    pedido = Pedido.objects.get(id=id_pedido).update(estado='entregado').update(fecha_entrega=datetime.date.today())
     articulo = Articulo.objects.get(pk=cod_experto)
     articulo.stock -= pedido.cantidad
-    
-    pedido.estado = 'entregado'
-    pedido.fecha_entrega = datetime.date.today()
-    
-    especialidad.estado = 'entregado'
-    especialidad.save()
     articulo.save()
-    pedido.save()
     return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
 
 
