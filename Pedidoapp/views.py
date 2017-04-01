@@ -319,7 +319,7 @@ def Cant_update(request, id_pedido, id_especialidad):
           pedido.estado_update = 'modificado'
           pedido.save()
       return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
-    return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
+    return render(request, 'form3.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
 
 
 
