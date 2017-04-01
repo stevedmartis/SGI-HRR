@@ -10,11 +10,6 @@ class PedidoEditForm(forms.ModelForm):
         model = Pedido
 
 
-        fields = [
-
-        'cantidad',
-
-        ]  
 
 class PedAdminEditForm(forms.ModelForm):
     cantidad_update       = forms.IntegerField(label='Cantidad:', widget=forms.TextInput(attrs={'size':'10'}))
@@ -22,12 +17,6 @@ class PedAdminEditForm(forms.ModelForm):
     class Meta:
         model = Pedido
 
-
-        fields = [
-
-        'cantidad_update',
-
-        ] 
 
 class EstadisticaForm(forms.ModelForm):
     estadistica    = forms.IntegerField(label='Estadistica Mensual:', widget=forms.TextInput(attrs={'placeholder':'Ingrese numero pacientes'}))  
