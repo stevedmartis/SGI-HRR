@@ -336,7 +336,7 @@ class PedidoDetailView(DetailView):
 def Update_stock(request, id_pedido, cod_experto, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    esp          = Especialidad.objects.filter(id=especialidad).update(estado='entregado')
+    esp          = Especialidad.objects.filter(id=especialidad.id).update(estado='entregado')
     pedido = Pedido.objects.get(id=id_pedido)
     articulo = Articulo.objects.get(pk=cod_experto)
     art = Pedido.objects.filter(especialidad=especialidad).update(estado='entregado').update(fecha_entrega=datetime.date.today())
