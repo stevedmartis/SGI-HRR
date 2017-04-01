@@ -510,7 +510,7 @@ class ReportePedidosPDF(View):
         #Creamos una lista de tuplas que van a contener a las personas
         detalles = [(pedido.especialidad.nombre, pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.cantidad_update, pedido.estado, pedido.estado_update) for pedido in Pedido.objects.filter(especialidad=especialidad)]
         #Establecemos el tamaño de cada una de las columnas de la tabla
-        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm , 4 * cm, 2 * cm, 2 * cm])
+        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm , 3 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
         detalle_orden.setStyle(TableStyle(
             [
