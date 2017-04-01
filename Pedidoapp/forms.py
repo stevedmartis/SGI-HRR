@@ -25,7 +25,7 @@ class PedAdminEditForm(forms.ModelForm):
 
         fields = [
 
-        'cantidad',
+        'cantidad_update',
 
         ] 
 
