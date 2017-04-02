@@ -494,13 +494,13 @@ class ReportePedidosPDF(View):
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
         pdf.setFont("Helvetica", 26)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(250, 1600, u"REPORTE CAE")
+        pdf.drawString(350, 1600, u"REPORTE CAE")
         pdf.setFont("Helvetica", 24)
-        pdf.drawString(200, 1550, u"PEDIDO POR ESPECIALIDAD")
+        pdf.drawString(300, 1550, u"PEDIDO POR ESPECIALIDAD")
         pdf.setFont("Helvetica", 22)
-        pdf.drawString(200, 1500, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(250, 1500, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 22)
-        pdf.drawString(50, 1800, u"Solicitado por: " + str(especialidad.encargado.nombre))
+        pdf.drawString(50, 1500, u"Solicitado por: " + str(especialidad.encargado.nombre))
 
 
     def tabla(self,pdf,y, id_especialidad):
