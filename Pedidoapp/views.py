@@ -505,7 +505,7 @@ class ReportePedidosPDF(View):
 
     def tabla(self,pdf,y, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
-        count = Pedido.objects.filter(especialidad=especialidad).count()
+        ped = Pedido.objects.filter(especialidad=especialidad)
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Cantidad Moficada', 'Estado', 'Estado')
         #Creamos una lista de tuplas que van a contener a las personas
