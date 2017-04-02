@@ -505,11 +505,11 @@ class ReportePedidosPDF(View):
 
     def tabla(self,pdf,y, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
-        ped = Pedido.objects.filter(especialidad=especialidad)
+        count = Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado").count()
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Cantidad Moficada', 'Estado', 'Estado')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(pedido.especialidad.nombre, pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.cantidad_update, pedido.estado, pedido.estado_update) for pedido in Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado").count()]
+        detalles = [(pedido.especialidad.nombre, pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.cantidad_update, pedido.estado, pedido.estado_update) for pedido in Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado")]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm , 3 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
@@ -525,28 +525,28 @@ class ReportePedidosPDF(View):
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
-        if pedido <=10:
+        if count <=10:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 1200)
-        elif pedido >30 and count <=50:
+        elif count >30 and count <=50:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 900)
-        elif pedido >50 and count <=70:
+        elif count >50 and count <=70:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 900)
-        elif pedido >70 and count <=90:
+        elif count >70 and count <=90:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 900)
-        elif pedido >90 and count <=110:
+        elif count >90 and count <=110:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 1200)
-        elif pedido >110 and count <=130:
+        elif count >110 and count <=130:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 800)
-        elif pedido >130 and count <=150:
+        elif count >130 and count <=150:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 600)
-        elif pedido >150 and count <=170:
+        elif count >150 and count <=170:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 200)
 
