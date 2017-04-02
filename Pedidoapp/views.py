@@ -525,28 +525,28 @@ class ReportePedidosPDF(View):
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla 
         detalle_orden.wrapOn(pdf, 1000, 1000)
-        if count <=10:
+        if pedido <=10:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 1200)
-        elif count >30 and count <=50:
+        elif pedido >30 and count <=50:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 900)
-        elif count >50 and count <=70:
+        elif pedido >50 and count <=70:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 900)
-        elif count >70 and count <=90:
+        elif pedido >70 and count <=90:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 900)
-        elif count >90 and count <=110:
+        elif pedido >90 and count <=110:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 1200)
-        elif count >110 and count <=130:
+        elif pedido >110 and count <=130:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 800)
-        elif count >130 and count <=150:
+        elif pedido >130 and count <=150:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 600)
-        elif count >150 and count <=170:
+        elif pedido >150 and count <=170:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 200)
 
