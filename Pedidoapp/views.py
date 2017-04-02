@@ -492,14 +492,14 @@ class ReportePedidosPDF(View):
     def cabecera(self,pdf, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
         #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
-        pdf.setFont("Helvetica", 26)
+        pdf.setFont("Helvetica", 22)
         #Dibujamos una cadena en la ubicación X,Y especificada
-        pdf.drawString(350, 1600, u"REPORTE CAE")
-        pdf.setFont("Helvetica", 24)
-        pdf.drawString(300, 1550, u"PEDIDO POR ESPECIALIDAD")
-        pdf.setFont("Helvetica", 22)
+        pdf.drawString(450, 1600, u"REPORTE CAE")
+        pdf.setFont("Helvetica", 20)
+        pdf.drawString(400, 1550, u"PEDIDO POR ESPECIALIDAD")
+        pdf.setFont("Helvetica", 18)
         pdf.drawString(250, 1500, u"FECHA: " + str(datetime.date.today()))
-        pdf.setFont("Helvetica", 22)
+        pdf.setFont("Helvetica", 18)
         pdf.drawString(50, 1500, u"Solicitado por: " + str(especialidad.encargado.nombre))
 
 
