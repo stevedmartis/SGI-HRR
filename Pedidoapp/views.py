@@ -400,7 +400,7 @@ def Update_stockex(request, id_pedido_ex, cod_experto):
     pedido.fecha_entrega_ex = datetime.date.today()
     pedido.save()
     return HttpResponseRedirect('/solicitar/pedidos-extra/')
-
+"""
 @login_required
 def Completar(request, id_especialidad):
    if request.method == 'GET':
@@ -410,6 +410,7 @@ def Completar(request, id_especialidad):
     especialidad.estado = "completado"
     especialidad.save()
     return HttpResponseRedirect('/solicitar/home/')
+"""
 
 def Reset(request):
     estadis = Especialidad.objects.all().update(estadistica= 0, estado="")
@@ -422,7 +423,7 @@ def Acces_close(request):
 def Acces_open(request):
   acceso = Especialidad.objects.all().update(acceso=1)
   especialidad = Especialidad.objects.all().update(estado="completado")
-  pedido = Pedido.objects.all().update(cantidad=0, estado="", fecha_pedido=None, fecha_entrega=None)
+  pedido = Pedido.objects.all().update(cantidad=0, estado="", fecha_pedido=None, fecha_entrega=None, estado_update="", cantidad_update=0)
   return HttpResponseRedirect('/solicitar/home/')
 
 @cache_page(3000)
