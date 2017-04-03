@@ -606,6 +606,29 @@ class ReporteTotalPDF(View):
         #Definimos la coordenada donde se dibujará la tabla
         detalle_orden.drawOn(pdf, 20, 50)
 
+#SEGUNDA TABLA INSUMO
+    def tabla2(self,pdf,y):
+        #Creamos una tupla de encabezados para neustra tabla
+        encabezados = ('Codigo Experto', 'Nombre Articulo', 'Stock', 'Bodega', 'Total Pedido')
+        #Creamos una lista de tuplas que van a contener a las personas
+        detalles = [(art.cod_experto, art.nombre, art.stock, art.info_bodega, art.total_pedido) for art in Articulo.objects.filter(cod_experto__range=["DRE-0054", "VV-0122"]).filter(info_bodega=1).filter(total_pedido__gt=0).order_by('cod_experto')]
+        #Establecemos el tamaño de cada una de las columnas de la tabla
+        detalle_orden = Table([encabezados] + detalles, colWidths=[3 * cm, 10 * cm, 2 * cm, 2 * cm, 2 * cm])
+        #Aplicamos estilos a las celdas de la tabla
+        detalle_orden.setStyle(TableStyle(
+            [
+                #La primera fila(encabezados) va a estar centrada
+                ('ALIGN',(0,0),(3,0),'CENTER'),
+                #Los bordes de todas las celdas serán de color negro y con un grosor de 1
+                ('GRID', (0, 0), (-1, -1), 1, colors.black), 
+                #El tamaño de las letras de cada una de las celdas será de 10
+                ('FONTSIZE', (0, 0), (-1, -1), 10),
+            ]
+        ))
+        #Establecemos el tamaño de la hoja que ocupará la tabla 
+        detalle_orden.wrapOn(pdf, 1000, 1000)
+        #Definimos la coordenada donde se dibujará la tabla
+        detalle_orden.drawOn(pdf, 20, 50)
     
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -618,6 +641,7 @@ class ReporteTotalPDF(View):
         self.cabecera(pdf)
         y = 900
         self.tabla1(pdf, y)
+        self.tabla2(pdf, y)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
