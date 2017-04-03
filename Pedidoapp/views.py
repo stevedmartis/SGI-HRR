@@ -578,9 +578,9 @@ class ReporteTotalPDF(View):
         pdf.setFont("Helvetica", 16)
         pdf.drawString(430, 1570, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(700, 1550, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(700, 1530, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(300, 1550, u"DE BODEGA: INSUMO")
+        pdf.drawString(300, 1530, u"DE BODEGA: INSUMO")
    
 
     #PRIMERA TABLA INSUMO
@@ -663,9 +663,9 @@ class ReporteTotalFarmacia(View):
         pdf.setFont("Helvetica", 16)
         pdf.drawString(430, 1570, u"TOTAL DE CANTIDADES SOLICITADAS")
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(700, 1550, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(700, 1530, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 14)
-        pdf.drawString(300, 1550, u"DE BODEGA: FARMACIA")
+        pdf.drawString(300, 1530, u"DE BODEGA: FARMACIA")
    
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
