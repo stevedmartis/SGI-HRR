@@ -342,6 +342,7 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
         articulo.stock -= pedido.cantidad_update
     else:
         articulo.stock -= pedido.cantidad
+
     pedido.estado = 'entregado'
     pedido.fecha_entrega = datetime.date.today()
     especialidad.estado = 'entregado'
@@ -370,7 +371,7 @@ def PedidoExtra(request, id_especialidad):
 def ExtraView(request):
       user = request.user
       if user.is_superuser:
-        extra = Pedido_Extra.objects.all()
+        extra = Pedido_Extra.objects.filter(estado_ex="pendiente")
         return render(request, 'extra.html', {'extra':extra, 'user':user})
       else:
         extra = Pedido_Extra.objects.filter(especialidad_ex__encargado__usuario=user.id)
