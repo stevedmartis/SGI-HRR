@@ -338,10 +338,10 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido = Pedido.objects.get(id=id_pedido)
     articulo = Articulo.objects.get(pk=cod_experto)
-    if articulo.cantidad_update > 0:
+    if pedido.cantidad_update > 0:
         articulo.stock -= pedido.cantidad_update
     else:
-        articulo.stock -= pedido.cantidad_update
+        articulo.stock -= pedido.cantidad
     pedido.estado = 'entregado'
     pedido.fecha_entrega = datetime.date.today()
     especialidad.estado = 'entregado'
