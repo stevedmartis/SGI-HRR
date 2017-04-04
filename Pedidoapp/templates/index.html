@@ -46,6 +46,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger" value="reset" onclick="document.location.reload();"/>Resetear</a>
         </article>
+    {% endif %}
     <article class="item">
             <figure class="imagen_item">
             <a href="{% url "usuario:lita_todo" id_admiproc.id %}" method="GET" ><img src="/static/img/user.png" width="1000" height="135px"  /></a>
