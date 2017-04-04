@@ -86,8 +86,9 @@ class Pedido_Extra(models.Model):
     cantidad_ex       = models.IntegerField(blank=True, default=0)
     estado_ex         =  models.CharField(max_length=20, blank=True, default='pendiente')
 
+
     def __str__(self):
-        return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex) 
+        return '{}'.format(self.articulo_ex, self.especialidad_ex, self.estado_ex, self.cantidad_ex)
 
 
 from django.core.cache import cache
