@@ -427,6 +427,7 @@ def Acces_open(request):
   acceso = Especialidad.objects.all().update(acceso=1)
   especialidad = Especialidad.objects.all().update(estado="completado")
   pedido = Pedido.objects.all().update(cantidad=0, estado="", fecha_pedido=None, fecha_entrega=None, estado_update="", cantidad_update=0)
+  articulo = Articulo.objects.all().update(total_pedido=0)
   return HttpResponseRedirect('/solicitar/home/')
 
 @cache_page(3000)
