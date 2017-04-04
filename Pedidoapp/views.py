@@ -297,7 +297,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
       if form.is_valid():
           form.save()
           pedido2 = Pedido.objects.filter(id=id_pedido).update(estado="pendiente", fecha_pedido=datetime.date.today())
-          especialidad = Especialidad.objects.filter(estado=especialidad).update(estado="pendiente")
+          Especialidad.objects.filter(estado=especialidad).update(estado="pendiente")
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
 
