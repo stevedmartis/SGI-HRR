@@ -372,11 +372,11 @@ def ExtraView(request):
       user = request.user
       if user.is_superuser:
         extra = Pedido_Extra.objects.filter(estado_ex='pendiente')
-        extra = Pedido_Extra.objects.filter(estado_ex='modificar')
+        extra1 = Pedido_Extra.objects.filter(estado_ex='modificar')
         return render(request, 'extra.html', {'extra':extra, 'user':user})
       else:
         extra = Pedido_Extra.objects.filter(especialidad_ex__encargado__usuario=user.id)
-        return render(request, 'extra.html', {'extra':extra, 'user':user})
+        return render(request, 'extra.html', {'extra':extra, 'extra1':extra1, 'user':user})
   
 @login_required
 def Cant_upex(request, id_pedido_ex):
