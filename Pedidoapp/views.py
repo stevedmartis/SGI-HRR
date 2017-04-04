@@ -329,6 +329,8 @@ class PedidoDetailView(DetailView):
     def get_template_names(self):
         return render('index.html')
 
+
+#BTN ENTREGADO
 @login_required
 @cache_page(1000)
 def Update_stock(request, id_pedido, cod_experto, id_especialidad):
