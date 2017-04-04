@@ -15,8 +15,9 @@ from django.template import RequestContext
 from django.views.decorators.cache import cache_page
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.db import models
-from django.db.models import Count, Q
+from django.db.models import Count
 from django.core.urlresolvers import reverse
+
 import datetime
 mylist = []
 today = datetime.date.today()
@@ -370,7 +371,7 @@ def PedidoExtra(request, id_especialidad):
 def ExtraView(request):
       user = request.user
       if user.is_superuser:
-        extra = Pedido_Extra.objects.Q(estado_ex='pendiente') & Q(estado_ex='modificado')
+        extra = Pedido_Extra.objects.filter(estado_ex='pendiente')
         return render(request, 'extra.html', {'extra':extra, 'user':user})
       else:
         extra = Pedido_Extra.objects.filter(especialidad_ex__encargado__usuario=user.id)
@@ -385,7 +386,6 @@ def Cant_upex(request, id_pedido_ex):
       form = ExtraForm(request.POST, instance=extra)
       if form.is_valid():
           form.save()
-          extra.estado_ex = 'modificado'
           extra.save()
       return HttpResponseRedirect('/solicitar/pedidos-extra/')
     return render(request, 'form2.html', {'form':form, 'extra':extra})
