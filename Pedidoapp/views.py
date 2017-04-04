@@ -532,13 +532,13 @@ class ReportePedidosPDF(View):
         detalle_orden.wrapOn(pdf, 1000, 1000)
         if count <=10:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 1200)
+              detalle_orden.drawOn(pdf, 150, 1300)
         elif count >10 and count <=30:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 900)
+              detalle_orden.drawOn(pdf, 150, 1000)
         elif count >30 and count <=50:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 700)
+              detalle_orden.drawOn(pdf, 150, 800)
         elif count >50 and count <=70:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 500)
@@ -550,7 +550,7 @@ class ReportePedidosPDF(View):
               detalle_orden.drawOn(pdf, 150, 100)
         elif count >110 and count <=130:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 20)
+              detalle_orden.drawOn(pdf, 150, 0)
 
     def get(self, request, id_especialidad, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
