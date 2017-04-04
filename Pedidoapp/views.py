@@ -372,7 +372,7 @@ def ExtraView(request):
       user = request.user
       if user.is_superuser:
         extra = Pedido_Extra.objects.filter(estado_ex='pendiente')
-        extra1 = Pedido_Extra.objects.filter(estado_ex='modificar')
+        extra1 = Pedido_Extra.objects.filter(estado_ex='modificado')
         return render(request, 'extra.html', {'extra':extra, 'user':user})
       else:
         extra = Pedido_Extra.objects.filter(especialidad_ex__encargado__usuario=user.id)
