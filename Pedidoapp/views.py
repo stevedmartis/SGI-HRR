@@ -252,7 +252,7 @@ def home(request):
       count        = Especialidad.objects.filter(estado="pendiente").count()
       count2        = Especialidad.objects.filter(estado="entregado").count()
       template = "index.html"
-      return render_to_response(template,locals(), {'especialidad':especialidad})
+      return render_to_response(template,locals(), {'especialidad':especialidad, 'count':count, 'count2':count2})
     else:
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
