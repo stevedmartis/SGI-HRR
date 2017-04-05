@@ -86,6 +86,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_admicons.id %}">{{admicons.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{admicons.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_admicons.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art28}}.</a>
             {% if pend28 > 0 %}
@@ -95,7 +96,6 @@
             Articulos Entregados:<a class="titulo_item"  href="">{{entre28}}</a>                    
             </p>   
             <p class="autor_item">
-            <a href="{% url "usuario:ver_todo" id_admicons.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver2" onclick="document.location.reload();"/>Ver Todo</a>
             </p>                   
             <a class="guardar_item" href="#"></a>
     {% endif %}
@@ -109,6 +109,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_aseocon.id %}">{{aseocon.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{aseocon.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_aseocon.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art34}}.</a>
             {% if pend34 > 0 %}
@@ -120,7 +121,6 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_aseocon.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -132,6 +132,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_aseop.id %}">{{aseop.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{aseop.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_aseop.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art20}}.</a>
             {% if pend20 > 0 %}
@@ -143,7 +144,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_aseop.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -155,6 +156,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_derma.id %}">{{derma.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{derma.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_derma.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art21}}.</a>
             {% if pend21 > 0 %}
@@ -166,7 +168,6 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_derma.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -178,6 +179,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_sdan.id %}">{{sdan.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{sdan.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_sdan.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art18}}.</a>
             {% if pend18 > 0 %}
@@ -189,7 +191,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_sdan.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -201,6 +203,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_caste.id %}">{{caste.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{caste.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_caste.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art32}}.</a>
             {% if pend32 > 0 %}
@@ -212,7 +215,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_caste.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     <article class="item">
@@ -224,6 +227,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_diab.id %}">{{diab.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{diab.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_diab.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art24}}.</a>
             {% if pend24 > 0 %}
@@ -235,7 +239,6 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_diab.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -247,6 +250,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_enfp.id %}">{{enfp.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{enfp.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_enfp.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art23}}.</a>
             {% if pend23 > 0 %}
@@ -258,7 +262,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_enfp.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -270,6 +274,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_enfc.id %}">{{enfc.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{enfc.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_enfc.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art36}}.</a>
             {% if pend36 > 0 %}
@@ -281,7 +286,6 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_enfc.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -293,6 +297,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_hepa.id %}">{{hepa.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{hepa.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_hepa.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art26}}.</a>
             {% if pend26 > 0 %}
@@ -304,7 +309,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_hepa.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -316,6 +321,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_vih.id %}">{{vih.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{vih.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_vih.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art25}}.</a>
             {% if pend25 > 0 %}
@@ -327,7 +333,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_vih.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -339,6 +345,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_taco.id %}">{{taco.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{taco.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_taco.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art22}}.</a>
             {% if pend22 > 0 %}
@@ -350,7 +357,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_taco.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -362,6 +369,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_prea.id %}">{{prea.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{prea.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_prea.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art30}}.</a>
             {% if pend30 > 0 %}
@@ -373,7 +381,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_prea.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -385,6 +393,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_preb.id %}">{{preb.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{preb.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_preb.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art31}}.</a>
             {% if pend31 > 0 %}
@@ -396,7 +405,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_preb.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -408,6 +417,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_recu.id %}">{{recu.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{recu.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_recu.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art19}}.</a>
             {% if pend19 > 0 %}
@@ -419,7 +429,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_recu.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -431,6 +441,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_tmt.id %}">{{tmt.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{tmt.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_tmt.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art13}}.</a>
             {% if pend13 > 0 %}
@@ -442,7 +453,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_tmt.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -454,6 +465,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_salac.id %}">{{salac.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{salac.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_salac.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art27}}.</a>
             {% if pend27 > 0 %}
@@ -465,7 +477,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_salac.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -477,6 +489,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_salaproc.id %}">{{salaproc.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{salaproc.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_salaproc.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art14}}.</a>
             {% if pend14 > 0 %}
@@ -488,7 +501,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_salaproc.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -500,6 +513,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_bronco.id %}">{{bronco.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{bronco.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_bronco.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art12}}.</a>
             {% if pend12 > 0 %}
@@ -511,7 +525,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_bronco.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -523,6 +537,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_neuro.id %}">{{neuro.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{neuro.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_neuro.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art16}}.</a>
             {% if pend16 > 0 %}
@@ -534,7 +549,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_neuro.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -546,6 +561,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_egg.id %}">{{egg.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{egg.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_egg.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art11}}.</a>
             {% if pend11 > 0 %}
@@ -557,7 +573,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_egg.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -569,6 +585,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_lumbar.id %}">{{lumbar.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{lumbar.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_lumbar.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art10}}.</a>
             {% if pend10 > 0 %}
@@ -580,7 +597,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_lumbar.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -592,6 +609,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_mama.id %}">{{mama.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{mama.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_mama.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art29}}.</a>
             {% if pend29 > 0 %}
@@ -603,7 +621,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_mama.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -615,6 +633,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_oftal.id %}">{{oftal.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{oftal.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_oftal.id %}" method='GET' type="submit" class="btn btn-primary pull-right">Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art9}}.</a>
             {% if pend9 > 0 %}
@@ -626,7 +645,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_oftal.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -637,7 +656,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_fono.id %}">{{fono.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{fono.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{fono.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_fono.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art35}}.</a>
             {% if pend35 > 0 %}
@@ -649,7 +669,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_fono.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -661,6 +681,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_otto.id %}">{{otto.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{otto.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_otto.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art8}}.</a>
             {% if pend8 > 0 %}
@@ -672,7 +693,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_otto.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -683,7 +704,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_cardio.id %}">{{cardio.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{cardio.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{cardio.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_cardio.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art7}}.</a>
             {% if pend7 > 0 %}
@@ -695,7 +717,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_cardio.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -706,7 +728,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_clinitt.id %}">{{clinitt.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{clinitt.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{clinitt.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_clinitt.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art6}}.</a>
             {% if pend6 > 0 %}
@@ -718,7 +741,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_clinitt.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -729,7 +752,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_curav.id %}">{{curav.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{curav.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{curav.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_curav.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art5}}.</a>
             {% if pend5 > 0 %}
@@ -741,7 +765,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_curav.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -752,7 +776,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_pabm.id %}">{{pabm.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{pabm.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{pabm.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_pabm.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art4}}.</a>
             {% if pend4 > 0 %}
@@ -764,7 +789,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_pabm.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -775,7 +800,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_fibro.id %}">{{fibro.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{fibro.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{fibro.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_fibro.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art3}}.</a>
             {% if pend3 > 0 %}
@@ -787,7 +813,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_fibro.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -799,6 +825,7 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_eda.id %}">{{eda.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{eda.encargado.nombre}}</a></h5></p> 
+            <a href="{% url "usuario:ver_todo" id_eda.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a>
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art2}}.</a>
             {% if pend2 > 0 %}
@@ -810,7 +837,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_eda.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -821,7 +848,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_secre.id %}">{{secre.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{secre.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{secre.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_secre.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art33}}.</a>
             {% if pend33 > 0 %}
@@ -833,7 +861,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_secre.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
@@ -844,7 +872,8 @@
             <p class="datos_item">
             <a class="tag_item" href="{% url "usuario:lita_todo" id_urolo.id %}">{{urolo.nombre}}</a>
             </p>
-            <a class="titulo_item" href=""><h5>{{urolo.encargado.nombre}}</a></h5></p> 
+            <a class="titulo_item" href=""><h5>{{urolo.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_urolo.id %}" method='GET' type="submit" class="btn btn-primary pull-right" />Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art}}.</a>
             {% if pend > 0 %}
@@ -856,7 +885,7 @@
             <p class="autor_item">
             </p>                   
             <a class="guardar_item" href="#"></a>
-            <a href="{% url "usuario:ver_todo" id_urolo.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
+            
     {% endif %}
         </article>
 
