@@ -249,6 +249,8 @@ def home(request):
       id_enfc         = Pedido.objects.get(id=36) 
       enfc             = Especialidad.objects.get(id=36)
       especialidad = Especialidad.objects.all()
+      count        = Especialidad.objects.filter(estado="pendiente").count()
+      count2        = Especialidad.objects.filter(estado="entregado").count()
       template = "index.html"
       return render_to_response(template,locals(), {'especialidad':especialidad})
     else:
