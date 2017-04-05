@@ -60,6 +60,7 @@
             <a href="{% url "usuario:lita_todo" id_admiproc.id %}" method="GET" ><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
+            <br>
             <a href="{% url "usuario:ver_todo" id_admiproc.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a> 
             <a class="tag_item" href="{% url "usuario:lita_todo" id_admiproc.id %}">{{admiproc.nombre}}</a>
             </p>
