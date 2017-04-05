@@ -63,14 +63,14 @@
             <a class="tag_item" href="{% url "usuario:lita_todo" id_admiproc.id %}">{{admiproc.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{admiproc.encargado.nombre}}</a></h5></p>
+            <a href="{% url "usuario:ver_todo" id_admiproc.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a> 
             <p class="autor_item">
             Total Articulos: <a class="titulo_item"  href="">{{total_art15}}.</a>
             {% if pend15 > 0 %}
             <font color="green"><h4>Solicitado!</h4></font>
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend15}}.</a>
             {% endif %}
-            Articulos Entregados:<a class="titulo_item"  href="">{{entre15}}</a>
-            <a href="{% url "usuario:ver_todo" id_admiproc.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>                   
+            Articulos Entregados:<a class="titulo_item"  href="">{{entre15}}</a>                  
             </p>   
             <p class="autor_item">
             </p>                   
