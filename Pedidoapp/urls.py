@@ -6,7 +6,7 @@ from .import views
 from django.contrib.auth.views import login_required
 
 
-from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono, Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra
+from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono, Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo
 
 admin.autodiscover()
 
@@ -40,6 +40,7 @@ url(r'^asignar-nuevo/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), n
 url(r'^vista-art-extra/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name="vista_extra"),
 url(r'^btn-asigna/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Asigna, name="asignar"),
 url(r'^delete-pedido/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', DeletePedido, name="confirm_delete_pedido"),
+url(r'^ver_todo/(?P<id_especialidad>\d+)/$', login_required(VerTodo), name='ver_todo'),
 
 
 

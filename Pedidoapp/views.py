@@ -441,14 +441,20 @@ def VistaAsigna(request, id_especialidad):
     return render(request, template, {'articulo':articulo, 'especialidad':especialidad})
 
 
-
 def Asigna(request, id_especialidad, cod_experto):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   articulo = Articulo.objects.get(pk=cod_experto)
   if request.method == 'GET':
     pedido = Pedido(articulo=articulo, especialidad=especialidad)
     pedido.save()
-    return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
+    return HttpResponseRedirect('/solicitar/ver_todo/%s/' % id_especialidad)
+
+def VerTodo(request, id_especialidad):
+  especialidad = Especialidad.objects.get(id=id_especialidad)
+  if request.method == 'GET':
+        pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-articulo')
+        template  = 'admindata.html'
+        return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
 
 @cache_page(3000)
