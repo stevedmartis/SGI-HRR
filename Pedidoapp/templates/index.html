@@ -70,12 +70,11 @@
             Articulos Pendientes:<a class="titulo_item"  href="">{{pend15}}.</a>
             {% endif %}
             Articulos Entregados:<a class="titulo_item"  href="">{{entre15}}</a>                   
-            </p>   
+            </p> 
+            <a href="{% url "usuario:ver_todo" id_admiproc.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>  
             <p class="autor_item">
-            <a href="{% url "usuario:ver_todo" id_admiproc.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="ver" onclick="document.location.reload();"/>Ver Todo</a>
             </p>                   
-            <a class="guardar_item" href="#"></a>
-            
+            <a class="guardar_item" href="#"></a>    
     {% endif %}
         </article>
     {% if request.user.is_superuser %}
