@@ -55,6 +55,8 @@
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.articulo.stock }}</td>
+                    
+                    <td><a class="tag_item" href="{% url "usuario:confirm_delete_pedido" id_pedido=ped.id id_especialidad=especialidad.id cod_experto=ped.articulo.cod_experto %}" ><img src="/static/img/exis.png" width="16" height="16px"  /></a></td>
                 </tr>
         {% endfor %}
         {% endif %}
@@ -62,7 +64,7 @@
            </table>
            <a class="tag_item" href="{% url "usuario:reporte_pedidos_pdf" id_especialidad=especialidad.id %}" ><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
 
-            <td><a class="tag_item" href="{% url "usuario:confirm_delete_pedido" id_pedido=ped.id id_especialidad=especialidad.id cod_experto=ped.articulo.cod_experto %}" ><img src="/static/img/exis.png" width="16" height="16px"  /></a></td>
+            
 </form>
 </div>
 </section>
