@@ -265,7 +265,7 @@ def home(request):
 def ListAll(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
-        pedido = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').order_by('-articulo')
+        pedido = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').order_by('-estado').order_by('articulo')
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
@@ -452,7 +452,7 @@ def Asigna(request, id_especialidad, cod_experto):
 def VerTodo(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
-        pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-articulo')
+        pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-estado').order_by('articulo')
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
