@@ -453,7 +453,7 @@ def VerTodo(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
         pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-estado').order_by('articulo')
-        template  = 'admindata.html'
+        template  = 'addmod.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
 

@@ -26,6 +26,7 @@
 <section id="contenido">
 <form id="myform" method="post">
 <table id="example" class="table table-border table-striped table-hover" >
+<a href="{% url "usuario:vista_asigna" id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar"/>Nuevo</a></td>
 <h4>Estadistica Mensual:&nbsp;&nbsp;<b>{{especialidad.estadistica}}</b></h4>
 <br>
             <thead>
@@ -73,6 +74,7 @@
 
                     <td><a href="{% url "usuario:entregado" id_pedido=ped.id cod_experto=ped.articulo.cod_experto id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Entregar</a></td>
 
+                    <td><a class="tag_item" href="{% url "usuario:confirm_delete_pedido" id_pedido=ped.id id_especialidad=especialidad.id cod_experto=ped.articulo.cod_experto %}" ><img src="/static/img/exis.png" width="16" height="16px"  /></a></td>
                 </tr>
         {% endfor %}
         {% endif %}
