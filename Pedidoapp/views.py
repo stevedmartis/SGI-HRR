@@ -513,7 +513,7 @@ class ReportePedidosPDF(View):
         pdf.drawString(450, 1570, u"PEDIDO POR ESPECIALIDAD")
         pdf.setFont("Helvetica", 16)
         pdf.drawString(500, 1540, u"ESTADISTICA: " + str(especialidad.estadistica))
-        pdf.drawString(810, 1500, u"FECHA: " + str(datetime.date.today()))
+        pdf.drawString(820, 1500, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 16)
         pdf.drawString(150, 1500, u"POR: " + str(especialidad.encargado.nombre))
         
@@ -552,13 +552,13 @@ class ReportePedidosPDF(View):
               detalle_orden.drawOn(pdf, 150, 550)
         elif count >50 and count <=70:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 500)
+              detalle_orden.drawOn(pdf, 150, 200)
         elif count >70 and count <=90:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 300)
+              detalle_orden.drawOn(pdf, 150, 10)
         elif count >90 and count <=110:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 100)
+              detalle_orden.drawOn(pdf, 150, 0)
         elif count >110 and count <=130:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 0)
