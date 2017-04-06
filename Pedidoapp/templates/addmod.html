@@ -39,7 +39,6 @@
 
                     <td></td>
                     <td></td>
-                    <td></td>
                 </tr>
             </thead>
             <tfoot>
@@ -50,7 +49,6 @@
                     <td>stock</td>
                     <td></td>
                     <td></td> 
-                    <td></td>
                 </tr>
             </tfoot>
             <tbody>
@@ -61,12 +59,10 @@
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.articulo.stock }}</td>
-                    
+
                     <td><a href="{% url "usuario:cant_update" ped.id especialidad.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a></td>
 
                     <td><a href="{% url "usuario:entregado" id_pedido=ped.id cod_experto=ped.articulo.cod_experto id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Entregar</a></td>
-
-                    <td><a class="tag_item" href="{% url "usuario:confirm_delete_pedido" id_pedido=ped.id id_especialidad=especialidad.id cod_experto=ped.articulo.cod_experto %}" ><img src="/static/img/exis.png" width="16" height="16px"  /></a></td>
                 </tr>
         {% endfor %}
         {% endif %}
