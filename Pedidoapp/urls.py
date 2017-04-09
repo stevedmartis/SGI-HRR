@@ -6,7 +6,7 @@ from .import views
 from django.contrib.auth.views import login_required
 
 
-from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono, Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo
+from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono, Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar
 
 admin.autodiscover()
 
@@ -20,6 +20,7 @@ url(r'^lista_active/(?P<id_especialidad>\d+)/$', login_required(ListEspeci), nam
 url(r'^ingresar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/$', Cant_ingresar, name="cant_ingresar"),
 url(r'^modificar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/$', Cant_update, name="cant_update"),
 url(r'^entregar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Update_stock, name="entregado"),
+url(r'^entregar/(?P<id_especialidad>\d+)/$', Entregar, name="entregar"),
 
 url(r'^pedido-extra/(?P<id_especialidad>\d+)/$', PedidoExtra , name='pedido_extra'),
 url(r'^pedidos-extra/$', ExtraView , name='ped_ex'),
