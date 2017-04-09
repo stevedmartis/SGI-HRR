@@ -362,9 +362,8 @@ def Entregar(request, id_especialidad):
       pedido.articulo.stock -= pedido.cantidad_update
     else:
       pedido.articulo.stock -= pedido.cantidad
-
     pedido.save()
-    pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')update(estado='entregado').update(fecha_entrega=datetime.date.today())
+    pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado='entregado').update(fecha_entrega=datetime.date.today())
     return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
 
 
