@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'bodega.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd7e4f01gb90sci',
-        'USER': 'gblejjxzxgotjr',
-        'PASSWORD': 'd91b38ff85b9b2cd474c4948a4a0ef574f1ca68cc0e26130a863ec15d3e02b6b',
-        'HOST': 'ec2-184-72-249-88.compute-1.amazonaws.com',
+        'NAME': 'd8p5p3278pusjr',
+        'USER': 'uhyvxrhrnerbpe',
+        'PASSWORD': '198a6b96e34bb3ca1a516b6084ae36b0c093a63d81f6b643b3a9231dd883df32',
+        'HOST': 'ec2-54-235-80-137.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
