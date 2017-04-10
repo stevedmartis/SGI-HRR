@@ -356,12 +356,12 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
 def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')
+    pedido = Pedido.filter(especialidad=especialidad).filter(estado='pendiente')
     if pedido.cantidad_update > 0:
         pedido.articulo.stock -= pedido.cantidad_update
     else:
         pedido.articulo.stock -= pedido.cantidad
-        
+
     pedido.save()
     pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado='entregado').update(fecha_entrega=datetime.date.today())
     return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
