@@ -356,7 +356,7 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
 def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')[0]
+    for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')
     if ped.cantidad_update > 0:
         ped.articulo.stock -= pedido.cantidad_update
     else:
