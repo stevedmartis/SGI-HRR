@@ -52,6 +52,7 @@
                     <td>Fecha Pedido</td>
                     <td>Estado</td>
                     <td></td> 
+                    <td><a href="{% url "usuario:entregar" id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Entregar</a></td>
                 </tr>
             </tfoot>
             <tbody>
@@ -71,7 +72,6 @@
         {% endfor %}
         {% endif %}
            </tbody>
-           <a href="{% url "usuario:entregar" id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Entregar</a>
            </table>
            <a class="tag_item" href="{% url "usuario:reporte_pedidos_pdf" id_especialidad=especialidad.id %}" ><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
 </form>
@@ -100,7 +100,7 @@ $(document).ready(function (){
    table.column(0).every( function () {
 
     var column = this;
-    var select = $('<a href="{% url "usuario:entregar" id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Entregar</a>')
+    var select = $('') 
       .appendTo($(column.footer()).empty())
       .on('change', function() {
         var val = $.fn.dataTable.util.escapeRegex(
