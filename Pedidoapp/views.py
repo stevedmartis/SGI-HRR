@@ -357,10 +357,10 @@ def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
     for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
-    if ped.cantidad_update > 0:
-        ped.articulo.stock -= pedido.cantidad_update
-    else:
-        ped.articulo.stock -= pedido.cantidad
+        if ped.cantidad_update > 0:
+            ped.articulo.stock -= pedido.cantidad_update
+        else:
+            ped.articulo.stock -= pedido.cantidad
 
     ped.save()
     pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado='entregado', fecha_entrega=datetime.date.today()))
