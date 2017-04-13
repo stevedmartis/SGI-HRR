@@ -248,7 +248,7 @@ def home(request):
       entre36          = Pedido.objects.filter(especialidad=36).filter(estado='entregado').count()
       id_enfc         = Especialidad.objects.get(id=36) 
       enfc             = Especialidad.objects.get(id=36)
-      especialidad = Especialidad.objects.all()
+      especialidad = Especialidad.objects.filter(acceso=1)
       count        = Especialidad.objects.filter(estado="pendiente").count()
       count2        = Especialidad.objects.filter(estado="entregado").count()
       template = "index.html"
