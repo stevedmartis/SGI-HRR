@@ -254,7 +254,7 @@ def home(request):
       count2        = Especialidad.objects.filter(estado="entregado").count()
       template = "index.html"
       return render_to_response(template,locals(), {'especialidad':especialidad, 'count':count, 'count2':count2})
-    else:
+    elif user.is_active: 
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
       return render_to_response(template2,locals())
