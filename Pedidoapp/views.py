@@ -34,7 +34,7 @@ from django.contrib.auth.views import login
 
 @login_required
 @cache_page(1000)
-def home(request, user):
+def home(request):
     user = request.user
     if user.is_superuser:
       #Urologia
