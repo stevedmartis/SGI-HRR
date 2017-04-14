@@ -28,13 +28,14 @@ import json
 
 from django.contrib.auth.views import login
 
+
 def check_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         if request.user.is_superuser:
             #your logic here
-            return HttpResponseRedirect(reverse_lazy('usuario:home'))
+            return HttpResponseRedirect('/solicitar/home/')
 
 
 
