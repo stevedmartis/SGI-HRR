@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^grappelli /',include('grappelli.urls')),
     url(r'^grappelli /',include('grappelli.urls')),
     url(r'^accounts/login/', login, {'template_name':'login.html'}, name="login"),
+    url(r'^$', login, {'template_name':'login.html'}, name="login"),
     url(r'^logout/', logout_then_login, name="logout"),
 
 
