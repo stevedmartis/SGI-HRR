@@ -12,7 +12,7 @@ admin.autodiscover()
 
 urlpatterns = [
 
-url(r'^home/$', login_required(home), name="home"),
+url(r'^home/$', home, name="home"),
 url(r'^check/$', check_login, name="check_login"),
 
 

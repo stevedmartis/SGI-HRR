@@ -44,7 +44,6 @@ def check_login(request):
 
 
 
-@login_required
 @cache_page(1000)
 def home(request):
     user = request.user
