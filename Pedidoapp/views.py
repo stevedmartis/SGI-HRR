@@ -36,9 +36,9 @@ def check_login(request, user):
     if request.user.is_superuser:
         #your logic here
         return HttpResponseRedirect('/solicitar/home/')
-    elif request.user.is_active:
+        if request.user.is_active:
         #your logic here
-        return redirect("/dashboard/")# or your url name
+          return redirect("/dashboard/")# or your url name
 
 @login_required
 @cache_page(1000)
