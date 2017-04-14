@@ -34,7 +34,7 @@ def check_login(request):
         password = request.POST['password']
         if request.user.is_superuser:
             #your logic here
-            return HttpResponse('/solicitar/home/')
+            return HttpResponseRedirect(reverse_lazy('usuario:home'))
 
 
 
