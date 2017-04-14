@@ -36,7 +36,6 @@ urlpatterns = [
     url(r'^grappelli /',include('grappelli.urls')),
     url(r'^grappelli /',include('grappelli.urls')),
     url(r'^$', login, {'template_name':'login.html'}, name="login"),
-    url(r'^check/$', (views.check_login), name="check_login"),
     url(r'^logout/', logout_then_login, name="logout"),
 
 

@@ -30,22 +30,11 @@ import json
 from django.contrib.auth.views import login
 
 
-def check_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
-        user = request.user
-        if user.is_superuser:
-            return HttpResponseRedirect('/solicitar/home/')
-        else:
-            return HttpResponseRedirect('/solicitar/home/')
 
 
-
-
+@login_required
 @cache_page(1000)
-def home(request):
+def home(request, user):
     user = request.user
     if user.is_superuser:
       #Urologia

@@ -6,14 +6,13 @@ from .import views
 from django.contrib.auth.views import login_required
 
 
-from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono, Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar, check_login
+from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra, ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono, Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar
 
 admin.autodiscover()
 
 urlpatterns = [
 
 url(r'^home/$', login_required(home), name="home"),
-url(r'^$', login_required(check_login), name="check_login"),
 
 
 url(r'^lista_super/(?P<id_especialidad>\d+)/$', login_required(ListAll), name='lita_todo'),
