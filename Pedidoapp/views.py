@@ -37,8 +37,9 @@ def check_login(request):
         user = auth.authenticate(username=username, password=password)
         user = request.user
         if user.is_superuser:
-            #your logic here
             return HttpResponseRedirect('/solicitar/home/')
+        else:
+          return HttpResponseRedirect('/solicitar/home/')
 
 
 
