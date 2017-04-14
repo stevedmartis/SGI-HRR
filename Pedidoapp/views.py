@@ -26,8 +26,16 @@ import psycopg2
 import sys
 import json
 
+from django.contrib.auth.views import login
 
 
+def login(request, user):
+    if request.user.is_superuser:
+        #your logic here
+        return redirect('/solicitar/home/')
+    if request.user.is_active:
+        #your logic here
+        return redirect("/dashboard/")# or your url name
 
 
 
