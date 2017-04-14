@@ -36,7 +36,7 @@ def check_login(request, user):
     if request.user.is_superuser:
         #your logic here
         return HttpResponseRedirect('/solicitar/home/')
-    if request.user.is_active:
+    elif request.user.is_active:
         #your logic here
         return redirect("/dashboard/")# or your url name
 
