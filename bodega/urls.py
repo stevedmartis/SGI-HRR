@@ -20,6 +20,7 @@ from Pedidoapp import urls
 from django.contrib.auth.views import login, logout_then_login
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from Pedidoapp import views
 
 
 admin.autodiscover()
@@ -35,7 +36,7 @@ urlpatterns = [
     url(r'^grappelli /',include('grappelli.urls')),
     url(r'^grappelli /',include('grappelli.urls')),
     url(r'^$', login, {'template_name':'login.html'}, name="login"),
-    url(r'^check', auth_views.check_login, name="check_login"),
+    url(r'^check/$', (views.check_login), name="check_login"),
     url(r'^logout/', logout_then_login, name="logout"),
 
 
