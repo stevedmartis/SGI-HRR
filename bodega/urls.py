@@ -34,8 +34,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli /',include('grappelli.urls')),
     url(r'^grappelli /',include('grappelli.urls')),
-    url(r'^accounts/login/', login, {'template_name':'login.html'}, name="login"),
-    url(r'^$', login, {'template_name':'login.html'}, name="login"),
+    url(r'^accounts/login/$', my_login, {'template_name':'login.html'}, name="login"),
+   # url(r'^$', login, {'template_name':'login.html'}, name="login"),
     url(r'^logout/', logout_then_login, name="logout"),
 
 
