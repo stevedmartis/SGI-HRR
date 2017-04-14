@@ -33,9 +33,12 @@ def check_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        user = auth.authenticate(username=username, password=password)
         if request.user.is_superuser:
             #your logic here
             return HttpResponseRedirect('/solicitar/home/')
+        else:
+            return HttpResponseRedirect('/solicitar/home2')
 
 
 
