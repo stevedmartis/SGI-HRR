@@ -29,7 +29,7 @@ import json
 from django.contrib.auth.views import login
 
 
-def my_login(request, user):
+def login(request, user):
     if request.user.is_superuser:
         #your logic here
         return redirect('usuario:home')
