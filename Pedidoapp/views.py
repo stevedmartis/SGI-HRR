@@ -28,7 +28,6 @@ import json
 
 from django.contrib.auth.views import login
 
-@login_required
 def check_login(request, user):
     if request.method == 'POST':
         username = request.POST['username']
