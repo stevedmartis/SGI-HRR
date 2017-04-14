@@ -13,6 +13,7 @@ admin.autodiscover()
 urlpatterns = [
 
 url(r'^home/$', login_required(home), name="home"),
+url(r'^check_login/', check_login, name="check_login"),
 
 
 url(r'^lista_super/(?P<id_especialidad>\d+)/$', login_required(ListAll), name='lita_todo'),
