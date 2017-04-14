@@ -32,12 +32,10 @@ from django.contrib.auth.views import login
 def my_login(request, user):
     if request.user.is_superuser:
         #your logic here
-        return redirect('/solicitar/home/')
+        return redirect('usuario:home')
     if request.user.is_active:
         #your logic here
         return redirect("/dashboard/")# or your url name
-
-
 
 @login_required
 @cache_page(1000)
