@@ -39,7 +39,7 @@ def check_login(request):
         if user.is_superuser:
             return HttpResponseRedirect('/solicitar/home/')
         else:
-            return HttpResponseRedirect('/solicitar/home/')
+            return HttpResponseRedirect('/solicitar/home2/')
 
 
 
