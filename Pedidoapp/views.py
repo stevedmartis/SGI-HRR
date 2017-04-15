@@ -32,7 +32,7 @@ from django.contrib.auth.views import login
 
 #modificar filtracion de las especialidades no es necesario mostrar numero de articulos, aun asi, si el numero de entregados
 #o el numero de pendientes filtrar por estos camopos: esp = Especialida
- def home(request):
+def home(request):
   user = request.user
     if user.is_superuser:
       especialidad = Especialidad.objects.filter(estado="pendientes")
