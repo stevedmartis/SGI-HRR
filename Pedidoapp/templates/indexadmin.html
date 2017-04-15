@@ -82,6 +82,7 @@
             {% if esp.estado == "pendiente" %}
             <font color="blue"><h4>Pendiente</h4></font>
             {% endif %}
+            <a href="{% url "usuario:ver_todo" id_especialidad=esp.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             </p>   
             <p class="autor_item">
 
