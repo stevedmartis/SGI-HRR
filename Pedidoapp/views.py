@@ -39,7 +39,7 @@ def home(request):
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       template = "indexadmin.html"
-      return render(request, template, {'especialidad':especialidad})
+      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2})
 
     elif user.is_active: 
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
