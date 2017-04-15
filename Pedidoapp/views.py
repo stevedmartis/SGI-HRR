@@ -35,7 +35,7 @@ from django.contrib.auth.views import login
 def home(request):
     user = request.user
     if user.is_superuser:
-      especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
+      especialidad = Especialidad.objects.filter(estado="pendiente")
       template = "index3.html"
       return render(request, template, {'especialidad':especialidad})
 
@@ -44,7 +44,7 @@ def home(request):
       template2 = "index3.html"
       return render_to_response(template2,locals())
 
-
+"""
 
 
 
@@ -276,7 +276,7 @@ def home(request):
       template2 = "index3.html"
       return render_to_response(template2,locals())
 
-
+"""
 #LISTA ADMIN
 @cache_page(1000)
 @login_required
