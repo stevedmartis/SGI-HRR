@@ -35,7 +35,7 @@ from django.contrib.auth.views import login
 def home(request):
     user = request.user
     if user.is_superuser:
-      especialidad = Especialidad.objects.filter(estado="pendientes")
+      especialidad = Especialidad.objects.filter(estado="pendiente")
       template = "index3.html"
       return render(request, template, {'especialidad':especialidad})
 
