@@ -36,7 +36,7 @@ def home(request):
     user = request.user
     if user.is_superuser:
       especialidad = Especialidad.objects.filter(estado="pendiente")
-      template = "index3.html"
+      template = "indexadmin.html"
       return render(request, template, {'especialidad':especialidad})
 
     elif user.is_active: 
