@@ -58,10 +58,12 @@
             {% endif %}
     <section id="contenido">
         {% if especialidad %}
-        {% if pend %}
+        
 
-        {% for pend in pend %}
+        
         {% for esp in especialidad %}
+        {% if pend %}
+        {% for p in pend %}
         
     <article class="item">
             <figure class="imagen_item">
@@ -83,7 +85,7 @@
             {% endif %}
             {% if esp.estado == "pendiente" %}
             <font color="green"><h4>Pedido Pendiente!</h4></font>
-            Articulos solicitados:<a class="titulo_item"  href="">{{pend}}.</a>
+            Articulos solicitados:<a class="titulo_item"  href="">{{p}}.</a>
             {% endif %}
             <a href="{% url "usuario:ver_todo" id_especialidad=esp.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             </p>   
