@@ -38,8 +38,9 @@ def home(request):
       especialidad = Especialidad.objects.filter(estado="pendiente")
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
+      pend   = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').count()
       template = "indexadmin.html"
-      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2})
+      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'pend':pend})
 
     elif user.is_active: 
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
@@ -54,6 +55,7 @@ def Ped_entregados(request):
       especialidad = Especialidad.objects.filter(estado="entregado")
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
+      #entregados = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').count()
       template = "indexadmin.html"
       return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2})
 
