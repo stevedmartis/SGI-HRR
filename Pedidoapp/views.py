@@ -306,7 +306,7 @@ def ListAllEnt(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
         pedido = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').order_by('-estado').order_by('articulo')
-        template  = 'admindata.html'
+        template  = 'admindata2.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
 #LISTA ACTIVO
