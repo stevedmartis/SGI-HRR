@@ -289,7 +289,7 @@ def home(request):
       return render_to_response(template2,locals())
 
 """
-#LISTA ADMIN
+#LISTA ADMIN PENDIENTES
 @cache_page(1000)
 @login_required
 def ListAll(request, id_especialidad):
@@ -299,6 +299,15 @@ def ListAll(request, id_especialidad):
         template  = 'admindata.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
+#LISTA ADMIN ENTREGADOS
+@cache_page(1000)
+@login_required
+def ListAllEnt(request, id_especialidad):
+  especialidad = Especialidad.objects.get(id=id_especialidad)
+  if request.method == 'GET':
+        pedido = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').order_by('-estado').order_by('articulo')
+        template  = 'admindata.html'
+        return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
 #LISTA ACTIVO
 @cache_page(1000)

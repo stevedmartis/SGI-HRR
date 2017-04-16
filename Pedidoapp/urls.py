@@ -8,7 +8,7 @@ from django.contrib.auth.views import login_required
 
 from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra
 from Pedidoapp.views import ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono 
-from Pedidoapp.views import Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar, Ped_entregados
+from Pedidoapp.views import Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar, Ped_entregados ListAllEnt
 
 admin.autodiscover()
 
@@ -19,6 +19,8 @@ url(r'^pedidos-entregados/$', login_required(Ped_entregados), name="ped_entre"),
 
 
 url(r'^lista_super/(?P<id_especialidad>\d+)/$', login_required(ListAll), name='lita_todo'),
+url(r'^lista_super_entregados/(?P<id_especialidad>\d+)/$', login_required(ListAllEnt), name='lita_todo_entre'),
+
 url(r'^lista_active/(?P<id_especialidad>\d+)/$', login_required(ListEspeci), name='lita_active'),
 
 url(r'^ingresar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/$', Cant_ingresar, name="cant_ingresar"),
