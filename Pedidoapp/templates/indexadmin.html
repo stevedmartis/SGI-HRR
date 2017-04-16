@@ -85,7 +85,6 @@
             {% endif %}
             {% if esp.estado == "pendiente" %}
             <font color="green"><h4>Pedido Pendiente!</h4></font>
-            Articulos solicitados:<a class="titulo_item"  href="">{{p}}.</a>
             {% endif %}
             <a href="{% url "usuario:ver_todo" id_especialidad=esp.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             </p>   
@@ -100,8 +99,6 @@
         
         {% else %}
             NO HAY SOLICITUDES.
-        {% endif %}
-        {% endfor %}
         {% endif %}
     </section>
     <footer>
