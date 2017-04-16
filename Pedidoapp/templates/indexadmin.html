@@ -24,19 +24,19 @@
             <a class="tag_item" href=""><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href=""><b>REPORTE PDF</b></a>
+            <a class="tag_item" href=""><b>ADMINISTRADOR</b></a>
             <br>
             <p class="autor_item">
-            TOTAL CANTIDADES SOLICITADAS POR ESPECIALIDADES
+            PDF BODEGAS: CANTIDAD TOTAL DE ESPECIALIDADES
             <br>
             <a class="titulo_item" href="{% url "usuario:reporte_insumo_pdf"  %}">INSUMO</a>
             <a class="titulo_item" href="{% url "usuario:reporte_farma_pdf"  %}">FARMACIA</a>
             <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br>
-            <h5><b>Pedidos Pendientes: {{ count }}
+            <h5><b><a href="{% url "usuario:home"  %}">Pedidos Pendientes: {{ count }}</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Pedidos Entregados: {{ count2 }}
+            <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a>
             {% if request.user.is_superuser %}
             {% if especialidad %}
             {% if especialidad.acceso == 1 %}
@@ -74,13 +74,13 @@
             <p class="autor_item">
             {% endif %}
             {% if esp.estado == "entregado" %}
-            <font color="green"><h4>Pedido Entregado</h4></font>
+            <font color="blue"><h4>Pedido Entregado</h4></font>
             {% endif %}
             {% if esp.estado == "completado" %}
             <font color="red"><h4>Pedido sin solicitar.</h4></font>
             {% endif %}
             {% if esp.estado == "pendiente" %}
-            <font color="blue"><h4>Pedido Pendiente</h4></font>
+            <font color="green"><h4>Pedido Pendiente!</h4></font>
             {% endif %}
             <a href="{% url "usuario:ver_todo" id_especialidad=esp.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             </p>   

@@ -46,11 +46,20 @@ def home(request):
       template2 = "index3.html"
       return render_to_response(template2,locals())
 
+
+
+def Ped_entregados(request):
+    user = request.user
+    if user.is_superuser:
+      especialidad = Especialidad.objects.filter(estado="entregado")
+      count = Especialidad.objects.filter(estado="pendiente").count()
+      count2 = Especialidad.objects.filter(estado="entregado").count()
+      template = "indexadmin.html"
+      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2})
+
+
+
 """
-
-
-
-
 @login_required
 @cache_page(1000)
 def home(request):
