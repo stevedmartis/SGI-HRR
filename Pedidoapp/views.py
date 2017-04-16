@@ -35,7 +35,7 @@ from django.contrib.auth.views import login
 def home(request):
     user = request.user
     if user.is_superuser:
-      for pend in especialidad = Especialidad.objects.filter(estado="pendiente")
+      for pend in especialidad = Especialidad.objects.filter(estado="pendiente"):
       pend   = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').count()
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
