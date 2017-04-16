@@ -36,7 +36,8 @@ def home(request):
     user = request.user
     if user.is_superuser:
       especialidad = Especialidad.objects.filter(estado="pendiente")
-      pend   = Pedido.objects.filter(especialidad=esp.id).count()
+      especialidad = Especialidad.objects.all()
+      pend   = Pedido.objects.filter(especialidad=especialidad)filter(estado="pendiente").count()
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       template = "indexadmin.html"
