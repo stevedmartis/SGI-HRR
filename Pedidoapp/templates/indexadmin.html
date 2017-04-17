@@ -74,13 +74,13 @@
             <p class="autor_item">
             {% endif %}
             {% if esp.estado == "entregado" %}
-            <font color="blue"><h4>Pedido Entregado</h4></font>
+            <font color="blue"><h4><b>Pedido Entregado</b></h4></font>
             {% endif %}
             {% if esp.estado == "completado" %}
             <font color="red"><h4>Pedido sin solicitar.</h4></font>
             {% endif %}
             {% if esp.estado == "pendiente" %}
-            <font color="green"><h4>Pedido Pendiente!</h4></font>
+            <font color="green"><h4><b>Pedido Pendiente!</b></h4></font>
             {% endif %}
             <a href="{% url "usuario:ver_todo" id_especialidad=esp.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             </p>   
