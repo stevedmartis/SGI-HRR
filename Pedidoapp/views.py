@@ -35,7 +35,7 @@ from django.contrib.auth.views import login
 def home(request):
     user = request.user
     if user.is_superuser:
-      especialidad = Especialidad.objects.filter(estado="pendiente")
+      especialidad = Especialidad.objects.filter(estado="pendiente").order_by('nombre')
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       template = "indexadmin.html"
@@ -51,7 +51,7 @@ def home(request):
 def Ped_entregados(request):
     user = request.user
     if user.is_superuser:
-      especialidad = Especialidad.objects.filter(estado="entregado")
+      especialidad = Especialidad.objects.filter(estado="entregado").order_by('nombre')
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       #entregados = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').count()
