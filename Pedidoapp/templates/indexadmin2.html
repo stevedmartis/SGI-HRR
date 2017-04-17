@@ -63,10 +63,10 @@
         
     <article class="item">
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
+                <a href="{% url "usuario:lita_todo_entre" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
             <p class="datos_item">
-            <a class="tag_item" href="{% url "usuario:lita_todo" id_especialidad=esp.id %}">{{esp.nombre}}</a>
+            <a class="tag_item" href="{% url "usuario:lita_todo_entre" id_especialidad=esp.id %}">{{esp.nombre}}</a>
             </p>
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
            </p>
