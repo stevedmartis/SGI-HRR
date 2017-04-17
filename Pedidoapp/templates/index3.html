@@ -13,7 +13,7 @@
         <ul>
             <li id="flechita_nav"><a href="/"></a></li>
             
-            <li id="publicar_nav"><a href="">Solicitar</a></li>
+            <li id="publicar_nav"><a href="">S.G.I</a></li>
         </ul>
     </nav>
     <aside id="bienvenida">
@@ -36,10 +36,8 @@
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
            </p>
             {% if esp.acceso == 0 %}
-            {% if request.user.is_active %}
             <p class="autor_item">
             <a href="{% url "usuario:vista_extra" id_especialidad=esp.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Extra</a>
-            {% endif %}
             {% endif %}
             {% if esp.estado == "entregado" %}
             <font color="green"><h4>Entregado!</h4></font>
