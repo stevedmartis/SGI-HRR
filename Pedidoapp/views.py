@@ -36,11 +36,12 @@ def home(request):
     user = request.user
     if user.is_superuser:
       especialidad = Especialidad.objects.filter(estado="pendiente").order_by('nombre')
-      acceso = Especialidad.objects.all()
+      close = Especialidad.objects.filter(acceso=1)
+      open1 = Especialidad.objects.filter(acceso=0)
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       template = "indexadmin.html"
-      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'acceso':acceso})
+      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2})
 
     elif user.is_active: 
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
