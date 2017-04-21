@@ -396,13 +396,13 @@ def Update_stock(request, id_pedido, cod_experto, id_especialidad):
 def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
+    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado")
     for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
         if ped.cantidad_update > 0:
             ped.articulo.stock -= ped.cantidad_update
         else:
             ped.articulo.stock -= ped.cantidad
     pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=datetime.date.today())
-    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado")
     especialidad.estado = 'entregado'
     especialidad.save()
     ped.save()
