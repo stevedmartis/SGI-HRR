@@ -402,9 +402,7 @@ def Entregar(request, id_especialidad):
         else:
             ped.articulo.stock -= ped.cantidad
     pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=datetime.date.today())
-    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')
-    pedido3.estado = "entregado"
-    pedido3.save()
+    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado")
     especialidad.estado = 'entregado'
     especialidad.save()
     ped.save()
