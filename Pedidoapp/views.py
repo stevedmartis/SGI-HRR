@@ -401,12 +401,11 @@ def Entregar(request, id_especialidad):
             ped.articulo.stock -= ped.cantidad_update
         else:
             ped.articulo.stock -= ped.cantidad
-    
-    ped.save()
     pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=datetime.date.today())
     pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado='entregado')
     especialidad.estado = 'entregado'
     especialidad.save()
+    ped.save()
     return HttpResponseRedirect('/solicitar/reporte_pedidos_pdf/%s/' % id_especialidad)
 
 
