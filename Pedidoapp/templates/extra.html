@@ -77,9 +77,9 @@
                     <td>{{ ex.fecha_pedido_ex }}</td>
                     <td>{{ ex.fecha_entrega_ex }}</td>
                     <td>{{ ex.estado_ex }}</td>
-                    <td>{% if user.is_superuser %}<a href="{% url "usuario:cant_extra" id_pedido_ex=ex.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Modificar</a>{% endif %}</td>
+                    <td>{% if user.is_superuser %}<a href="{% url "usuario:cant_extra" id_pedido_ex=ex.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" />Modificar</a>{% endif %}</td>
 
-                    <td>{% if user.is_superuser %}<a href="{% url "usuario:entregado_ex" id_pedido_ex=ex.id cod_experto=ex.articulo_ex.cod_experto  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" onclick="document.location.reload();"/>Entregar</a>{% endif %}</td>
+                    <td>{% if user.is_superuser %}<a href="{% url "usuario:entregado_ex" id_pedido_ex=ex.id cod_experto=ex.articulo_ex.cod_experto  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" />Entregar</a>{% endif %}</td>
                     
                 </tr>  
         {% endfor %}
