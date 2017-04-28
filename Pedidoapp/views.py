@@ -56,17 +56,20 @@ def Ped_entregados(request):
       especialidad = Especialidad.objects.filter(estado="entregado").order_by('nombre')
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
+      count3 = Especialidad.objects.all().count()
       #entregados = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').count()
       template = "indexadmin2.html"
-      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2})
+      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3})
 
 def Esp_total(request):
       user = request.user
       if user.is_superuser:
          especialidad = Especialidad.objects.all().order_by('nombre')
+         count = Especialidad.objects.filter(estado="pendiente").count()
+         count2 = Especialidad.objects.filter(estado="entregado").count()
          count3 = Especialidad.objects.all().count()
          template = "indexadmin2.html"
-         return render(request, template, {'especialidad':especialidad, 'count3':count3})
+         return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3})
 
 
 #LISTA ADMIN PENDIENTES
