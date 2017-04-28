@@ -57,7 +57,6 @@ def Ped_entregados(request):
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       count3 = Especialidad.objects.all().count()
-      #entregados = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').count()
       template = "indexadmin2.html"
       return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3})
 
