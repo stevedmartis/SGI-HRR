@@ -34,9 +34,11 @@
             <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br>
-            <h5><b><a href="{% url "usuario:home"  %}">Pedidos Pendientes: {{ count }}</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a>
+            <h5><b><a href="{% url "usuario:esp_total"  %}">Especialidades: {{ count3 }}</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url "usuario:home"  %}">Pedidos Pendientes: {{ count }}</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a></b></h5>
             {% if request.user.is_superuser %}
             {% if especialidad %}
             {% if especialidad.acceso == 1 %}
@@ -62,6 +64,7 @@
         {% for esp in especialidad %}
         
     <article class="item">
+            <b>
             <figure class="imagen_item">
                 <a href="{% url "usuario:lita_todo_entre" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
@@ -96,6 +99,7 @@
         {% else %}
             NO HAY SOLICITUDES.
         {% endif %}
+        </b>
     </section>
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
