@@ -42,8 +42,6 @@
             {% if request.user.is_superuser %}
             {% if count2 == 0  %}
             {% if acceso  %}
-            <h5>
-            <b>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url "usuario:close"  %}" method='GET' type="submit" class="btn btn-danger " value="close" onclick="document.location.reload();"/>Cerrar</a>
             {% endif %}
@@ -57,14 +55,15 @@
         </article>
             {% endif %}
             {% endif %}
-            </b>
-            </h5>
+
     <section id="contenido">
         {% if especialidad %}
         
         {% for esp in especialidad %}
         
     <article class="item">
+            <h5>
+            <b>
             <figure class="imagen_item">
                 <a href="{% url "usuario:lita_todo" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
             </figure>
@@ -88,7 +87,6 @@
             <a href="{% url "usuario:ver_todo" id_especialidad=esp.id %}" method='GET' type="submit" class="btn btn-primary pull-right"/>Ver Todo</a>
             </p>   
             <p class="autor_item">
-
             
             </p>                   
             <a class="guardar_item" href="#"></a>
@@ -99,6 +97,8 @@
         {% else %}
             NO HAY SOLICITUDES.
         {% endif %}
+            </b>
+            </h5>
     </section>
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
