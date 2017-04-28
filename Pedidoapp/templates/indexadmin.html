@@ -62,7 +62,6 @@
         {% for esp in especialidad %}
         
     <article class="item">
-            <h5>
             <b>
             <figure class="imagen_item">
                 <a href="{% url "usuario:lita_todo" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
@@ -98,7 +97,6 @@
             NO HAY SOLICITUDES.
         {% endif %}
             </b>
-            </h5>
     </section>
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
