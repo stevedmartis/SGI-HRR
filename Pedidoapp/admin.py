@@ -41,7 +41,6 @@ class PedidoExtraAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Pedido_Extra, PedidoExtraAdmin)
-admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(Articulo, ArticuloAdmin)
 admin.site.register(Encargado, EncargadoAdmin)
 admin.site.register(Especialidad, EspecialidadAdmin)
