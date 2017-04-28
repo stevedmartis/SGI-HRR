@@ -35,9 +35,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br>
             <h5><b><a href="{% url "usuario:esp_total"  %}">Especialidades: {{ count3 }}</a>
-            <h5><b><a href="{% url "usuario:home"  %}">Pedidos Pendientes: {{ count }}</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a>
+            <a href="{% url "usuario:home"  %}">Pedidos Pendientes: {{ count }}</a>
+            <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a></b></h5>
             {% if request.user.is_superuser %}
             {% if count2 == 0  %}
             {% if acceso  %}
