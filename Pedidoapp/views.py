@@ -57,7 +57,7 @@ def Ped_entregados(request):
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       count3 = Especialidad.objects.all().count()
-      template = "indexadmin2.html"
+      template = "indexadmin.html"
       return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3})
 
 def Esp_total(request):
@@ -67,7 +67,7 @@ def Esp_total(request):
          count = Especialidad.objects.filter(estado="pendiente").count()
          count2 = Especialidad.objects.filter(estado="entregado").count()
          count3 = Especialidad.objects.all().count()
-         template = "indexadmin2.html"
+         template = "indexadmin.html"
          return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3})
 
 
