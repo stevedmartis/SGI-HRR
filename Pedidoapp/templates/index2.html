@@ -68,10 +68,11 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
+{% endif %}
             </tbody>
         </table>
         {% else %}
-        {% if especialidad.estado == "pendiente" %}
+            {% if especialidad.estado == "pendiente" %}
         <h3>Pedido semanal cerrado</h3>
         <h4>Pedido Enviado:</h4>
         <br>
@@ -107,7 +108,7 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
-                {% endif %}
+          {% endif %}
             </tbody>
         </table>
         {% elif especialidad.estado == "entregado"  %}
