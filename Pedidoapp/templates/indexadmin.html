@@ -14,7 +14,16 @@
     {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
-            <a class="tag_item" href=""><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
+            {% if count2 == 0  %}
+                {% if acceso  %}
+            <a class="tag_item" href="{% url "usuario:close" %}""><img src="/static/img/close.png" width="100" height="100px"  /></a>
+                {% else %}
+                    {% if count == 0  %}
+            <a class="tag_item" href="{% url "usuario:open" %}""><img src="/static/img/open.png" width="100" height="100px"  /></a>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+    {% endif %}
             </figure>
             <p class="datos_item">
             <a class="tag_item" href=""><b>ADMINISTRADOR</b></a>
@@ -32,22 +41,10 @@
             <a href="{% url "usuario:home"  %}">Pedidos Pendientes: {{ count }}</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a></b></h5>
-            {% if request.user.is_superuser %}
-            {% if count2 == 0  %}
-            {% if acceso  %}
-            <a href="{% url "usuario:close"  %}" method='GET' type="submit" class="btn btn-danger  " value="close" onclick="document.location.reload();"/>Cerrar</a>
-            {% endif %}
-            {% else %}
-            {% if count == 0  %}
-            <a href="{% url "usuario:open" %}" method='GET' type="submit" class="btn btn-success pull-right" value="open" onclick="document.location.reload();"/>Abrir</a>
-            {% endif %}
-            {% endif %}
-            <br>
+
             <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger pull-right" value="reset" onclick="document.location.reload();"/>Resetear</a>
 
         </article>
-            {% endif %}
-            {% endif %}
 
     <section id="contenido">
         {% if especialidad %}
