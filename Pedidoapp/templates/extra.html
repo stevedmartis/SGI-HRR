@@ -57,7 +57,6 @@
                     {% endif %}
                     <td>{{ ex.cantidad_ex }}</td>
                     <td>{{ ex.fecha_pedido_ex }}</td>
-                    <td>{{ ex.fecha_entrega_ex }}</td>
                     <td>{{ ex.estado_ex }}</td>
                     {% if user.is_superuser %}
                     <td><a href="{% url "usuario:cant_extra" id_pedido_ex=ex.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" />Modificar</a></td>{% endif %}
