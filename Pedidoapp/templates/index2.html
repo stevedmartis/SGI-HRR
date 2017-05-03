@@ -110,8 +110,11 @@
         </table>
         {% endif %}
         {% endif %}
-        {% elif especialidad.estado == "entregado" %}
+        {% else %}
+        {% if especialidad.acceso == 0 %}
         test
+      
+        {% endif %}
         {% endif %}
 
         </form>
