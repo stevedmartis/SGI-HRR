@@ -37,6 +37,7 @@
 {% else %}
         {% if especialidad.acceso == 1 %}
         <form id="myform" method="POST">
+        <h3>Solicite pedido para: <b>{{ especialidad.nombre }}</b></h3>
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
@@ -80,7 +81,7 @@
             <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
-                    <td>Especialidad</td>
+
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>Cantidad Enviada</td>
@@ -89,7 +90,7 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td>Especialidad</td>
+
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>Cantidad Enviada</td>
@@ -100,7 +101,7 @@
                 {% if pedido2  %}
                 {% for ped2 in pedido2  %}
                 <tr>
-                    <td>{{ ped2.especialidad.nombre }}</td>
+
                     <td>{{ ped2.articulo.cod_experto }}</td>
                     <td>{{ ped2.articulo.nombre }}</td>
                     <td>{{ ped2.cantidad }}</td>
