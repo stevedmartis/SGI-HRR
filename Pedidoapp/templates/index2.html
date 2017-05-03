@@ -121,7 +121,8 @@
                 <tr> 
                     <td>Cod experto</td>
                     <td>Nombre</td>
-                    <td>Cantidad Enviada</td>
+                    <td>Cantidad enviada</td>
+                    <td>Cantidad recibida</td>
                     <td>Estado</td>
                 </tr>
             </thead>
@@ -130,7 +131,8 @@
                     <td>Especialidad</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
-                    <td>Cantidad Enviada</td>
+                    <td>Cantidad enviada</td>
+                    <td>Cantidad recibida</td>
                     <td></td>
                 </tr>
             </tfoot>
@@ -140,7 +142,11 @@
                 <tr>
                     <td>{{ ped3.articulo.cod_experto }}</td>
                     <td>{{ ped3.articulo.nombre }}</td>
+                {% if ped3.estado == "modificado" %}
                     <td>{{ ped3.cantidad_update }}</td>
+                {% else %}
+                    <td>{{ ped3.cantidad }}</td>
+                {% endif %}
                     <td>{{ ped3.estado }}</td>
 
                 </tr>
