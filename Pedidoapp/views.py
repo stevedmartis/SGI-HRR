@@ -99,6 +99,7 @@ def ListAllEnt(request, id_especialidad):
 def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-articulo')
+  pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')order_by('-articulo')
   if request.method == 'GET':
     form = EstadisticaForm(instance=especialidad)
   else:
