@@ -99,7 +99,7 @@ def ListAllEnt(request, id_especialidad):
 def ListEspeci(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-articulo')
-  pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente')order_by('-articulo')
+  pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').order_by('-articulo')
   if request.method == 'GET':
     form = EstadisticaForm(instance=especialidad)
   else:
@@ -107,7 +107,7 @@ def ListEspeci(request, id_especialidad):
     if form.is_valid():
         form.save()
     return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
-  return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad})
+  return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'pedido2':pedido2, 'especialidad':especialidad})
 
 #BTN INGRESAR ACTIVO
 @login_required
