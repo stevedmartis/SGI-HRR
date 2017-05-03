@@ -35,6 +35,7 @@
             <a class="titulo_item" href="{% url "usuario:reporte_farma_pdf"  %}">FARMACIA</a>
             <a class="titulo_item" href="{% url "usuario:reporte_econo_pdf"  %}">ECONOMATO</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger pull-right" value="reset" onclick="document.location.reload();"/>Resetear</a>
             <br>
             <h5><b><a href="{% url "usuario:esp_total"  %}">Especialidades: {{ count3 }}</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -42,7 +43,6 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a></b></h5>
 
-            <a href="{% url "usuario:reset" %}" method='GET' type="submit" class="btn btn-danger pull-right" value="reset" onclick="document.location.reload();"/>Resetear</a>
 
         </article>
 
