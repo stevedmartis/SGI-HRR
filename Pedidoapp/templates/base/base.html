@@ -21,12 +21,11 @@
 <body>
 <div class="container">
     {% block navbar %}
-    <nav class="navbar-fixed-top" role="navigation">
         <div class="bs-docs-section clearfix">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="bs-component">
-                        <nav class="navbar navbar-default"> 
+                        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" > 
                             <div class="container-fluid">
                                 <div class="navbar-header">
                                     <a class="navbar-brand" href="{% url "usuario:home"  %}">Home</a>
