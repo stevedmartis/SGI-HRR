@@ -194,7 +194,7 @@ def Entregar(request, id_especialidad):
 
 
 
-
+#Ingresar cantidad de articulo extra
 @login_required
 def PedidoExtra(request, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
@@ -210,6 +210,7 @@ def PedidoExtra(request, id_especialidad):
       return HttpResponseRedirect('/solicitar/home/')
     return render(request, 'form2.html', {'form':form, 'especialidad':especialidad})
 
+#vista para admin y activo de extras
 @login_required
 def ExtraView(request):
       user = request.user
@@ -219,7 +220,8 @@ def ExtraView(request):
       else:
         extra = Pedido_Extra.objects.filter(especialidad_ex__encargado__usuario=user.id)
         return render(request, 'extra.html', {'extra':extra, 'user':user})
-  
+
+#admin modifica cantidad extra
 @login_required
 def Cant_upex(request, id_pedido_ex):
     extra = Pedido_Extra.objects.get(id=id_pedido_ex)
@@ -233,7 +235,7 @@ def Cant_upex(request, id_pedido_ex):
       return HttpResponseRedirect('/solicitar/pedidos-extra/')
     return render(request, 'form2.html', {'form':form, 'extra':extra})
 
-
+#BTN ENTREGAR. ADMIN
 @login_required
 def Update_stockex(request, id_pedido_ex, cod_experto):
   if request.method == 'GET':
@@ -246,17 +248,6 @@ def Update_stockex(request, id_pedido_ex, cod_experto):
     pedido.fecha_entrega_ex = datetime.date.today()
     pedido.save()
     return HttpResponseRedirect('/solicitar/pedidos-extra/')
-"""
-@login_required
-def Completar(request, id_especialidad):
-   if request.method == 'GET':
-    especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido = Pedido.objects.filter(especialidad=especialidad).update(cantidad=0, estado="", fecha_pedido=None, fecha_entrega=None)
-    articulo = Articulo.objects.all().update(total_pedido=0)
-    especialidad.estado = "completado"
-    especialidad.save()
-    return HttpResponseRedirect('/solicitar/home/')
-"""
 
 def Reset(request):
     estadis = Especialidad.objects.all().update(estadistica= 0, estado="")
@@ -387,7 +378,7 @@ class ReportePedidosPDF(View):
               detalle_orden.drawOn(pdf, 150, 1250)
         elif count >10 and count <=30:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 600)
+              detalle_orden.drawOn(pdf, 150, 500)
         elif count >30 and count <=50:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 300)
