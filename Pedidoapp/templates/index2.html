@@ -15,7 +15,7 @@
 
 <br>
 <section id="contenido">
-        {% if especialidad.estadistica == 0 %}
+{% if especialidad.estadistica == 0 %}
         <form id="myform" method="POST">
         <article class="item">
 
@@ -34,7 +34,7 @@
             <br>
         </article>
         </form>
-        {% else %}
+{% else %}
         {% if especialidad.acceso == 1 %}
         <form id="myform" method="POST">
         <table id="example" class="table table-border table-striped table-hover">
@@ -67,7 +67,6 @@
 
                 </tr>
                 {% endfor %}
-                {% endif %}
                 {% endif %}
             </tbody>
         </table>
