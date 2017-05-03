@@ -353,7 +353,7 @@ class ReportePedidosPDF(View):
 
     def tabla(self,pdf,y, id_especialidad):
         especialidad = Especialidad.objects.get(id=id_especialidad)
-        count = Pedido.objects.filter(especialidad=especialidad).filter(estado="pendiente").count()
+        count = Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado").count()
         #Creamos una tupla de encabezados para neustra tabla
         encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Cantidad Moficada', 'Estado', 'Estado')
         #Creamos una lista de tuplas que van a contener a las personas
@@ -378,10 +378,10 @@ class ReportePedidosPDF(View):
               detalle_orden.drawOn(pdf, 150, 1250)
         elif count >10 and count <=30:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 400)
+              detalle_orden.drawOn(pdf, 150, 600)
         elif count >30 and count <=50:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 300)
+              detalle_orden.drawOn(pdf, 150, 400)
         elif count >50 and count <=70:
               #Definimos la coordenada donde se dibujará la tabla
               detalle_orden.drawOn(pdf, 150, 100)
