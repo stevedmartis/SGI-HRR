@@ -75,7 +75,7 @@
         {% else %}
               {% if especialidad.estado == "pendiente" %}
         <h3>Pedido semanal cerrado:</h3>
-        <h3>Pedido Enviado:</h3>
+        <h3>Pedido Enviado para <b>{{ especialidad.nombre }}</b></h3>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
             <thead>
@@ -114,14 +114,13 @@
               {% else %}
                       {% if especialidad.estado == "entregado" %}
         <h3>Pedido semanal cerrado</h3>
-        <h3>Pedido Recibido:</h3>
+        <h3>Pedido Recibido para: <b>{{ especialidad.nombre }}</b></h3>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
                     <td>Cod experto</td>
                     <td>Nombre</td>
-                    <td>Cantidad enviada</td>
                     <td>Cantidad recibida</td>
                     <td>Estado</td>
                 </tr>
@@ -131,7 +130,6 @@
                     <td>Especialidad</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
-                    <td>Cantidad enviada</td>
                     <td>Cantidad recibida</td>
                     <td></td>
                 </tr>
