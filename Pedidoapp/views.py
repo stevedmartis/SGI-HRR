@@ -65,7 +65,7 @@ def Esp_total(request):
       user = request.user
       if user.is_superuser:
          especialidad = Especialidad.objects.all().order_by('nombre')
-         acceso = Especialidad.objects.filter(acceso=1)
+         acceso = Especialidad.objects.filter(acceso=0)
          count = Especialidad.objects.filter(estado="pendiente").count()
          count2 = Especialidad.objects.filter(estado="entregado").count()
          count3 = Especialidad.objects.all().count()
