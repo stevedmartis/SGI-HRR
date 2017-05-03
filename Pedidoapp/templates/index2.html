@@ -113,7 +113,7 @@
         </table>
               {% else %}
                       {% if especialidad.estado == "entregado" %}
-        <h3>Pedido semanal cerrado:</h3>
+        <h3>Pedido semanal cerrado</h3>
         <h3>Pedido Recibido:</h3>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
@@ -136,7 +136,7 @@
             </tfoot>
             <tbody>
                 {% if pedido3  %}
-                {% for ped2 in pedido2  %}
+                {% for ped3 in pedido3  %}
                 <tr>
                     <td>{{ ped3.articulo.cod_experto }}</td>
                     <td>{{ ped3.articulo.nombre }}</td>
