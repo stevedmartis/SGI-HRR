@@ -15,7 +15,7 @@
 
 <br>
 <section id="contenido">
-        {% if especialidad.estadistica == 0 %}
+{% if especialidad.estadistica == 0 %}
         <form id="myform" method="POST">
         <article class="item">
 
@@ -34,7 +34,7 @@
             <br>
         </article>
         </form>
-        {% else %}
+{% else %}
         {% if especialidad.acceso == 1 %}
         <form id="myform" method="POST">
         <table id="example" class="table table-border table-striped table-hover">
@@ -68,10 +68,11 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
+
             </tbody>
         </table>
         {% else %}
-        {% if especialidad.estado == "pendiente" %}
+              {% if especialidad.estado == "pendiente" %}
         <h3>Pedido semanal cerrado:</h3>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
@@ -108,8 +109,9 @@
                 {% endif %}
             </tbody>
         </table>
+              {% endif %}
         {% endif %}
-        {% endif %}
+{% endif %}
 
         </form>
 </section>
