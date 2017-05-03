@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="{% static "dataTables.checkboxes.css" %}"/>
 </head>
 
-
 <section id="contenido">
         <form id="myform" method="post">
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
+                    <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     {% if user.is_superuser %}
@@ -25,16 +25,14 @@
                     {% endif %}
                     <td>Cantidad</td>
                     <td>Fecha Pedido</td>
-                    <td>Fecha Entrega</td>
                     <td>Estado</td>
-                    {% if user.is_superuser %}
                     <td></td>
                     <td></td>
-                    {% endif %}
                 </tr>
             </thead>
             <tfoot>
                 <tr>
+                    <td>Servicio</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     {% if user.is_superuser %}
@@ -42,18 +40,16 @@
                     {% endif %}
                     <td>Cantidad</td>
                     <td>Fecha Pedido</td>
-                    <td>Fecha Entrega</td>
                     <td>Estado</td>
-                    {% if user.is_superuser %}
                     <td></td>
                     <td></td> 
-                    {% endif %}
                 </tr>
             </tfoot>
             <tbody>
         {% if extra  %}
         {% for ex in extra  %}
                 <tr>
+                    <td>{{ ex.especialidad_ex.nombre }}</td>
                     <td>{{ ex.articulo_ex.cod_experto }}</td>
                     <td>{{ ex.articulo_ex.nombre }}</td>
                     {% if user.is_superuser %}
@@ -63,9 +59,9 @@
                     <td>{{ ex.fecha_pedido_ex }}</td>
                     <td>{{ ex.fecha_entrega_ex }}</td>
                     <td>{{ ex.estado_ex }}</td>
-                    <td>{% if user.is_superuser %}<a href="{% url "usuario:cant_extra" id_pedido_ex=ex.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" />Modificar</a></td>
+                    <td>{% if user.is_superuser %}<a href="{% url "usuario:cant_extra" id_pedido_ex=ex.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" />Modificar</a>{% endif %}</td>
 
-                    <td><a href="{% url "usuario:entregado_ex" id_pedido_ex=ex.id cod_experto=ex.articulo_ex.cod_experto  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" />Entregar</a></td>{% endif %}
+                    <td>{% if user.is_superuser %}<a href="{% url "usuario:entregado_ex" id_pedido_ex=ex.id cod_experto=ex.articulo_ex.cod_experto  %}" method='GET' type="submit" class="btn btn-success pull-right" value="editar" />Entregar</a>{% endif %}</td>
                     
                 </tr>  
         {% endfor %}
