@@ -108,9 +108,10 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
+                {% endif %}
             </tbody>
         </table>
-        {% else %}
+        {% elif especialidad.estado == "entregado"  %}
         <h3>Pedido semanal cerrado</h3>
         <h4>Pedido Recibido:</h4>
         <br>
@@ -148,9 +149,6 @@
                 {% endif %}
             </tbody>
         </table>
-        {% endif %}
-        {% endif %}
-        {% endif %}
         {% endif %}
 
         </form>
