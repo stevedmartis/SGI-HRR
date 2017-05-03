@@ -9,14 +9,7 @@
     <link rel="stylesheet" href="{% static "estilos.css" %}" />
     <link rel="stylesheet" href="{% static "responsive.css" %}" />
 </head>
-    <nav>
-        <ul>
-            <li id="flechita_nav"><a href="/"></a></li>
-            
-            <li id="publicar_nav"><a href="">S.G.I</a></li>
-        </ul>
-    </nav>
-    </aside>
+
         <section id="contenido">
     {% if request.user.is_superuser %}
     <article class="item">
