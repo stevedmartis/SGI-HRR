@@ -29,13 +29,13 @@
             <a href="{% url "usuario:vista_extra" id_especialidad=esp.id  %}" method='GET' type="submit" class="btn btn-danger pull-right" value="editar" onclick="document.location.reload();"/>Extra</a>
             {% endif %}
             {% if esp.estado == "entregado" %}
-            <font color="green"><h4>Entregado!</h4></font>
+            <font color="green"><h4><b>Entregado!</b></h4></font>
             {% endif %}
             {% if esp.estado == "completado" %}
-            <font color="red"><h4>Solicite pedido semanal.</h4></font>
+            <font color="red"><h4><b>Solicte Pedido Semanal</b></h4></font>
             {% endif %}
             {% if esp.estado == "pendiente" %}
-            <font color="blue"><h4>Pendiente</h4></font>
+            <font color="blue"><h4><b>Pendiente...</b></h4></font>
             {% endif %}
             </p>   
             <p class="autor_item">
