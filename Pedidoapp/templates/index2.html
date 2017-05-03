@@ -40,7 +40,6 @@
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
-                    <td>Especialidad</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
@@ -49,7 +48,7 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td>Especialidad</td>
+
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
@@ -60,7 +59,7 @@
                 {% if pedido  %}
                 {% for ped in pedido  %}
                 <tr>
-                    <td>{{ ped.especialidad.nombre }}</td>
+
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.cantidad }}</td>
@@ -72,7 +71,9 @@
             </tbody>
         </table>
         {% else %}
-        <h3>Pedido semanal cerrado:</h3>
+        {% if especialidad.estado == "pendiente" %}
+        <h3>Pedido semanal cerrado</h3>
+        <h4>Pedido Enviado:</h4>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
             <thead>
@@ -106,10 +107,51 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
+                {% endif %}
+            </tbody>
+        </table>
+        {% else %}
+        <h3>Pedido semanal cerrado</h3>
+        <h4>Pedido Recibido:</h4>
+        <br>
+            <table id="example" class="table table-border table-striped table-hover">
+            <thead>
+                <tr> 
+                    <td>Especialidad</td>
+                    <td>Cod experto</td>
+                    <td>Nombre</td>
+                    <td>Cantidad Recibida</td>
+                    <td>Estado</td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>Especialidad</td>
+                    <td>Cod experto</td>
+                    <td>Nombre</td>
+                    <td>Cantidad Enviada</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% if pedido3  %}
+                {% for ped3 in pedido3  %}
+                <tr>
+                    <td>{{ ped3.especialidad.nombre }}</td>
+                    <td>{{ ped3.articulo.cod_experto }}</td>
+                    <td>{{ ped3.articulo.nombre }}</td>
+                    <td>{{ ped3.cantidad_update }}</td>
+                    <td>{{ ped3.estado }}</td>
+
+                </tr>
+                {% endfor %}
+                {% endif %}
             </tbody>
         </table>
         {% endif %}
         {% endif %}
+        {% endif %}
+
         </form>
 </section>
              
