@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static "responsive.css" %}" />
 </head>
 <body>
-        <section id="contenido">
+    <section id="contenido">
     {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
@@ -88,6 +88,7 @@
         {% endif %}
             </b>
     </section>
+    </div>
     </body>
 
 {% endblock %}
