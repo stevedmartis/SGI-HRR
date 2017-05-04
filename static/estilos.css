@@ -15,9 +15,8 @@ a
 }
 body
 {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+	height: 100%;
+	background: #EFEFEF;
 	color: #4C4C4C;
 	font-family: "PT Sans", Arial;
 	font-size: 16px;
@@ -162,7 +161,7 @@ nav #publicar_nav a
    min-height: 100%;
    margin-bottom: -330px;
    position: relative;
-
+	margin: 1em;
 }
 #contenido .item
 {
