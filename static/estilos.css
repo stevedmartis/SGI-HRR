@@ -28,12 +28,13 @@ comentario de lo que sea
 */
 footer
 {
-
+	background: #434343;
+	height: 330px;
+	position: relative;
 	color: #A7A7A7;
 	padding: 1em 0;
 	text-align: center;
 	width: 100%;
-	flex: 0 0 auto;
 }
 footer p
 {
@@ -50,7 +51,6 @@ header:after{
 	clear: both;
 	content: "";
 	display: block;
-	flex: 0 0 auto;
 }
 header figure
 {
@@ -157,7 +157,7 @@ nav #publicar_nav a
 {
 	display: none;
 }
-#contenido
+#container
 {
    min-height: 100%;
    margin-bottom: -330px;
