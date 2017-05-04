@@ -162,14 +162,14 @@ nav #publicar_nav a
 {
 	margin: 1em;
 	overflow:auto;
-    padding-bottom:100px;
+    padding-bottom:150px;
 }
 #contenido .item
 {
 	background: white;
 	border-bottom: 3px #22BCE0 solid;
 	margin-bottom: 3em;
-	min-height: 128px;
+	min-height: 10px;
 	position: relative;
 }
 #contenido .item p
