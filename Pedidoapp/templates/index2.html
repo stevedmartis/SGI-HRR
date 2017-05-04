@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="{% static "dataTables.checkboxes.css" %}"/>
 </head>
 
-
-<br>
 <section id="contenido">
 {% if especialidad.estadistica == 0 %}
         <form id="myform" method="POST">
@@ -75,7 +73,6 @@
         </table>
         {% else %}
               {% if especialidad.estado == "pendiente" %}
-        <h3>Pedido semanal cerrado:</h3>
         <h3>Pedido enviado para <b>{{ especialidad.nombre }}</b></h3>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
@@ -114,7 +111,6 @@
         </table>
               {% else %}
                       {% if especialidad.estado == "entregado" %}
-        <h3>Pedido semanal cerrado</h3>
         <h3>Pedido recibido para: <b>{{ especialidad.nombre }}</b></h3>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
