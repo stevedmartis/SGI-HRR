@@ -15,6 +15,7 @@ a
 }
 body
 {
+	height: 100%;
 	background: #EFEFEF;
 	color: #4C4C4C;
 	font-family: "PT Sans", Arial;
@@ -155,9 +156,12 @@ nav #publicar_nav a
 {
 	display: none;
 }
-#contenido
+#container
 {
-	margin: 1em;
+   min-height: 100%;
+   margin-bottom: -330px;
+   position: relative;
+
 }
 #contenido .item
 {
