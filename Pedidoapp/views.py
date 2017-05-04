@@ -89,7 +89,7 @@ def ListAll(request, id_especialidad):
 def ListAllEnt(request, id_especialidad):
   especialidad = Especialidad.objects.get(id=id_especialidad)
   if request.method == 'GET':
-        pedido = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').order_by('nombre')
+        pedido = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').order_by('articulo')
         template  = 'admindata2.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
