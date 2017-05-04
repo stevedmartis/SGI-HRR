@@ -27,6 +27,8 @@ comentario de lo que sea
 footer
 {
 	background: #434343;
+	height: 330px;
+	position: relative;
 	color: #A7A7A7;
 	padding: 1em 0;
 	text-align: center;
