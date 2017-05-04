@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static "estilos.css" %}" />
     <link rel="stylesheet" href="{% static "responsive.css" %}" />
 </head>
-
+<body>
         <section id="contenido">
     {% if request.user.is_superuser %}
     <article class="item">
@@ -88,6 +88,7 @@
         {% endif %}
             </b>
     </section>
+    </body>
 
 {% endblock %}
 
