@@ -30,7 +30,11 @@ footer
 	color: #A7A7A7;
 	padding: 1em 0;
 	text-align: center;
-	width: 100%;
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+
 }
 footer p
 {
