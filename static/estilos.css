@@ -24,7 +24,7 @@ body
 /*
 comentario de lo que sea
 */
-footer #footer
+footer 
 {
 	background: #434343;
 	color: #A7A7A7;
@@ -159,7 +159,7 @@ nav #publicar_nav a
 }
 #contenido
 {
-	margin: 1em;
+	margin: 3em;
 }
 #contenido .item
 {
