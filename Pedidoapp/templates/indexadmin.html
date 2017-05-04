@@ -8,10 +8,11 @@
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{% static "estilos.css" %}" />
     <link rel="stylesheet" href="{% static "responsive.css" %}" />
+
 </head>
 <body>
+    <span class="al-cielo icon-arrow-up2"></span>
     <section id="contenido">
-    <nav class="contenido contenido-default contenido-fixed-top" >
     {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
@@ -44,7 +45,6 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a></b></h5>
 
-        </nav>
         </article>
 
     <section id="contenido">
@@ -87,6 +87,27 @@
         {% else %}
             NO HAY SOLICITUDES.
         {% endif %}
+
+<script type="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document).ready(function(){
+ 
+    $('.al-cielo').click(function(){
+        $('body, html').animate({
+            scrollTop: '0px'
+        }, 300);
+    });
+ 
+    $(window).scroll(function(){
+        if( $(this).scrollTop() > 0 ){
+            $('.al-cielo').slideDown(300);
+        } else {
+            $('.al-cielo').slideUp(300);
+        }
+    });
+ 
+});
+</script>
     </section>
     </body>
         <br>

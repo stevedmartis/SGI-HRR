@@ -8,7 +8,11 @@
 	font-weight: normal;
 	font-style: normal;							
 }
-
+* 
+{
+	margin: 0;
+	padding: 0;
+}
 a
 {
 	color: #337ab7;
@@ -160,6 +164,7 @@ nav #publicar_nav a
 #contenido
 {
 	margin: 1em;
+
 }
 #contenido .item
 {
@@ -168,6 +173,19 @@ nav #publicar_nav a
 	margin-bottom: 3em;
 	min-height: 128px;
 	position: relative;
+}
+.al-cielo
+{
+	display: inline-block;
+	padding: 20px;
+	background:#024459;
+	font-size: 20px;
+	color: #fff;
+	cursor: pointer;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+
 }
 #contenido .item p
 {
