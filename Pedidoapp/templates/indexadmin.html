@@ -11,6 +11,7 @@
 </head>
 <body>
     <section id="contenido">
+    <nav class="navbar navbar-default navbar-fixed-top" >
     {% if request.user.is_superuser %}
     <article class="item">
             <figure class="imagen_item">
@@ -43,7 +44,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url "usuario:ped_entre"  %}">Pedidos Entregados: {{ count2 }}</a></b></h5>
 
-
+        </nav>
         </article>
 
     <section id="contenido">
