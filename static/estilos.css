@@ -13,13 +13,18 @@ a
 {
 	color: #337ab7;
 }
-body
+html,body
 {
+	height: 100%;
 	background: #EFEFEF;
 	color: #4C4C4C;
 	font-family: "PT Sans", Arial;
 	font-size: 16px;
 	margin: 0;
+}
+
+#wrap {
+  min-height: 100%;
 }
 /*
 comentario de lo que sea
