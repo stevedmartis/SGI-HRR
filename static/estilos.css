@@ -159,7 +159,9 @@ nav #publicar_nav a
 }
 #contenido
 {
-	margin: 3em;
+	margin: 1em;
+	overflow:auto;
+    padding-bottom:150px;
 }
 #contenido .item
 {
