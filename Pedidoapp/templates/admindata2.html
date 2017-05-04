@@ -50,6 +50,11 @@
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.articulo.stock }}</td>
+                    {% if ped.estado_update == "modificado" %}
+                    <td>{{ ped.cantidad_update }}</td>
+                    {% else %}
+                    <td>{{ ped.cantidad }}</td>
+                    {% endif %}
                     <td>{{ ped.cantidad }}</td>
                     <td>{{ ped.cantidad_update }}</td>
                     <td>{{ ped.fecha_entrega }}</td>
