@@ -6,7 +6,7 @@ from .import views
 from django.contrib.auth.views import login_required
 
 
-from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, Update_stock, PedidoExtra
+from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, PedidoExtra
 from Pedidoapp.views import ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono 
 from Pedidoapp.views import Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar, Ped_entregados, ListAllEnt, Esp_total
 
