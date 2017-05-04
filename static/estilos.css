@@ -13,38 +13,29 @@ a
 {
 	color: #337ab7;
 }
-html, body
+body
 {
 	background: #EFEFEF;
 	color: #4C4C4C;
 	font-family: "PT Sans", Arial;
 	font-size: 16px;
 	margin: 0;
-	height: 100%;
 }
 /*
 comentario de lo que sea
 */
 footer
 {
-
-position: relative;
-  margin-top: -150px; /* negative value of footer height */
-  height: 150px;
-  clear:both;
-  padding-top:20px;
+	background: #434343;
+	color: #A7A7A7;
+	padding: 1em 0;
+	text-align: center;
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
 
 }
-
-#wrap {
-  min-height: 100%;
-}
-
-#main {
-  overflow:auto;
-  padding-bottom:150px; /* this needs to be bigger than footer height*/
-}
-
 footer p
 {
 	margin: 0;

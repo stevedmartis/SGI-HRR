@@ -19,8 +19,7 @@
     <link rel="shortcut icon" href="http://siremo.conapesca.gob.mx/prope/images/registro.png" />
 </head>
 
-<div id="wrap">
-<div id="main" class="container clear-top">
+<div class="container">
     {% block navbar %}
         <div class="bs-docs-section clearfix">
             <div class="row">
@@ -86,7 +85,22 @@
 
 
     {% block footer %}
-    <footer class="footer">
+
+    <script>
+
+  $(document).ready(function() {
+
+   var docHeight = $(window).height();
+   var footerHeight = $('#footer').height();
+   var footerTop = $('#footer').position().top + footerHeight;
+
+   if (footerTop < docHeight) {
+    $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+   }
+  });
+ </script>
+ 
+    <footer>
         <p><strong>Powered by Demaro!</strong></p>
         <p>S.G.I for HRR. 2017 ®</p>
     </footer>
