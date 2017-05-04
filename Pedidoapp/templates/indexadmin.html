@@ -72,8 +72,13 @@
             {% else %}
             {% if esp.estado == "entregado" %}
             <a class="tag_item" href="{% url "usuario:lita_todo_entre" id_especialidad=esp.id %}">{{esp.nombre}}</a>
+            {% else %}
+            {% if esp.estado == "completado" %}
+            <a class="tag_item" href="{% url "usuario:lita_todo" id_especialidad=esp.id %}">{{esp.nombre}}</a>
             {% endif %}
             {% endif %}
+            {% endif %}
+
 
             </p>
             <a class="titulo_item" href=""><h5>{{esp.encargado.nombre}}</a></h5></p>
