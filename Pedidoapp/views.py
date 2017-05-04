@@ -159,36 +159,16 @@ class PedidoDetailView(DetailView):
 
 #BTN ENTREGADO
 @login_required
-@cache_page(1000)
-def Update_stock(request, id_pedido, cod_experto, id_especialidad):
-  if request.method == 'GET':
-    especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido = Pedido.objects.get(id=id_pedido)
-    articulo = Articulo.objects.get(pk=cod_experto)
-    if pedido.cantidad_update > 0:
-        articulo.stock -= pedido.cantidad_update
-    else:
-        articulo.stock -= pedido.cantidad
-
-    pedido.estado = 'entregado'
-    pedido.fecha_entrega = datetime.date.today()
-    especialidad.estado = 'entregado'
-    especialidad.save()
-    articulo.save()
-    pedido.save()
-    return HttpResponseRedirect('/solicitar/lista_super/%s/' % id_especialidad)
-
 def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado")
+    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado").update(fecha_entrega=datetime.date.today())
     for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
         if ped.cantidad_update > 0:
             ped.articulo.stock -= ped.cantidad_update
         else:
             ped.articulo.stock -= ped.cantidad
         ped.save()
-    pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=datetime.date.today())
     especialidad.estado = 'entregado'
     especialidad.save()
     return HttpResponseRedirect('/solicitar/reporte_pedidos_pdf/%s/' % id_especialidad)

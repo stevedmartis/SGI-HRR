@@ -26,7 +26,6 @@ url(r'^lista_active/(?P<id_especialidad>\d+)/$', login_required(ListEspeci), nam
 
 url(r'^ingresar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/$', Cant_ingresar, name="cant_ingresar"),
 url(r'^modificar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/$', Cant_update, name="cant_update"),
-url(r'^entregar/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Update_stock, name="entregado"),
 url(r'^entregar/(?P<id_especialidad>\d+)/$', Entregar, name="entregar"),
 
 url(r'^pedido-extra/(?P<id_especialidad>\d+)/$', PedidoExtra , name='pedido_extra'),
