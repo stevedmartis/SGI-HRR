@@ -54,7 +54,13 @@
     <article class="item">
             <b>
             <figure class="imagen_item">
-                <a href="{% url "usuario:lita_todo" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
+            {% if esp.estado == "pendiente" %}
+            <a href="{% url "usuario:lita_todo" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
+            {% else %}
+            {% if esp.estado == "entregado" %}
+            <a href="{% url "usuario:lita_todo_entre" id_especialidad=esp.id %}"><img src="/static/img/user.png" width="1000" height="135px"  /></a>
+            {% endif %}
+            {% endif %}
             </figure>
             <p class="datos_item">
             {% if esp.estado == "pendiente" %}
