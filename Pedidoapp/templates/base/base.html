@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="http://siremo.conapesca.gob.mx/prope/images/registro.png" />
 </head>
 
-<section id="contenido">
+<div class="container">
     {% block navbar %}
         <div class="bs-docs-section clearfix">
             <div class="row">
@@ -64,8 +64,6 @@
             </div>
         </div>
     </div>
-</section>
-</div>
 <br>
 <br>
 <br>
@@ -77,6 +75,7 @@
             <li id="publicar_nav"><a href="">S.G.I</a></li>
         </ul>
     </nav>
+
  {% endblock %}
 
 
@@ -86,13 +85,12 @@
 
 
     {% block footer %}
-
+        </section>
     <footer>
         <p><strong>Powered by Demaro!</strong></p>
         <p>S.G.I for HRR. 2017 ®</p>
     </footer>
-
-
+    
     {% endblock%}
 </div>
 
@@ -100,6 +98,6 @@
     {% endblock %}
 
 
-
+</body>
 
 </html>
