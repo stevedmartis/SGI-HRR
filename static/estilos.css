@@ -13,30 +13,25 @@ a
 {
 	color: #337ab7;
 }
-html,body
+body
 {
-	height: 100%;
 	background: #EFEFEF;
 	color: #4C4C4C;
 	font-family: "PT Sans", Arial;
 	font-size: 16px;
 	margin: 0;
 }
-
-#wrap {
-  min-height: 100%;
-}
 /*
 comentario de lo que sea
 */
-.footer 
+footer
 {
-  position: relative;
-  margin-top: -150px; /* negative value of footer height */
-  height: 150px;
-  clear:both;
-  padding-top:20px;
-} 
+	background: #434343;
+	color: #A7A7A7;
+	padding: 1em 0;
+	text-align: center;
+	width: 100%;
+}
 footer p
 {
 	margin: 0;
@@ -161,15 +156,13 @@ nav #publicar_nav a
 #contenido
 {
 	margin: 1em;
-	overflow:auto;
-    padding-bottom:150px;
 }
 #contenido .item
 {
 	background: white;
 	border-bottom: 3px #22BCE0 solid;
 	margin-bottom: 3em;
-	min-height: 10px;
+	min-height: 128px;
 	position: relative;
 }
 #contenido .item p
