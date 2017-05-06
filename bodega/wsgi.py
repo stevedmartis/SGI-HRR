@@ -7,5 +7,3 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bodega.settings")
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 
-from dj_static import Cling
-application = Cling(application)
