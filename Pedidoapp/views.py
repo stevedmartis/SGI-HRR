@@ -41,7 +41,7 @@ def home(request):
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       count3 = Especialidad.objects.all().count()
-      tags = cache.get('tags'):
+      tags = cache.get('tags')
       if not tags:
             print "tags vacio"
       template = "indexadmin.html"
