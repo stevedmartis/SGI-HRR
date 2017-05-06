@@ -14,6 +14,7 @@ from Pedidoapp.forms import PedidoEditForm,PedAdminEditForm, EstadisticaForm, Ex
 from django.template.context import RequestContext
 from django.template import RequestContext
 from django.views.decorators.cache import cache_page
+from django.core.cache import cache
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.db import models
 from django.db.models import Count
@@ -40,6 +41,9 @@ def home(request):
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       count3 = Especialidad.objects.all().count()
+      tags = cache.get('tags'):
+      if not tags:
+            print "tags vacio"
       template = "indexadmin.html"
       return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3, 'acceso':acceso})
 
