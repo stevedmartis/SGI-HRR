@@ -14,16 +14,17 @@
     <section id="contenido">
     {% if request.user.is_superuser %}
     <article class="item">
-            <a class="tag_item" href=""><img src="/static/img/open.png" width="100" height="100px"  /></a>  
-            <figure class="imagen_item">
             {% if count == 0  %}
                {% if acceso  %}
             <a class="tag_item" href="{% url "usuario:open" %}""><img src="/static/img/open.png" width="100" height="100px"  /></a>
             {% endif %}
                {% else %}
-            {% if count2 == 0  %}
-            <a class="tag_item" href="{% url "usuario:close" %}""><img src="/static/img/close.png" width="100" height="100px"  /></a>    
-               {% endif %}
+                    {% if count2 == 0  %}
+            <a class="tag_item" href="{% url "usuario:close" %}""><img src="/static/img/close.png" width="100" height="100px"  /></a>
+                          {% if count4 == count3 %} 
+            <a class="tag_item" href="""><img src="/static/img/open.png" width="100" height="100px"  /></a>  
+                          {% endif %} 
+                    {% endif %}
             {% endif %}
     {% endif %}
 
