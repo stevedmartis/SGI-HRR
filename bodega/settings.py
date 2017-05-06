@@ -153,9 +153,9 @@ STATICFILES_DIRS = (
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "localhost:6379",
+        "LOCATION": "grideye.redistogo.com:10097",
         "OPTIONS": {
-        'DB': 1,
+        'PASSWORD': 'electro123',
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
