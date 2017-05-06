@@ -25,7 +25,7 @@ SECRET_KEY = '$+(+t#5=etj8+=osa$0v%ouzw%04piwfo!3%b8mli24!s$u6#j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-TEMPLATE DEBUG = False
+
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_csv_exports',
     'Pedidoapp',
     'bodega.settings',
+    'debug_toolbar',
 
 ]
 
@@ -144,12 +145,12 @@ DJANGO_EXPORTS_REQUIRE_PERM = True
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
-STATICFILES_STORAGE ='django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+#STATICFILES_STORAGE ='django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
 
-)
+
+
 """
 CACHES = {
     "default": {

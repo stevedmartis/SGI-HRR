@@ -13,17 +13,17 @@ a
 {
 	color: #337ab7;
 }
-html 
+body
 {
-  min-height: 100%;
-  position: relative;
+	background: #EFEFEF;
+	color: #4C4C4C;
+	font-family: "PT Sans", Arial;
+	font-size: 16px;
+	margin: 0;
 }
-body 
-{
-  margin: 0;
-  margin-bottom: 40px;
-}
-
+/*
+comentario de lo que sea
+*/
 footer
 {
 	background: #434343;
@@ -31,11 +31,6 @@ footer
 	padding: 1em 0;
 	text-align: center;
 	width: 100%;
-	position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-
 }
 footer p
 {
