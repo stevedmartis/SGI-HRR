@@ -165,12 +165,6 @@ def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado").update(fecha_entrega=datetime.date.today())
-    for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
-        if ped.cantidad_update > 0:
-            ped.articulo.stock -= ped.cantidad_update
-        else:
-            ped.articulo.stock -= ped.cantidad
-        ped.save()
     especialidad.estado = 'entregado'
     especialidad.save()
     return HttpResponseRedirect('/solicitar/reporte_pedidos_pdf/%s/' % id_especialidad)
