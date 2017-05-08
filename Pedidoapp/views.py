@@ -19,11 +19,9 @@ from django.shortcuts import get_list_or_404, get_object_or_404
 from django.db import models
 from django.db.models import Count
 from django.core.urlresolvers import reverse
-
 import datetime
-mylist = []
-today = datetime.date.today()
-mylist.append(today)
+from django.utils import timezone
+
 import psycopg2
 import sys
 import json
@@ -125,7 +123,7 @@ def Cant_ingresar(request, id_pedido, id_especialidad):
       form = PedidoEditForm(request.POST, instance=pedido)
       if form.is_valid():
           form.save()
-          pedido2 = Pedido.objects.filter(id=id_pedido).update(estado="pendiente", fecha_pedido=datetime.date.today())
+          pedido2 = Pedido.objects.filter(id=id_pedido).update(estado="pendiente", fecha_pedido=timezone.now())
           Especialidad.objects.filter(id=id_especialidad).update(estado="pendiente")
       return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
     return render(request, 'form.html', {'form':form, 'pedido':pedido, 'especialidad':especialidad, 'pedido':pedido}) 
@@ -164,13 +162,14 @@ class PedidoDetailView(DetailView):
 def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado").update(fecha_entrega=datetime.date.today())
-    for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=datetime.date.today()):
-        if ped.cantidad_update > 0:
-            ped.articulo.stock -= ped.cantidad_update
-        else:
-            ped.articulo.stock -= ped.cantidad
-        ped.save()
+    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=timezone.now())
+    for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
+      ped.estado = "entregado"
+      if ped.estado_update == "modificado":
+         ped.articulo.stock -= ped.cantidad_update
+      else: 
+         ped.articulo.stock -= ped.cantidad
+      ped.save()
     especialidad.estado = 'entregado'
     especialidad.save()
     return HttpResponseRedirect('/solicitar/reporte_pedidos_pdf/%s/' % id_especialidad)
@@ -228,7 +227,7 @@ def Update_stockex(request, id_pedido_ex, cod_experto):
     articulo.total_pedido += pedido.cantidad_ex
     articulo.save()
     pedido.estado_ex = 'entregado'
-    pedido.fecha_entrega_ex = datetime.date.today()
+    pedido.fecha_entrega_ex = timezone.now()
     pedido.save()
     return HttpResponseRedirect('/solicitar/pedidos-extra/')
 
