@@ -164,8 +164,10 @@ class PedidoDetailView(DetailView):
 def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado").update(fecha_entrega=datetime.date.today())
+    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(estado="entregado")
     especialidad.estado = 'entregado'
+    pedido3.fecha_entrega = datetime.date.today()
+    pedido3.save()
     especialidad.save()
     return HttpResponseRedirect('/solicitar/reporte_pedidos_pdf/%s/' % id_especialidad)
 
