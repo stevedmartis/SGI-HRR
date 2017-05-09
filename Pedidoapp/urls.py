@@ -8,7 +8,7 @@ from django.contrib.auth.views import login_required
 
 from Pedidoapp.views import home, Cant_ingresar, ListAll, ListEspeci, Cant_update, PedidoExtra
 from Pedidoapp.views import ExtraView, Cant_upex, Update_stockex, ReportePedidosPDF, ReporteTotalPDF, ReporteTotalFarmacia, ReporteTotalEcono 
-from Pedidoapp.views import Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar, Ped_entregados, ListAllEnt, Esp_total
+from Pedidoapp.views import Reset, Acces_open, Acces_close, VistaAsigna, Asigna, DeletePedido, IngresarExtra, VerTodo, Entregar, Ped_entregados, ListAllEnt, Esp_total, ReportePedidoExtra
 
 admin.autodiscover()
 
@@ -38,16 +38,17 @@ url(r'^reset-estadis/$', login_required(Reset), name="reset"),
 url(r'^acces-open/$', login_required(Acces_open), name="open"),
 url(r'^acces-close/$', login_required(Acces_close), name="close"),
 
-url(r'^reporte_pedidos_pdf/(?P<id_especialidad>\d+)/$', login_required(ReportePedidosPDF.as_view()), name="reporte_pedidos_pdf"),
-url(r'^reporte_insumo_pdf/$', login_required(ReporteTotalPDF.as_view()), name="reporte_insumo_pdf"),
-url(r'^reporte_farmacia_pdf/$', login_required(ReporteTotalFarmacia.as_view()), name="reporte_farma_pdf"),
-url(r'^reporte_economato_pdf/$', login_required(ReporteTotalEcono.as_view()), name="reporte_econo_pdf"),
+url(r'^reporte-pedidos-pdf/(?P<id_especialidad>\d+)/$', login_required(ReportePedidosPDF.as_view()), name="reporte_pedidos_pdf"),
+url(r'^reporte-insumo-pdf/$', login_required(ReporteTotalPDF.as_view()), name="reporte_insumo_pdf"),
+url(r'^reporte-farmacia-pdf/$', login_required(ReporteTotalFarmacia.as_view()), name="reporte_farma_pdf"),
+url(r'^reporte-economato-pdf/$', login_required(ReporteTotalEcono.as_view()), name="reporte_econo_pdf"),
+url(r'^reporte-extras-pdf/$', login_required(ReportePedidoExtra.as_view()), name="reporte_pedido_extra_pdf"),
 
 url(r'^asignar-nuevo/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name='vista_asigna'),
 url(r'^vista-art-extra/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name="vista_extra"),
 url(r'^btn-asigna/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Asigna, name="asignar"),
 url(r'^delete-pedido/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', DeletePedido, name="confirm_delete_pedido"),
-url(r'^ver_todo/(?P<id_especialidad>\d+)/$', login_required(VerTodo), name='ver_todo'),
+url(r'^ver-todo/(?P<id_especialidad>\d+)/$', login_required(VerTodo), name='ver_todo'),
 
 
 

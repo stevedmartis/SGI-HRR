@@ -68,6 +68,9 @@
         {% endif %}
            </tbody>
            </table>
+           {% if user.is_superuser %}
+            <a class="tag_item" href="{% url "usuario:reporte_pedido_extra_pdf" %}"><img src="/static/img/pdf.png" width="100" height="100px"  /></a>
+            {% endif %}
            </form>
     </aside>
     </section>
