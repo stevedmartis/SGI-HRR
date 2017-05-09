@@ -38,17 +38,17 @@ url(r'^reset-estadis/$', login_required(Reset), name="reset"),
 url(r'^acces-open/$', login_required(Acces_open), name="open"),
 url(r'^acces-close/$', login_required(Acces_close), name="close"),
 
-url(r'^reporte-pedidos-pdf/(?P<id_especialidad>\d+)/$', login_required(ReportePedidosPDF.as_view()), name="reporte_pedidos_pdf"),
-url(r'^reporte-insumo-pdf/$', login_required(ReporteTotalPDF.as_view()), name="reporte_insumo_pdf"),
-url(r'^reporte-farmacia-pdf/$', login_required(ReporteTotalFarmacia.as_view()), name="reporte_farma_pdf"),
-url(r'^reporte-economato-pdf/$', login_required(ReporteTotalEcono.as_view()), name="reporte_econo_pdf"),
-url(r'^reporte-extras-pdf/$', login_required(ReportePedidoExtra.as_view()), name="reporte_pedido_extra_pdf"),
+url(r'^reporte_pedidos_pdf/(?P<id_especialidad>\d+)/$', login_required(ReportePedidosPDF.as_view()), name="reporte_pedidos_pdf"),
+url(r'^reporte_insumo_pdf/$', login_required(ReporteTotalPDF.as_view()), name="reporte_insumo_pdf"),
+url(r'^reporte_farmacia_pdf/$', login_required(ReporteTotalFarmacia.as_view()), name="reporte_farma_pdf"),
+url(r'^reporte_economato_pdf/$', login_required(ReporteTotalEcono.as_view()), name="reporte_econo_pdf"),
+url(r'^reporte_extras_pdf/$', login_required(ReportePedidoExtra.as_view()), name="reporte_pedido_extra_pdf"),
 
 url(r'^asignar-nuevo/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name='vista_asigna'),
 url(r'^vista-art-extra/(?P<id_especialidad>\d+)/$', login_required(VistaAsigna), name="vista_extra"),
 url(r'^btn-asigna/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', Asigna, name="asignar"),
 url(r'^delete-pedido/(?P<id_pedido>\d+)/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', DeletePedido, name="confirm_delete_pedido"),
-url(r'^ver-todo/(?P<id_especialidad>\d+)/$', login_required(VerTodo), name='ver_todo'),
+url(r'^ver_todo/(?P<id_especialidad>\d+)/$', login_required(VerTodo), name='ver_todo'),
 
 
 
