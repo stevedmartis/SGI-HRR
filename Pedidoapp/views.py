@@ -631,7 +631,7 @@ class ReportePedidoExtra(View):
         #Dibujamos una cadena en la ubicación X,Y especificada
         pdf.drawString(450, 1600, u"REPORTE PEDIDOS EXTRAS CAE")
         pdf.setFont("Helvetica", 16)
-        pdf.drawString(430, 1570, u"REPORTE SEMANAL")
+        pdf.drawString(470, 1570, u"REPORTE SEMANAL")
         pdf.setFont("Helvetica", 14)
         pdf.drawString(700, 1530, u"FECHA: " + str(datetime.date.today()))
    
