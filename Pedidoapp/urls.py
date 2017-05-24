@@ -32,7 +32,7 @@ url(r'^pedido-extra/(?P<id_especialidad>\d+)/$', PedidoExtra , name='pedido_extr
 url(r'^pedidos-extra/$', ExtraView , name='ped_ex'),
 url(r'^modificar/(?P<id_pedido_ex>\d+)/$', Cant_upex, name="cant_extra"),
 url(r'^ingresa-extra/(?P<id_especialidad>\d+)/(?P<cod_experto>[^/]+)/$', IngresarExtra, name="ingresa_extra"),
-url(r'^entregar/(?P<id_pedido_ex>\d+)/(?P<cod_experto>[^/]+)/$', Update_stockex, name="entregado_ex"),
+url(r'^entregar/(?P<id_pedido_ex>\d+)/(?P<cod_experto>[^/]+)/$', Update_stockex, name="entregado_ex"), 
 
 url(r'^reset-estadis/$', login_required(Reset), name="reset"),
 url(r'^acces-open/$', login_required(Acces_open), name="open"),

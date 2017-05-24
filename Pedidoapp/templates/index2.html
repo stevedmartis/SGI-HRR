@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static "dataTables.checkboxes.css" %}"/>
 </head>
 
+<br>
 <section id="contenido">
 {% if especialidad.estadistica == 0 %}
         <form id="myform" method="POST">
@@ -35,11 +36,10 @@
 {% else %}
         {% if especialidad.acceso == 1 %}
         <form id="myform" method="POST">
-        <h3>Solicite pedido para: <b>{{ especialidad.nombre }}</b></h3>
+        <h4>Solicite pedido para: <b>{{ especialidad.nombre }}</b></h4>
         <table id="example" class="table table-border table-striped table-hover">
             <thead>
                 <tr> 
-                    <td>Especialidad</td> 
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
@@ -48,7 +48,7 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td>Especialidad</td>
+
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
@@ -58,8 +58,7 @@
             <tbody>
                 {% if pedido  %}
                 {% for ped in pedido  %}
-                <tr>
-                    <td>{{ ped.especialidad.nombre }}</td> 
+                <tr> 
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.cantidad }}</td>
@@ -73,7 +72,7 @@
         </table>
         {% else %}
               {% if especialidad.estado == "pendiente" %}
-        <h3>Pedido enviado para <b>{{ especialidad.nombre }}</b></h3>
+        <h4>Pedido enviado para <b>{{ especialidad.nombre }}</b></h4>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
             <thead>
@@ -111,7 +110,7 @@
         </table>
               {% else %}
                       {% if especialidad.estado == "entregado" %}
-        <h3>Pedido recibido para: <b>{{ especialidad.nombre }}</b></h3>
+        <h4>Pedido recibido para: <b>{{ especialidad.nombre }}</b></h4>
         <br>
             <table id="example" class="table table-border table-striped table-hover">
             <thead>
@@ -158,8 +157,14 @@
 {% endif %}
 
         </form>
+
+
 </section>
-             
+
+<br>
+<br>
+<br>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/jquery.dataTables.min.js" %}"></script>

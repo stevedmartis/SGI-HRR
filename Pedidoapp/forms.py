@@ -4,7 +4,7 @@ from .models import Pedido, Especialidad, Articulo, Pedido_Extra
 
 
 class PedidoEditForm(forms.ModelForm):
-    cantidad       = forms.IntegerField(label='Cantidad:', widget=forms.TextInput(attrs={'type':'number'}))
+    cantidad       = forms.IntegerField(widget=forms.TextInput(attrs={'multiple': True}))
 
     class Meta:
         model = Pedido

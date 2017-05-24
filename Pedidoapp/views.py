@@ -21,6 +21,7 @@ from django.db.models import Count
 from django.core.urlresolvers import reverse
 import datetime
 from django.utils import timezone
+from django.views.generic import CreateView
 
 import psycopg2
 import sys
@@ -93,22 +94,26 @@ def ListAllEnt(request, id_especialidad):
         template  = 'admindata2.html'
         return render(request, template, {'pedido':pedido, 'especialidad':especialidad})
 
+
+
 #LISTA ACTIVO
 @cache_page(1000)
 @login_required
 def ListEspeci(request, id_especialidad):
-  especialidad = Especialidad.objects.get(id=id_especialidad)
-  pedido = Pedido.objects.filter(especialidad=especialidad).order_by('-articulo')
-  pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').order_by('-articulo')
-  pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').order_by('-articulo')
-  if request.method == 'GET':
-    form = EstadisticaForm(instance=especialidad)
-  else:
-    form = EstadisticaForm(request.POST, instance=especialidad)
-    if form.is_valid():
-        form.save()
-    return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
-  return render(request, 'index2.html', {'form':form, 'pedido':pedido, 'pedido2':pedido2, 'pedido3':pedido3, 'especialidad':especialidad})
+      especialidad = Especialidad.objects.get(id=id_especialidad)
+      pedido2 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').order_by('-articulo')
+      pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='entregado').order_by('-articulo')
+      pedido = Pedido.objects.filter(especialidad=especialidad)
+      if request.method == 'GET':
+            form = EstadisticaForm(instance=especialidad)
+      else:
+            form = EstadisticaForm(request.POST, instance=especialidad)
+            if form.is_valid():
+                  form.save()
+            return HttpResponseRedirect('/solicitar/lista_active/%s/' % id_especialidad)
+      return render(request, 'index2.html', { 'form':form, 'pedido':pedido, 'pedido2':pedido2, 'pedido3':pedido3, 'especialidad':especialidad})
+ 
+
 
 #BTN INGRESAR ACTIVO
 @login_required
@@ -162,7 +167,7 @@ class PedidoDetailView(DetailView):
 def Entregar(request, id_especialidad):
   if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=timezone.now())
+    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=timezone.loctime(now()).relace(hour=0, minute=0, second=0, microsecond=0))
     for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
       ped.estado = "entregado"
       if ped.estado_update == "modificado":
@@ -637,11 +642,11 @@ class ReportePedidoExtra(View):
    
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
-        encabezados = ('Servicio', 'Codigo Experto', 'Nombre Articulo','Cantidad', 'Stock', 'Fecha pedido', 'Fecha entrega')
+        encabezados = ('Servicio', 'Codigo Experto', 'Nombre Articulo','Cantidad', 'Stock', 'Fecha entrega')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(pedex.especialidad_ex, pedex.articulo_ex.cod_experto, pedex.articulo_ex.nombre, pedex.cantidad_ex, pedex.articulo_ex.stock, pedex.fecha_pedido_ex, pedex.fecha_entrega_ex) for pedex in Pedido_Extra.objects.filter(estado_ex='entregado').order_by('fecha_pedido_ex')]
+        detalles = [(pedex.especialidad_ex, pedex.articulo_ex.cod_experto, pedex.articulo_ex.nombre, pedex.cantidad_ex, pedex.articulo_ex.stock, pedex.fecha_entrega_ex) for pedex in Pedido_Extra.objects.filter(estado_ex='entregado').order_by('fecha_pedido_ex')]
         #Establecemos el tamaño de cada una de las columnas de la tabla
-        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm, 2 * cm,  5 * cm, 5 * cm])
+        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm, 2 * cm,  5 * cm ])
         #Aplicamos estilos a las celdas de la tabla
         detalle_orden.setStyle(TableStyle(
             [

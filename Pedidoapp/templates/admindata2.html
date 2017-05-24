@@ -12,15 +12,18 @@
     <link rel="stylesheet" href="{% static "dataTables.checkboxes.css" %}"/>
 </head>
 
+<br>
+<h4>Especialidad:&nbsp;&nbsp;<b>{{especialidad.nombre}}</b></h4>
+<h4>Estadistica Mensual:&nbsp;&nbsp;<b>{{especialidad.estadistica}}</b></h4>
 <section id="contenido">
 <form id="myform" method="post">
 <table id="example" class="table table-border table-striped table-hover" >
+<br>
 <a href="{% url "usuario:vista_asigna" id_especialidad=especialidad.id %}" method='GET' type="submit" class="btn btn-primary pull-right" value="editar"/>Nuevo</a></td>
-<h4>Estadistica Mensual:&nbsp;&nbsp;<b>{{especialidad.estadistica}}</b></h4>
+<br>
 <br>
             <thead>
                 <tr> 
-                    <td>Especialidad</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>stock</td>
@@ -31,7 +34,6 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td>Especialidad</td>
                     <td>Cod experto</td>
                     <td>Nombre</td>
                     <td>stock</td>
@@ -45,7 +47,6 @@
         {% if pedido  %}
         {% for ped in pedido  %}
                 <tr>
-                    <td>{{ ped.especialidad.nombre }}</td>
                     <td>{{ ped.articulo.cod_experto }}</td>
                     <td>{{ ped.articulo.nombre }}</td>
                     <td>{{ ped.articulo.stock }}</td>
