@@ -197,16 +197,15 @@ class PedidoDetailView(DetailView):
 #BTN ENTREGADO
 @login_required
 def Entregar(request, id_especialidad):
-  if request.method == 'GET':
     especialidad = Especialidad.objects.get(id=id_especialidad)
-    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=timezone.loctime(now()).relace(hour=0, minute=0, second=0, microsecond=0))
+    pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=timezone.now())
     for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
-      ped.estado = "entregado"
       if ped.estado_update == "modificado":
-         ped.articulo.stock -= ped.cantidad_update
+            ped.articulo.stock -= ped.cantidad_update
       else: 
-         ped.articulo.stock -= ped.cantidad
-      ped.save()
+            ped.articulo.stock -= ped.cantidad
+            ped.estado = "entregado"
+            ped.save()
     especialidad.estado = 'entregado'
     especialidad.save()
     return HttpResponseRedirect('/solicitar/reporte_pedidos_pdf/%s/' % id_especialidad)

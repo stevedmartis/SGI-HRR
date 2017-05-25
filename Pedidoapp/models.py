@@ -46,7 +46,7 @@ class Pedido(models.Model):
 
     def __str__(self):
         return '{}'.format(self.especialidad, self.articulo, self.cantidad, self.estado)
-"""
+
 
 def update_total(sender, instance, **kwargs):
     instance.articulo.total_pedido += instance.cantidad
@@ -55,7 +55,7 @@ def update_total(sender, instance, **kwargs):
 
 # register the signal
 signals.post_save.connect(update_total, sender=Pedido, dispatch_uid="path.to.this.module")
-"""
+
 
 class Articulo(models.Model):
     cod_experto = models.CharField(max_length=999, primary_key=True, blank=True)
