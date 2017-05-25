@@ -14,12 +14,11 @@
 
 <br>
 <h4>Especialidad:&nbsp;&nbsp;<b>{{especialidad.nombre}}</b></h4>
+<a href="{% url "usuario:vista_asigna" id_especialidad=especialidad.id %}" method='GET' type="submit" class
+="btn btn-primary pull-right" value="editar"/>Nuevo</a></td>
 <section id="contenido">
 <form id="myform" method="post">
 <table id="example" class="table table-border table-striped table-hover" >
-<br>
-<a href="{% url "usuario:vista_asigna" id_especialidad=especialidad.id %}" method='GET' type="submit" class
-="btn btn-primary pull-right" value="editar"/>Nuevo</a></td>
 <br>
 <br>
             <thead>
