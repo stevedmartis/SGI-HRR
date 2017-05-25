@@ -14,7 +14,7 @@ admin.autodiscover()
 
 urlpatterns = [
 
-url(r'^home/$', login_required(home), name="home"),
+url(r'^home/', login_required(home), name="home"),
 url(r'^pedidos-entregados/$', login_required(Ped_entregados), name="ped_entre"),
 url(r'^especialidades/$', login_required(Esp_total), name="esp_total"),
 

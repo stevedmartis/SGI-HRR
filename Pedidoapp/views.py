@@ -22,6 +22,7 @@ from django.core.urlresolvers import reverse
 import datetime
 from django.utils import timezone
 from django.views.generic import CreateView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 import psycopg2
 import sys
@@ -35,19 +36,29 @@ from django.contrib.auth.views import login
 def home(request):
     user = request.user
     if user.is_superuser:
-      especialidad = Especialidad.objects.filter(estado="pendiente").order_by('nombre')
+      especialidad = Especialidad.objects.filter(estado="pendiente")
       acceso = Especialidad.objects.filter(acceso=0)
       count = Especialidad.objects.filter(estado="pendiente").count()
       count2 = Especialidad.objects.filter(estado="entregado").count()
       count3 = Especialidad.objects.all().count()
-      count4 = Especialidad.objects.filter(estado="completado").count()
-      template = "indexadmin.html"
-      return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3, 'acceso':acceso})
+      count4 = Especialidad.objects.filter(estado="completado").count() 
+
+      page = request.GET.get('page', 1)
+
+      paginator = Paginator(especialidad, 5)
+      try:
+            especialidad = paginator.page(page)
+      except PageNotAnInteger:
+            especialidad = paginator.page(1)
+      except EmptyPage:
+            especialidad = paginator.page(paginator.num_pages)
+
+      return render(request, "indexadmin.html", {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3, 'acceso':acceso})
 
     elif user.is_active: 
       especialidad  = Especialidad.objects.filter(encargado__usuario=user.id)
       template2 = "index3.html"
-      return render_to_response(template2,locals())
+      return render(request, template2, { 'especialidad':especialidad })
 
 
 
@@ -60,7 +71,18 @@ def Ped_entregados(request):
       count2 = Especialidad.objects.filter(estado="entregado").count()
       count3 = Especialidad.objects.all().count()
       template = "indexadmin.html"
+      page = request.GET.get('page', 1)
+
+      paginator = Paginator(especialidad, 5)
+      try:
+            especialidad = paginator.page(page)
+      except PageNotAnInteger:
+            especialidad = paginator.page(1)
+      except EmptyPage:
+            especialidad = paginator.page(paginator.num_pages)
+
       return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3, 'acceso':acceso})
+
 
 def Esp_total(request):
       user = request.user
@@ -71,6 +93,16 @@ def Esp_total(request):
          count2 = Especialidad.objects.filter(estado="entregado").count()
          count3 = Especialidad.objects.all().count()
          template = "indexadmin.html"
+         page = request.GET.get('page', 1)
+
+         paginator = Paginator(especialidad, 5)
+         try:
+                  especialidad = paginator.page(page)
+         except PageNotAnInteger:
+                  especialidad = paginator.page(1)
+         except EmptyPage:
+                  especialidad = paginator.page(paginator.num_pages)
+
          return render(request, template, {'especialidad':especialidad, 'count':count, 'count2':count2, 'count3':count3, 'acceso':acceso})
 
 
