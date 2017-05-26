@@ -12,11 +12,11 @@ class PedidoAdmin(admin.ModelAdmin):
 
 
 class ArticuloAdmin(admin.ModelAdmin):
-    list_display = ('cod_experto', 'nombre', 'descripcion', 'stock', 'extmin','extmax','info_bodega_id','total_pedido',)
+    list_display = ('cod_experto', 'nombre', 'descripcion', 'stock', 'extmin','extmax','info_bodega','total_pedido',)
     list_filter = ('cod_experto','info_bodega_id','total_pedido')
     search_fields = ('nombre','info_bodega_id__nombre',)
     list_display_links = ('cod_experto',)
-    list_editable = ('nombre', 'descripcion','stock','extmin', 'extmax',)
+    list_editable = ('nombre', 'descripcion','stock','extmin', 'extmax','info_bodega',)
 
 
 class EspecialidadAdmin(admin.ModelAdmin):
