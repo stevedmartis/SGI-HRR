@@ -373,7 +373,7 @@ class ReportePedidosPDF(View):
         especialidad = Especialidad.objects.get(id=id_especialidad)
         count = Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado").count()
         #Creamos una tupla de encabezados para neustra tabla
-        encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Cantidad Moficada', 'Cantidad MFD', 'Estado', 'Estado 2')
+        encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Cantidad MFD',  'Estado', 'Estado 2')
         #Creamos una lista de tuplas que van a contener a las personas
         detalles = [(pedido.especialidad.nombre, pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.cantidad_update, pedido.estado, pedido.estado_update) for pedido in Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado")]
         #Establecemos el tamaño de cada una de las columnas de la tabla
