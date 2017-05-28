@@ -200,11 +200,12 @@ def Entregar(request, id_especialidad):
     especialidad = Especialidad.objects.get(id=id_especialidad)
     pedido3 = Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente').update(fecha_entrega=timezone.now())
     for ped in Pedido.objects.filter(especialidad=especialidad).filter(estado='pendiente'):
+      ped.estado = "entregado"
+      ped.save()
       if ped.estado_update == "modificado":
             ped.articulo.stock -= ped.cantidad_update
       else: 
             ped.articulo.stock -= ped.cantidad
-            ped.estado = "entregado"
             ped.save()
     especialidad.estado = 'entregado'
     especialidad.save()
