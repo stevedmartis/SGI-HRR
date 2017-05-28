@@ -363,6 +363,8 @@ class ReportePedidosPDF(View):
         pdf.setFont("Helvetica", 18)
         pdf.drawString(450, 1570, u"PEDIDO POR ESPECIALIDAD")
         pdf.setFont("Helvetica", 16)
+        pdf.drawString(450, 1555, especialidad.nombre)
+        pdf.setFont("Helvetica", 16)
         pdf.drawString(500, 1540, u"ESTADISTICA: " + str(especialidad.estadistica))
         pdf.drawString(830, 1500, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 16)
@@ -374,9 +376,9 @@ class ReportePedidosPDF(View):
         especialidad = Especialidad.objects.get(id=id_especialidad)
         count = Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado").count()
         #Creamos una tupla de encabezados para neustra tabla
-        encabezados = ('Especialidad', 'Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Cantidad MFD',  'Estado', 'Estado 2')
+        encabezados = ('Codigo Experto', 'Nombre Articulo', 'Cantidad', 'Cantidad MFD',  'Estado', 'Estado 2')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(pedido.especialidad.nombre, pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.cantidad_update, pedido.estado, pedido.estado_update) for pedido in Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado")]
+        detalles = [(pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.cantidad_update, pedido.estado, pedido.estado_update) for pedido in Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado")]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm , 3 * cm, 2 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
