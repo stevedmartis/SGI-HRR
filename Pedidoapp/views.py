@@ -361,7 +361,7 @@ class ReportePedidosPDF(View):
         #Dibujamos una cadena en la ubicación X,Y especificada
         pdf.drawString(500, 1600, u"REPORTE CAE")
         pdf.setFont("Helvetica", 18)
-        pdf.drawString(450, 1570, u"PEDIDO POR" + str(especialidad.nombre))
+        pdf.drawString(430, 1570, u"PEDIDO POR: " + str(especialidad.nombre))
         pdf.setFont("Helvetica", 16)
         pdf.drawString(500, 1530, u"ESTADISTICA: " + str(especialidad.estadistica))
         pdf.drawString(830, 1500, u"FECHA: " + str(datetime.date.today()))
@@ -394,25 +394,25 @@ class ReportePedidosPDF(View):
         detalle_orden.wrapOn(pdf, 1000, 1000)
         if count <=10:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 1250)
+              detalle_orden.drawOn(pdf, 250, 1250)
         elif count >10 and count <=30:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 900)
+              detalle_orden.drawOn(pdf, 250, 900)
         elif count >30 and count <=50:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 600)
+              detalle_orden.drawOn(pdf, 250, 600)
         elif count >50 and count <=70:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 400)
+              detalle_orden.drawOn(pdf, 250, 400)
         elif count >70 and count <=90:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 100)
+              detalle_orden.drawOn(pdf, 250, 100)
         elif count >90 and count <=110:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 50)
+              detalle_orden.drawOn(pdf, 250, 50)
         elif count >110 and count <=130:
               #Definimos la coordenada donde se dibujará la tabla
-              detalle_orden.drawOn(pdf, 150, 0)
+              detalle_orden.drawOn(pdf, 250, 0)
 
     def get(self, request, id_especialidad, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
