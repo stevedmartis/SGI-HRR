@@ -361,9 +361,7 @@ class ReportePedidosPDF(View):
         #Dibujamos una cadena en la ubicación X,Y especificada
         pdf.drawString(500, 1600, u"REPORTE CAE")
         pdf.setFont("Helvetica", 18)
-        pdf.drawString(450, 1570, u"PEDIDO POR ESPECIALIDAD")
-        pdf.setFont("Helvetica", 16)
-        pdf.drawString(500, 1550, especialidad.nombre)
+        pdf.drawString(450, 1570, u"PEDIDO POR" + str(especialidad.nombre))
         pdf.setFont("Helvetica", 16)
         pdf.drawString(500, 1530, u"ESTADISTICA: " + str(especialidad.estadistica))
         pdf.drawString(830, 1500, u"FECHA: " + str(datetime.date.today()))
