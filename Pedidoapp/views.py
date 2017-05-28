@@ -363,9 +363,9 @@ class ReportePedidosPDF(View):
         pdf.setFont("Helvetica", 18)
         pdf.drawString(450, 1570, u"PEDIDO POR ESPECIALIDAD")
         pdf.setFont("Helvetica", 16)
-        pdf.drawString(450, 1555, especialidad.nombre)
+        pdf.drawString(450, 150, especialidad.nombre)
         pdf.setFont("Helvetica", 16)
-        pdf.drawString(500, 1540, u"ESTADISTICA: " + str(especialidad.estadistica))
+        pdf.drawString(550, 1530, u"ESTADISTICA: " + str(especialidad.estadistica))
         pdf.drawString(830, 1500, u"FECHA: " + str(datetime.date.today()))
         pdf.setFont("Helvetica", 16)
         pdf.drawString(150, 1500, u"POR: " + str(especialidad.encargado.nombre))
@@ -380,7 +380,7 @@ class ReportePedidosPDF(View):
         #Creamos una lista de tuplas que van a contener a las personas
         detalles = [(pedido.articulo.cod_experto, pedido.articulo.nombre, pedido.cantidad, pedido.cantidad_update, pedido.estado, pedido.estado_update) for pedido in Pedido.objects.filter(especialidad=especialidad).filter(estado="entregado")]
         #Establecemos el tamaño de cada una de las columnas de la tabla
-        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 5 * cm, 10 * cm, 2 * cm , 3 * cm, 2 * cm, 2 * cm, 2 * cm])
+        detalle_orden = Table([encabezados] + detalles, colWidths=[5 * cm, 10 * cm, 2 * cm , 3 * cm, 2 * cm, 2 * cm, 2 * cm])
         #Aplicamos estilos a las celdas de la tabla
         detalle_orden.setStyle(TableStyle(
             [
