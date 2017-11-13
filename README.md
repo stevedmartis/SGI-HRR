@@ -28,8 +28,8 @@ https://www.youtube.com/watch?v=y6InNjHjpd4&t=27s
 ![alt text](https://lh6.googleusercontent.com/Kl1LGVGPjDzIMOnxZh7vtLSNqEWOOR_yRKb7HPahWKvZpyDsbQvUOlY1PAqE5cdYkw3YkCNSqU2aJcR9YQBz=w1440-h733-rw)
 
 **2.2º Dentro del Pedido **
-*Vista Pendiente segunda parte, Boton final para Entregar: descuento del stock en base de datos y estado.*
-*Posibilidad de Descargar PDF.*
+*Vista Pendiente segunda parte, Boton final para Entregar: descuento del stock en base de datos y estado.
+Posibilidad de Descargar PDF.*
 
 ![alt text](https://lh5.googleusercontent.com/rHqWGeCLgMPDItleCQEqRWcRbaMbkzugLFzdf8tCVqcQSfMzuYC107ti_zj1F4AvO6PTrS2QwLfXgY3OOVtz=w1440-h733-rw)
 
