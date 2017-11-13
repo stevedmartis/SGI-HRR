@@ -6,4 +6,4 @@ Video Muestra:
 https://www.youtube.com/watch?v=y6InNjHjpd4&t=27s
 
 
-http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg
+![alt text](http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg)
