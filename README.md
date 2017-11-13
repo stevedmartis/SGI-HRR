@@ -33,4 +33,9 @@ Posibilidad de Descargar PDF.*
 
 ![alt text](https://lh5.googleusercontent.com/rHqWGeCLgMPDItleCQEqRWcRbaMbkzugLFzdf8tCVqcQSfMzuYC107ti_zj1F4AvO6PTrS2QwLfXgY3OOVtz=w1440-h733-rw)
 
+**3º Ver Todo.**
+*Datos de los insumos registrados para la especialidad, funciones de: agregar nuevo y eliminar*
+
+![alt text](https://lh4.googleusercontent.com/3jwV5VVg6SnwYWKkRUkckU_ZC8kYX1XxT7g0ZUXLdmCkScqwOAZNvK58Xn54N20JTqPf1DwJD_uHb4LjsZZl=w1440-h733-rw)
+
 
