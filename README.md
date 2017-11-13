@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=y6InNjHjpd4&t=27s
 
 ![alt text](https://lh5.googleusercontent.com/pl_rZSJZthWwxksWkjOBvpQgp9q1cFdz3XTkcm-yHuB7dOPCsKutSSa5Ev2zIYc2hl4vvVXTn5f_H1JS2REu=w1440-h733-rw)
 
-**2.1º Ingresar Cantidad **
+**2.1º Dentro del Pedido.**
 *para usuario admin, nueva cantidad, misma vista para usuario activo.*
 
 ![alt text](https://lh6.googleusercontent.com/Kl1LGVGPjDzIMOnxZh7vtLSNqEWOOR_yRKb7HPahWKvZpyDsbQvUOlY1PAqE5cdYkw3YkCNSqU2aJcR9YQBz=w1440-h733-rw)
