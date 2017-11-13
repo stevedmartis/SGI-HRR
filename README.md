@@ -5,5 +5,3 @@
 Video Muestra: 
 https://www.youtube.com/watch?v=y6InNjHjpd4&t=27s
 
-
-![alt text](https://drive.google.com/open?id=1iLcPlzE-_K6szlgpi8VgRmuIXCtTlCBQ)
